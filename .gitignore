@@ -1,2 +1,5 @@
 .idea
 config.pyc
+
+app/static/.webassets-cache
+app/db.sqlite3

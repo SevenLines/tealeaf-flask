@@ -3,3 +3,6 @@ Flask-SQLAlchemy
 Flask-WTF
 Flask-login
 Flask-testing
+Flask-Assets
+jsmin
+cssmin

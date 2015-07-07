@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    {% assets filters="jsmin", output="build/scripts/main.js",
+        "3rdparty/jquery/dist/jquery.js",
+        "3rdparty/bootstrap/dist/js/bootstrap.js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {% assets filters="cssmin", output="build/styles/main.css",
+        "3rdparty/bootstrap/dist/css/bootstrap.css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}"/>
+    {% endassets %}
 </head>
 <body>
 <div class="content">
-
+    {% block content %}
+    {% endblock %}
 </div>
 </body>
 </html>
