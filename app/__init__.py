@@ -6,17 +6,18 @@ from flask.ext.assets import Environment
 import flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
-# Define the WSGI application object
-from app.university import university
-
-app = Flask(__name__)
 
 # Configurations
+
+app = Flask(__name__)
 app.config.from_object('config')
 
 # Define the database object which is imported
 # by modules and controllers
-db = SQLAlchemy(app)
+from app.models import db
+
+db.init_app(app)
+
 
 # Sample HTTP error handling
 @app.errorhandler(404)
@@ -31,6 +32,7 @@ assets.init_app(app)
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 # from app.mod_auth.controllers import mod_auth as auth_module
+from app.university import university
 
 # Register blueprint(s)
 app.register_blueprint(university, url_prefix="/university")
@@ -39,4 +41,4 @@ app.register_blueprint(university, url_prefix="/university")
 
 # Build the database:
 # This will create the database file using SQLAlchemy
-db.create_all()
+# db.create_all()

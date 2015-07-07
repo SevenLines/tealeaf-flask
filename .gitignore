@@ -3,3 +3,4 @@
 
 app/static/.webassets-cache
 app/db.sqlite3
+db.sqlite3

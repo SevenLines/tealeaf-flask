@@ -10,7 +10,9 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Define the database - we are working with
 # SQLite for this example
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3')
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL',
+                                         'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
+print SQLALCHEMY_DATABASE_URI
 DATABASE_CONNECT_OPTIONS = {}
 
 # Application threads. A common general assumption is
