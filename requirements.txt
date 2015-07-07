@@ -4,5 +4,8 @@ Flask-WTF
 Flask-login
 Flask-testing
 Flask-Assets
+Flask-admin
+Flask-Migrate
 jsmin
 cssmin
+pyscss

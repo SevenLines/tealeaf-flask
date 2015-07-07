@@ -1,0 +1,296 @@
+@import "common/const";
+@import "common/spec-buttons";
+
+$nav-height: 50px;
+
+body {
+  @include transition(0.3s);
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+
+#content {
+  $border-color: darken($base_color, 40);
+  background: white;
+
+  @media (min-width: $width-medium) {
+    border-left: 2px solid $base_color;
+    border-right: 2px solid $base_color;
+  }
+
+  padding: 1em;
+  @media (min-width: $width-big) {
+    margin-bottom: 200px;
+    border-radius: 0 0 8px 8px;
+    border-bottom: 8px solid $border-color;
+  }
+}
+
+.main-info {
+  .left, .right {
+  }
+  .left {
+
+    background-color: #50b3fa
+  }
+  .right {
+    background-color: white;
+  }
+}
+
+.main-picture {
+
+}
+
+.container {
+  padding: 0 !important;
+}
+
+#loading-screen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: $nav-height + 2px;
+  bottom: 0;
+  //background-color: white;
+  display: none;
+  .icon-container {
+    position: absolute;
+    top: calc(50% - 5em);
+    left: calc(50% - 4.2em);
+    .load-icon {
+      //display: block;
+      color: $base_color;
+      font-size: 10em;
+    }
+    .info {
+      //text-align: center;
+      color: $base_color;
+    }
+  }
+}
+
+.details {
+  background-color: lighten($base_color, 3);
+  margin: -1em;
+  ul {
+    border-bottom: 0 !important;
+    &.groups {
+      li {
+        a {
+          border-top: none !important;
+        }
+      }
+      //border-left: 2px solid $base_color;
+      border-right: none !important;
+    }
+    &.main {
+      visibility: hidden;
+      max-width: $nav-height;
+    }
+  }
+}
+
+.menu, .details {
+  position: relative;
+  $height: $nav-height;
+  $border_top_width: 5px;
+  background-color: $base_color;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &.groups, &.main, &.disciplines {
+      border-bottom: 2px solid $base_color;
+      //z-index: 200;
+
+      overflow: hidden;
+      ////border-top: $border_top_width solid lighten($base_color, 20);
+      ////height: $height;
+      //background-color: $base_color;
+      //
+      //-webkit-transition: all 0.3s;
+      //-moz-transition: all 0.3s;
+      //-ms-transition: all 0.3s;
+      //-o-transition: all 0.3s;
+      //transition: all 0.3s;
+
+      li {
+        max-width: 20%;
+        float: left;
+        a {
+          white-space: nowrap;
+          cursor: pointer;
+          position: relative;
+          display: block;
+
+          text-align: center;
+          //height: $height;
+
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -ms-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s;
+
+          .title {
+            //text-decoration: underline;
+            //position: absolute;
+            //left: 0;
+            //right: 0;
+            padding: 0.5em;
+            font-size: 1.2em;
+            //font-weight: bold;
+            bottom: 1em;
+            color: white;
+          }
+
+          &:hover {
+            //.info {
+            //  opacity: 1;
+            //}
+          }
+
+        }
+        &.active {
+          a {
+            cursor: auto;
+            border-top: $border_top_width solid lighten($base_color, 40);
+            .info {
+              //opacity: 1;
+            }
+          }
+        }
+      }
+
+      // это основные цвета для заголовка
+      $colors: lighten($base_color, 3),
+      #ff3f87,
+      #ff831e,
+      #ffb734,
+      #ffe83b,
+      #d8ff3d,
+      #77ff3d,
+      #3dff84,
+      #3dffc2,
+      #3ddbff;
+
+      @for $i from 1 to length($colors) + 1 {
+        $color: nth($colors, $i);
+        li:nth-child(#{$i}) {
+          &:hover {
+          }
+          a {
+            background-color: $color;
+            border-top: $border_top_width solid lighten($color, 20);
+            box-shadow: 0 0 6px darken($color, 20);
+            &:hover {
+              border-top: $border_top_width solid lighten($color, 30);
+              //padding-right: 1em;
+            }
+            .title {
+              @if ($i > 5) {
+                color: black;
+              }
+            }
+          }
+          &.active {
+            a {
+              pointer-events: none;
+              border-top: $border_top_width solid white;
+              //background: white;
+              .title {
+                //color: $color;
+                text-decoration: none;
+              }
+              //box-shadow: 0 0 8px darken($color, 20);
+              .info {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      &.full {
+        $hover-height: 4 * $height;
+        //height: $hover-height;
+        li {
+          a {
+            //margin-top: 0.5em;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            min-height: $hover-height;
+            .info {
+              opacity: 1;
+              display: block;
+              background: transparent;
+              //margin-top: $hover-height * 0.08;
+              $size: 0.72 * $hover-height - $hover-height * 0.09;
+              height: $size*1.25;
+              width: $size*1.25;
+              line-height: $size;
+              border-radius: 1px;
+              margin: 0 auto;
+              margin-bottom: 1em;
+
+              -webkit-transition: all 0.3s;
+              -moz-transition: all 0.3s;
+              -ms-transition: all 0.3s;
+              -o-transition: all 0.3s;
+              transition: all 0.3s;
+              //border-radius: $size;
+            }
+          }
+        }
+      }
+    }
+
+    &.main {
+      @media (min-width: $width-medium) {
+        border-left: 2px solid $base_color;
+      }
+      float: left;
+      overflow: hidden;
+      li {
+        a {
+          box-shadow: 0 0 2px white;
+          width: $nav-height;
+        }
+      }
+    }
+    &.groups {
+      @media (min-width: $width-medium) {
+        border-right: 2px solid $base_color;
+      }
+    }
+
+    &.disciplines {
+      max-height: 0;
+      position: absolute;
+      z-index: 100;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+      &.show {
+        max-height: 500px;
+      }
+
+      li {
+        a {
+          border-top: 0 !important;
+        }
+        max-width: none;
+      }
+    }
+  }
+}
+
+.groups {
+
+}
+
+.admin-line {
+  margin-bottom: 0.5em;
+}

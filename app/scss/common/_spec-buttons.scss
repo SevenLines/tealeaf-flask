@@ -1,0 +1,87 @@
+@import "const";
+
+#enter-button-area {
+  @include transition(0.3s);
+
+  position: fixed;
+  right: -2em;
+  top: 0;
+  padding: 40px;
+  padding-right: 0;
+
+  &:hover {
+    right: 0;
+    #enter-button {
+      background-color: $base_color;
+      color: white;
+    }
+  }
+}
+
+#enter-button {
+  @media (max-width: 800px) {
+    display: none;
+  }
+  @include transition(0.3s);
+  padding: 1em;
+  cursor: pointer;
+  border-radius: 8px 0 0 8px;
+  color: white;
+}
+
+/* back-to-top */
+#back-to-top {
+  z-index: 1;
+  position: fixed;
+  color: darken($base_color, 40%);
+  left: -40px;
+  bottom: 10px;
+  width: 40px;
+  //  bottom: -30px;
+  height: 40px;
+  text-align: center;
+  padding: 10px 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  &.show {
+    left: 0;
+  }
+  &:hover {
+    background-color: $base_color;
+    color: white;
+  }
+}
+
+#page-properties {
+  z-index: 11000;
+  position: fixed;
+  top: 0;
+  //  left: 99%;
+  left: -170px;
+  padding-right: 50px;
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  img {
+    max-width: 64px;
+    max-height: 64px;
+  }
+  @include transition(0.3s);
+  .form {
+    width: 160px;
+    border-radius: 1em;
+    border: 2px solid #c0c0c0;
+    background: white;
+    padding: 1em;
+  }
+
+  &:hover {
+    left: 0;
+  }
+
+}

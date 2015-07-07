@@ -9,14 +9,59 @@
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
     {% assets filters="cssmin", output="build/styles/main.css",
-        "3rdparty/bootstrap/dist/css/bootstrap.css" %}
+        "3rdparty/bootstrap/dist/css/bootstrap.css",
+        "3rdparty/font-awesome/css/font-awesome.css",
+        "styles/base.css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}"/>
     {% endassets %}
 </head>
 <body>
-<div class="content">
+<div class="container">
+  <div class="menu">
+    <ul class="main">
+      <li class="nav-main-button">
+        <a href="/" class="load-to-content">
+          <div class="title">
+            <i class="fa fa-pagelines"></i>
+          </div>
+        </a>
+      </li>
+    </ul>
+{#    <ul class="groups">#}
+{#      <% @groups.each_with_index do |g, index| %>#}
+{#          <li data-title="<%= g.title %>" class="<%= g.style(@group) %>" style="width:<%= 100 / @groups.count %>%">#}
+{#            <a class="load-to-content" href="<%= url_for g %>">#}
+{#              <div class="title">#}
+{#                <%= g.title %>#}
+{#              </div>#}
+{#            </a>#}
+{#          </li>#}
+{#      <% end %>#}
+{#    </ul>#}
+
+  </div>
+</div>
+<div class="container">
+  <div id="loading-screen">
+    <div class="icon-container">
+      <i class="load-icon fa fa-cog fa-spin fa-5x"></i>
+
+      <div class="info"></div>
+    </div>
+  </div>
+  <div id="content">
     {% block content %}
     {% endblock %}
+  </div>
+
+{#  <%= render "layouts/scripts" %>#}
 </div>
+
+{#<%= render 'layouts/login_modal' %>#}
+{#<% if Rails.env.production? %>#}
+{#    <%= render 'layouts/yandex_metric' %>#}
+{#<% else %>#}
+{#    <!-- metric not available in development mode -->#}
+{#<% end %>#}
 </body>
 </html>

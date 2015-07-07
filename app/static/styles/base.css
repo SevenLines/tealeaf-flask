@@ -1,0 +1,361 @@
+#enter-button-area {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  position: fixed;
+  right: -2em;
+  top: 0;
+  padding: 40px;
+  padding-right: 0; }
+  #enter-button-area:hover {
+    right: 0; }
+    #enter-button-area:hover #enter-button {
+      background-color: #f02b62;
+      color: white; }
+
+#enter-button {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  padding: 1em;
+  cursor: pointer;
+  border-radius: 8px 0 0 8px;
+  color: white; }
+  @media (max-width: 800px) {
+    #enter-button {
+      display: none; } }
+
+/* back-to-top */
+#back-to-top {
+  z-index: 1;
+  position: fixed;
+  color: #4a0518;
+  left: -40px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 10px 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s; }
+  #back-to-top.show {
+    left: 0; }
+  #back-to-top:hover {
+    background-color: #f02b62;
+    color: white; }
+
+#page-properties {
+  z-index: 11000;
+  position: fixed;
+  top: 0;
+  left: -170px;
+  padding-right: 50px;
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s; }
+  #page-properties img {
+    max-width: 64px;
+    max-height: 64px; }
+  #page-properties .form {
+    width: 160px;
+    border-radius: 1em;
+    border: 2px solid #c0c0c0;
+    background: white;
+    padding: 1em; }
+  #page-properties:hover {
+    left: 0; }
+
+body {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: Georgia, "Times New Roman", Times, serif !important; }
+
+#content {
+  background: white;
+  padding: 1em; }
+  @media (min-width: 768px) {
+    #content {
+      border-left: 2px solid #f02b62;
+      border-right: 2px solid #f02b62; } }
+  @media (min-width: 990px) {
+    #content {
+      margin-bottom: 200px;
+      border-radius: 0 0 8px 8px;
+      border-bottom: 8px solid #4a0518; } }
+
+.main-info .left {
+  background-color: #50b3fa; }
+.main-info .right {
+  background-color: white; }
+
+.container {
+  padding: 0 !important; }
+
+#loading-screen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 52px;
+  bottom: 0;
+  display: none; }
+  #loading-screen .icon-container {
+    position: absolute;
+    top: calc(50% - 5em);
+    left: calc(50% - 4.2em); }
+    #loading-screen .icon-container .load-icon {
+      color: #f02b62;
+      font-size: 10em; }
+    #loading-screen .icon-container .info {
+      color: #f02b62; }
+
+.details {
+  background-color: #f1396d;
+  margin: -1em; }
+  .details ul {
+    border-bottom: 0 !important; }
+    .details ul.groups {
+      border-right: none !important; }
+      .details ul.groups li a {
+        border-top: none !important; }
+    .details ul.main {
+      visibility: hidden;
+      max-width: 50px; }
+
+.menu, .details {
+  position: relative;
+  background-color: #f02b62; }
+  .menu ul, .details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .menu ul.groups, .menu ul.main, .menu ul.disciplines, .details ul.groups, .details ul.main, .details ul.disciplines {
+      border-bottom: 2px solid #f02b62;
+      overflow: hidden; }
+      .menu ul.groups li, .menu ul.main li, .menu ul.disciplines li, .details ul.groups li, .details ul.main li, .details ul.disciplines li {
+        max-width: 20%;
+        float: left; }
+        .menu ul.groups li a, .menu ul.main li a, .menu ul.disciplines li a, .details ul.groups li a, .details ul.main li a, .details ul.disciplines li a {
+          white-space: nowrap;
+          cursor: pointer;
+          position: relative;
+          display: block;
+          text-align: center;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -ms-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s; }
+          .menu ul.groups li a .title, .menu ul.main li a .title, .menu ul.disciplines li a .title, .details ul.groups li a .title, .details ul.main li a .title, .details ul.disciplines li a .title {
+            padding: 0.5em;
+            font-size: 1.2em;
+            bottom: 1em;
+            color: white; }
+        .menu ul.groups li.active a, .menu ul.main li.active a, .menu ul.disciplines li.active a, .details ul.groups li.active a, .details ul.main li.active a, .details ul.disciplines li.active a {
+          cursor: auto;
+          border-top: 5px solid #fdeaef; }
+      .menu ul.groups li:nth-child(1) a, .menu ul.main li:nth-child(1) a, .menu ul.disciplines li:nth-child(1) a, .details ul.groups li:nth-child(1) a, .details ul.main li:nth-child(1) a, .details ul.disciplines li:nth-child(1) a {
+        background-color: #f1396d;
+        border-top: 5px solid #f899b3;
+        box-shadow: 0 0 6px #b70d3d; }
+        .menu ul.groups li:nth-child(1) a:hover, .menu ul.main li:nth-child(1) a:hover, .menu ul.disciplines li:nth-child(1) a:hover, .details ul.groups li:nth-child(1) a:hover, .details ul.main li:nth-child(1) a:hover, .details ul.disciplines li:nth-child(1) a:hover {
+          border-top: 5px solid #fbc8d6; }
+      .menu ul.groups li:nth-child(1).active a, .menu ul.main li:nth-child(1).active a, .menu ul.disciplines li:nth-child(1).active a, .details ul.groups li:nth-child(1).active a, .details ul.main li:nth-child(1).active a, .details ul.disciplines li:nth-child(1).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(1).active a .title, .menu ul.main li:nth-child(1).active a .title, .menu ul.disciplines li:nth-child(1).active a .title, .details ul.groups li:nth-child(1).active a .title, .details ul.main li:nth-child(1).active a .title, .details ul.disciplines li:nth-child(1).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(1).active a .info, .menu ul.main li:nth-child(1).active a .info, .menu ul.disciplines li:nth-child(1).active a .info, .details ul.groups li:nth-child(1).active a .info, .details ul.main li:nth-child(1).active a .info, .details ul.disciplines li:nth-child(1).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(2) a, .menu ul.main li:nth-child(2) a, .menu ul.disciplines li:nth-child(2) a, .details ul.groups li:nth-child(2) a, .details ul.main li:nth-child(2) a, .details ul.disciplines li:nth-child(2) a {
+        background-color: #ff3f87;
+        border-top: 5px solid #ffa5c7;
+        box-shadow: 0 0 6px #d80051; }
+        .menu ul.groups li:nth-child(2) a:hover, .menu ul.main li:nth-child(2) a:hover, .menu ul.disciplines li:nth-child(2) a:hover, .details ul.groups li:nth-child(2) a:hover, .details ul.main li:nth-child(2) a:hover, .details ul.disciplines li:nth-child(2) a:hover {
+          border-top: 5px solid #ffd8e7; }
+      .menu ul.groups li:nth-child(2).active a, .menu ul.main li:nth-child(2).active a, .menu ul.disciplines li:nth-child(2).active a, .details ul.groups li:nth-child(2).active a, .details ul.main li:nth-child(2).active a, .details ul.disciplines li:nth-child(2).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(2).active a .title, .menu ul.main li:nth-child(2).active a .title, .menu ul.disciplines li:nth-child(2).active a .title, .details ul.groups li:nth-child(2).active a .title, .details ul.main li:nth-child(2).active a .title, .details ul.disciplines li:nth-child(2).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(2).active a .info, .menu ul.main li:nth-child(2).active a .info, .menu ul.disciplines li:nth-child(2).active a .info, .details ul.groups li:nth-child(2).active a .info, .details ul.main li:nth-child(2).active a .info, .details ul.disciplines li:nth-child(2).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(3) a, .menu ul.main li:nth-child(3) a, .menu ul.disciplines li:nth-child(3) a, .details ul.groups li:nth-child(3) a, .details ul.main li:nth-child(3) a, .details ul.disciplines li:nth-child(3) a {
+        background-color: #ff831e;
+        border-top: 5px solid #ffbb84;
+        box-shadow: 0 0 6px #b75200; }
+        .menu ul.groups li:nth-child(3) a:hover, .menu ul.main li:nth-child(3) a:hover, .menu ul.disciplines li:nth-child(3) a:hover, .details ul.groups li:nth-child(3) a:hover, .details ul.main li:nth-child(3) a:hover, .details ul.disciplines li:nth-child(3) a:hover {
+          border-top: 5px solid #ffd7b7; }
+      .menu ul.groups li:nth-child(3).active a, .menu ul.main li:nth-child(3).active a, .menu ul.disciplines li:nth-child(3).active a, .details ul.groups li:nth-child(3).active a, .details ul.main li:nth-child(3).active a, .details ul.disciplines li:nth-child(3).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(3).active a .title, .menu ul.main li:nth-child(3).active a .title, .menu ul.disciplines li:nth-child(3).active a .title, .details ul.groups li:nth-child(3).active a .title, .details ul.main li:nth-child(3).active a .title, .details ul.disciplines li:nth-child(3).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(3).active a .info, .menu ul.main li:nth-child(3).active a .info, .menu ul.disciplines li:nth-child(3).active a .info, .details ul.groups li:nth-child(3).active a .info, .details ul.main li:nth-child(3).active a .info, .details ul.disciplines li:nth-child(3).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(4) a, .menu ul.main li:nth-child(4) a, .menu ul.disciplines li:nth-child(4) a, .details ul.groups li:nth-child(4) a, .details ul.main li:nth-child(4) a, .details ul.disciplines li:nth-child(4) a {
+        background-color: #ffb734;
+        border-top: 5px solid #ffdb9a;
+        box-shadow: 0 0 6px #cd8400; }
+        .menu ul.groups li:nth-child(4) a:hover, .menu ul.main li:nth-child(4) a:hover, .menu ul.disciplines li:nth-child(4) a:hover, .details ul.groups li:nth-child(4) a:hover, .details ul.main li:nth-child(4) a:hover, .details ul.disciplines li:nth-child(4) a:hover {
+          border-top: 5px solid #ffedcd; }
+      .menu ul.groups li:nth-child(4).active a, .menu ul.main li:nth-child(4).active a, .menu ul.disciplines li:nth-child(4).active a, .details ul.groups li:nth-child(4).active a, .details ul.main li:nth-child(4).active a, .details ul.disciplines li:nth-child(4).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(4).active a .title, .menu ul.main li:nth-child(4).active a .title, .menu ul.disciplines li:nth-child(4).active a .title, .details ul.groups li:nth-child(4).active a .title, .details ul.main li:nth-child(4).active a .title, .details ul.disciplines li:nth-child(4).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(4).active a .info, .menu ul.main li:nth-child(4).active a .info, .menu ul.disciplines li:nth-child(4).active a .info, .details ul.groups li:nth-child(4).active a .info, .details ul.main li:nth-child(4).active a .info, .details ul.disciplines li:nth-child(4).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(5) a, .menu ul.main li:nth-child(5) a, .menu ul.disciplines li:nth-child(5) a, .details ul.groups li:nth-child(5) a, .details ul.main li:nth-child(5) a, .details ul.disciplines li:nth-child(5) a {
+        background-color: #ffe83b;
+        border-top: 5px solid #fff4a1;
+        box-shadow: 0 0 6px #d4bb00; }
+        .menu ul.groups li:nth-child(5) a:hover, .menu ul.main li:nth-child(5) a:hover, .menu ul.disciplines li:nth-child(5) a:hover, .details ul.groups li:nth-child(5) a:hover, .details ul.main li:nth-child(5) a:hover, .details ul.disciplines li:nth-child(5) a:hover {
+          border-top: 5px solid #fffad4; }
+      .menu ul.groups li:nth-child(5).active a, .menu ul.main li:nth-child(5).active a, .menu ul.disciplines li:nth-child(5).active a, .details ul.groups li:nth-child(5).active a, .details ul.main li:nth-child(5).active a, .details ul.disciplines li:nth-child(5).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(5).active a .title, .menu ul.main li:nth-child(5).active a .title, .menu ul.disciplines li:nth-child(5).active a .title, .details ul.groups li:nth-child(5).active a .title, .details ul.main li:nth-child(5).active a .title, .details ul.disciplines li:nth-child(5).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(5).active a .info, .menu ul.main li:nth-child(5).active a .info, .menu ul.disciplines li:nth-child(5).active a .info, .details ul.groups li:nth-child(5).active a .info, .details ul.main li:nth-child(5).active a .info, .details ul.disciplines li:nth-child(5).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(6) a, .menu ul.main li:nth-child(6) a, .menu ul.disciplines li:nth-child(6) a, .details ul.groups li:nth-child(6) a, .details ul.main li:nth-child(6) a, .details ul.disciplines li:nth-child(6) a {
+        background-color: #d8ff3d;
+        border-top: 5px solid #edffa3;
+        box-shadow: 0 0 6px #abd600; }
+        .menu ul.groups li:nth-child(6) a:hover, .menu ul.main li:nth-child(6) a:hover, .menu ul.disciplines li:nth-child(6) a:hover, .details ul.groups li:nth-child(6) a:hover, .details ul.main li:nth-child(6) a:hover, .details ul.disciplines li:nth-child(6) a:hover {
+          border-top: 5px solid #f7ffd6; }
+        .menu ul.groups li:nth-child(6) a .title, .menu ul.main li:nth-child(6) a .title, .menu ul.disciplines li:nth-child(6) a .title, .details ul.groups li:nth-child(6) a .title, .details ul.main li:nth-child(6) a .title, .details ul.disciplines li:nth-child(6) a .title {
+          color: black; }
+      .menu ul.groups li:nth-child(6).active a, .menu ul.main li:nth-child(6).active a, .menu ul.disciplines li:nth-child(6).active a, .details ul.groups li:nth-child(6).active a, .details ul.main li:nth-child(6).active a, .details ul.disciplines li:nth-child(6).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(6).active a .title, .menu ul.main li:nth-child(6).active a .title, .menu ul.disciplines li:nth-child(6).active a .title, .details ul.groups li:nth-child(6).active a .title, .details ul.main li:nth-child(6).active a .title, .details ul.disciplines li:nth-child(6).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(6).active a .info, .menu ul.main li:nth-child(6).active a .info, .menu ul.disciplines li:nth-child(6).active a .info, .details ul.groups li:nth-child(6).active a .info, .details ul.main li:nth-child(6).active a .info, .details ul.disciplines li:nth-child(6).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(7) a, .menu ul.main li:nth-child(7) a, .menu ul.disciplines li:nth-child(7) a, .details ul.groups li:nth-child(7) a, .details ul.main li:nth-child(7) a, .details ul.disciplines li:nth-child(7) a {
+        background-color: #77ff3d;
+        border-top: 5px solid #bfffa3;
+        box-shadow: 0 0 6px #40d600; }
+        .menu ul.groups li:nth-child(7) a:hover, .menu ul.main li:nth-child(7) a:hover, .menu ul.disciplines li:nth-child(7) a:hover, .details ul.groups li:nth-child(7) a:hover, .details ul.main li:nth-child(7) a:hover, .details ul.disciplines li:nth-child(7) a:hover {
+          border-top: 5px solid #e2ffd6; }
+        .menu ul.groups li:nth-child(7) a .title, .menu ul.main li:nth-child(7) a .title, .menu ul.disciplines li:nth-child(7) a .title, .details ul.groups li:nth-child(7) a .title, .details ul.main li:nth-child(7) a .title, .details ul.disciplines li:nth-child(7) a .title {
+          color: black; }
+      .menu ul.groups li:nth-child(7).active a, .menu ul.main li:nth-child(7).active a, .menu ul.disciplines li:nth-child(7).active a, .details ul.groups li:nth-child(7).active a, .details ul.main li:nth-child(7).active a, .details ul.disciplines li:nth-child(7).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(7).active a .title, .menu ul.main li:nth-child(7).active a .title, .menu ul.disciplines li:nth-child(7).active a .title, .details ul.groups li:nth-child(7).active a .title, .details ul.main li:nth-child(7).active a .title, .details ul.disciplines li:nth-child(7).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(7).active a .info, .menu ul.main li:nth-child(7).active a .info, .menu ul.disciplines li:nth-child(7).active a .info, .details ul.groups li:nth-child(7).active a .info, .details ul.main li:nth-child(7).active a .info, .details ul.disciplines li:nth-child(7).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(8) a, .menu ul.main li:nth-child(8) a, .menu ul.disciplines li:nth-child(8) a, .details ul.groups li:nth-child(8) a, .details ul.main li:nth-child(8) a, .details ul.disciplines li:nth-child(8) a {
+        background-color: #3dff84;
+        border-top: 5px solid #a3ffc5;
+        box-shadow: 0 0 6px #00d64e; }
+        .menu ul.groups li:nth-child(8) a:hover, .menu ul.main li:nth-child(8) a:hover, .menu ul.disciplines li:nth-child(8) a:hover, .details ul.groups li:nth-child(8) a:hover, .details ul.main li:nth-child(8) a:hover, .details ul.disciplines li:nth-child(8) a:hover {
+          border-top: 5px solid #d6ffe5; }
+        .menu ul.groups li:nth-child(8) a .title, .menu ul.main li:nth-child(8) a .title, .menu ul.disciplines li:nth-child(8) a .title, .details ul.groups li:nth-child(8) a .title, .details ul.main li:nth-child(8) a .title, .details ul.disciplines li:nth-child(8) a .title {
+          color: black; }
+      .menu ul.groups li:nth-child(8).active a, .menu ul.main li:nth-child(8).active a, .menu ul.disciplines li:nth-child(8).active a, .details ul.groups li:nth-child(8).active a, .details ul.main li:nth-child(8).active a, .details ul.disciplines li:nth-child(8).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(8).active a .title, .menu ul.main li:nth-child(8).active a .title, .menu ul.disciplines li:nth-child(8).active a .title, .details ul.groups li:nth-child(8).active a .title, .details ul.main li:nth-child(8).active a .title, .details ul.disciplines li:nth-child(8).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(8).active a .info, .menu ul.main li:nth-child(8).active a .info, .menu ul.disciplines li:nth-child(8).active a .info, .details ul.groups li:nth-child(8).active a .info, .details ul.main li:nth-child(8).active a .info, .details ul.disciplines li:nth-child(8).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(9) a, .menu ul.main li:nth-child(9) a, .menu ul.disciplines li:nth-child(9) a, .details ul.groups li:nth-child(9) a, .details ul.main li:nth-child(9) a, .details ul.disciplines li:nth-child(9) a {
+        background-color: #3dffc2;
+        border-top: 5px solid #a3ffe2;
+        box-shadow: 0 0 6px #00d693; }
+        .menu ul.groups li:nth-child(9) a:hover, .menu ul.main li:nth-child(9) a:hover, .menu ul.disciplines li:nth-child(9) a:hover, .details ul.groups li:nth-child(9) a:hover, .details ul.main li:nth-child(9) a:hover, .details ul.disciplines li:nth-child(9) a:hover {
+          border-top: 5px solid #d6fff2; }
+        .menu ul.groups li:nth-child(9) a .title, .menu ul.main li:nth-child(9) a .title, .menu ul.disciplines li:nth-child(9) a .title, .details ul.groups li:nth-child(9) a .title, .details ul.main li:nth-child(9) a .title, .details ul.disciplines li:nth-child(9) a .title {
+          color: black; }
+      .menu ul.groups li:nth-child(9).active a, .menu ul.main li:nth-child(9).active a, .menu ul.disciplines li:nth-child(9).active a, .details ul.groups li:nth-child(9).active a, .details ul.main li:nth-child(9).active a, .details ul.disciplines li:nth-child(9).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(9).active a .title, .menu ul.main li:nth-child(9).active a .title, .menu ul.disciplines li:nth-child(9).active a .title, .details ul.groups li:nth-child(9).active a .title, .details ul.main li:nth-child(9).active a .title, .details ul.disciplines li:nth-child(9).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(9).active a .info, .menu ul.main li:nth-child(9).active a .info, .menu ul.disciplines li:nth-child(9).active a .info, .details ul.groups li:nth-child(9).active a .info, .details ul.main li:nth-child(9).active a .info, .details ul.disciplines li:nth-child(9).active a .info {
+          opacity: 1; }
+      .menu ul.groups li:nth-child(10) a, .menu ul.main li:nth-child(10) a, .menu ul.disciplines li:nth-child(10) a, .details ul.groups li:nth-child(10) a, .details ul.main li:nth-child(10) a, .details ul.disciplines li:nth-child(10) a {
+        background-color: #3ddbff;
+        border-top: 5px solid #a3eeff;
+        box-shadow: 0 0 6px #00aed6; }
+        .menu ul.groups li:nth-child(10) a:hover, .menu ul.main li:nth-child(10) a:hover, .menu ul.disciplines li:nth-child(10) a:hover, .details ul.groups li:nth-child(10) a:hover, .details ul.main li:nth-child(10) a:hover, .details ul.disciplines li:nth-child(10) a:hover {
+          border-top: 5px solid #d6f7ff; }
+        .menu ul.groups li:nth-child(10) a .title, .menu ul.main li:nth-child(10) a .title, .menu ul.disciplines li:nth-child(10) a .title, .details ul.groups li:nth-child(10) a .title, .details ul.main li:nth-child(10) a .title, .details ul.disciplines li:nth-child(10) a .title {
+          color: black; }
+      .menu ul.groups li:nth-child(10).active a, .menu ul.main li:nth-child(10).active a, .menu ul.disciplines li:nth-child(10).active a, .details ul.groups li:nth-child(10).active a, .details ul.main li:nth-child(10).active a, .details ul.disciplines li:nth-child(10).active a {
+        pointer-events: none;
+        border-top: 5px solid white; }
+        .menu ul.groups li:nth-child(10).active a .title, .menu ul.main li:nth-child(10).active a .title, .menu ul.disciplines li:nth-child(10).active a .title, .details ul.groups li:nth-child(10).active a .title, .details ul.main li:nth-child(10).active a .title, .details ul.disciplines li:nth-child(10).active a .title {
+          text-decoration: none; }
+        .menu ul.groups li:nth-child(10).active a .info, .menu ul.main li:nth-child(10).active a .info, .menu ul.disciplines li:nth-child(10).active a .info, .details ul.groups li:nth-child(10).active a .info, .details ul.main li:nth-child(10).active a .info, .details ul.disciplines li:nth-child(10).active a .info {
+          opacity: 1; }
+      .menu ul.groups.full li a, .menu ul.main.full li a, .menu ul.disciplines.full li a, .details ul.groups.full li a, .details ul.main.full li a, .details ul.disciplines.full li a {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        min-height: 200px; }
+        .menu ul.groups.full li a .info, .menu ul.main.full li a .info, .menu ul.disciplines.full li a .info, .details ul.groups.full li a .info, .details ul.main.full li a .info, .details ul.disciplines.full li a .info {
+          opacity: 1;
+          display: block;
+          background: transparent;
+          height: 157.5px;
+          width: 157.5px;
+          line-height: 126px;
+          border-radius: 1px;
+          margin: 0 auto;
+          margin-bottom: 1em;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -ms-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s; }
+    .menu ul.main, .details ul.main {
+      float: left;
+      overflow: hidden; }
+      @media (min-width: 768px) {
+        .menu ul.main, .details ul.main {
+          border-left: 2px solid #f02b62; } }
+      .menu ul.main li a, .details ul.main li a {
+        box-shadow: 0 0 2px white;
+        width: 50px; }
+    @media (min-width: 768px) {
+      .menu ul.groups, .details ul.groups {
+        border-right: 2px solid #f02b62; } }
+    .menu ul.disciplines, .details ul.disciplines {
+      max-height: 0;
+      position: absolute;
+      z-index: 100;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; }
+      .menu ul.disciplines.show, .details ul.disciplines.show {
+        max-height: 500px; }
+      .menu ul.disciplines li, .details ul.disciplines li {
+        max-width: none; }
+        .menu ul.disciplines li a, .details ul.disciplines li a {
+          border-top: 0 !important; }
+
+.admin-line {
+  margin-bottom: 0.5em; }
