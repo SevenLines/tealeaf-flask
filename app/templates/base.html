@@ -27,17 +27,18 @@
         </a>
       </li>
     </ul>
-{#    <ul class="groups">#}
-{#      <% @groups.each_with_index do |g, index| %>#}
-{#          <li data-title="<%= g.title %>" class="<%= g.style(@group) %>" style="width:<%= 100 / @groups.count %>%">#}
-{#            <a class="load-to-content" href="<%= url_for g %>">#}
-{#              <div class="title">#}
-{#                <%= g.title %>#}
-{#              </div>#}
-{#            </a>#}
-{#          </li>#}
-{#      <% end %>#}
-{#    </ul>#}
+
+    <ul class="groups">
+      {% for group in groups %}
+          <li data-title="{{ group.title }}" class="nav-group{{ group.id }}" style="width:{{ menu_item_width }}%">
+            <a class="load-to-content" href="{{ group.id }}">
+              <div class="title">
+                {{ group.title }}
+              </div>
+            </a>
+          </li>
+      {% endfor %}
+    </ul>
 
   </div>
 </div>

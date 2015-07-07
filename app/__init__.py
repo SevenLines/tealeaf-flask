@@ -6,15 +6,12 @@ from flask.ext.assets import Environment
 import flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
-
-# Configurations
-
-app = Flask(__name__)
-app.config.from_object('config')
+from load_app import app
 
 # Define the database object which is imported
 # by modules and controllers
 from app.models import db
+from app.contexts import *
 
 db.init_app(app)
 
