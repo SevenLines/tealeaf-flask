@@ -6,6 +6,9 @@ Flask-testing
 Flask-Assets
 Flask-admin
 Flask-Migrate
+
+fabric
+
 jsmin
 cssmin
 pyscss

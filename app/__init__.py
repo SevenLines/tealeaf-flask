@@ -7,6 +7,8 @@ import flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 # Define the WSGI application object
+from app.university import university
+
 app = Flask(__name__)
 
 # Configurations
@@ -31,7 +33,7 @@ assets.init_app(app)
 # from app.mod_auth.controllers import mod_auth as auth_module
 
 # Register blueprint(s)
-# app.register_blueprint(auth_module)
+app.register_blueprint(university, url_prefix="/university")
 # app.register_blueprint(xyz_module)
 # ..
 
