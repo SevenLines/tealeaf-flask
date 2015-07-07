@@ -5,6 +5,7 @@ from app.models import db, BaseMixin
 class Group(BaseMixin, db.Model):
     title = db.Column(db.String(20))
     year = db.Column(db.SmallInteger)
+    captain_id = db.Column(db.Integer)
     students = db.relationship("Student", backref='group', lazy='dynamic')
 
     def __repr__(self):

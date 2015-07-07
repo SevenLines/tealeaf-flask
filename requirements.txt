@@ -7,6 +7,8 @@ Flask-Assets
 Flask-admin
 Flask-Migrate
 
+psycopg2
+
 fabric
 
 jsmin

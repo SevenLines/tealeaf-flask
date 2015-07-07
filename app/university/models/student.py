@@ -6,7 +6,7 @@ from app.models import db, BaseMixin
 class Student(BaseMixin, db.Model):
     name = db.Column(db.String)
     second_name = db.Column(db.String)
-    sex = db.Column(db.Boolean)
+    sex = db.Column(db.SmallInteger)
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'))
     email = db.Column(db.String)
 
