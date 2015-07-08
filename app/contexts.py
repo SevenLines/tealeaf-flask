@@ -4,8 +4,8 @@ from app.university import Group
 
 @app.context_processor
 def inject_groups():
-    groups = Group.query.all()
+    groups = Group.active_groups()
     return {
-        'menu_item_width': 100 / Group.query.count(),
-        'groups': groups
+        'menu_item_width': 100 / groups.count(),
+        'groups': groups.all()
     }

@@ -5,7 +5,8 @@
     <title></title>
     {% assets filters="jsmin", output="build/scripts/main.js",
         "3rdparty/jquery/dist/jquery.js",
-        "3rdparty/bootstrap/dist/js/bootstrap.js" %}
+        "3rdparty/bootstrap/dist/js/bootstrap.js",
+        "3rdparty/chartjs/Chart.js" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
     {% assets filters="cssmin", output="build/styles/main.css",

@@ -9,6 +9,7 @@ Flask-Migrate
 Flask-Security
 
 psycopg2
+py-bcrypt
 
 fabric
 
