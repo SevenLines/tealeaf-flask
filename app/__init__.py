@@ -1,20 +1,16 @@
 # Import flask and template operators
-from flask import Flask, render_template
+from flask import render_template
+
 from flask.ext.assets import Environment
 
-# Import SQLAlchemy
-import flask
-from flask.ext.sqlalchemy import SQLAlchemy
-
-from load_app import app
-
-# Define the database object which is imported
-# by modules and controllers
-from app.models import db
 from app.contexts import *
+from app.security import security
+from load_app import app
+from app.models import db
+
 
 db.init_app(app)
-
+security.init_app(app)
 
 # Sample HTTP error handling
 @app.errorhandler(404)
@@ -32,7 +28,7 @@ assets.init_app(app)
 from app.university import university
 
 # Register blueprint(s)
-app.register_blueprint(university, url_prefix="/university")
+app.register_blueprint(university)
 # app.register_blueprint(xyz_module)
 # ..
 

@@ -1,4 +1,5 @@
 from datetime import datetime
+from flask.ext.login import UserMixin
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import text, func
 from sqlalchemy.ext.declarative.api import declarative_base, declared_attr
@@ -24,5 +25,3 @@ class BaseMixin(object):
     @staticmethod
     def before_update(mapper, connection, target):
         target.updated_at = datetime.utcnow()
-
-# TimestampMixinBase = declarative_base(cls=TimestampMixin)
