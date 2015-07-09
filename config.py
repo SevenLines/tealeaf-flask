@@ -1,10 +1,10 @@
 # Statement for enabling the development environment
 import flask
+import os
 
 DEBUG = os.environ.get("DEBUG", True)
 
 # Define the application directory
-import os
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
