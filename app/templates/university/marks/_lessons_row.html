@@ -1,7 +1,7 @@
 <tr class="t-row">
     {% for lesson in lessons %}
         <td>
-            <div class="mark t-cell t-cell-head <%= lesson.style %>"
+            <div class="mark t-cell t-cell-head {{ lesson.style }}"
                  data-toggle="tooltip"
                  data-html="true"
                  data-placement="bottom"
@@ -11,7 +11,7 @@
                  data-date="{{ lesson.date }}"
                  data-score-ignore="{{ lesson.score_ignore }}"
                  data-original-title="{{ lesson.description }}">
-                <span>{{ lesson.date }}</span>
+                <span>{{ lesson.date.strftime('%d') }}</span>
             </div>
         </td>
     {% endfor %}

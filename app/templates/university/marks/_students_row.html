@@ -1,5 +1,5 @@
 {% for lesson in lessons %}
-    <%= render "groups/students/mark_cell", student: student, lesson: lesson %>
+    {% include "university/marks/_mark_cell.html" %}
 {% endfor %}
 <td>
     <div class="mark t-cell"></div>

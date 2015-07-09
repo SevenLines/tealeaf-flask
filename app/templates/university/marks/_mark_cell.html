@@ -1,6 +1,6 @@
 <td>
-  <div class="t-cell mark <%= @lms[student][lesson].style %> <%= lesson.style %>">
-  </div>
+    <div class="t-cell mark {{ lesson.style }} {{ students_marks[student.id][lesson.id].style }}">
+    </div>
 </td>
 {#<% else %>#}
 {#    <td>#}

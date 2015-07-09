@@ -1,4 +1,4 @@
-from flask.ext.login import LoginManager
+from flask.ext.login import LoginManager, current_user
 from flask.ext.security import RoleMixin, UserMixin, SQLAlchemyUserDatastore, Security
 from sqlalchemy import event
 from app.models import db, BaseMixin
@@ -35,6 +35,14 @@ class User(BaseMixin, UserMixin, db.Model):
             name=self.name,
             email=self.email,
         )
+
+
+def current_user_is_logged():
+    return current_user.is_active() and current_user.is_authenticated()
+
+
+def current_user_is_superuser():
+    return current_user_is_logged() and current_user.has_role("superuser")
 
 
 event.listen(User, 'before_insert', User.before_insert)

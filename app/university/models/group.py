@@ -2,6 +2,8 @@ from sqlalchemy import event
 from app.models import db, BaseMixin
 from app.university.models.student import Student
 from app.university.models.mark import Mark
+from app.university.models.lesson import Lesson
+from app.university.models.discipline import Discipline
 
 
 class Group(BaseMixin, db.Model):
@@ -24,6 +26,12 @@ class Group(BaseMixin, db.Model):
     @property
     def boys(self):
         return self.students.filter(Student.sex == 1)
+
+    @property
+    def disciplines(self):
+        return Discipline.query.filter(Discipline.id.in_(
+            db.session.query(Lesson.discipline_id).filter(Lesson.group_id == self.id).distinct()
+        ))
 
     def marks(self, value):
         out_marks = Mark.query.filter(Mark.student_id.in_(self.students.with_entities(Student.id)))

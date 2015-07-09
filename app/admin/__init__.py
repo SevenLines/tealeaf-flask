@@ -4,12 +4,14 @@ from flask.ext.admin.base import Admin
 from flask.ext.admin.contrib import sqla
 from flask.ext.admin.contrib.sqla.view import ModelView
 from flask.ext.login import current_user
+from flask.ext.security.decorators import roles_required
 from werkzeug.utils import redirect
 from app.models import db
 from app.security import User, Role
 
 
 class BaseModelView(sqla.ModelView):
+    @roles_required("superuser")
     def is_accessible(self):
         if not current_user.is_active() or not current_user.is_authenticated():
             return False

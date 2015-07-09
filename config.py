@@ -1,7 +1,7 @@
 # Statement for enabling the development environment
 import flask
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", True)
 
 # Define the application directory
 import os
@@ -32,8 +32,6 @@ THREADS_PER_PAGE = 2
 
 # Enable protection agains *Cross-site Request Forgery (CSRF)*
 CSRF_ENABLED = True
-
-
 
 # Assets config
 ASSETS_DEBUG = DEBUG

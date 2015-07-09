@@ -8,11 +8,11 @@ class Discipline(BaseMixin, db.Model):
     visible = db.Column(db.Boolean)
 
     def __repr__(self):
-        return "<Discipline({title:s} {year:d} {visible:s}>".format(**{
+        return u"<Discipline({title:s} {year:d} {visible:s}>".format(**{
             "title": self.title,
             "year": self.year,
             "visible": "+" if self.visible else "-",
-        })
+        }).encode("utf-8")
 
 
 event.listen(Discipline, 'before_insert', Discipline.before_insert)
