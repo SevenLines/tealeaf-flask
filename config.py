@@ -2,7 +2,7 @@
 import flask
 import os
 
-DEBUG = os.environ.get("DEBUG", True)
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 # Define the application directory
 
