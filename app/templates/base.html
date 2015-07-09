@@ -6,13 +6,16 @@
     {% assets filters="jsmin", output="build/scripts/main.js",
         "3rdparty/jquery/dist/jquery.js",
         "3rdparty/bootstrap/dist/js/bootstrap.js",
-        "3rdparty/chartjs/Chart.js" %}
+        "3rdparty/chartjs/Chart.js"
+            %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
     {% assets filters="cssmin", output="build/styles/main.css",
         "3rdparty/bootstrap/dist/css/bootstrap.css",
         "3rdparty/font-awesome/css/font-awesome.css",
-        "styles/base.css" %}
+        "styles/base.css",
+        "styles/marks.css"
+            %}
         <link rel="stylesheet" href="{{ ASSET_URL }}"/>
     {% endassets %}
 </head>
@@ -32,7 +35,7 @@
     <ul class="groups">
       {% for group in groups %}
           <li data-title="{{ group.title }}" class="nav-group{{ group.id }}" style="width:{{ menu_item_width }}%">
-            <a class="load-to-content" href="{{ group.id }}">
+            <a class="load-to-content" href="{{ url_for('university.group', group_id=group.id) }}">
               <div class="title">
                 {{ group.title }}
               </div>

@@ -1,0 +1,47 @@
+@import "local_const";
+@import "../common/const";
+
+.god {
+  &:after {
+    content: ' ';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    margin: 3px;
+    border-radius: 3px;
+    @include animation(godAnimation2 3s linear infinite);
+  }
+}
+
+.s-table > tbody {
+  @for $i from 1 through 10 {
+    > tr:nth-child(#{$i}) {
+      .god {
+        &:after {
+          -webkit-animation-delay: #{$i/10}s;
+          -moz-animation-delay: #{$i/10}s;
+          -o-animation-delay: #{$i/10}s;
+          animation-delay: #{$i/10}s;
+        }
+      }
+    }
+  }
+}
+
+@include keyframes(godAnimation2) {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}

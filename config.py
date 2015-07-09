@@ -14,7 +14,7 @@ SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL',
                                          'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
 print SQLALCHEMY_DATABASE_URI
 DATABASE_CONNECT_OPTIONS = {}
-
+DEBUG_TB_PROFILER_ENABLED = True
 
 SECURITY_PASSWORD_HASH = "bcrypt"
 SECURITY_PASSWORD_SALT = os.environ.get("SECURITY_PASSWORD_SALT", "secret_salt")

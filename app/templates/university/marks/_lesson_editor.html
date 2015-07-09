@@ -1,0 +1,34 @@
+<form id="lesson-editor" class="form mark">
+  <div class="lesson-editor-container">
+    <div class="form-group">
+      <input class="form-control lesson-date" name="date" type="hidden">
+    </div>
+
+
+    <div class="form-group">
+      <textarea name="description" id="lesson-description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+{#      <%= select_tag :lesson_type,#}
+{#                     options_from_collection_for_select(Lesson::types_list, :first, :last),#}
+{#                     class: "form-control" %>#}
+    </div>
+    <div class="form-group">
+      <input name="score_ignore" type="checkbox"> не учитывать
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary save">
+        <i class="glyphicon glyphicon-save"></i>
+      </button>
+      <button class="btn btn-danger pull-right delete">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </div>
+  </div>
+  <script>
+      if (typeof lessonEditor == 'undefined') {
+          lessonEditor = new LessonEditor();
+      }
+  </script>
+</form>

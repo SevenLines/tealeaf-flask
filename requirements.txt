@@ -7,9 +7,12 @@ Flask-Assets
 Flask-admin
 Flask-Migrate
 Flask-Security
+flask-debugtoolbar
+
 
 psycopg2
 py-bcrypt
+gunicorn
 
 fabric
 

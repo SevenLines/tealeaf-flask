@@ -1,0 +1,352 @@
+@import "common/const";
+@import "students/labs";
+@import "students/mark";
+@import "students/animations";
+@import "students/local_const";
+@import "students/mark_selector";
+@import "students/lesson-editor";
+
+//@import "../static/bower_components/fontawesome/scss/font-awesome";
+//
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell;
+  }
+}
+
+.pickmeup {
+  z-index: 20000 !important;
+}
+
+
+.lesson-icon-selector {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.tooltip {
+  .tooltip-arrow {
+    //    display: none;
+  }
+  .tooltip-inner {
+    overflow: hidden;
+    white-space: normal;
+  }
+}
+
+// стиль для отличных студентов
+.god {
+  position: relative;
+  box-shadow: 0 0 4px #f49900 !important;
+  background-color: #ffe500 !important;
+}
+
+@import "students/_god_animated";
+
+.jumbotron {
+  &.loading {
+    //      font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+
+    background-color: #ffe500;
+    box-shadow: 0 0 6px #f49900;
+    border-radius: 0;
+    //    border: 1px solid #f4b500;
+    color: darken(#f47e00, 10);
+    margin-bottom: 0;
+    h1 {
+      color: #f46400;
+      font-weight: bold;
+    }
+    .loader {
+      margin: 0 auto;
+      font-size: 14px;
+      text-indent: -9999em;
+      border: 1.1em solid #ffc700;
+      border-left-color: #fff199;
+      -webkit-animation: loaderAnimation 1.1s infinite linear;
+      animation: loaderAnimation 1.1s infinite linear;
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+      &:after {
+        border-radius: 50%;
+        width: 10em;
+        height: 10em;
+      }
+    }
+  }
+}
+
+.labs-panel-heading, .marsk-panel-heading {
+  cursor: pointer;
+  @include transition(0.1s);
+  &.loading {
+    box-shadow: 0 0 6px #f49900;
+    background-color: #ffe500;
+    color: darken(#f47e00, 10);
+  }
+}
+
+#marks-editor {
+  .marks-table {
+    // таблица студентов
+    .s-table {
+      border-left: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
+      .t-cell {
+        overflow: visible;
+        padding: 0;
+        width: auto;
+        border-right: none;
+      }
+
+      .s-table-header {
+        &.t-cell {
+          text-align: left;
+          padding: 4px;
+          button {
+            padding-left: 0.25em;
+            padding-right: 0.25em;
+          }
+        }
+      }
+
+      float: left;
+      border-right: 1px solid $table-border-color;
+      width: $students-list-width;
+      .info {
+        overflow: hidden;
+        > table {
+          table-layout: fixed;
+          width: 100%;
+        }
+        @include transition(0.1s);
+        padding: 4px;
+        height: $row-height;
+        .name {
+          white-space: nowrap;
+          .name-n {
+            display: none;
+          }
+        }
+        //box-shadow: 0 0 4px silver;
+        .score {
+          padding-left: 8px;
+          .badge {
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      .hover {
+        .info {
+          opacity: 1 !important;
+          background-color: #ffffff !important;
+          &.god {
+            background-color: #ffe500 !important;
+          }
+          border-left: 6px solid $base_color;
+        }
+      }
+    }
+
+    // скролл контейнер для таблицы оценок
+    .m-table-container {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin-left: $students-list-width;
+      cursor: move;
+      white-space: nowrap;
+    }
+
+    // таблица оценок
+    .m-table {
+      border-top: 1px solid $table-border-color;
+      border-left: 1px solid $table-border-color;
+
+      display: inline-block;
+      table-layout: fixed;
+      //      margin-left: -4px;
+      &:first-child {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      .t-content {
+        .t-cell {
+          padding-top: 3px;
+        }
+      }
+
+    }
+
+    .l-table {
+      border-top: 1px solid $table-border-color;
+      border-right: 1px solid $table-border-color;
+      .t-cell-icon {
+        display: none;
+      }
+
+      // для создания эффекта плавной загрузки
+      opacity: 0;
+      -webkit-transition: opacity 0.2s;
+      -moz-transition: opacity 0.2s;
+      -ms-transition: opacity 0.2s;
+      -o-transition: opacity 0.2s;
+      transition: opacity 0.2s;
+      &.showable {
+        opacity: 1;
+      }
+
+      .hover {
+        .t-cell {
+          background-color: white;
+          .t-cell-icon {
+            display: inline;
+            color: lighten($table-border-color, 7);
+          }
+        }
+        .done {
+          .t-cell-icon {
+            display: none;
+            color: inherit;
+          }
+        }
+      }
+      .t-row {
+        td:last-child {
+          .t-cell {
+            border-right: none;
+          }
+        }
+      }
+
+      @import "students/color_lab_table";
+      //@import "students/color_lab_table_with_pics";
+
+      .t-cell {
+        -webkit-transition: background-color 0.3s;
+        -moz-transition: background-color 0.3s;
+        -ms-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+        &.changed {
+          //box-shadow: 0 0 0 4px #008000 inset;
+          //border-color: ;
+        }
+      }
+
+      .lab-title {
+        @include transition(0.3s);
+        position: absolute;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        font-size: $row-height / 2.5;
+        text-align: center;
+        z-index: 99;
+        background-color: white;
+        border-bottom: 1px solid $table-border-color;
+        //        border-right: 1px solid $table-border-color;
+      }
+      .task-title {
+        cursor: pointer;
+        background-color: #ffffff;
+        padding-top: $row-height / 2 + 2px;
+        font-size: $row-height / 2 - 3px;
+        padding-bottom: 2px;
+      }
+
+      .tooltip {
+        font-size: 1em;
+        .tooltip-inner {
+          //          border-radius: 0;
+          //          background-color: white;
+        }
+      }
+
+    }
+
+    // глобальные футеры и хидеры
+    .t-header, .t-footer {
+      .t-cell {
+
+        height: $row-height * 1.3;
+      }
+    }
+
+    // глобальный стиль строки
+    .t-row {
+      &.collapsed {
+        display: none;
+        .t-cell {
+          display: none;
+        }
+      }
+
+      border-bottom: 1px solid $table-border-color;
+      &.hover {
+        .t-cell.mark {
+          color: #000000;
+          //            box-shadow: 0 0 0 2px white inset/*, 0 0 6px grey inset !important*/;
+          &.excellent, &.awesome, &.fantastic, &.black-hole, &.incredible {
+            color: white;
+            text-shadow: none;
+          }
+          &.empty {
+            background-color: white;
+            box-shadow: none !important;
+          }
+          &.shining {
+            &:after {
+              content: "∞";
+            }
+          }
+          &.mercy {
+            &:after {
+              content: "○";
+            }
+          }
+          &.black-hole {
+            &:after {
+              content: '∅';
+            }
+          }
+          &.absent {
+            &:after {
+              content: "-2";
+              color: red;
+            }
+          }
+        }
+        noindex:-o-prefocus, > td.mark {
+          box-shadow: none !important;
+        }
+      }
+    }
+
+    // глобавльный стиль ячейки
+    .t-cell {
+      overflow: hidden;
+      //      @include transition(0.2s);
+      $height: $row-height;
+      text-align: center;
+      vertical-align: middle;
+      //      line-height: $height;
+      padding-top: 7px;
+      border-right: 1px solid $table-border-color;
+      width: $row-height * 1.3;
+      height: $height;
+      max-height: $height + 7px;
+    }
+  }
+}
+
+@import "students/xs-small";

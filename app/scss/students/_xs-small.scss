@@ -1,0 +1,96 @@
+@import "../common/const";
+@import "local_const";
+
+$shrink: 0.4;
+
+.s-table {
+  -webkit-transition: max-width 0.3s, width 0.3s;
+  -moz-transition: max-width 0.3s, width 0.3s;
+  -ms-transition: max-width 0.3s, width 0.3s;
+  -o-transition: max-width 0.3s, width 0.3s;
+  transition: max-width 0.3s, width 0.3s;
+}
+
+@media (max-width: $width-medium) {
+  #marks-editor {
+    .marks-students-list-header-button-group {
+      .btn-text {
+        display: none;
+      }
+      button {
+        padding-right: 10px;
+      }
+    }
+    .s-table {
+
+      @media (max-width: $width-small) {
+        .info {
+          .score {
+            -webkit-transition: opacity 0.3s;
+            -moz-transition: opacity 0.3s;
+            -ms-transition: opacity 0.3s;
+            -o-transition: opacity 0.3s;
+            transition: opacity 0.3s;
+            //opacity: 0;
+          }
+        }
+        //&:hover {
+        max-width: $students-list-width*$shrink* 1.5;
+        width: $students-list-width*$shrink * 1.5;
+        //.info {
+        //  .score {
+        //    opacity: 1;
+        //  }
+        //}
+        //}
+        //max-width: $students-list-width*$shrink;
+        //width: $students-list-width*$shrink;
+      }
+
+      //&:hover {
+      //  max-width: $students-list-width*$shrink* 2;
+      //  width: $students-list-width*$shrink * 2;
+      //
+      //}
+      max-width: $students-list-width*$shrink* 2;
+      width: $students-list-width*$shrink* 2;
+
+      .info {
+        .name {
+          .name-n {
+            display: inline !important;
+          }
+          .name-name {
+            display: none;
+          }
+        }
+      }
+    }
+    .m-table-container {
+      margin-left: $students-list-width*$shrink !important;
+    }
+  }
+}
+
+//
+//@media (max-width: $width-small) {
+//  .s-table {
+//    &:hover {
+//      max-width: $students-list-width*$shrink* 1.5;
+//      width: $students-list-width*$shrink * 1.5;
+//    }
+//
+//    max-width: $students-list-width*$shrink;
+//    width: $students-list-width*$shrink;
+//    .info {
+//      .name {
+//        .name-n {
+//          display: inline;
+//        }
+//        .name-name {
+//          display: none;
+//        }
+//      }
+//    }
+//  }
+//}

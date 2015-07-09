@@ -1,0 +1,57 @@
+$quater: hsl(80, 77%, 74%);
+$half: hsl(70, 80%, 60%);
+$full: hsl(70, 80%, 40%);
+$awesome: hsl(70, 80%, 30%);
+$fantastic: hsl(70, 78%, 20%);
+$incredible: hsl(70, 78%, 15%);
+$godlike: hsl(70, 80%, 10%);
+$hover-color: grey;
+$exam-hue-offset: -105;
+$lect-hue-offset: 100;
+$laba-hue-offset: 280;
+$test-hue-offset: 295;
+$mix-weight: 70%;
+$td-margin: 0px;
+
+$table-border-color: #CCC;
+$header-row-height: 38px;
+$row-height: 28px;
+
+$students-list-width: 220px;
+$marks-size: 30px;
+
+@mixin tooltip($hue-offset) {
+  .tooltip > {
+    .tooltip-arrow {
+      display: none;
+    }
+    .tooltip-inner {
+          overflow: hidden;
+      font-weight: bold;
+      background-color: white;
+      color: adjust_hue($full, $hue-offset);
+      border: 1px solid adjust_hue($full, $hue-offset);
+    }
+  }
+}
+
+@mixin btn-default($hue-offset) {
+
+  &.t-cell-head {
+
+    .lesson-icon {
+      max-width: $marks-size !important;
+      max-height: $marks-size !important;
+    }
+    //    @if $hue-offset != 0 {
+    background-color: adjust_hue(lighten($quater, 23), $hue-offset);
+    //    }
+    font-size: 0.9em;
+    color: darken(adjust_hue($full, $hue-offset), 20);
+    font-weight: normal;
+    &:hover {
+      cursor: pointer;
+      background-color: adjust_hue(lighten($quater, 15), $hue-offset);
+    }
+  }
+}

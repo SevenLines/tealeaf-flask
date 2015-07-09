@@ -1,0 +1,46 @@
+<div id="marks-editor">
+    <div class="admin-line">
+        {% include "university/marks/_admin_line.html" %}
+    </div>
+
+    <div class="marks-table">
+        <table class="s-table">
+            <thead class="t-header">
+            {% include "university/marks/_students_menu.html" %}
+            </thead>
+            <tbody class="t-content">
+            {% for student in group.students.all() %}
+                <tr class="t-row" data-points="<%= @lms[student][:points] %>"
+                    data-percents="<%= @lms[student][:percents] %>" data-name="<%= student.second_name %>">
+                    <td>
+                        {% include "university/marks/_student.html" %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot class="t-footer">
+            {% include "university/marks/_students_menu.html" %}
+            </tfoot>
+        </table>
+        <div class="m-table-container">
+            <table class="m-table">
+                <thead class="t-header">
+                {% include "university/marks/_lessons_row.html" %}
+                </thead>
+                <tbody class="t-content">
+                {% for student in group.students.all() %}
+                    <tr class="t-row" data-points="<%= @lms[student][:points] %>"
+                        data-percents="<%= @lms[student][:percents] %>" data-name="<%= student.second_name %>">
+                        {% include "university/marks/_students_row.html" %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot class="t-footer">
+                {% include "university/marks/_lessons_row.html" %}
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% include "university/marks/_marks_selector.html" %}

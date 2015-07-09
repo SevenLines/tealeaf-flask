@@ -1,0 +1,175 @@
+// >>> ОЦЕНКА
+@import "local_const";
+@import "../common/const";
+
+.mark {
+
+  color: transparent;
+  &.exam {
+    color: #ffffff;
+  }
+
+  //  @include transition(0.1s);
+
+  @mixin shadow($color) {
+    box-shadow: darken($color, 2) 0 0 0 4px inset;
+  }
+
+  @mixin mark-stripes($stripe-color) {
+  }
+
+  @mixin test_exam($color, $use-shadow: false, $stripes: false, $without_bg: false) {
+    @if (not $without_bg) {
+      background-color: $color;
+    }
+    $lighten: 10;
+    @if ($use-shadow) {
+      @include shadow(darken($color, $lighten));
+    }
+    @if ($stripes) {
+      @include mark-stripes($color);
+    }
+
+    &.test {
+      $clr: saturate(adjust_hue($color, $test-hue-offset), 20);
+      @if ($use-shadow) {
+        @include shadow(darken($clr, $lighten));
+      }
+      @if (not $without_bg) {
+        background-color: $clr;
+      }
+      @if ($stripes) {
+        @include mark-stripes($clr)
+      }
+    }
+
+    &.lect {
+      $clr: adjust_hue($color, $lect-hue-offset);
+      @if ($use-shadow) {
+        @include shadow(darken($clr, $lighten));
+      }
+      @if (not $without_bg) {
+        background-color: $clr;
+      }
+      @if ($stripes) {
+        @include mark-stripes($clr)
+      }
+    }
+
+    &.laba {
+      $clr: lighten(adjust_hue($color, $laba-hue-offset), 5);
+      @if ($use-shadow) {
+        @include shadow(darken($clr, $lighten));
+      }
+      @if (not $without_bg) {
+        background-color: $clr;
+      }
+      @if ($stripes) {
+        @include mark-stripes($clr)
+      }
+    }
+
+    &.exam {
+      $clr: lighten(adjust_hue($color, $exam-hue-offset), 5);
+      @if ($use-shadow) {
+        @include shadow(darken($clr, $lighten));
+        //box-shadow: darken($clr, 10) 0 0 2px inset;
+      }
+      @if (not $without_bg) {
+        background-color: $clr;
+      }
+      //        color: white;
+    }
+
+  }
+
+  @include tooltip(0);
+  @include btn-default(0);
+
+  // ТИП ПАРЫ
+  &.test {
+    @include btn-default($test-hue-offset);
+    @include tooltip($test-hue-offset);
+  }
+  &.lect {
+    @include btn-default($lect-hue-offset);
+    @include tooltip($lect-hue-offset);
+  }
+
+  &.laba {
+    @include btn-default($laba-hue-offset);
+    @include tooltip($laba-hue-offset);
+  }
+
+  &.exam {
+    @include btn-default($exam-hue-offset);
+    @include tooltip($exam-hue-offset);
+  }
+
+  &.modified {
+    box-shadow: #9ebdff 0px 0px 8px inset !important;
+  }
+  // КОНЕЦ ТИП ПАРЫ
+
+  // ОЦЕНКИ ЗА ПАРУ
+  &.absent {
+    @include test_exam(lighten($quater, 18), true);
+    color: grey;
+    &:after {
+      content: "н";
+    }
+  }
+
+  &.empty {
+    @include test_exam(lighten($quater, 18));
+  }
+
+  &.normal {
+    @include test_exam($quater, true);
+  }
+  &.good {
+    @include test_exam($half, true);
+  }
+  &.excellent {
+    @include test_exam($full, true);
+  }
+  &.awesome {
+    @include test_exam($awesome, true, true);
+  }
+  &.fantastic {
+    @include test_exam($fantastic, true, true);
+  }
+  &.incredible {
+    @include test_exam($incredible, true, true);
+  }
+  &.godlike {
+    @include test_exam($godlike, true);
+  }
+  &.black-hole {
+    background-color: black;
+    z-index: 100;
+    box-shadow: 0 0 0 4px rgb(200, 0, 0) inset;
+    //      @include animation(black-hole-glow 2s infinite);
+  }
+  &.shining {
+    background-color: #ffe20a;
+    z-index: 100;
+    box-shadow: 0 0 0 4px rgb(255, 182, 44) inset;
+    //      @include animation(shinig-glow 4s infinite);
+  }
+  &.mercy {
+    @include test_exam(lighten($quater, 20), true);
+    background-color: white;
+    //z-index: 100;
+    //box-shadow: 0 0 4px white inset;
+    //      @include animation(mercy-glow 6s infinite);
+  }
+  // КОНЕЦ ОЦЕНКИ ЗА ПАРУ
+
+  &#lesson-editor {
+    color: black;
+    @include test_exam($quater, true, false, true);
+    background-color: white;
+
+  }
+}

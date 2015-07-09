@@ -3,6 +3,7 @@ from flask import render_template
 
 from flask.ext.assets import Environment
 from app.admin import admin
+from flask_debugtoolbar import DebugToolbarExtension
 
 from app.contexts import *
 from app.security import security
@@ -12,6 +13,7 @@ from app.models import db
 db.init_app(app)
 security.init_app(app)
 admin.init_app(app)
+toolbar = DebugToolbarExtension(app)
 
 
 # Sample HTTP error handling

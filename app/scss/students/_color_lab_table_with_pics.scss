@@ -1,0 +1,104 @@
+@import "local_const";
+// разукрашиваю таблицы в разные цвета
+
+$bgcolors: #d6a503, #5da200, #58ae8e, #0084b2, #b25e78, #d18869;
+$fgcolors: #ffe500, #c1f400, #7ff0cb, #00c4ff, #ff8cab, #ffbf85;
+$bgimages: "images/students/klimt_yellow_400px.jpg",
+"images/students/klimt_yellow_400px.jpg",
+"images/students/repin_skyblue_500px.jpg",
+"images/students/klimt_yellow_400px.jpg",
+"images/students/renoir_pink_400px.jpg",
+"images/students/klimt_yellow_400px.jpg";
+
+$color: #f49900;
+$color2: #ffe500;
+//$step: 35;
+$max_tables: length($bgcolors) - 1;
+
+@for $i from 0 through $max_tables {
+  &:nth-child(#{$i+1}) {
+
+    $color: nth($bgcolors, $i + 1);
+    $color2: nth($fgcolors, $i + 1);
+
+    background-color: hsl(hue($color2), saturation($color2), 97);
+    background-image: url(nth($bgimages, $i + 1));
+    &:hover {
+      .lab-title {
+        background-color: lighten($color2, 0);
+      }
+    }
+
+    .lab-title {
+      //background-color: lighten($color2, 25);
+      color: darken($color, 40);
+      text-shadow: 0 0 1px white;
+    }
+    .task-title {
+      &:hover {
+        background-color: lighten($color2, 25);
+        color: darken($color, 20);
+        text-shadow: 0 0 1px white;
+      }
+
+    }
+
+    .t-cell {
+      background-color: hsl(hue($color2), saturation($color2), 97);
+      display: block;
+    }
+
+    .done {
+      $doneclass: fast-normal, normal, normal-slow, slow, slow-veryslow, veryslow;
+      //box-shadow: 0 0 3px darken($color, 20), 0 0 4px $color inset;
+      $base: 0.3;
+      border-right: none;
+      //background-color: rgba($color2, $base);
+      background-color: rgba(0,0,0,0);
+      //box-shadow: 0 0 0 1px lighten($color, 30) inset;
+      color: darken($color, 30);
+
+      @for $j from 1 to length($doneclass) + 1 {
+        &.#{nth($doneclass, $j)} {
+          //background-color: rgba($color2, min($base + $j*0.1, 1)); //lighten($color2, 5 + $j*4);
+          background-color: transparent;
+        }
+      }
+    }
+
+    .tooltip {
+      &.bottom {
+        .tooltip-arrow {
+          border-bottom-color: $color;
+        }
+      }
+      &.top {
+        .tooltip-arrow {
+          border-top-color: $color;
+        }
+      }
+      .tooltip-inner {
+        color: darken($color, 40);
+        box-shadow: 0 0 4px darken($color, 20);
+        background-color: lighten($color2, 20);
+      }
+    }
+
+    .t-cell {
+      &.changed {
+        box-shadow: 0 0 0 4px darken($color, 25) inset;
+        //border-color: ;
+      }
+    }
+
+    //@if $i == 2 or $i == 3 or $i == 3 {
+    //  $color: adjust_hue($color, $step*2);
+    //  $color2: adjust_hue($color2, $step*2);
+    //} @else {
+    //  $color: adjust_hue($color, $step);
+    //  $color2: adjust_hue($color2, $step);
+    //}
+  }
+}
+
+// конец цикла разукрашивания таблиц

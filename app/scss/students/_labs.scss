@@ -1,0 +1,267 @@
+@import "../common/const";
+
+$m_task_label_width: 32px;
+
+@mixin complexity($bg, $fg) {
+  @include transition(0.3s);
+  background-color: $bg;
+  box-shadow: 0 0 3px $fg !important;
+
+  pre {
+    border: 2px solid darken($fg, 10);
+    background-color: lighten($bg, 12);
+  }
+
+  &.selected, &.selected2, &.selected3 {
+    &:hover {
+      background-color: $bg;
+    }
+  }
+  &.selected {
+    background-color: lighten($bg, 4);
+  }
+  &.selected2 {
+    background-color: lighten($bg, 7);
+  }
+  &.selected3 {
+    background-color: lighten($bg, 10);
+  }
+  .user-info {
+    box-shadow: 0 0 0 2px white;
+    border-color: darken($bg, 5) !important;
+  }
+
+}
+
+@mixin choices($lighten: 0) {
+  $darken: 0;
+  $base-clr: #cafcb1;
+
+  &.easy {
+    $clr: $base-clr;
+    @include complexity($clr, darken($clr, $darken));
+  }
+  &.medium {
+    $clr: adjust_hue($base-clr, -40);
+    @include complexity($clr, darken($clr, $darken));
+  }
+  &.hard {
+    $clr: adjust_hue($base-clr, -80);
+    @include complexity($clr, darken($clr, $darken));
+  }
+  &.nightmare {
+    $clr: adjust_hue($base-clr, -95);
+    @include complexity($clr, darken($clr, $darken));
+  }
+}
+
+@mixin complex_style {
+  @include choices;
+  &.selected {
+    @include transition(0.3);
+    //    background-color: #EEE;
+    //    background-image: url("images/stripe_40px_135deg.png");
+    //    @include background_size(60px 60px);
+  }
+}
+
+.panel {
+  .panel-heading {
+    background-color: #FDFDFD;
+    @include transition(0.3s);
+  }
+  &:hover {
+    .panel-heading {
+    }
+  }
+}
+
+.m-labs {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.m-lab {
+  // для создания эффекта плавной загрузки
+  //display: none;
+  //&.showable {
+  //  .m-lab-title {
+  //    opacity: 1;
+  //  }
+  //  display: block;
+  //}
+  .lab-bgimage-container {
+    cursor: pointer;
+
+    .preview-lab-image {
+      display: block;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+      z-index: 100;
+      max-width: 600px !important;
+      border: 1px solid black;
+      border-radius: 0 8px 8px;
+      box-shadow: 0 2px 4px silver;
+    }
+    &:hover {
+      .preview-lab-image {
+        max-width: inherit;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  a {
+    //    color: #000000;
+    //    text-decoration: none;
+  }
+
+  &:hover {
+    .m-lab-title {
+      background-color: #FAFAFA;
+    }
+  }
+  .m-lab-title {
+    //opacity: 0;
+    @include transition(0.1s);
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+    border-bottom: 1px solid #c0c0c0;
+    font-size: 1.75em;
+    background-color: #FDFDFD;
+  }
+  .m-lab-info {
+    border-bottom: 1px solid #c0c0c0;
+    > div {
+      padding: 1em;
+    }
+  }
+}
+
+.m-tasks {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  &.columns2 {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    @media (max-width: $width-medium) {
+      -webkit-column-count: 1; /* Chrome, Safari, Opera */
+      -moz-column-count: 1; /* Firefox */
+      column-count: 1;
+    }
+    .m-task {
+      margin-top: 0;
+    }
+  }
+  &.columns3 {
+
+  }
+}
+
+.m-lab-description {
+  font-size: 1.1em;
+  hr {
+    margin: 0.5em 0;
+    margin-bottom: 0.75em;
+  }
+}
+
+.m-task-description {
+  padding: 0.5em;
+}
+
+.m-task-label {
+  width: $m_task_label_width;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-right: 1px solid #c0c0c0;
+}
+
+.m-task {
+  @include complex_style;
+  margin: 0.5em 0;
+  border-radius: 10px;
+  position: relative;
+  //      background: #EEEEEE;
+  border: #c0c0c0 1px solid;
+  &:hover {
+    @include choices;
+  }
+  overflow: hidden;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -o-column-break-inside: avoid;
+  -ms-column-break-inside: avoid;
+  column-break-inside: avoid;
+  margin-top: 0;
+}
+
+.m-task-students {
+  float: right;
+  list-style: none;
+  font-size: 0.9em;
+  padding: 0.25em 0.5em;
+  background-color: #ffffff;
+  border-radius: 8px;
+  @media (max-width: $width-small) {
+    display: none;
+  }
+  border: silver 1px solid;
+  box-shadow: 0 0 0 2px white;
+  text-align: center;
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+  .m-task-student {
+    float: right;
+    clear: right;
+  }
+}
+
+.m-task-menu {
+  //  margin-top: 4px;
+  padding: 0.25em;
+  padding-right: 1em;
+  height: 20px;
+  max-height: 20px;
+  //  margin-left: $m_task_label_width + 4;
+  overflow: hidden;
+
+  .m-task-user-selector {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .menu-complexity {
+    margin-right: 4px;
+    .menu-complexity-item {
+      background: white;
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-right: 2px;
+      border-radius: 10px;
+      border: 1px solid black;
+      @include complex_style();
+      &:hover {
+        border-width: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+pre {
+  margin: 0.5em 0;
+  background-color: white;
+}
