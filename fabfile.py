@@ -14,6 +14,7 @@ def build_assets():
     local("git commit -a -m 'build assets'")
 
 def deploy():
+    build_assets()
     with cd(env.directory):
         run("git pull")
         with prefix(env.activate):
