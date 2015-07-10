@@ -5,7 +5,7 @@ from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.script import Manager
 from flask.ext.security.registerable import register_user
 from flask.ext.security.utils import encrypt_password
-from app import app, db, assets
+from app import app, db
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-
 from app.security import user_data_store, User, Role
