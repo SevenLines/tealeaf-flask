@@ -9,6 +9,7 @@ env.directory = '/home/mick/projects/tealeaf-flask'
 env.additional_env = 'source {}/env.sh'.format(env.directory)
 env.activate = 'source {}/env/bin/activate'.format(env.directory)
 
+
 def build_assets():
     local("python manage.py assets --parse-templates build")
     try:
@@ -16,8 +17,10 @@ def build_assets():
     except:
         pass
 
+
 def deploy():
     build_assets()
+    local('git push')
     with cd(env.directory):
         run("git stash")
         run("git pull")
