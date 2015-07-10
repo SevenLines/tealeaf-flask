@@ -16,6 +16,7 @@ gunicorn
 
 fabric
 
+yuicompressor
 jsmin
 cssmin
 pyscss
