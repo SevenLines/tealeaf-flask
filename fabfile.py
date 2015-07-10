@@ -19,6 +19,7 @@ def build_assets():
 def deploy():
     build_assets()
     with cd(env.directory):
+        run("git stash")
         run("git pull")
         with prefix(env.activate):
             with prefix(env.additional_env):
