@@ -30,8 +30,10 @@ def page_not_found(e):
 
 
 # webassets
-assets = Environment()
-assets.init_app(app)
+assets_env = Environment(app)
+# assets_env.config['cache'] = app.config['ASSETS_CACHE']
+# assets_env.config['manifest'] = app.config['ASSETS_MANIFEST']
+# assets_env.config['auto_build'] = app.config['ASSETS_AUTO_BUILD']
 
 
 # Import a module / component using its blueprint handler variable (mod_auth)
