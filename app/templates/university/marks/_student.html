@@ -1,23 +1,25 @@
 <div class="t-cell">
-  <div class="info">
-    <table>
-      <tbody>
-      <tr>
-        <td class="name">
+    <div class="info">
+        <table>
+            <tbody>
+            <tr>
+                <td class="name">
           <span class="pull-left">
             <span class="name-second-name">{{ student.second_name }}</span>
             <span class="name-name">{{ student.name }}</span>
             <span class="name-n">{{ student.name[:1] }}.</span>
           </span>
-        </td>
-        <td class="score">
-          <div class="pull-right badge" style="color: green">
-            <span style="display: none;" class="percents" data-value="<%= @lms[student][:percents] %>"></span>
-            <span style="display: none;" class="points" data-value="<%= @lms[student][:points] %>"></span>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+                </td>
+                <td class="score">
+                    <div class="pull-right badge" style="color: green">
+                        <span style="display: none;" class="percents"
+                              data-value="{{ students_marks[student.id]['percents'] }}">{{ students_marks[student.id]['percents'] }}</span>
+                        <span style="display: none;" class="points"
+                              data-value="{{ students_marks[student.id]['points'] }}">{{ students_marks[student.id]['points'] }}</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

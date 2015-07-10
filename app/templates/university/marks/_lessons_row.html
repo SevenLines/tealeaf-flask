@@ -8,7 +8,8 @@
                  rel="tooltip"
                  data-description="{{ lesson.description }}"
                  data-lesson-type="{{ lesson.lesson_type }}"
-                 data-date="{{ lesson.date }}"
+                 data-style="{{ lesson.style }}"
+                 data-date="{{ lesson.date.isoformat() }}"
                  data-score-ignore="{{ lesson.score_ignore }}"
                  data-original-title="{{ lesson.description }}">
                 <span>{{ lesson.date.strftime('%d') }}</span>

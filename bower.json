@@ -15,6 +15,10 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.3.0",
-    "chartjs": "~1.0.2"
+    "chartjs": "~1.0.2",
+    "jquery.cookie": "~1.4.1",
+    "tinycolor": "~1.1.2",
+    "jquery-pjax": "~1.9.6",
+    "eonasdan-bootstrap-datetimepicker": "~4.14.30"
   }
 }

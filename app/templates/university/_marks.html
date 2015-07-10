@@ -10,8 +10,8 @@
             </thead>
             <tbody class="t-content">
             {% for student in group.students.all() %}
-                <tr class="t-row" data-points="<%= @lms[student][:points] %>"
-                    data-percents="<%= @lms[student][:percents] %>" data-name="<%= student.second_name %>">
+                <tr class="t-row" data-points="{{  students_marks[student.id]['points'] }}"
+                    data-percents="{{  students_marks[student.id]['percents'] }}" data-name="{{ student.second_name }}">
                     <td>
                         {% include "university/marks/_student.html" %}
                     </td>
@@ -29,8 +29,9 @@
                 </thead>
                 <tbody class="t-content">
                 {% for student in group.students.all() %}
-                    <tr class="t-row" data-points="<%= @lms[student][:points] %>"
-                        data-percents="<%= @lms[student][:percents] %>" data-name="<%= student.second_name %>">
+                    <tr class="t-row" data-points="{{  students_marks[student.id]['points'] }}"
+                        data-percents="{{  students_marks[student.id]['percents'] }}"
+                        data-name="{{ student.second_name }}">
                         {% include "university/marks/_students_row.html" %}
                     </tr>
                 {% endfor %}

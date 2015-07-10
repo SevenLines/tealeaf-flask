@@ -45,13 +45,21 @@ class GroupMarksView(View):
         students_marks = {}
         lessons = Lesson.query.filter(Lesson.group_id == group.id).order_by(Lesson.date).all()
         for student in students:
-            students_marks[student.id] = {}
+            students_marks[student.id] = {
+                'marks': {}
+            }
             for lesson in lessons:
-                students_marks[student.id][lesson.id] = None
+                students_marks[student.id]['marks'][lesson.id] = None
 
         marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
         for m in marks:
-            students_marks[m.student_id][m.lesson_id] = m
+            students_marks[m.student_id]['marks'][m.lesson_id] = m
+
+        for student in students:
+            for lesson in lessons:
+                points, percents = student.points(students_marks[student.id]['marks'], lessons)
+                students_marks[student.id]['points'] = points
+                students_marks[student.id]['percents'] = percents
 
         return render_template(
             "university/group.html",
@@ -60,6 +68,7 @@ class GroupMarksView(View):
             students_marks=students_marks,
             students=students,
             lessons=lessons,
+            lesson_types=Lesson.LESSON_TYPES,
             disciplines=disciplines.all(),
         )
 
