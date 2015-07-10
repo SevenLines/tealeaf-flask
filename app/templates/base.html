@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title></title>
     {% assets filters="jsmin", output="build/scripts/main.js",
-        "3rdparty/jquery/dist/jquery.js",
-        "3rdparty/bootstrap/dist/js/bootstrap.js",
-        "3rdparty/chartjs/Chart.js"
+        "3rdparty/jquery/dist/jquery.min.js",
+        "3rdparty/bootstrap/dist/js/bootstrap.min.js",
+        "3rdparty/chartjs/Chart.min.js"
             %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
