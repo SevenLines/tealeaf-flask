@@ -7,6 +7,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from app.contexts import *
 from app.security import security
+from app.logs import *
 from load_app import app
 from app.models import db
 
