@@ -1,5 +1,5 @@
 from fabric.context_managers import cd, prefix
-from fabric.operations import run
+from fabric.operations import run, local
 from fabric.state import env
 
 env.user = 'mick'
@@ -9,6 +9,9 @@ env.directory = '/home/mick/projects/tealeaf-flask'
 env.additional_env = 'source {}/env.sh'.format(env.directory)
 env.activate = 'source {}/env/bin/activate'.format(env.directory)
 
+def build_assets():
+    local("python manage.py assets --parse-templates build")
+    local("git commit -a -m 'build assets'")
 
 def deploy():
     with cd(env.directory):

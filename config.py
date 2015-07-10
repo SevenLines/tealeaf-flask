@@ -37,3 +37,7 @@ CSRF_ENABLED = True
 
 # Assets config
 ASSETS_DEBUG = DEBUG
+ASSETS_CACHE = False
+ASSETS_MANIFEST = False
+if not DEBUG:
+    ASSETS_AUTO_BUILD = False

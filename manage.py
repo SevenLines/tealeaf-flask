@@ -1,10 +1,11 @@
 from getpass import getpass
 from flask import url_for
+from flask.ext.assets import ManageAssets
 from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.script import Manager
 from flask.ext.security.registerable import register_user
 from flask.ext.security.utils import encrypt_password
-from app import app, db
+from app import app, db, assets
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-
 from app.security import user_data_store, User, Role
@@ -13,6 +14,7 @@ migrate = Migrate(app, db)
 
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
+manager.add_command("assets", ManageAssets())
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-

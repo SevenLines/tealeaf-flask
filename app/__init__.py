@@ -1,7 +1,8 @@
 # Import flask and template operators
 from flask import render_template
 
-from flask.ext.assets import Environment
+from flask.ext.assets import Environment, ManageAssets
+from flask.ext.script import Manager
 from app.admin import admin
 from flask_debugtoolbar import DebugToolbarExtension
 
