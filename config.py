@@ -17,7 +17,7 @@ DATABASE_CONNECT_OPTIONS = {}
 DEBUG_TB_PROFILER_ENABLED = True
 
 SECURITY_PASSWORD_HASH = "bcrypt"
-SECURITY_PASSWORD_SALT = os.environ.get("SECURITY_PASSWORD_SALT", "secret_salt")
+SECURITY_PASSWORD_SALT = "salt" #os.environ.get("SECURITY_PASSWORD_SALT", "secret_salt")
 # Use a secure, unique and absolutely secret key for signing the data.
 CSRF_SESSION_KEY = os.environ.get("SECURITY_PASSWORD_SALT", "secret")
 

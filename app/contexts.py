@@ -1,4 +1,5 @@
 from flask.ext.login import current_user
+from flask.ext.security.forms import LoginForm
 from app.load_app import app
 from app.security import current_user_is_logged
 from app.university import Group
@@ -11,6 +12,15 @@ def inject_groups():
         'menu_item_width': 100 / groups.count(),
         'groups': groups.all()
     }
+
+
+@app.context_processor
+def inject_login_form():
+    if not current_user_is_logged():
+        return {
+            "login_user_form": LoginForm()
+        }
+    return {}
 
 
 @app.context_processor
