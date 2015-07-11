@@ -1,8 +1,8 @@
 <div class="form form-inline">
-    <select name="discipline" id="discipline" class="form-control load-on-change" onchange="disciplineChange(this)">
+    <select autocomplete="off" name="discipline" id="discipline" class="form-control load-on-change" onchange="disciplineChange(this)">
         {% for d in disciplines %}
             <option
-                    {% if d == discipline %}selected{% endif %}
+                    {% if d == discipline %}selected=selected{% endif %}
                     value="{{ url_for("university.group_marks", group_id=group.id, discipline_id=d.id) }}">
                 {{ d.title }}
             </option>
