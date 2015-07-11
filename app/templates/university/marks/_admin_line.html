@@ -3,7 +3,7 @@
         {% for d in disciplines %}
             <option
                     {% if d == discipline %}selected{% endif %}
-                    value="#">
+                    value="{{ url_for("university.group_marks", group_id=group.id, discipline_id=d.id) }}">
                 {{ d.title }}
             </option>
         {% endfor %}

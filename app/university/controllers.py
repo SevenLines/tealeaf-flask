@@ -32,9 +32,10 @@ class GroupMarksView(View):
     def dispatch_request(self, group_id, discipline_id=None):
         group = Group.query.get(group_id)
 
-        discipline_id = request.cookies.get('discipline_id', None)
         if not discipline_id:
-            discipline_id = Discipline.query.first().id
+            discipline_id = request.cookies.get('discipline_id', None)
+            if not discipline_id:
+                discipline_id = Discipline.query.first().id
 
         if current_user_is_logged():
             disciplines = Discipline.query
@@ -50,7 +51,7 @@ class GroupMarksView(View):
         # fetch all data from database, form marks table
         students = group.students.all()
         students_marks = {}
-        lessons = Lesson.query.filter(Lesson.group_id == group.id).order_by(Lesson.date).all()
+        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline_id).order_by(Lesson.date).all()
         for student in students:
             students_marks[student.id] = {
                 'marks': {}
@@ -63,10 +64,9 @@ class GroupMarksView(View):
             students_marks[m.student_id]['marks'][m.lesson_id] = m
 
         for student in students:
-            for lesson in lessons:
-                points, percents = student.points(students_marks[student.id]['marks'], lessons)
-                students_marks[student.id]['points'] = points
-                students_marks[student.id]['percents'] = percents
+            points, percents = student.points(students_marks[student.id]['marks'], lessons)
+            students_marks[student.id]['points'] = points
+            students_marks[student.id]['percents'] = percents
 
         template = "university/group.html"
         if request.headers.get('X-Pjax', None):
@@ -88,5 +88,4 @@ class GroupMarksView(View):
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
 university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
 university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
-                        view_func=GroupMarksView.as_view('group_marks'),
-                        defaults={'discipline_id': None})
+                        view_func=GroupMarksView.as_view('group_marks'))
