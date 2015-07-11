@@ -55,7 +55,6 @@ function SortController() {
 	}
 
 	function sortToggle() {
-		console.log(this);
 		var lastSortingIndex = getSortingIndex();
 		lastSortingIndex = (lastSortingIndex + 1) % sortingFunction.length;
 		$.cookie("sorting", lastSortingIndex, {expires: 100, path: '/'});
@@ -63,6 +62,6 @@ function SortController() {
 	}
 
 	$(".btn-students-sorting").on("click", sortToggle);
-    console.log($(".btn-students-sorting"));
+    //console.log($(".btn-students-sorting"));
 	$(document).on("load:groups:complete", sort);
 };

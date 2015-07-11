@@ -8,14 +8,26 @@
         "3rdparty/bootstrap/dist/js/bootstrap.min.js",
         "3rdparty/chartjs/Chart.min.js",
         "3rdparty/jquery.cookie/jquery.cookie.js",
-        "3rdparty/jquery-pjax/jquery.pjax.js"
+        "3rdparty/jquery-pjax/jquery.pjax.js",
+        "3rdparty/tinycolor/tinycolor.js",
+        "scripts/university/marks/tooltips_controller.js",
+        "scripts/university/marks/scoring_controller.js",
+        "scripts/university/marks/scrolling_controller.js",
+        "scripts/university/marks/sorting_controller.js",
+        "scripts/university/marks/coloring_controller.js",
+        "3rdparty/moment/moment.js",
+        "3rdparty/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
+        "scripts/university/marks/admin/marks_editor_controller.js",
+        "scripts/university/marks/admin/lesson_editor_controller.js"
             %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
+
     {% block scripts_top %}{% endblock %}
     {% assets filters="cssmin", output="build/styles/main.css",
         "3rdparty/bootstrap/dist/css/bootstrap.css",
         "3rdparty/font-awesome/css/font-awesome.css",
+        "3rdparty/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css",
         "styles/base.css",
         "styles/marks.css"
             %}
@@ -25,44 +37,46 @@
 </head>
 <body>
 <div class="container">
-  <div class="menu">
-    <ul class="main">
-      <li class="nav-main-button">
-        <a href="/" class="load-to-content">
-          <div class="title">
-            <i class="fa fa-pagelines"></i>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <ul class="groups">
-      {% for g in groups %}
-          <li data-title="{{ g.title }}" class="nav-group{{ g.id }} {% if group and g.id == group.id %}active{% endif %}" style="width:{{ menu_item_width }}%">
-            <a class="load-to-content" href="{{ url_for('university.group', group_id=g.id) }}">
-              <div class="title">
-                {{ g.title }}
-              </div>
-            </a>
-          </li>
-      {% endfor %}
-    </ul>
+    <div class="menu">
+        <ul class="main">
+            <li class="nav-main-button">
+                <a href="/" class="load-to-content">
+                    <div class="title">
+                        <i class="fa fa-pagelines"></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <ul class="groups">
+            {% for g in groups %}
+                <li data-title="{{ g.title }}"
+                    class="nav-group{{ g.id }} {% if group and g.id == group.id %}active{% endif %}"
+                    style="width:{{ menu_item_width }}%">
+                    <a class="load-to-content" href="{{ url_for('university.group', group_id=g.id) }}">
+                        <div class="title">
+                            {{ g.title }}
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
 
-  </div>
+    </div>
 </div>
 <div class="container">
-  <div id="loading-screen">
-    <div class="icon-container">
-      <i class="load-icon fa fa-cog fa-spin fa-5x"></i>
+    <div id="loading-screen">
+        <div class="icon-container">
+            <i class="load-icon fa fa-cog fa-spin fa-5x"></i>
 
-      <div class="info"></div>
+            <div class="info"></div>
+        </div>
     </div>
-  </div>
-  <div id="content">
-    {% block content %}
-    {% endblock %}
-  </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-{% include "_scripts.html" %}
+    {% include "_scripts.html" %}
 </div>
 
 {#<%= render 'layouts/login_modal' %>#}

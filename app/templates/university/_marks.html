@@ -46,24 +46,7 @@
 </div>
 {% include "university/marks/_marks_selector.html" %}
 
-{% assets filters="yui_js", output="build/scripts/university/group.js",
-        "3rdparty/tinycolor/tinycolor.js",
-        "scripts/university/marks/_add_tooltips.js",
-        "scripts/university/marks/_marks_scrolling.js",
-        "scripts/university/marks/_scoring.js",
-        "scripts/university/marks/_sorting.js",
-        "scripts/university/marks/_students_coloring.js",
 
-        "3rdparty/moment/moment.js",
-        "3rdparty/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
-        "scripts/university/marks/admin/_mark_toggle.js",
-        "scripts/university/marks/admin/_lesson_edit.js" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %}
-{% assets filters="cssmin", output="build/styles/university/group.css",
-        "3rdparty/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" %}
-    <link rel="stylesheet" href="{{ ASSET_URL }}"/>
-{% endassets %}
 <script>
     new ScoreController();
     new SortController();
