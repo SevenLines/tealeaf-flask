@@ -99,8 +99,8 @@ function MarksEditorController() {
         $mark_selector.find(".mark").toggleClass(lesson_type_cls, true);
     }
 
-    $(document).on("click", marks_selector, showMarkSelector);
-    $(document).on("click", "#mark-selector li", markSelectorItemChoose);
-    $(document).on("click", "#marks-editor .admin-line .btn-save-marks", saveMarks);
+    $(marks_selector).on("click", showMarkSelector);
+    $("#mark-selector").find("li").on("click", markSelectorItemChoose);
+    $("#marks-editor").find(".admin-line .btn-save-marks").on("click", saveMarks);
 
 };

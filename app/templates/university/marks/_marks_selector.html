@@ -1,9 +1,9 @@
 <div id="mark-selector" data-bind="with: markSelector">
   <ul>
-    <% Mark::MARKS.each do |key, value| %>
-        <li class="mark <%= value %>"
-            data-class="<%= value %>"
-            data-value="<%= key %>">
-    <% end %>
+    {% for key, value in marks_types.items() %}
+        <li class="mark {{ value }}"
+            data-class="{{ value }}"
+            data-value="{{ key }}">
+    {% endfor %}
   </ul>
 </div>

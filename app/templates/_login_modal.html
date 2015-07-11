@@ -1,0 +1,45 @@
+<!-- login modal -->
+<div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Вход</h2>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url_for("security.login") }}">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name_or_email" value="">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" value="">
+                    </div>
+                    <button type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / login modal -->
+<div id="enter-button-area">
+    {% if not is_logged %}
+        <a data-target="#login-modal" data-toggle="modal" id="enter-button">
+            <span class="fa fa-sign-in"></span>
+        </a>
+    {% else %}
+        <a id="enter-button" href="{{ url_for("security.logout") }}">
+            <span class="fa fa-sign-out">{{ user.email }}</span>
+        </a>
+    {% endif %}
+</div>
+
+<script>
+
+    {#    $(document).on("load:complete", function () {#}
+    {#        $("#login-modal form").get(0).action = login_path + "?next=" + window.location;#}
+    {#        <% unless current_user.nil? %>#}
+    {#        $("#enter-button").get(0).href = "<%= url_for :logout %>?next=" + window.location;#}
+    {#        <% end  %>#}
+    {#    });#}
+</script>

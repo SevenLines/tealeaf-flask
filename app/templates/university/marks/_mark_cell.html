@@ -1,15 +1,13 @@
-<td>
-    <div class="t-cell mark {{ lesson.style }} {{ students_marks[student.id]['marks'][lesson.id].style }}">
-    </div>
-</td>
-{#<% else %>#}
-{#    <td>#}
-{#      <div data-value="<%= @lms[student][lesson].value %>"#}
-{#           data-old-value="<%= @lms[student][lesson].value %>"#}
-{#           data-lesson="<%= lesson.id %>"#}
-{#           data-lesson-type="<%= Lesson::LESSON_TYPES[lesson.lesson_type][:cls] %>"#}
-{#           data-student="<%= student.id %>"#}
-{#           class="t-cell mark <%= @lms[student][lesson].style %> <%= lesson.style %>">#}
-{#      </div>#}
-{#    </td>#}
-{#<% end %>#}
+{% with mark=students_marks[student.id]['marks'][lesson.id] %}
+    <td>
+        <div {% if is_logged %}
+            data-value="{{ mark.value }}"
+            data-old-value="{{ mark.value }}"
+            data-lesson="{{ lesson.id }}"
+            data-lesson-type="{{ lesson.lesson_type }}"
+            data-student="{{ student.id }}"
+        {% endif %}
+            class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }}">
+        </div>
+    </td>
+{% endwith %}

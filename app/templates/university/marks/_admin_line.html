@@ -1,21 +1,24 @@
 <div class="form form-inline">
-  <select name="discipline" id="discipline" class="form-control load-on-change" onchange="disciplineChange(this)">
-   {% for d in disciplines %}
-        <option
-        {% if d == discipline %}selected{% endif %}
-        value="#">
-          {{ d.title }}
-        </option>
-    {% endfor %}
-  </select>
-      <div class="btn btn-success btn-save-marks">
+    <select name="discipline" id="discipline" class="form-control load-on-change" onchange="disciplineChange(this)">
+        {% for d in disciplines %}
+            <option
+                    {% if d == discipline %}selected{% endif %}
+                    value="#">
+                {{ d.title }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <div class="btn btn-success btn-save-marks">
         Сохранить
-      </div>
+    </div>
 </div>
-{% include "university/marks/_lesson_editor.html" %}
+{% if is_logged %}
+    {% include "university/marks/_lesson_editor.html" %}
+{% endif %}
 
 <script>
-{#    function disciplineChange(item) {#}
-{#        loadToContent(item.value, null, this);#}
-{#    }#}
+    function disciplineChange(item) {
+        loadToContent(item.value, null, this);
+    }
 </script>

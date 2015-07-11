@@ -48,7 +48,9 @@ function ScoreController() {
         });
     }
 
-    $(document).on("load:groups:complete", setScore);
-    $(document).on("load:groups:complete", setVisibleScore);
+    //$(document).on("load:groups:complete", setScore);
+    //$(document).on("load:groups:complete", setVisibleScore);
     $(".btn-students-score").on("click", scoreToggle);
+    setVisibleScore();
+    setScore();
 };

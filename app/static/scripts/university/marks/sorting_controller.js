@@ -63,5 +63,6 @@ function SortController() {
 
 	$(".btn-students-sorting").on("click", sortToggle);
     //console.log($(".btn-students-sorting"));
-	$(document).on("load:groups:complete", sort);
+	sort();
+	//$(document).on("load:groups:complete", sort);
 };

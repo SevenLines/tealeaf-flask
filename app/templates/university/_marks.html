@@ -44,7 +44,9 @@
     </div>
     <div class="clearfix"></div>
 </div>
-{% include "university/marks/_marks_selector.html" %}
+{% if is_logged %}
+    {% include "university/marks/_marks_selector.html" %}
+{% endif %}
 
 
 <script>
@@ -53,6 +55,8 @@
     new ScrollController();
     new ColorController();
     new TooltipsController();
-    new LessonEditorController();
-    new MarksEditorController();
+    {% if is_logged %}
+        new LessonEditorController();
+        new MarksEditorController();
+    {% endif %}
 </script>

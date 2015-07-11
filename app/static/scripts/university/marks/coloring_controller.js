@@ -21,5 +21,6 @@ function ColorController() {
         });
     }
 
-    $(document).on("load:groups:complete", setColors);
+    //$(document).on("load:groups:complete", setColors);
+    setColors();
 };

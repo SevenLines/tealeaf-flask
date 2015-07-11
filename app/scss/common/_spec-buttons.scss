@@ -4,13 +4,13 @@
   @include transition(0.3s);
 
   position: fixed;
-  right: -2em;
+  left: -2em;
   top: 0;
   padding: 40px;
-  padding-right: 0;
+  padding-left: 0;
 
   &:hover {
-    right: 0;
+    left: 0;
     #enter-button {
       background-color: $base_color;
       color: white;
@@ -25,7 +25,7 @@
   @include transition(0.3s);
   padding: 1em;
   cursor: pointer;
-  border-radius: 8px 0 0 8px;
+  border-radius: 0 8px 8px 0;
   color: white;
 }
 

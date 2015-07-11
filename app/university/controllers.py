@@ -80,6 +80,7 @@ class GroupMarksView(View):
             students=students,
             lessons=lessons,
             lesson_types=Lesson.LESSON_TYPES,
+            marks_types=Mark.MARKS,
             disciplines=disciplines.all(),
         )
 

@@ -36,7 +36,6 @@
 
 
         $(document).on("pjax:success", function (e, data, status, xhr, options) {
-            console.log(e);
             var target = e.relatedTarget;
 
             $(".menu").find(".groups>li, .main>li").removeClass("active");
