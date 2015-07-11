@@ -4,7 +4,7 @@
 /***
  * эта функция подключает управление формой отображения оценки баллы / проценты
  */
-$(function () {
+function ScoreController() {
     var scoringItems = [
         {cls: 'percents', title: "в процентах"},
         {cls: 'points', title: "в баллах"}
@@ -18,12 +18,12 @@ $(function () {
         return lastScoringIndex % scoringItems.length
     }
 
-    $(document).on("click", ".btn-students-score", function () {
+    function scoreToggle() {
         var lastVisibleScore = getVisibleScoreIndex();
         lastVisibleScore = (lastVisibleScore + 1) % scoringItems.length;
         $.cookie("score", lastVisibleScore, {expires: 100, path: '/'});
         setVisibleScore();
-    });
+    }
 
     function setVisibleScore() {
         var lastVisibleScore = getVisibleScoreIndex();
@@ -50,4 +50,5 @@ $(function () {
 
     $(document).on("load:groups:complete", setScore);
     $(document).on("load:groups:complete", setVisibleScore);
-});
+    $(".btn-students-score").on("click", scoreToggle);
+};

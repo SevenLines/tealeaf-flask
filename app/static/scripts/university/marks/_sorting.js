@@ -4,62 +4,65 @@
 /***
  * эта функция подключает сортировку оценок студентов по имени / цвете,
  */
-$(function () {
-    function sortFunctionByPoints(item1, item2) {
-        var value1 = $(item1).data("points");
-        var value2 = $(item2).data("points");
-        return value1 < value2 ? 1 : -1;
-    }
+function SortController() {
+	function sortFunctionByPoints(item1, item2) {
+		var value1 = $(item1).data("points");
+		var value2 = $(item2).data("points");
+		return value1 < value2 ? 1 : -1;
+	}
 
-    sortFunctionByPoints.title = "По цвету";
+	sortFunctionByPoints.title = "По цвету";
 
-    function sortFunctionByName(item1, item2) {
-        var value1 = $(item1).data("name");
-        var value2 = $(item2).data("name");
-        return value1 > value2 ? 1 : -1;
-    }
+	function sortFunctionByName(item1, item2) {
+		var value1 = $(item1).data("name");
+		var value2 = $(item2).data("name");
+		return value1 > value2 ? 1 : -1;
+	}
 
-    sortFunctionByName.title = "По имени";
+	sortFunctionByName.title = "По имени";
 
-    var sortingFunction = [
-        sortFunctionByPoints,
-        sortFunctionByName
-    ];
-
-
-    function getSortingIndex() {
-        var lastSortingIndex = parseInt($.cookie("sorting"));
-        if (isNaN(lastSortingIndex) || lastSortingIndex == undefined) {
-            lastSortingIndex = 0;
-        }
-        return lastSortingIndex % sortingFunction.length
-    }
+	var sortingFunction = [
+		sortFunctionByPoints,
+		sortFunctionByName
+	];
 
 
-    function sort() {
-        if (sortingFunction.length == 0) {
-            return;
-        }
+	function getSortingIndex() {
+		var lastSortingIndex = parseInt($.cookie("sorting"));
+		if (isNaN(lastSortingIndex) || lastSortingIndex == undefined) {
+			lastSortingIndex = 0;
+		}
+		return lastSortingIndex % sortingFunction.length
+	}
 
-        var lastSortingIndex = getSortingIndex();
 
-        var sortFunction = sortingFunction[lastSortingIndex];
+	function sort() {
+		if (sortingFunction.length == 0) {
+			return;
+		}
 
-        var $students = $(".s-table .t-content");
-        var $marks = $(".m-table .t-content");
+		var lastSortingIndex = getSortingIndex();
 
-        $students.find(".t-row").sort(sortFunction).appendTo($students);
-        $marks.find(".t-row").sort(sortFunction).appendTo($marks);
+		var sortFunction = sortingFunction[lastSortingIndex];
 
-        $(".btn-students-sorting .btn-text").html(sortingFunction[lastSortingIndex].title);
-    }
+		var $students = $(".s-table .t-content");
+		var $marks = $(".m-table .t-content");
 
-    $(document).on("click", ".btn-students-sorting", function () {
-        var lastSortingIndex = getSortingIndex();
-        lastSortingIndex = (lastSortingIndex + 1) % sortingFunction.length;
-        $.cookie("sorting", lastSortingIndex, {expires: 100, path: '/'});
-        sort();
-    });
+		$students.find(".t-row").sort(sortFunction).appendTo($students);
+		$marks.find(".t-row").sort(sortFunction).appendTo($marks);
 
-    $(document).on("load:groups:complete", sort);
-});
+		$(".btn-students-sorting .btn-text").html(sortingFunction[lastSortingIndex].title);
+	}
+
+	function sortToggle() {
+		console.log(this);
+		var lastSortingIndex = getSortingIndex();
+		lastSortingIndex = (lastSortingIndex + 1) % sortingFunction.length;
+		$.cookie("sorting", lastSortingIndex, {expires: 100, path: '/'});
+		sort();
+	}
+
+	$(".btn-students-sorting").on("click", sortToggle);
+    console.log($(".btn-students-sorting"));
+	$(document).on("load:groups:complete", sort);
+};

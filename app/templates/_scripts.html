@@ -34,11 +34,9 @@
             return false;
         });
 
-//        $(document).on("change", ".load-on-change", function () {
-//            loadToContent(this.value, null, this);
-//        });
 
         $(document).on("pjax:success", function (e, data, status, xhr, options) {
+            console.log(e);
             var target = e.relatedTarget;
 
             $(".menu").find(".groups>li, .main>li").removeClass("active");
@@ -52,6 +50,7 @@
 
             $(document).trigger("load:groups:complete");
             $(document).trigger("load:complete");
+
         });
 
         $(document).on("pjax:popstate", function (e) {

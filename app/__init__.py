@@ -17,6 +17,9 @@ security.init_app(app)
 admin.init_app(app)
 toolbar = DebugToolbarExtension(app)
 
+app.jinja_env.lstrip_blocks = True
+app.jinja_env.trim_blocks = True
+
 
 # Sample HTTP error handling
 @app.errorhandler(404)

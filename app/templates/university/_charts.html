@@ -1,0 +1,88 @@
+<div class="details">
+    <ul class="main">
+        <li>
+            <a href="/">
+                <div class="title">
+                    <i class="fa fa-pagelines"></i>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <ul class="groups full">
+        {% for group in groups %}
+            <li style="width:{{ menu_item_width }}%">
+                <a class="load-to-content" href="{{ url_for('university.group', group_id=group.id) }}">
+                    <canvas id="info-canvas{{ group.id }}-gender" class="info">
+                    </canvas>
+                    <canvas id="info-canvas{{ group.id }}-score" class="info">
+                    </canvas>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    setTimeout(function () {
+        var ctx;
+
+        Chart.defaults.global.animation = false;
+        colors = [
+            "#cef08a",
+            "#cfeb47",
+            "#9cb814",
+            "#758a0f",
+            "#4e5b0b",
+            "#3a4408"
+        ];
+
+        titles = [
+            'нормально',
+            'хорошо',
+            'отлично',
+            'замечательно',
+            'прекрасно',
+            'невероятно'
+        ];
+
+        $(function () {
+            {% for group in groups %}
+                data = [
+                    {
+                        value: {{ group.girls.count() }},
+                        color: "#FC5B9E",
+
+                        label: "Девушки"
+                    },
+                    {
+                        value: {{ group.boys.count() }},
+                        color: "#46BFBD",
+                        label: "Юноши"
+                    }
+                ];
+
+                element = document.getElementById("info-canvas{{ group.id }}-gender");
+                ctx = element.getContext("2d");
+                new Chart(ctx).PolarArea(data);
+
+
+                data = [
+                        {% for score in range(1, 7) %}{
+                            value: {{ group.marks(score).count() }},
+                            color: colors[{{ score-1 }}],
+                            highlight: "white",
+                            label: titles[{{ score-1 }}]
+                            },
+                        {% endfor %}
+                ];
+
+                element = document.getElementById("info-canvas{{ group.id }}-score");
+                ctx = element.getContext("2d");
+                ctx.clearRect(0, 0, element.width, element.height);
+                new Chart(ctx).Doughnut(data);
+            {% endfor %}
+        });
+    }, 0);
+
+
+</script>

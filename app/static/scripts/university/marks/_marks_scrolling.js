@@ -4,7 +4,7 @@
 /***
  * эта функция подключает скроллинг таблицы оценок мышью
  */
-$(function () {
+function ScrollController() {
     var containerMoved = false;
     (function () {
 
@@ -41,4 +41,4 @@ $(function () {
             }
         });
     })();
-});
+};

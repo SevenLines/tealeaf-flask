@@ -9,25 +9,32 @@ from app.university.models import *
 
 class IndexView(View):
     def dispatch_request(self):
-        return render_template('university/index.html')
+        template = "university/index.html"
+        if request.headers.get('X-Pjax', None):
+            template = "university/_charts.html"
+        return render_template(template)
 
 
-class GroupView(View):
-    def dispatch_request(self, group_id):
-        group = Group.query.get(group_id)
-        discipline_id = request.cookies.get('discipline_id', None)
-        if not discipline_id:
-            discipline_id = Discipline.query.first().id
-        return redirect(url_for("university.group_marks", group_id=group.id, discipline_id=discipline_id))
-
+# class GroupView(View):
+#     def dispatch_request(self, group_id):
+#         group = Group.query.get(group_id)
+#         discipline_id = request.cookies.get('discipline_id', None)
+#         if not discipline_id:
+#             discipline_id = Discipline.query.first().id
+#         return redirect(url_for("university.group_marks", group_id=group.id, discipline_id=discipline_id))
+#
 
 class GroupMarksView(View):
     """
     renders marks table for specified discipline and group
     """
 
-    def dispatch_request(self, group_id, discipline_id):
+    def dispatch_request(self, group_id, discipline_id=None):
         group = Group.query.get(group_id)
+
+        discipline_id = request.cookies.get('discipline_id', None)
+        if not discipline_id:
+            discipline_id = Discipline.query.first().id
 
         if current_user_is_logged():
             disciplines = Discipline.query
@@ -61,8 +68,12 @@ class GroupMarksView(View):
                 students_marks[student.id]['points'] = points
                 students_marks[student.id]['percents'] = percents
 
+        template = "university/group.html"
+        if request.headers.get('X-Pjax', None):
+            template = "university/_marks.html"
+
         return render_template(
-            "university/group.html",
+            template,
             group=group,
             discipline=discipline,
             students_marks=students_marks,
@@ -74,5 +85,7 @@ class GroupMarksView(View):
 
 
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
-university.add_url_rule('/g/<int:group_id>/', view_func=GroupView.as_view('group'))
-university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/', view_func=GroupMarksView.as_view('group_marks'))
+university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
+university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
+                        view_func=GroupMarksView.as_view('group_marks'),
+                        defaults={'discipline_id': None})

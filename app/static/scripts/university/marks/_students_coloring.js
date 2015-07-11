@@ -4,7 +4,7 @@
 /***
  * эта функция раскрашивает строки студентов в соответствующие цвета
  */
-$(function () {
+function ColorController() {
     function setColors() {
         var $rows = $(".s-table .t-content .t-row ");
         $rows.each(function (item) {
@@ -22,4 +22,4 @@ $(function () {
     }
 
     $(document).on("load:groups:complete", setColors);
-});
+};

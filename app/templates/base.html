@@ -35,13 +35,12 @@
         </a>
       </li>
     </ul>
-
     <ul class="groups">
-      {% for group in groups %}
-          <li data-title="{{ group.title }}" class="nav-group{{ group.id }}" style="width:{{ menu_item_width }}%">
-            <a class="load-to-content" href="{{ url_for('university.group', group_id=group.id) }}">
+      {% for g in groups %}
+          <li data-title="{{ g.title }}" class="nav-group{{ g.id }} {% if group and g.id == group.id %}active{% endif %}" style="width:{{ menu_item_width }}%">
+            <a class="load-to-content" href="{{ url_for('university.group', group_id=g.id) }}">
               <div class="title">
-                {{ group.title }}
+                {{ g.title }}
               </div>
             </a>
           </li>

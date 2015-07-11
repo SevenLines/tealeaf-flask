@@ -1,7 +1,7 @@
 /**
  * Created by m on 29.06.15.
  */
-(function () {
+function MarksEditorController() {
 
     var last_offset = {
         left: 0,
@@ -14,7 +14,7 @@
 
     function saveMarks() {
         var data_to_save = [];
-        $(marks_selector+".modified").each(function (index, item) {
+        $(marks_selector + ".modified").each(function (index, item) {
             value = $(item).data("value");
             student = $(item).data("student");
             lesson = $(item).data("lesson");
@@ -103,4 +103,4 @@
     $(document).on("click", "#mark-selector li", markSelectorItemChoose);
     $(document).on("click", "#marks-editor .admin-line .btn-save-marks", saveMarks);
 
-})();
+};
