@@ -6,7 +6,7 @@
  */
 function ColorController() {
     function setColors() {
-        var $rows = $(".s-table .t-content .t-row ");
+        var $rows = $(".s-table .t-content .t-row");
         $rows.each(function (item) {
             var percents = $(this).data("percents");
             var $info = $(this).find(".info");

@@ -14,8 +14,8 @@ function SortController() {
 	sortFunctionByPoints.title = "По цвету";
 
 	function sortFunctionByName(item1, item2) {
-		var value1 = $(item1).data("name");
-		var value2 = $(item2).data("name");
+		var value1 = $(item1).data("second-name");
+		var value2 = $(item2).data("second-name");
 		return value1 > value2 ? 1 : -1;
 	}
 

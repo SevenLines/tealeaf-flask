@@ -6,11 +6,14 @@
                  data-html="true"
                  data-placement="bottom"
                  rel="tooltip"
+                    {% if is_logged %}
+                 data-id="{{ lesson.id }}"
                  data-description="{{ lesson.description }}"
                  data-lesson-type="{{ lesson.lesson_type }}"
                  data-style="{{ lesson.style }}"
                  data-date="{{ lesson.date.isoformat() }}"
                  data-score-ignore="{{ lesson.score_ignore }}"
+                    {% endif %}
                  data-original-title="{{ lesson.description }}">
                 <span>{{ lesson.date.strftime('%d') }}</span>
             </div>

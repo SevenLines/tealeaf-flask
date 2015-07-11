@@ -100,7 +100,6 @@ function MarksEditorController() {
     }
 
     $(marks_selector).on("click", showMarkSelector);
-    $("#mark-selector").find("li").on("click", markSelectorItemChoose);
-    $("#marks-editor").find(".admin-line .btn-save-marks").on("click", saveMarks);
+
 
 };

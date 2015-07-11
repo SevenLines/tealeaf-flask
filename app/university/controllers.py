@@ -1,6 +1,6 @@
-from flask import render_template, request, redirect, url_for
-from flask.ext.login import current_user, login_url
-from flask.views import View
+from flask import render_template, request, redirect, url_for, Response
+from flask.ext.login import current_user, login_url, login_required
+from flask.views import View, MethodView
 from app.security import current_user_is_logged
 
 from app.university import university
@@ -14,15 +14,6 @@ class IndexView(View):
             template = "university/_charts.html"
         return render_template(template)
 
-
-# class GroupView(View):
-#     def dispatch_request(self, group_id):
-#         group = Group.query.get(group_id)
-#         discipline_id = request.cookies.get('discipline_id', None)
-#         if not discipline_id:
-#             discipline_id = Discipline.query.first().id
-#         return redirect(url_for("university.group_marks", group_id=group.id, discipline_id=discipline_id))
-#
 
 class GroupMarksView(View):
     """
@@ -51,7 +42,8 @@ class GroupMarksView(View):
         # fetch all data from database, form marks table
         students = group.students.all()
         students_marks = {}
-        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline_id).order_by(Lesson.date).all()
+        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline_id).order_by(
+            Lesson.date).all()
         for student in students:
             students_marks[student.id] = {
                 'marks': {}
@@ -85,7 +77,24 @@ class GroupMarksView(View):
         )
 
 
+class SaveMarks(MethodView):
+    @login_required
+    def post(self):
+        marks = request.get_json()
+        for mark in marks:
+            m = Mark.query.filter(Mark.student_id == mark['student_id'], Mark.lesson_id == mark['lesson_id']).first()
+            if m is None:
+                m = Mark(
+                    student_id=mark['student_id'],
+                    lesson_id=mark['lesson_id']
+                )
+                db.session.add(m)
+            m.value = mark['value']
+        db.session.commit()
+        return Response()
+
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
+university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'), methods=['POST',])
 university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
 university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
                         view_func=GroupMarksView.as_view('group_marks'))
