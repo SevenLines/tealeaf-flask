@@ -93,7 +93,7 @@ var LessonEditorView = Backbone.View.extend({
                 "description": this.el.description.value,
                 "lesson_type": this.el.lesson_type.value,
                 "style": this.styles[this.el.lesson_type.value],
-                "score_ignore": this.el.description.checked,
+                "score_ignore": this.el.score_ignore.checked,
                 "date": this.el.date.value
             });
         }

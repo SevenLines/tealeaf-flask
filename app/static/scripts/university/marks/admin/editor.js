@@ -80,9 +80,10 @@ function EditorController(options) {
                 style: data.style,
                 description: data.description,
                 lesson_type: data.lessonType,
-                score_ignore: data.score_ignore == "True",
+                score_ignore: data.scoreIgnore == "True",
                 "update-lesson": data.updateLesson
             });
+
             new LessonView({
                 model: lesson,
                 el: item
