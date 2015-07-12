@@ -8,6 +8,7 @@ Flask-admin
 Flask-Migrate
 Flask-Security
 flask-debugtoolbar
+Flask-Testing
 
 
 psycopg2

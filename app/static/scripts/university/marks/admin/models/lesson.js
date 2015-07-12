@@ -23,7 +23,8 @@ var LessonEditorView = Backbone.View.extend({
 
         $(this.el.date).datetimepicker({
             inline: true,
-            format: "YYYY-MM-DD"
+            format: "YYYY-MM-DD",
+            locale: 'ru'
         });
 
         var that = this;

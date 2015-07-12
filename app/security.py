@@ -1,6 +1,7 @@
 from flask.ext.login import LoginManager, current_user
 from flask.ext.security import RoleMixin, UserMixin, SQLAlchemyUserDatastore, Security
 from sqlalchemy import event
+from app.load_app import app
 from app.models import db, BaseMixin
 
 login_manager = LoginManager()
@@ -49,4 +50,4 @@ event.listen(User, 'before_insert', User.before_insert)
 event.listen(User, 'before_update', User.before_update)
 
 user_data_store = SQLAlchemyUserDatastore(db, User, Role)
-security = Security(datastore=user_data_store)
+security = Security(app, datastore=user_data_store)

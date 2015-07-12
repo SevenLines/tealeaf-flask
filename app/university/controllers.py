@@ -1,9 +1,10 @@
-from flask import render_template, request, redirect, url_for, Response
+from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import current_user, login_url, login_required
 from flask.views import View, MethodView
 from app.security import current_user_is_logged
 
 from app.university import university
+from app.university.forms import LessonEditForm
 from app.university.models import *
 
 
@@ -93,8 +94,26 @@ class SaveMarks(MethodView):
         db.session.commit()
         return Response()
 
+
+@university.route('/lesson/<int:lesson_id>/', methods=['POST',])
+@login_required
+def update_lesson(lesson_id):
+    lesson = Lesson.query.get(lesson_id)
+    if not lesson:
+        abort(404)
+
+    form = LessonEditForm(request.form, lesson)
+    if form.validate():
+        form.populate_obj(lesson)
+        lesson.update()
+        return Response()
+
+    return Response(status=400)
+
+
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
-university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'), methods=['POST',])
+university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'), methods=['POST', ])
+
 university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
 university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
                         view_func=GroupMarksView.as_view('group_marks'))
