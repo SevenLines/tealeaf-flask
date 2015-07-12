@@ -60,15 +60,11 @@
     new ScrollController();
     new ColorController();
     new TooltipsController();
-    new EditorController({
-        urls: {
-            save_marks: "{{ url_for("university.save_marks") }}",
-        }
-    });
-    {#    {% if is_logged %}#}
-    {#        new LessonEditorController();#}
-    {#        new MarksEditorController();#}
-    {#    {% endif %}#}
-
-
+    {% if is_logged %}
+        new EditorController({
+            urls: {
+                save_marks: "{{ url_for("university.save_marks") }}",
+            }
+        });
+    {% endif %}
 </script>
