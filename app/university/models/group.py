@@ -13,7 +13,7 @@ class Group(BaseMixin, db.Model):
     students = db.relationship("Student", backref='group', lazy='dynamic')
 
     def __repr__(self):
-        return u"<Group(title={title:s}, year={year:d}>".format(**self.__dict__).encode("utf8")
+        return u"<Group(title={title:s}, year={year:d})>".format(**self.__dict__).encode("utf-8")
 
     @classmethod
     def active_groups(cls):
