@@ -3,6 +3,7 @@ from flask import render_template
 
 from flask.ext.assets import Environment, ManageAssets
 from flask.ext.script import Manager
+from flask.ext.wtf import CsrfProtect
 from app.admin import admin
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -26,6 +27,7 @@ def page_not_found(e):
 
 
 def init_app():
+    CsrfProtect(app)
     toolbar = DebugToolbarExtension(app)
 
     app.jinja_env.lstrip_blocks = True

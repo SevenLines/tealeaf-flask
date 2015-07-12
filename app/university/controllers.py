@@ -1,3 +1,4 @@
+from pprint import pprint, pformat
 from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import current_user, login_url, login_required
 from flask.views import View, MethodView
@@ -156,12 +157,12 @@ def create_lesson():
     if form.validate_on_submit():
         lesson = Lesson()
         form.populate_obj(lesson)
-        lesson = lesson.create()
+        lesson.save()
 
         cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
         return Response()
 
-    return Response(form.errors, status=400)
+    return Response(pformat(form.errors), status=400)
 
 
 university.add_url_rule('/', view_func=IndexView.as_view('index'))

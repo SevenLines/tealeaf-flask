@@ -77,11 +77,15 @@ function EditorController(options) {
             var lesson = new Lesson({
                 id: data.id,
                 date: data.date,
+                group_id: data.group_id,
+                discipline_id: data.discipline_id,
                 style: data.style,
-                description: data.description,
-                lesson_type: data.lessonType,
+                description: data.description || "",
+                lesson_type: data.lessonType || 1,
                 score_ignore: data.scoreIgnore == "True",
-                "update-lesson": data.updateLesson
+                "update-lesson": data.updateLesson,
+                "delete-lesson": data.deleteLesson,
+                "create-lesson": data.createLesson
             });
 
             new LessonView({

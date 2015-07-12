@@ -5,6 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta content='Ому' name='apple-mobile-web-app-title'>
     <meta content='Ому' name='description'/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ому</title>
     {% assets filters="yui_js", output="build/scripts/main.js",
         "3rdparty/jquery/dist/jquery.min.js",
@@ -36,7 +37,7 @@
         "scripts/university/marks/admin/models/lesson.js",
         "scripts/university/marks/admin/models/mark.js",
         "scripts/university/marks/admin/editor.js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
         {% endassets %}
     {% endif %}
 

@@ -190,5 +190,4 @@ class TestMarksApi(TestCaseBase):
         self.assert200(response)
         self.assertEqual(self.mark.value, 2)
         self.assertEqual(Mark.query.filter(Mark.student_id == self.student.id,
-                                           Mark.lesson_id == self.lesson2.id).first().value,
-                         3)
+                                           Mark.lesson_id == self.lesson2.id).first().value, 3)
