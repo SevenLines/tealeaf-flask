@@ -19,10 +19,8 @@ def build_assets():
             local("git commit -a -m 'build assets'")
         except:
             pass
-    except BaseException as e:
+    finally:
         local("git checkout develop")
-        raise e
-
 
 def deploy():
     build_assets()
