@@ -5,7 +5,7 @@ from flask.ext.login import logout_user
 from flask.ext.security.utils import encrypt_password, login_user
 from flask.ext.security.views import login, logout
 from flask.ext.testing import TestCase
-from app import db, init_app
+from app import db, init_app, cache
 
 from app.load_app import app
 from app.security import security, User
@@ -28,6 +28,7 @@ class TestCaseBase(TestCase):
         return app
 
     def setUp(self):
+        cache.clear()
         db.init_app(app)
         db.create_all()
         self.user = User.create(email="m", name="m", password=encrypt_password("m"), active=True)

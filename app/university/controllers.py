@@ -5,7 +5,7 @@ from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
-from app.university.forms import LessonEditForm
+from app.university.forms import LessonEditForm, LessonCreateForm
 from app.university.models import *
 
 
@@ -129,15 +129,39 @@ def update_lesson(lesson_id):
     lesson = Lesson.query.get_or_404(lesson_id)
 
     form = LessonEditForm(request.form, lesson)
-    if form.validate():
+    if form.validate_on_submit():
         form.populate_obj(lesson)
         lesson.update()
         cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
         return Response()
 
-    # reset cache
-
     return Response(status=400)
+
+
+@university.route('/lesson/<int:lesson_id>/', methods=['DELETE', ])
+@login_required
+def delete_lesson(lesson_id):
+    lesson = Lesson.query.get_or_404(lesson_id)
+
+    cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
+
+    lesson.delete()
+    return Response()
+
+
+@university.route('/lesson/', methods=['POST', ])
+@login_required
+def create_lesson():
+    form = LessonCreateForm(request.form)
+    if form.validate_on_submit():
+        lesson = Lesson()
+        form.populate_obj(lesson)
+        lesson = lesson.create()
+
+        cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
+        return Response()
+
+    return Response(form.errors, status=400)
 
 
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
