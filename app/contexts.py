@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask.ext.login import current_user
 from flask.ext.security.forms import LoginForm
 from app.load_app import app
@@ -22,6 +23,12 @@ def inject_login_form():
         }
     return {}
 
+
+@app.context_processor
+def inject_now():
+    return {
+        "now": datetime.now()
+    }
 
 @app.context_processor
 def inject_user():

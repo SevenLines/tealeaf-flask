@@ -13,18 +13,41 @@ var Lesson = Backbone.Model.extend({
             date: this.get('date'),
             description: this.get('description'),
             lesson_type: this.get('lesson_type'),
-            score_ignore: this.get('score_ignore')
+            score_ignore: this.get('score_ignore'),
+            discipline_id: this.get('discipline_id'),
+            group_id: this.get('group_id'),
+        }
+    },
+
+    remove: function () {
+        if (this.id) {
+            $.ajax({
+                url: this.get("delete-lesson"),
+                method: "DELETE"
+            }).done(function () {
+                loadToContent(window.location);
+            });
         }
     },
 
     save: function () {
-        $.ajax({
-            url: this.get("update-lesson"),
-            data: this.toJSON(),
-            method: "POST"
-        }).done(function () {
-            loadToContent(window.location);
-        });
+        if (this.id) {
+            $.ajax({
+                url: this.get("update-lesson"),
+                data: this.toJSON(),
+                method: "POST"
+            }).done(function () {
+                loadToContent(window.location);
+            });
+        } else {
+            $.ajax({
+                url: this.get("create-lesson"),
+                data: this.toJSON(),
+                method: "POST"
+            }).done(function () {
+                loadToContent(window.location);
+            });
+        }
     }
 });
 
@@ -35,6 +58,7 @@ var LessonEditorView = Backbone.View.extend({
         "change select": "changed",
         "input textarea": "changed",
         "click .save": "save",
+        "click .delete": "remove",
         "dp.change": "changed"
     },
 
@@ -63,6 +87,13 @@ var LessonEditorView = Backbone.View.extend({
         e.preventDefault();
         if (this.lastLessonView) {
             this.lastLessonView.model.save();
+        }
+    },
+
+    remove: function (e) {
+        e.preventDefault();
+        if (this.lastLessonView) {
+            this.lastLessonView.model.remove();
         }
     },
 
@@ -126,6 +157,7 @@ var LessonEditorView = Backbone.View.extend({
         }
 
         this.lastLessonView = lesson_view;
+        console.log(this.lastLessonView);
 
         var lessonEditorWidth = this.$el.width();
 

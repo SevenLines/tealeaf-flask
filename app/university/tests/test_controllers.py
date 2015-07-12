@@ -120,6 +120,47 @@ class TestLessonApi(TestCaseBase):
 
         self.assert400(response)
 
+    @TestCaseBase.guest_cant
+    def test_guest_cant_delete_lesson(self):
+        lesson = Lesson.create()
+        return self.client.delete(url_for("university.delete_lesson", lesson_id=lesson.id))
+
+    @TestCaseBase.login
+    def test_user_can_delete_lesson(self):
+        lesson = Lesson.create()
+        response = self.client.delete(url_for("university.delete_lesson", lesson_id=lesson.id))
+
+        self.assertIsNone(Lesson.get(lesson.id))
+
+        self.assert200(response)
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_create_lesson(self):
+        return self.client.post(url_for("university.create_lesson"))
+
+    @TestCaseBase.login
+    def test_user_can_create_lesson(self):
+        discipline = Discipline.create()
+        group = Group.create()
+
+        data = {
+            'desription': 'description',
+            'date': '2015-07-13',
+            'lesson_type': Lesson.LESSON_TYPE_EXAM,
+
+        }
+
+        response = self.client.post(url_for("university.create_lesson"), data=data)
+        self.assert400(response, "make sure that you cant create lesson without discipline and group")
+
+        data.update({
+            'discipline_id': discipline.id,
+            'group_id': group.id,
+        })
+
+        response = self.client.post(url_for("university.create_lesson"), data=data)
+        self.assert200(response)
+
 
 class TestMarksApi(TestCaseBase):
     def setUp(self):
@@ -149,5 +190,4 @@ class TestMarksApi(TestCaseBase):
         self.assert200(response)
         self.assertEqual(self.mark.value, 2)
         self.assertEqual(Mark.query.filter(Mark.student_id == self.student.id,
-                                           Mark.lesson_id == self.lesson2.id).first().value,
-                         3)
+                                           Mark.lesson_id == self.lesson2.id).first().value, 3)

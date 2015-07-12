@@ -10,10 +10,13 @@
                  data-id="{{ lesson.id }}"
                  data-description="{{ lesson.description }}"
                  data-lesson-type="{{ lesson.lesson_type }}"
+                 data-discipline_id="{{ lesson.discipline_id }}"
+                 data-group_id="{{ lesson.group_id }}"
                  data-style="{{ lesson.style }}"
-                 data-date="{{ lesson.date.isoformat() }}"
+                 data-date="{{ lesson.date.strftime("%Y-%m-%d") }}"
                  data-score-ignore="{{ lesson.score_ignore }}"
                  data-update-lesson="{{ url_for("university.update_lesson", lesson_id=lesson.id) }}"
+                 data-delete-lesson="{{ url_for("university.delete_lesson", lesson_id=lesson.id) }}"
                     {% endif %}
                  data-original-title="{{ lesson.description }}">
                 <span class="label">{{ lesson.date.strftime('%d') if lesson.date else "" }}</span>
@@ -21,8 +24,13 @@
         </td>
     {% endfor %}
     <td>
-        <div class="mark t-cell t-cell-head">
-            <div class="btn-add">+</div>
+        <div class="mark t-cell t-cell-head"
+             data-create-lesson="{{ url_for("university.create_lesson") }}"
+             data-discipline_id="{{ discipline.id }}"
+             data-group_id="{{ group.id }}"
+             data-date="{{ now.strftime("%Y-%m-%d") }}"
+                >
+            <span class="btn-add">+</span>
         </div>
     </td>
 </tr>
