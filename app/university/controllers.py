@@ -1,11 +1,19 @@
 from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import current_user, login_url, login_required
 from flask.views import View, MethodView
+from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
 from app.university.forms import LessonEditForm
 from app.university.models import *
+
+
+def cache_key_for_students_marks(group_id, discipline_id):
+    return "cache|group:{group_id}|discipline:{discipline_id}".format(
+        group_id=group_id,
+        discipline_id=discipline_id
+    )
 
 
 class IndexView(View):
@@ -22,7 +30,7 @@ class GroupMarksView(View):
     """
 
     def dispatch_request(self, group_id, discipline_id=None):
-        group = Group.query.get(group_id)
+        group = Group.query.get_or_404(group_id)
 
         if not discipline_id:
             discipline_id = request.cookies.get('discipline_id', None)
@@ -44,26 +52,36 @@ class GroupMarksView(View):
         if not discipline and not current_user_is_logged():
             return redirect(url_for('security.login', next=request.path))
 
-        # fetch all data from database, form marks table
-        students = group.students.all()
-        students_marks = {}
-        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline_id).order_by(
-            Lesson.date).all()
-        for student in students:
-            students_marks[student.id] = {
-                'marks': {}
-            }
-            for lesson in lessons:
-                students_marks[student.id]['marks'][lesson.id] = None
+        def make_cache_key():
+            return cache_key_for_students_marks(group.id, discipline.id)
 
-        marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
-        for m in marks:
-            students_marks[m.student_id]['marks'][m.lesson_id] = m
+        @cache.cached(key_prefix=make_cache_key)
+        def get_student_marks(group, discipline):
+            # fetch all data from database, form marks table
+            students_marks = {}
 
-        for student in students:
-            points, percents = student.points(students_marks[student.id]['marks'], lessons)
-            students_marks[student.id]['points'] = points
-            students_marks[student.id]['percents'] = percents
+            students = group.students.all()
+            lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline.id) \
+                .order_by(Lesson.date).all()
+
+            for student in students:
+                students_marks[student.id] = {
+                    'marks': {}
+                }
+                for lesson in lessons:
+                    students_marks[student.id]['marks'][lesson.id] = None
+
+            marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
+            for m in marks:
+                students_marks[m.student_id]['marks'][m.lesson_id] = m
+
+            for student in students:
+                points, percents = student.points(students_marks[student.id]['marks'], lessons)
+                students_marks[student.id]['points'] = points
+                students_marks[student.id]['percents'] = percents
+            return students, lessons, students_marks
+
+        students, lessons, students_marks = get_student_marks(group, discipline)
 
         template = "university/group.html"
         if request.headers.get('X-Pjax', None):
@@ -95,22 +113,29 @@ class SaveMarks(MethodView):
                 )
                 db.session.add(m)
             m.value = mark['value']
+
+        # reset cache
+        for lesson in Lesson.query.filter(Lesson.id.in_([m['lesson_id'] for m in marks])).all():
+            cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
+
         db.session.commit()
+
         return Response()
 
 
 @university.route('/lesson/<int:lesson_id>/', methods=['POST', ])
 @login_required
 def update_lesson(lesson_id):
-    lesson = Lesson.query.get(lesson_id)
-    if not lesson:
-        abort(404)
+    lesson = Lesson.query.get_or_404(lesson_id)
 
     form = LessonEditForm(request.form, lesson)
     if form.validate():
         form.populate_obj(lesson)
         lesson.update()
+        cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
         return Response()
+
+    # reset cache
 
     return Response(status=400)
 

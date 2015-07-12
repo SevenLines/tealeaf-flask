@@ -5,6 +5,7 @@ Flask-login
 Flask-testing
 Flask-Assets
 Flask-admin
+Flask-cache
 Flask-Migrate
 Flask-Security
 flask-debugtoolbar

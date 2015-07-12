@@ -8,10 +8,11 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from app.contexts import *
 from app.logs import *
+from app.cache import *
 from load_app import app
 from app.security import security
 from app.models import db
-
+from app.university import university
 
 # Sample HTTP error handling
 @app.errorhandler(404)
@@ -29,13 +30,12 @@ def init_app():
 
     app.jinja_env.lstrip_blocks = True
     app.jinja_env.trim_blocks = True
+
     # webassets
     assets_env = Environment(app)
 
     # Import a module / component using its blueprint handler variable (mod_auth)
     # from app.mod_auth.controllers import mod_auth as auth_module
-    from app.university import university
 
     # Register blueprint(s)
     app.register_blueprint(university)
-
