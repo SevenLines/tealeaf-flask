@@ -24,13 +24,13 @@ var MarksCollection = Backbone.Collection.extend({
             return item.is_changed();
         }));
 
-         $.ajax({
-             url: this.urls.save_marks,
-             data: JSON.stringify(changed.toJSON()),
-             method: "POST",
-             contentType: "application/json; charset=utf-8",
-             dataType: "json"
-         });
+        $.ajax({
+            url: this.urls.save_marks,
+            data: JSON.stringify(changed.toJSON()),
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        });
 
         changed.forEach(function (mark) {
             mark.reset();
@@ -56,10 +56,15 @@ var MarksCollectionSaveButton = Backbone.View.extend({
 
 
 function EditorController(options) {
-    //console.log(options);
     var lessons = new LessonsCollection([], options);
     var students = new StudentsCollection([], options);
     var marks = new MarksCollection([], options);
+
+    var lessonEditor = new LessonEditorView({
+        el: "#lesson-editor"
+    });
+
+
     new MarksCollectionSaveButton({
         collection: marks,
         el: ".btn-save-marks"
@@ -76,6 +81,12 @@ function EditorController(options) {
                 description: data.description,
                 lesson_type: data.lessonType,
                 score_ignore: data.score_ignore == "True"
+            });
+            new LessonView({
+                model: lesson,
+                el: item
+            }, {
+                lessonEditor: lessonEditor
             });
             lessons.add(lesson);
         });

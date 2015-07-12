@@ -31,10 +31,41 @@ var last_offset = {
 };
 
 
+// copypaste from python version
+var MARK_BASE = 0;
+var MARK_SPECIAL = 1000;
+
+var MARK_BLACK_HOLE = MARK_BASE - (MARK_SPECIAL + 1);
+var MARK_ABSENT = MARK_BASE - 2;
+var MARK_EMPTY = MARK_BASE;
+var MARK_NORMAL = MARK_BASE + 1;
+var MARK_GOOD = MARK_BASE + 2;
+var MARK_EXCELLENT = MARK_BASE + 3;
+var MARK_AWESOME = MARK_BASE + 4;
+var MARK_FANTASTIC = MARK_BASE + 5;
+var MARK_INCREDIBLE = MARK_BASE + 6;
+var MARK_SHINING = MARK_BASE + (MARK_SPECIAL + 1);
+var MARK_MERCY = MARK_BASE + (MARK_SPECIAL + 2);
+var MARK_KEEP = MARK_BASE + (MARK_SPECIAL + 3);
+
+mark_styles = {};
+mark_styles[MARK_BLACK_HOLE] = 'black-hole';
+mark_styles[MARK_ABSENT] = 'absent';
+mark_styles[MARK_EMPTY] = 'empty';
+mark_styles[MARK_NORMAL] = 'normal';
+mark_styles[MARK_GOOD] = 'good';
+mark_styles[MARK_EXCELLENT] = 'excellent';
+mark_styles[MARK_AWESOME] = 'awesome';
+mark_styles[MARK_FANTASTIC] = 'fantastic';
+mark_styles[MARK_INCREDIBLE] = 'incredible';
+mark_styles[MARK_SHINING] = 'shining';
+mark_styles[MARK_MERCY] = 'mercy';
+
 var MarkView = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this, "render");
-        this.model.bind('change', this.render);
+        this.model.on('change', this.render);
+        this.model.get("lesson").on("change:style", this.render);
     },
 
     events: {
@@ -47,7 +78,7 @@ var MarkView = Backbone.View.extend({
             "t-cell",
             "mark",
             this.model.get("lesson").get("style"),
-            this.new_style,
+            mark_styles[this.model.get("value")],
             this.model.is_changed() ? "modified" : ""
         ].join(" "));
         return this;
