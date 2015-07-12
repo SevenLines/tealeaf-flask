@@ -25,7 +25,6 @@ def page_not_found(e):
 
 
 def init_app():
-    admin.init_app(app)
     toolbar = DebugToolbarExtension(app)
 
     app.jinja_env.lstrip_blocks = True

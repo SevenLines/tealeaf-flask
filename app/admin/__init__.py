@@ -6,6 +6,7 @@ from flask.ext.admin.contrib.sqla.view import ModelView
 from flask.ext.login import current_user
 from flask.ext.security.decorators import roles_required
 from werkzeug.utils import redirect
+from app.load_app import app
 from app.models import db
 from app.security import User, Role
 
@@ -34,6 +35,6 @@ class BaseModelView(sqla.ModelView):
                 return redirect(url_for('security.login', next=request.url))
 
 
-admin = Admin(name=u"Админка")
+admin = Admin(app, name=u"Админка")
 admin.add_view(BaseModelView(User, db.session))
 admin.add_view(BaseModelView(Role, db.session))

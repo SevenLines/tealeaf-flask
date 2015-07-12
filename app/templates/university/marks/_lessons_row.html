@@ -15,7 +15,7 @@
                  data-score-ignore="{{ lesson.score_ignore }}"
                     {% endif %}
                  data-original-title="{{ lesson.description }}">
-                <span>{{ lesson.date.strftime('%d') }}</span>
+                <span>{{ lesson.date.strftime('%d') if lesson.date else "" }}</span>
             </div>
         </td>
     {% endfor %}

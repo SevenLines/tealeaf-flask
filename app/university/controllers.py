@@ -27,7 +27,11 @@ class GroupMarksView(View):
         if not discipline_id:
             discipline_id = request.cookies.get('discipline_id', None)
             if not discipline_id:
-                discipline_id = Discipline.query.first().id
+                discipline = Discipline.query.first()
+                if discipline:
+                    discipline_id = discipline.id
+                else:
+                    return redirect(url_for("university.index"))
 
         if current_user_is_logged():
             disciplines = Discipline.query
@@ -38,7 +42,7 @@ class GroupMarksView(View):
 
         # if not discipline and user is not logged then redirect
         if not discipline and not current_user_is_logged():
-            return redirect(url_for('security.login', next=request.url))
+            return redirect(url_for('security.login', next=request.path))
 
         # fetch all data from database, form marks table
         students = group.students.all()
@@ -95,7 +99,7 @@ class SaveMarks(MethodView):
         return Response()
 
 
-@university.route('/lesson/<int:lesson_id>/', methods=['POST',])
+@university.route('/lesson/<int:lesson_id>/', methods=['POST', ])
 @login_required
 def update_lesson(lesson_id):
     lesson = Lesson.query.get(lesson_id)
@@ -112,7 +116,8 @@ def update_lesson(lesson_id):
 
 
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
-university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'), methods=['POST', ])
+university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
+                        methods=['POST', ])
 
 university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
 university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
