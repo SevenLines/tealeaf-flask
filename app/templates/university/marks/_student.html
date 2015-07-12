@@ -7,7 +7,7 @@
           <span class="pull-left">
             <span class="name-second-name">{{ student.second_name }}</span>
             <span class="name-name">{{ student.name }}</span>
-            <span class="name-n">{{ student.name[:1] }}.</span>
+            <span class="name-n">{{ student.name[:1] if student.name else "" }}.</span>
           </span>
                 </td>
                 <td class="score">
