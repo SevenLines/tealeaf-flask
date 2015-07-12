@@ -6,6 +6,25 @@ var Lesson = Backbone.Model.extend({
         return {
             marks: new MarksCollection()
         }
+    },
+
+    toJSON: function () {
+        return {
+            date: this.get('date'),
+            description: this.get('description'),
+            lesson_type: this.get('lesson_type'),
+            score_ignore: this.get('score_ignore')
+        }
+    },
+
+    save: function () {
+        $.ajax({
+            url: this.get("update-lesson"),
+            data: this.toJSON(),
+            method: "POST"
+        }).done(function () {
+            loadToContent(window.location);
+        });
     }
 });
 
@@ -14,7 +33,9 @@ var LessonEditorView = Backbone.View.extend({
     events: {
         "change input": "changed",
         "change select": "changed",
-        "input textarea": "changed"
+        "input textarea": "changed",
+        "click .save": "save",
+        "dp.change": "changed"
     },
 
     constructor: function (model, options) {
@@ -35,6 +56,13 @@ var LessonEditorView = Backbone.View.extend({
             3: "lect",
             4: "laba",
             5: "exam"
+        }
+    },
+
+    save: function (e) {
+        e.preventDefault();
+        if (this.lastLessonView) {
+            this.lastLessonView.model.save();
         }
     },
 
@@ -60,14 +88,15 @@ var LessonEditorView = Backbone.View.extend({
     },
 
     changed: function () {
-        console.log(this);
-        this.lastLessonView.model.set({
-            "description": this.el.description.value,
-            "lesson_type": this.el.lesson_type.value,
-            "style": this.styles[this.el.lesson_type.value],
-            "score_ignore": this.el.description.checked,
-            "date": this.el.date.value
-        });
+        if (this.lastLessonView) {
+            this.lastLessonView.model.set({
+                "description": this.el.description.value,
+                "lesson_type": this.el.lesson_type.value,
+                "style": this.styles[this.el.lesson_type.value],
+                "score_ignore": this.el.description.checked,
+                "date": this.el.date.value
+            });
+        }
     },
 
     render: function () {
@@ -132,10 +161,7 @@ var LessonView = Backbone.View.extend({
             "mark t-cell t-cell-head",
             this.model.get("style")
         ].join(" "));
-
-        //this.model.get("marks").forEach(function (mark) {
-        //    mark.render();
-        //})
+        this.$el.find(".label").html(this.model.get("date").split("-").pop());
     },
 
     openEditor: function () {
