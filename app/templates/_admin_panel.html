@@ -1,0 +1,119 @@
+<div id="admin-panel">
+    <div class="menu">
+        <a id="exit-button" href="{{ url_for("security.logout") }}" class="menu-item pull-left">
+            <span class="fa fa-sign-out"></span>
+        </a>
+        <a  class="menu-item toggle pull-right">
+            <span class="fa fa-list-ul"></span>
+        </a>
+    </div>
+    <div class="content">
+        <hr>
+        <h2>Дисциплины</h2>
+        <ul class="list-group">
+            {% for discipline in admin_disciplines %}
+                <li class="list-group-item">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <form class="update" method="POST"
+                                      action="{{ url_for("university.discipline_update", discipline_id=discipline.id) }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                                    <div class="input-group">
+                                        <input class="form-control" name="title" type="text"
+                                               value="{{ discipline.title }}">
+
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default">
+                                                <span class="fa fa-save"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <form class="delete"
+                                      action="{{ url_for("university.discipline_delete", discipline_id=discipline.id) }}"
+                                      method="POST">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <button class="btn btn-danger">
+                                        <span class="fa fa-remove"></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            {% endfor %}
+            <li class="list-group-item">
+                <form method="POST" action="{{ url_for("university.discipline_create") }}">
+                    <div class="input-group">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input class="form-control" name="title" type="text" value=""
+                               placeholder="название новой дисциплины">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-success">
+                                <span class="fa fa-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+
+        <hr>
+        <h2>Группы</h2>
+        {% for group in admin_groups %}
+            <li class="list-group-item">
+                <form action="">
+                    <div class="input-group">
+                        <input class="form-control" type="text" value="{{ group.title }}">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-default">
+                                <span class="fa fa-save"></span>
+                            </button>
+                            <a class="btn btn-danger" href="">
+                                <span class="fa fa-remove"></span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        {% endfor %}
+
+    </div>
+</div>
+<script>
+{#      $("#admin-panel").find(".toggle").click(function () {#}
+{#        $("#admin-panel").toggleClass("open");#}
+{#        #}
+{#    });#}
+
+    $("#admin-panel").find(".toggle").click(function () {
+        var that = document.getElementById("admin-panel");
+        if (!$(that).hasClass("open")) {
+
+            $(document).on("click.admin_panel", function (e) {
+                if (e.target != that && $(e.target).parents("#admin-panel").size() == 0) {
+                    $(that).removeClass("open");
+                    $(document).unbind("click.admin_panel");
+                }
+            });
+        }
+        $(that).toggleClass("open");
+    });
+
+    $(document).on("submit", "form.delete", function () {
+        that = this;
+        if (confirm("Вы уверены что хотите удалить дисциплину")) {
+{#            $.post(this.action).done(function () {#}
+{#                $(that).parents("li").remove();#}
+{#            });#}
+            return true;
+        }
+        return false;
+    });
+</script>

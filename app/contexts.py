@@ -4,6 +4,7 @@ from flask.ext.security.forms import LoginForm
 from app.load_app import app
 from app.security import current_user_is_logged
 from app.university import Group
+from app.university.models.discipline import Discipline
 
 
 @app.context_processor
@@ -30,9 +31,18 @@ def inject_now():
         "now": datetime.now()
     }
 
+
 @app.context_processor
 def inject_user():
     return {
         "user": current_user,
         "is_logged": current_user_is_logged()
+    }
+
+
+@app.context_processor
+def inject_admin():
+    return {
+        'admin_groups': Group.query.all(),
+        'admin_disciplines': Discipline.query.all(),
     }

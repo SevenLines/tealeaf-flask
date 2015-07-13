@@ -1,6 +1,7 @@
 # coding=utf-8
 from sqlalchemy import event
 from app.models import BaseMixin, db
+from app.university.models.lesson import Lesson
 
 
 class Mark(BaseMixin, db.Model):
@@ -46,6 +47,37 @@ class Mark(BaseMixin, db.Model):
         return "<Mark({value})>".format(
             value=self.value
         )
+
+    @staticmethod
+    def get_student_marks(group, discipline):
+        """
+        fetch all data from database, form marks table
+        :param group: Group instance
+        :param discipline: Discipline instance
+        :return: (students, lessons, students_marks)
+        """
+        students_marks = {}
+
+        students = group.students.all()
+        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline.id) \
+            .order_by(Lesson.date).all()
+
+        for student in students:
+            students_marks[student.id] = {
+                'marks': {}
+            }
+            for lesson in lessons:
+                students_marks[student.id]['marks'][lesson.id] = None
+
+        marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
+        for m in marks:
+            students_marks[m.student_id]['marks'][m.lesson_id] = m
+
+        for student in students:
+            points, percents = student.points(students_marks[student.id]['marks'], lessons)
+            students_marks[student.id]['points'] = points
+            students_marks[student.id]['percents'] = percents
+        return students, lessons, students_marks
 
 
 event.listen(Mark, 'before_insert', Mark.before_insert)

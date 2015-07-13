@@ -23,14 +23,16 @@
             </div>
         </td>
     {% endfor %}
-    <td>
-        <div class="mark t-cell t-cell-head"
-             data-create-lesson="{{ url_for("university.create_lesson") }}"
-             data-discipline_id="{{ discipline.id }}"
-             data-group_id="{{ group.id }}"
-             data-date="{{ now.strftime("%Y-%m-%d") }}"
-                >
-            <span class="btn-add">+</span>
-        </div>
-    </td>
+    {% if is_logged %}
+        <td>
+            <div class="mark t-cell t-cell-head"
+                 data-create-lesson="{{ url_for("university.create_lesson") }}"
+                 data-discipline_id="{{ discipline.id }}"
+                 data-group_id="{{ group.id }}"
+                 data-date="{{ now.strftime("%Y-%m-%d") }}"
+                    >
+                <span class="btn-add">+</span>
+            </div>
+        </td>
+    {% endif %}
 </tr>

@@ -13,6 +13,7 @@ class BaseConfiguration(object):
                                              'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
     DATABASE_CONNECT_OPTIONS = {}
     DEBUG_TB_PROFILER_ENABLED = True
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
 
     SECURITY_PASSWORD_HASH = "bcrypt"
     SECURITY_PASSWORD_SALT = "salt"  # os.environ.get("SECURITY_PASSWORD_SALT", "secret_salt")

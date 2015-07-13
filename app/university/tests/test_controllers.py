@@ -11,6 +11,7 @@ from app.university.models.group import Group
 class TestIndexView(TestCaseBase):
     def setUp(self):
         super(TestIndexView, self).setUp()
+        group = Group.create()
 
     def test_anyone_can_watch_index(self):
         response = self.client.get(url_for("university.index"))
@@ -23,12 +24,12 @@ class TestGroupMarksViewWithoutDisciplines(TestCaseBase):
         self.group = Group.create(year=2014, title="2222")
 
     def test_guest_cant_watch_marks_without_any_disciplines(self):
-        response = self.client.get(url_for("university.group", group_id=self.group.id))
+        response = self.client.get(url_for("university.group_marks", group_id=self.group.id))
         self.assertRedirects(response, url_for("university.index"))
 
     @TestCaseBase.login
     def test_user_cant_watch_marks_without_any_disciplines(self):
-        response = self.client.get(url_for("university.group", group_id=self.group.id))
+        response = self.client.get(url_for("university.group_marks", group_id=self.group.id))
         self.assertRedirects(response, url_for("university.index"))
 
 
@@ -49,7 +50,7 @@ class TestGroupMarksView(TestCaseBase):
 
     @TestCaseBase.login
     def test_user_can_watch_groups_marks(self):
-        response = self.client.get(url_for("university.group", group_id=self.group.id))
+        response = self.client.get(url_for("university.group_marks", group_id=self.group.id))
         self.assert200(response)
 
     @TestCaseBase.guest_cant
@@ -191,3 +192,59 @@ class TestMarksApi(TestCaseBase):
         self.assertEqual(self.mark.value, 2)
         self.assertEqual(Mark.query.filter(Mark.student_id == self.student.id,
                                            Mark.lesson_id == self.lesson2.id).first().value, 3)
+
+
+class TestDisciplinesApi(TestCaseBase):
+    def setUp(self):
+        super(TestDisciplinesApi, self).setUp()
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_create_discipline(self):
+        return self.client.post(url_for("university.discipline_create"))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_remove_discipline(self):
+        discipline = Discipline.create()
+        return self.client.post(url_for("university.discipline_delete", discipline_id=discipline.id))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_update_discipline(self):
+        discipline = Discipline.create()
+        return self.client.post(url_for("university.discipline_update", discipline_id=discipline.id))
+
+    @TestCaseBase.login
+    def test_user_can_create_discipline(self):
+        count_before = Discipline.query.count()
+        data = {
+            'title': "new_discipline"
+        }
+        response = self.client.post(url_for("university.discipline_create"), data=data)
+        self.assertRedirects(response, "/")
+        self.assertEqual(count_before + 1, Discipline.query.count())
+
+        d = Discipline.query.first()
+        self.assertEqual(d.title, data['title'])
+
+    @TestCaseBase.login
+    def test_user_can_remove_discipline(self):
+        discipline = Discipline.create()
+        self.assertIsNotNone(Discipline.get(discipline.id))
+        response = self.client.post(url_for("university.discipline_delete", discipline_id=discipline.id))
+        self.assertRedirects(response, "/")
+        self.assertIsNone(Discipline.get(discipline.id))
+
+    @TestCaseBase.login
+    def test_user_can_update_discipline(self):
+        discipline = Discipline.create()
+        data = {
+            'title': "new_discipline2",
+            "year": 2015,
+            "visible": True,
+        }
+        response = self.client.post(url_for("university.discipline_update", discipline_id=discipline.id), data=data)
+        self.assertRedirects(response, "/")
+
+        db.session.refresh(discipline)
+        self.assertEqual(discipline.title, data['title'])
+        self.assertEqual(discipline.year, data['year'])
+        self.assertEqual(discipline.visible, data['visible'])
