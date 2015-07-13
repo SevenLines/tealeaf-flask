@@ -24,23 +24,20 @@
     </div>
 {% endif %}
 <!-- / login modal -->
-<div id="enter-button-area">
-    {% if not is_logged %}
+{% if not is_logged %}
+    <div id="enter-button-area">
         <a data-target="#login-modal" data-toggle="modal" id="enter-button">
             <span class="fa fa-sign-in"></span>
         </a>
-    {% else %}
-        <a id="enter-button" href="{{ url_for("security.logout") }}">
-            <span class="fa fa-sign-out"></span>
-        </a>
-    {% endif %}
-</div>
+
+    </div>
+{% endif %}
 
 <script>
     login_path = "{{ url_for("security.login") }}";
     $(document).on("load:complete", function () {
         {% if is_logged %}
-            $("#enter-button").get(0).href = "{{ url_for("security.logout") }}?next=" + window.location;
+            $("#exit-button").get(0).href = "{{ url_for("security.logout") }}?next=" + window.location;
         {% else %}
             $("#login-modal form").get(0).action = login_path + "?next=" + window.location;
         {% endif %}

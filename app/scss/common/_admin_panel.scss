@@ -1,0 +1,69 @@
+@import "const";
+
+#admin-panel {
+  margin-top: 50px;
+  .menu {
+    border-bottom: 1px solid black;
+    overflow: hidden;
+
+  }
+  .content {
+    padding: 1em;
+    display: none;
+  }
+  .menu-item {
+    height: 40px;
+    color: white;
+    //border-left: 1px solid black;
+    padding: 10px 15px;
+    min-width: 40px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    &:hover {
+      background-color: lighten($base_color, 10);
+    }
+  }
+
+  background-color: white;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  box-shadow: 0 0 8px silver;
+  position: fixed;
+  top: 0;
+  //bottom: 100%;
+  //left: -458px;
+  max-width: 100%;
+  width: 40px;
+  //padding: 1em;
+  //border-right: solid 20px white;
+  opacity: 0.95;
+
+  &:hover {
+    border-right-color: $base_color;
+  }
+
+  -webkit-transition: width 0.3s, border-right-color 0.3s;
+  -moz-transition: width 0.3s, border-right-color 0.3s;
+  -ms-transition: width 0.3s, border-right-color 0.3s;
+  -o-transition: width 0.3s, border-right-color 0.3s;
+  transition: width 0.3s, border-right-color 0.3s;
+
+  //overflow: hidden;
+
+  &.open {
+    margin-top: 0;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 0;
+    bottom: 0;
+    width: 500px;
+    .content {
+      display: block;
+    }
+  }
+}

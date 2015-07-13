@@ -11,6 +11,7 @@
         "3rdparty/jquery/dist/jquery.min.js",
         "3rdparty/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
         "3rdparty/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
+        "3rdparty/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
         "3rdparty/chartjs/Chart.min.js",
         "3rdparty/jquery.cookie/jquery.cookie.js",
         "3rdparty/jquery-pjax/jquery.pjax.js",
@@ -70,7 +71,7 @@
                 <li data-title="{{ g.title }}"
                     class="nav-group{{ g.id }} {% if group and g.id == group.id %}active{% endif %}"
                     style="width:{{ menu_item_width }}%">
-                    <a class="load-to-content" href="{{ url_for('university.group', group_id=g.id) }}">
+                    <a class="load-to-content" href="{{ url_for('university.group_marks', group_id=g.id) }}">
                         <div class="title">
                             {{ g.title }}
                         </div>
@@ -97,6 +98,10 @@
     {% include "_scripts.html" %}
     {% include "_login_modal.html" %}
 </div>
+
+{% if is_logged %}
+    {% include "_admin_panel.html" %}
+{% endif %}
 
 {#<%= render 'layouts/login_modal' %>#}
 {#<% if Rails.env.production? %>#}

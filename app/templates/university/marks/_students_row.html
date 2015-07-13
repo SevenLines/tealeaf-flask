@@ -1,6 +1,8 @@
 {% for lesson in lessons %}
     {% include "university/marks/_mark_cell.html" %}
 {% endfor %}
-<td>
-    <div class="mark t-cell"></div>
-</td>
+{% if is_logged %}
+    <td>
+        <div class="mark t-cell"></div>
+    </td>
+{% endif %}

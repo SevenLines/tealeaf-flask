@@ -8,19 +8,19 @@ from flask.ext.security.decorators import roles_required
 from werkzeug.utils import redirect
 from app.load_app import app
 from app.models import db
-from app.security import User, Role
+from app.security import User, Role, current_user_is_logged, current_user_is_superuser
 
 
 class BaseModelView(sqla.ModelView):
-    @roles_required("superuser")
+    # @roles_required("superuser")
     def is_accessible(self):
-        if not current_user.is_active() or not current_user.is_authenticated():
+        if not current_user_is_logged():
             return False
 
-        if current_user.has_role('superuser'):
-            return True
+        if not current_user_is_superuser():
+            return False
 
-        return False
+        return True
 
     def _handle_view(self, name, **kwargs):
         """

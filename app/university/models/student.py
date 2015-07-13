@@ -1,3 +1,4 @@
+# coding=utf-8
 from datetime import datetime
 from sqlalchemy import text, event
 from app.models import db, BaseMixin
@@ -13,11 +14,12 @@ class Student(BaseMixin, db.Model):
     email = db.Column(db.String)
 
     def __repr__(self):
-        return u"<Student({name:s} {second_name:s} {sex:s} {group_id:d}>".format(**{
+        return u"<Student({id:d}|{name:s} {second_name:s}, {sex:s} из группы {group:s})>".format(**{
+            "id": self.id,
             "name": self.name,
             "second_name": self.second_name,
-            "sex": "W" if self.sex == 0 else "M",
-            "group_id": self.group_id
+            "sex": u"девушка" if self.sex == 0 else u"парень",
+            "group": self.group.title
         }).encode('utf8')
 
     def points(self, marks, lessons):

@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy import event
 from app.models import db, BaseMixin
 from app.university.models.student import Student
@@ -12,12 +13,29 @@ class Group(BaseMixin, db.Model):
     captain_id = db.Column(db.Integer)
     students = db.relationship("Student", backref='group', lazy='dynamic')
 
+    @staticmethod
+    def current_year():
+        """
+        :return: current learning year
+        """
+        now = datetime.now()
+        if now.month < 9:  # if not september yet
+            return now.year - 1
+        return now.year
+
     def __repr__(self):
-        return u"<Group(title={title:s}, year={year:d})>".format(**self.__dict__).encode("utf-8")
+        return u"<Group({id:d}|{year:d}|{title:s})>".format(**self.__dict__).encode("utf-8")
 
     @classmethod
     def active_groups(cls):
-        return Group.query.filter(Group.year == 2014)
+        return Group.query.filter(Group.year == Group.current_year())
+
+    @classmethod
+    def active_years(cls):
+        years = [year[0] for year in db.session.query(Group.year).order_by(Group.year).distinct().all()]
+        if len(years):
+            return range(min(years) - 1, max(years) + 2)
+        return []
 
     @property
     def girls(self):
@@ -39,6 +57,14 @@ class Group(BaseMixin, db.Model):
             out_marks = out_marks.filter(Mark.value == value)
         return out_marks
 
+    @staticmethod
+    def before_insert(mapper, connection, target):
+        target.created_at = datetime.utcnow()
+        target.updated_at = datetime.utcnow()
+
+        if target.year is None:
+            target.year = Group.current_year()
+
 
 event.listen(Group, 'before_insert', Group.before_insert)
-event.listen(Group, 'before_update', Group.before_update)
+event.listen(Group, 'before_insert', Group.before_insert)

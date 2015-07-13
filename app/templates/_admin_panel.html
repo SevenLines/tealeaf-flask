@@ -1,0 +1,167 @@
+<div id="admin-panel" class="open">
+    <div class="menu">
+        <a id="exit-button" href="{{ url_for("security.logout") }}" class="menu-item pull-left">
+            <span class="fa fa-sign-out"></span>
+        </a>
+        <a class="menu-item toggle pull-right">
+            <span class="fa fa-list-ul"></span>
+        </a>
+    </div>
+    <div class="content">
+        <h2>Дисциплины</h2>
+        <ul class="list-group">
+            {% for discipline in admin_disciplines %}
+                <li class="list-group-item">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <form class="update" method="POST"
+                                      action="{{ url_for("university.discipline_update", discipline_id=discipline.id) }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                                    <div class="input-group">
+                                        <input class="form-control" name="title" type="text"
+                                               value="{{ discipline.title }}">
+
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default">
+                                                <span class="fa fa-save"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <form class="delete pull-right"
+                                      action="{{ url_for("university.discipline_delete", discipline_id=discipline.id) }}"
+                                      method="POST">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <button class="btn btn-danger">
+                                        <span class="fa fa-remove"></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            {% endfor %}
+            <li class="list-group-item">
+                <form method="POST" action="{{ url_for("university.discipline_create") }}">
+                    <div class="input-group">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input class="form-control" name="title" type="text" value=""
+                               placeholder="название новой дисциплины">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-success">
+                                <span class="fa fa-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+
+        <h2>Группы</h2>
+        <ul class="nav nav-tabs" role="tablist">
+            {% for year, groups in admin_groups.items() %}
+                <li role="presentation" class="{% if year == current_year %}active{% endif %}" data-toggle="tab">
+                    <a href="#year-{{ year }}" aria-controls="home" role="tab"
+                       data-toggle="tab">{{ year }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+        <div class="tab-content">
+            {% for year, groups in admin_groups.items() %}
+                <div id="year-{{ year }}" role="tabpanel"
+                     class="tab-pane fade{% if year == current_year %} in active{% endif %}">
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+
+                            <form action="{{ url_for("university.group_create") }}" method="POST">
+                                <div class="input-group">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <input class="form-control" type="text" name="title" value=""
+                                           placeholder="название новой группы">
+
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-success">
+                                            <span class="fa fa-plus"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        {% for group in groups %}
+                            <li class="list-group-item">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <form action="{{ url_for("university.group_update", group_id=group.id) }}">
+                                                <div class="input-group">
+                                                    <input class="form-control" name="title" type="text"
+                                                           value="{{ group.title }}">
+                                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-default">
+                                                            <span class="fa fa-save"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </td>
+                                        <td>
+                                            <form class="delete pull-right"
+                                                  action="{{ url_for("university.group_delete", group_id=group.id) }}"
+                                                  method="POST">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                                <button class="btn btn-danger">
+                                                    <span class="fa fa-remove"></span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+<script>
+
+    $("#admin-panel").find(".toggle").click(function () {
+        var that = document.getElementById("admin-panel");
+        if (!$(that).hasClass("open")) {
+
+            $(document).on("click.admin_panel", function (e) {
+                if (e.target != that && $(e.target).parents("#admin-panel").size() == 0) {
+                    $(that).removeClass("open");
+                    $(document).unbind("click.admin_panel");
+                }
+            });
+        }
+        $(that).toggleClass("open");
+    });
+
+    $(document).on("submit", "form.delete", function () {
+        that = this;
+        if (confirm("Вы уверены что хотите удалить дисциплину")) {
+            {#            $.post(this.action).done(function () {#}
+            {#                $(that).parents("li").remove();#}
+            {#            });#}
+            return true;
+        }
+        return false;
+    });
+</script>

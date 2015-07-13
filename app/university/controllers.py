@@ -1,12 +1,13 @@
 from pprint import pprint, pformat
 from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import current_user, login_url, login_required
+from flask.helpers import make_response
 from flask.views import View, MethodView
 from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
-from app.university.forms import LessonEditForm, LessonCreateForm
+from app.university.forms import LessonEditForm, LessonCreateForm, DisciplineForm, GroupForm
 from app.university.models import *
 
 
@@ -25,80 +26,56 @@ class IndexView(View):
         return render_template(template)
 
 
-class GroupMarksView(View):
-    """
-    renders marks table for specified discipline and group
-    """
+@university.route("/g/<int:group_id>/m/<int:discipline_id>/")
+@university.route("/g/<int:group_id>/")
+def group_marks(group_id, discipline_id=None):
+    group = Group.query.get_or_404(group_id)
 
-    def dispatch_request(self, group_id, discipline_id=None):
-        group = Group.query.get_or_404(group_id)
-
+    if not discipline_id:
+        discipline_id = request.cookies.get('discipline_id', None)
         if not discipline_id:
-            discipline_id = request.cookies.get('discipline_id', None)
-            if not discipline_id:
-                discipline = Discipline.query.first()
-                if discipline:
-                    discipline_id = discipline.id
-                else:
-                    return redirect(url_for("university.index"))
+            discipline = Discipline.query.first()
+            if discipline:
+                discipline_id = discipline.id
+            else:
+                return redirect(url_for("university.index"))
 
-        if current_user_is_logged():
-            disciplines = Discipline.query
-        else:
-            disciplines = group.disciplines
+    if current_user_is_logged():
+        disciplines = Discipline.query
+    else:
+        disciplines = group.disciplines
 
-        discipline = disciplines.filter(Discipline.id == discipline_id).first()
+    discipline = disciplines.filter(Discipline.id == discipline_id).first()
 
-        # if not discipline and user is not logged then redirect
-        if not discipline and not current_user_is_logged():
-            return redirect(url_for('security.login', next=request.path))
+    # if not discipline and user is not logged then redirect
+    if not discipline and not current_user_is_logged():
+        return redirect(url_for('security.login', next=request.path))
 
-        def make_cache_key():
-            return cache_key_for_students_marks(group.id, discipline.id)
+    def make_cache_key():
+        return cache_key_for_students_marks(group.id, discipline.id)
 
-        @cache.cached(key_prefix=make_cache_key)
-        def get_student_marks(group, discipline):
-            # fetch all data from database, form marks table
-            students_marks = {}
+    students, lessons, students_marks = cache.cached(key_prefix=make_cache_key)(
+        Mark.get_student_marks)(group, discipline)
 
-            students = group.students.all()
-            lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline.id) \
-                .order_by(Lesson.date).all()
+    template = "university/group.html"
+    if request.headers.get('X-Pjax', None):
+        template = "university/_marks.html"
 
-            for student in students:
-                students_marks[student.id] = {
-                    'marks': {}
-                }
-                for lesson in lessons:
-                    students_marks[student.id]['marks'][lesson.id] = None
+    response = make_response(render_template(
+        template,
+        group=group,
+        discipline=discipline,
+        students_marks=students_marks,
+        students=students,
+        lessons=lessons,
+        lesson_types=Lesson.LESSON_TYPES,
+        marks_types=Mark.MARKS,
+        disciplines=disciplines.order_by(Discipline.title).all(),
+    ))
 
-            marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
-            for m in marks:
-                students_marks[m.student_id]['marks'][m.lesson_id] = m
+    response.set_cookie('discipline_id', str(discipline_id))
 
-            for student in students:
-                points, percents = student.points(students_marks[student.id]['marks'], lessons)
-                students_marks[student.id]['points'] = points
-                students_marks[student.id]['percents'] = percents
-            return students, lessons, students_marks
-
-        students, lessons, students_marks = get_student_marks(group, discipline)
-
-        template = "university/group.html"
-        if request.headers.get('X-Pjax', None):
-            template = "university/_marks.html"
-
-        return render_template(
-            template,
-            group=group,
-            discipline=discipline,
-            students_marks=students_marks,
-            students=students,
-            lessons=lessons,
-            lesson_types=Lesson.LESSON_TYPES,
-            marks_types=Mark.MARKS,
-            disciplines=disciplines.all(),
-        )
+    return response
 
 
 class SaveMarks(MethodView):
@@ -165,10 +142,92 @@ def create_lesson():
     return Response(pformat(form.errors), status=400)
 
 
-university.add_url_rule('/', view_func=IndexView.as_view('index'))
+@university.route("/discipline/", methods=['POST', ])
+@login_required
+def discipline_create():
+    form = DisciplineForm(request.form)
+    if form.validate_on_submit():
+        discipline = Discipline()
+        form.populate_obj(discipline)
+        db.session.add(discipline)
+        db.session.commit()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/discipline/<int:discipline_id>/d/", methods=['POST', ])
+@login_required
+def discipline_delete(discipline_id):
+    discipline = Discipline.get_or_404(discipline_id)
+    discipline.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
+@university.route("/discipline/<int:discipline_id>/u/", methods=['POST', ])
+@login_required
+def discipline_update(discipline_id):
+    discipline = Discipline.get_or_404(discipline_id)
+    form = DisciplineForm(request.form, discipline)
+    if form.validate_on_submit():
+        form.populate_obj(discipline)
+        discipline.update()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/group/", methods=['POST', ])
+@login_required
+def group_create():
+    form = GroupForm(request.form)
+    if form.validate_on_submit():
+        group = Group()
+        form.populate_obj(group)
+        db.session.add(group)
+        db.session.commit()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/group/<int:group_id>/u/", methods=['POST', ])
+@login_required
+def group_update(group_id):
+    group = Group.get_or_404(group_id)
+    form = GroupForm(request.form, group)
+    if form.validate_on_submit():
+        form.populate_obj(group)
+        group.update()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/group/<int:group_id>/d/", methods=['POST', ])
+@login_required
+def group_delete(group_id):
+    group = Group.get_or_404(group_id)
+    group.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
                         methods=['POST', ])
-
-university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group'))
-university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/',
-                        view_func=GroupMarksView.as_view('group_marks'))
+university.add_url_rule('/', view_func=IndexView.as_view('index'))
