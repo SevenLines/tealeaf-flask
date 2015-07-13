@@ -30,6 +30,11 @@ class Group(BaseMixin, db.Model):
     def active_groups(cls):
         return Group.query.filter(Group.year == Group.current_year())
 
+    @classmethod
+    def active_years(cls):
+        years = [year[0] for year in db.session.query(Group.year).order_by(Group.year).distinct().all()]
+        return range(min(years) - 1, max(years) + 2)
+
     @property
     def girls(self):
         return self.students.filter(Student.sex == 0)

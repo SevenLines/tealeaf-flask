@@ -42,7 +42,16 @@ def inject_user():
 
 @app.context_processor
 def inject_admin():
-    return {
-        'admin_groups': Group.query.all(),
-        'admin_disciplines': Discipline.query.all(),
-    }
+    if current_user_is_logged():
+        groups = Group.query.order_by(Group.title).all()
+        admin_groups = {}
+        for year in Group.active_years():
+            admin_groups[year] = [group for group in groups if group.year == year]
+
+        return {
+            'current_year': Group.current_year(),
+            'admin_groups': admin_groups,
+            'admin_disciplines': Discipline.query.all(),
+        }
+    return {}
+

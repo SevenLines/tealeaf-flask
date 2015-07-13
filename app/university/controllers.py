@@ -185,6 +185,21 @@ def discipline_update(discipline_id):
     return redirect(request.referrer or "/")
 
 
+@university.route("/group/", methods=['POST', ])
+@login_required
+def group_create():
+    pass
+
+@university.route("/group/<int:group_id>/u/", methods=['POST', ])
+@login_required
+def group_update(group_id):
+    pass
+
+@university.route("/group/<int:group_id>/d/", methods=['POST', ])
+@login_required
+def group_delete(group_id):
+    pass
+
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
                         methods=['POST', ])
 university.add_url_rule('/', view_func=IndexView.as_view('index'))

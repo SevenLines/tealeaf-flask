@@ -1,14 +1,13 @@
-<div id="admin-panel">
+<div id="admin-panel" class="open">
     <div class="menu">
         <a id="exit-button" href="{{ url_for("security.logout") }}" class="menu-item pull-left">
             <span class="fa fa-sign-out"></span>
         </a>
-        <a  class="menu-item toggle pull-right">
+        <a class="menu-item toggle pull-right">
             <span class="fa fa-list-ul"></span>
         </a>
     </div>
     <div class="content">
-        <hr>
         <h2>Дисциплины</h2>
         <ul class="list-group">
             {% for discipline in admin_disciplines %}
@@ -63,34 +62,64 @@
             </li>
         </ul>
 
-        <hr>
         <h2>Группы</h2>
-        {% for group in admin_groups %}
-            <li class="list-group-item">
-                <form action="">
-                    <div class="input-group">
-                        <input class="form-control" type="text" value="{{ group.title }}">
+        <ul class="nav nav-tabs" role="tablist">
+            {% for year, groups in admin_groups.items() %}
+                <li role="presentation" class="{% if year == current_year %}active{% endif %}" data-toggle="tab">
+                    <a href="#year-{{ year }}" aria-controls="home" role="tab"
+                       data-toggle="tab">{{ year }}</a>
+                </li>
+            {% endfor %}
+        </ul>
 
-                        <div class="input-group-btn">
-                            <button class="btn btn-default">
-                                <span class="fa fa-save"></span>
-                            </button>
-                            <a class="btn btn-danger" href="">
-                                <span class="fa fa-remove"></span>
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </li>
-        {% endfor %}
+
+        <div class="tab-content">
+            {% for year, groups in admin_groups.items() %}
+                <div id="year-{{ year }}" role="tabpanel"
+                     class="tab-pane fade{% if year == current_year %} in active{% endif %}">
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <form action="">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" value="" placeholder="название новой группы">
+
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-success">
+                                            <span class="fa fa-plus"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        {% for group in groups %}
+                            <li class="list-group-item">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" value="{{ group.title }}">
+
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default">
+                                                <span class="fa fa-save"></span>
+                                            </button>
+                                            <a class="btn btn-danger" href="">
+                                                <span class="fa fa-remove"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
 
     </div>
 </div>
 <script>
-{#      $("#admin-panel").find(".toggle").click(function () {#}
-{#        $("#admin-panel").toggleClass("open");#}
-{#        #}
-{#    });#}
 
     $("#admin-panel").find(".toggle").click(function () {
         var that = document.getElementById("admin-panel");
@@ -109,9 +138,9 @@
     $(document).on("submit", "form.delete", function () {
         that = this;
         if (confirm("Вы уверены что хотите удалить дисциплину")) {
-{#            $.post(this.action).done(function () {#}
-{#                $(that).parents("li").remove();#}
-{#            });#}
+            {#            $.post(this.action).done(function () {#}
+            {#                $(that).parents("li").remove();#}
+            {#            });#}
             return true;
         }
         return false;

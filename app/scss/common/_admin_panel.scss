@@ -1,6 +1,7 @@
 @import "const";
 
 #admin-panel {
+  margin-top: 50px;
   .menu {
     border-bottom: 1px solid black;
     overflow: hidden;
@@ -29,6 +30,7 @@
 
   background-color: white;
   border-right: 1px solid black;
+  border-top: 1px solid black;
   box-shadow: 0 0 8px silver;
   position: fixed;
   top: 0;
@@ -53,6 +55,7 @@
   //overflow: hidden;
 
   &.open {
+    margin-top: 0;
     overflow: scroll;
     overflow-y: auto;
     overflow-x: hidden;
