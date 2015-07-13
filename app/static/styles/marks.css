@@ -946,6 +946,34 @@ pre {
   #lesson-editor textarea {
     max-width: 100%; }
 
+.s-table .t-cell:hover .student-menu {
+  opacity: 1;
+  visibility: visible; }
+
+.student-menu {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 30px;
+  z-index: 100;
+  overflow: hidden;
+  visibility: hidden;
+  box-shadow: 0 0 4px black;
+  border-radius: 0.5em;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s; }
+  .student-menu .student-menu-body {
+    padding: 0.5em;
+    background-color: white;
+    overflow: hidden; }
+
+.add-student {
+  cursor: pointer; }
+
 @-moz-document url-prefix() {
   fieldset {
     display: table-cell; } }

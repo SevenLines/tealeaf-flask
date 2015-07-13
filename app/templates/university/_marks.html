@@ -22,6 +22,11 @@
                     </td>
                 </tr>
             {% endfor %}
+            <tr class="t-row add-student">
+                <td>
+                    {% include "university/marks/_student.html" %}
+                </td>
+            </tr>
             </tbody>
             <tfoot class="t-footer">
             {% include "university/marks/_students_menu.html" %}
@@ -40,6 +45,9 @@
                         {% include "university/marks/_students_row.html" %}
                     </tr>
                 {% endfor %}
+                <tr class="t-row">
+                    {% include "university/marks/_students_row.html" %}
+                </tr>
                 </tbody>
                 <tfoot class="t-footer">
                 {% include "university/marks/_lessons_row.html" %}
@@ -51,8 +59,37 @@
 </div>
 {% if is_logged %}
     {% include "university/marks/_marks_selector.html" %}
-{% endif %}
 
+    <a class="btn btn-primary" data-toggle="modal" href="#modal-id">Trigger modal</a>
+    <div class="modal fade" id="modal-id">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Студент</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="">
+                        <input type="hidden" name="group_id" value="{{ group.id }}">
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="second_name" placeholder="фамилия">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" placeholder="имя">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+{% endif %}
 
 <script>
     new ScoreController();
@@ -67,4 +104,21 @@
             }
         });
     {% endif %}
+    $("#marks-editor").on({
+        mouseenter: function () {
+            var index = $(this).index();
+            $(this).addClass("hover");
+            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+                $($(item).find(">.t-row")[index]).addClass("hover");
+            });
+        },
+        mouseleave: function () {
+            $(this).removeClass("hover");
+            var index = $(this).index();
+            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+                $($(item).find(">.t-row")[index]).removeClass("hover");
+            });
+        }
+    }, ".m-table>tbody>.t-row,.s-table>tbody>.t-row");
+
 </script>

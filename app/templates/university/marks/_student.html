@@ -1,23 +1,64 @@
-<div class="t-cell">
+<div class="t-cell" style="position: relative;">
+    {% if is_logged and student %}
+        <div class="student-menu">
+            <div class="student-menu-body">
+                <form class="form" action="">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" name="second-second_name" type="text"
+                                   value="{{ student.second_name }}">
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control" name="name" type="text" value="{{ student.name }}">
+                        </div>
+                    </div>
+                    <div class="form-group pull-left"  style="margin-right: 1em">
+                        <div class="btn-group">
+                            <div class="btn {% if student.sex == 0 %} btn-primary{% else %}btn-default{% endif %}">
+                                <span class="fa fa-female"></span>
+                            </div>
+                            <div class="btn {% if student.sex == 0 %} btn-default{% else %}btn-primary{% endif %}">
+                                <span class="fa fa-male"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success pull-left">
+                        <span class="fa fa-save"></span>
+                    </button>
+                </form>
+                <form class="form pull-right" action="">
+                    <button class="btn btn-danger pull-right">
+                        <span class="fa fa-remove"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
     <div class="info">
         <table>
             <tbody>
             <tr>
-                <td class="name">
-          <span class="pull-left">
-            <span class="name-second-name">{{ student.second_name }}</span>
-            <span class="name-name">{{ student.name }}</span>
-            <span class="name-n">{{ student.name[:1] if student.name else "" }}.</span>
-          </span>
-                </td>
-                <td class="score">
-                    <div class="pull-right badge" style="color: green">
+                {% if student %}
+                    <td class="name">
+                      <span class="pull-left">
+                        <span class="name-second-name">{{ student.second_name }}</span>
+                        <span class="name-name">{{ student.name }}</span>
+                        <span class="name-n">{{ student.name[:1] if student.name else "" }}.</span>
+                      </span>
+                    </td>
+                    <td class="score">
+                        <div class="pull-right badge" style="color: green">
                         <span style="display: none;" class="percents"
                               data-value="{{ students_marks[student.id]['percents'] }}">{{ students_marks[student.id]['percents'] }}</span>
                         <span style="display: none;" class="points"
                               data-value="{{ students_marks[student.id]['points'] }}">{{ students_marks[student.id]['points'] }}</span>
-                    </div>
-                </td>
+                        </div>
+                    </td>
+                {% else %}
+                    <td>
+                        <span style="text-align: center" class="fa fa-plus"></span>
+                    </td>
+                {% endif %}
             </tr>
             </tbody>
         </table>

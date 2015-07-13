@@ -1,13 +1,20 @@
-{% with mark=students_marks[student.id]['marks'][lesson.id] %}
+{% if student %}
+    {% with mark=students_marks[student.id]['marks'][lesson.id] %}
+        <td>
+            <div {% if is_logged %}
+                data-value="{{ mark.value }}"
+                data-old-value="{{ mark.value }}"
+                data-lesson="{{ lesson.id }}"
+                data-lesson-type="{{ lesson.style }}"
+                data-student="{{ student.id }}"
+            {% endif %}
+                class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }}">
+            </div>
+        </td>
+    {% endwith %}
+{% else %}
     <td>
-        <div {% if is_logged %}
-            data-value="{{ mark.value }}"
-            data-old-value="{{ mark.value }}"
-            data-lesson="{{ lesson.id }}"
-            data-lesson-type="{{ lesson.style }}"
-            data-student="{{ student.id }}"
-        {% endif %}
-            class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }}">
+        <div class="t-cell mark">
         </div>
     </td>
-{% endwith %}
+{% endif %}

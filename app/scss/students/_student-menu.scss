@@ -1,0 +1,49 @@
+.s-table {
+  .t-cell {
+    &:hover {
+      .student-menu {
+        opacity: 1;
+        visibility: visible;
+
+      }
+      .student-menu-body {
+      }
+    }
+  }
+}
+
+.student-menu {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 30px;
+  z-index: 100;
+  overflow: hidden;
+  visibility: hidden;
+  box-shadow: 0 0 4px black;
+  border-radius: 0.5em;
+
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  //right: 100%;
+  //height: 30px;
+  //width: 80px;
+  //overflow: hidden;
+  .student-menu-body {
+    padding: 0.5em;
+    background-color: white;
+    overflow: hidden;
+    //  padding-right: 0.5em;
+
+    //  position: absolute;
+    //  right: -80px;
+  }
+}
+
+.add-student {
+  cursor: pointer;
+}
