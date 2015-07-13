@@ -248,3 +248,54 @@ class TestDisciplinesApi(TestCaseBase):
         self.assertEqual(discipline.title, data['title'])
         self.assertEqual(discipline.year, data['year'])
         self.assertEqual(discipline.visible, data['visible'])
+
+
+class TestGroupsApi(TestCaseBase):
+    @TestCaseBase.guest_cant
+    def test_guest_cant_create_group(self):
+        return self.client.post(url_for("university.group_create"))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_remove_group(self):
+        group = Group.create()
+        return self.client.post(url_for("university.group_delete", group_id=group.id))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_update_group(self):
+        group = Group.create()
+        return self.client.post(url_for("university.group_update", group_id=group.id))
+
+    @TestCaseBase.login
+    def test_user_can_create_group(self):
+        count_before = Group.query.count()
+        data = {
+            'title': "new_group"
+        }
+        response = self.client.post(url_for("university.group_create"), data=data)
+        self.assertRedirects(response, "/")
+        self.assertEqual(count_before + 1, Group.query.count())
+
+        d = Group.query.first()
+        self.assertEqual(d.title, data['title'])
+
+    @TestCaseBase.login
+    def test_user_can_remove_group(self):
+        group = Group.create()
+        self.assertIsNotNone(Group.get(group.id))
+        response = self.client.post(url_for("university.group_delete", group_id=group.id))
+        self.assertRedirects(response, "/")
+        self.assertIsNone(Group.get(group.id))
+
+    @TestCaseBase.login
+    def test_user_can_update_group(self):
+        group = Group.create()
+        data = {
+            'title': "new_group2",
+            "year": 2015,
+        }
+        response = self.client.post(url_for("university.group_update", group_id=group.id), data=data)
+        self.assertRedirects(response, "/")
+
+        db.session.refresh(group)
+        self.assertEqual(group.title, data['title'])
+        self.assertEqual(group.year, data['year'])
