@@ -32,7 +32,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form class="delete"
+                                <form class="delete pull-right"
                                       action="{{ url_for("university.discipline_delete", discipline_id=discipline.id) }}"
                                       method="POST">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -80,9 +80,12 @@
                     <br>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <form action="">
+
+                            <form action="{{ url_for("university.group_create") }}" method="POST">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" value="" placeholder="название новой группы">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <input class="form-control" type="text" name="title" value=""
+                                           placeholder="название новой группы">
 
                                     <div class="input-group-btn">
                                         <button class="btn btn-success">
@@ -94,20 +97,36 @@
                         </li>
                         {% for group in groups %}
                             <li class="list-group-item">
-                                <form action="">
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" value="{{ group.title }}">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <form action="{{ url_for("university.group_update", group_id=group.id) }}">
+                                                <div class="input-group">
+                                                    <input class="form-control" name="title" type="text"
+                                                           value="{{ group.title }}">
+                                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-save"></span>
-                                            </button>
-                                            <a class="btn btn-danger" href="">
-                                                <span class="fa fa-remove"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </form>
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-default">
+                                                            <span class="fa fa-save"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </td>
+                                        <td>
+                                            <form class="delete pull-right"
+                                                  action="{{ url_for("university.group_delete", group_id=group.id) }}"
+                                                  method="POST">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                                <button class="btn btn-danger">
+                                                    <span class="fa fa-remove"></span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
                             </li>
                         {% endfor %}
 

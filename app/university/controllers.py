@@ -7,7 +7,7 @@ from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
-from app.university.forms import LessonEditForm, LessonCreateForm, DisciplineForm
+from app.university.forms import LessonEditForm, LessonCreateForm, DisciplineForm, GroupForm
 from app.university.models import *
 
 
@@ -188,17 +188,45 @@ def discipline_update(discipline_id):
 @university.route("/group/", methods=['POST', ])
 @login_required
 def group_create():
-    pass
+    form = GroupForm(request.form)
+    if form.validate_on_submit():
+        group = Group()
+        form.populate_obj(group)
+        db.session.add(group)
+        db.session.commit()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
 
 @university.route("/group/<int:group_id>/u/", methods=['POST', ])
 @login_required
 def group_update(group_id):
-    pass
+    group = Group.get_or_404(group_id)
+    form = GroupForm(request.form, group)
+    if form.validate_on_submit():
+        form.populate_obj(group)
+        group.update()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
 
 @university.route("/group/<int:group_id>/d/", methods=['POST', ])
 @login_required
 def group_delete(group_id):
-    pass
+    group = Group.get_or_404(group_id)
+    group.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
 
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
                         methods=['POST', ])
