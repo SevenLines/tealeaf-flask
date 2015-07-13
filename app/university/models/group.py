@@ -33,7 +33,9 @@ class Group(BaseMixin, db.Model):
     @classmethod
     def active_years(cls):
         years = [year[0] for year in db.session.query(Group.year).order_by(Group.year).distinct().all()]
-        return range(min(years) - 1, max(years) + 2)
+        if len(years):
+            return range(min(years) - 1, max(years) + 2)
+        return []
 
     @property
     def girls(self):
