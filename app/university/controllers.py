@@ -7,7 +7,7 @@ from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
-from app.university.forms import LessonEditForm, LessonCreateForm, DisciplineForm, GroupForm
+from app.university.forms import *
 from app.university.models import *
 
 
@@ -223,6 +223,49 @@ def group_update(group_id):
 def group_delete(group_id):
     group = Group.get_or_404(group_id)
     group.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/", methods=['POST', ])
+@login_required
+def student_create():
+    form = StudentForm(request.form)
+    if form.validate_on_submit():
+        student = Student()
+        form.populate_obj(student)
+        db.session.add(student)
+        db.session.commit()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/<int:student_id>/u/", methods=['POST', ])
+@login_required
+def student_update(student_id):
+    student = Student.get_or_404(student_id)
+    form = StudentForm(request.form, student)
+    if form.validate_on_submit():
+        form.populate_obj(student)
+        student.update()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/<int:student_id>/d/", methods=['POST', ])
+@login_required
+def student_delete(student_id):
+    student = Student.get_or_404(student_id)
+    student.delete()
     if request.is_xhr:
         return Response()
     return redirect(request.referrer or "/")

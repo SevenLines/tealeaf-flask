@@ -59,36 +59,6 @@
 </div>
 {% if is_logged %}
     {% include "university/marks/_marks_selector.html" %}
-
-    <a class="btn btn-primary" data-toggle="modal" href="#modal-id">Trigger modal</a>
-    <div class="modal fade" id="modal-id">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Студент</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form" action="">
-                        <input type="hidden" name="group_id" value="{{ group.id }}">
-
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="second_name" placeholder="фамилия">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="name" placeholder="имя">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
 {% endif %}
 
 <script>
