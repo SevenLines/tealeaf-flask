@@ -9,6 +9,7 @@ pg_dump -U postgres -t students_studentlab ${source} | psql -U postgres -d ${des
 pg_dump -U postgres -t students_mark ${source} | psql -U postgres -d ${destiny}
 pg_dump -U postgres -t students_lesson ${source} | psql -U postgres -d ${destiny}
 pg_dump -U postgres -t students_studenttask ${source} | psql -U postgres -d ${destiny}
+pg_dump -U postgres -t students_studenttaskresult ${source} | psql -U postgres -d ${destiny}
 
 psql -U postgres ${destiny} <<SQL
 INSERT INTO groups(id, title, year, captain_id)
@@ -51,6 +52,13 @@ INSERT INTO tasks (id, complexity, description, "order", lab_id)
 SELECT id, complexity, description, "order", lab_id
 FROM students_studenttask;
 SQL
+
+psql -U postgres ${destiny} <<SQL
+INSERT INTO taskresults (id, created_at, updated_at, done, task_id, student_id)
+SELECT id, date_create, date_update, done, task_id, student_id
+FROM students_studenttaskresult;
+SQL
+
 
 psql -U postgres ${destiny} <<SQL
 DROP TABLE students_group CASCADE;
