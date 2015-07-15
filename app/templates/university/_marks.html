@@ -17,6 +17,7 @@
                     data-name="{{ student.name }}"
                     data-id="{{ student.id }}"
                     data-sex="{{ student.sex }}"
+                    data-url-remove="{{ url_for("university.student_delete", student_id=student.id) }}"
                     data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"
                         {% endif %}>
                     <td>
@@ -24,11 +25,20 @@
                     </td>
                 </tr>
             {% endfor %}
-            <tr class="t-row add-student" data-points="-999" data-second-name="ЯЯЯЯ">
-                <td>
-                    {% include "university/marks/_student.html" %}
-                </td>
-            </tr>
+            {% if is_logged %}
+                <tr class="t-row add-student"
+                    data-ignore=""
+                    data-name=""
+                    data-second-name=""
+                    data-sex=""
+                    data-group_id="{{ group.id }}"
+                    data-url-create="{{ url_for("university.student_create") }}"
+                        >
+                    <td>
+                        {% include "university/marks/_student.html" %}
+                    </td>
+                </tr>
+            {% endif %}
             </tbody>
             <tfoot class="t-footer">
             {% include "university/marks/_students_menu.html" %}
@@ -47,9 +57,11 @@
                         {% include "university/marks/_students_row.html" %}
                     </tr>
                 {% endfor %}
-                <tr class="t-row">
-                    {% include "university/marks/_students_row.html" %}
-                </tr>
+                {% if is_logged %}
+                    <tr class="t-row" data-ignore="">
+                        {% include "university/marks/_students_row.html" %}
+                    </tr>
+                {% endif %}
                 </tbody>
                 <tfoot class="t-footer">
                 {% include "university/marks/_lessons_row.html" %}

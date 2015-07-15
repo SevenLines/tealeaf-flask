@@ -12,8 +12,8 @@ DisciplineForm = model_form(Discipline, base_class=Form,
 GroupForm = model_form(Group, base_class=Form,
                        exclude=['created_at', 'updated_at', 'students'])
 
-StudentForm = model_form(Student, base_class=Form,
-                         exclude=['created_at', 'updated_at', 'group'])
+StudentForm = model_form(Student, base_class=Form, exclude_fk=False,
+                         only=['name', 'sex', 'second_name', 'group_id', 'email'])
 
 LessonEditForm = model_form(Lesson, base_class=Form,
                             exclude_fk=True,

@@ -130,12 +130,15 @@ function EditorController(options) {
             var data = $(item).data();
             var student = new Student({
                 id: data.id,
-                name: data.name,
-                second_name: data.secondName,
+                name: data.name.toString(),
+                second_name: data.secondName.toString(),
                 group_id: data.group_id,
-                sex: data.sex,
-                urlUpdate: data.urlUpdate
+                sex: data.sex != "undefined" ? data.sex : 1,
+                urlUpdate: data.urlUpdate,
+                urlRemove: data.urlRemove,
+                urlCreate: data.urlCreate
             });
+            console.log(student);
             new StudentView({
                 model: student,
                 el: item

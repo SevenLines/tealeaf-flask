@@ -18,6 +18,18 @@ def cache_key_for_students_marks(group_id, discipline_id):
     )
 
 
+def reset_student_marks_cache_for_group_id(group_id):
+    group = Group.get(group_id)
+    for (discipline_id,) in group.disciplines.with_entities(Discipline.id).all():
+        cache.delete(cache_key_for_students_marks(group_id, discipline_id))
+
+
+def reset_student_marks_cache_for_discipline_id(discipline_id):
+    # discipline = Discipline.get(discipline_id)
+    for (group_id,) in Group.query.with_entities(Group.id).all():
+        cache.delete(cache_key_for_students_marks(group_id, discipline_id))
+
+
 class IndexView(View):
     def dispatch_request(self):
         template = "university/index.html"
@@ -239,6 +251,9 @@ def student_create():
         form.populate_obj(student)
         db.session.add(student)
         db.session.commit()
+
+        reset_student_marks_cache_for_group_id(student.group_id)
+
         if request.is_xhr:
             return Response()
         return redirect(request.referrer or "/")
@@ -255,6 +270,9 @@ def student_update(student_id):
     if form.validate_on_submit():
         form.populate_obj(student)
         student.update()
+
+        reset_student_marks_cache_for_group_id(student.group_id)
+
         if request.is_xhr:
             return Response()
         return redirect(request.referrer or "/")
@@ -267,7 +285,11 @@ def student_update(student_id):
 @login_required
 def student_delete(student_id):
     student = Student.get_or_404(student_id)
+    group_id = student.group_id
     student.delete()
+
+    reset_student_marks_cache_for_group_id(group_id)
+
     if request.is_xhr:
         return Response()
     return redirect(request.referrer or "/")

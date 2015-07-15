@@ -1,35 +1,43 @@
 <div class="t-cell" style="position: relative;">
-    {% if is_logged and student %}
+    {% if is_logged %}
         <div class="student-menu">
             <div class="student-menu-body">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
                 <div class="form-group">
-                    <div class="input-group">
+                    <div class="form-group">
                         <input class="form-control" name="second_name" type="text"
-                               value="{{ student.second_name }}" autocomplete="off">
+                               value="{{ student.second_name if student else "" }}" autocomplete="off">
                     </div>
-                    <div class="input-group">
-                        <input class="form-control" name="name" type="text" value="{{ student.name }}" autocomplete="off">
+                    <div class="form-group">
+                        <input class="form-control" name="name" type="text"
+                               value="{{ student.name if student else "" }}" autocomplete="off">
                     </div>
                 </div>
                 <div class="form-group pull-left" style="margin-right: 1em">
                     <div class="btn-group">
-                        <div class="btn btn-female {% if student.sex == 0 %} btn-primary{% else %}btn-default{% endif %} btn-female">
+                        <div class="btn btn-female {% if (student.sex == 0 if student else False) %} btn-primary{% else %}btn-default{% endif %} btn-female">
                             <span class="fa fa-venus"></span>
                         </div>
-                        <div class="btn {% if student.sex == 0 %} btn-default{% else %}btn-primary{% endif %} btn-male">
+                        <div class="btn {% if (student.sex == 0 if student else False) %} btn-default{% else %}btn-primary{% endif %} btn-male">
                             <span class="fa fa-mars"></span>
                         </div>
                     </div>
                 </div>
                 <div class="btn-group pull-right">
-                    <button class="btn btn-success btn-update">
-                        <span class="fa fa-save"></span>
-                    </button>
-                    <button class="btn btn-danger btn-remove"
-                            data-href="{{ url_for("university.student_delete", student_id=student.id) }}">
-                        <span class="fa fa-remove"></span>
-                    </button>
+                    {% if student %}
+                        <button class="btn btn-success btn-update">
+                            <span class="fa fa-save"></span>
+                        </button>
+                        <button class="btn btn-danger btn-remove">
+                            <span class="fa fa-remove"></span>
+                        </button>
+                    {% else %}
+                        <button class="btn btn-primary btn-add"
+                                data-href="{{ url_for("university.student_create") }}">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>

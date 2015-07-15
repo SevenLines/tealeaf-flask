@@ -946,7 +946,7 @@ pre {
   #lesson-editor textarea {
     max-width: 100%; }
 
-.s-table .t-cell:hover .student-menu {
+.s-table .open .t-cell .student-menu {
   opacity: 1;
   visibility: visible; }
 
@@ -954,8 +954,8 @@ pre {
   opacity: 0;
   position: absolute;
   width: 100%;
-  margin-top: 20px;
-  margin-left: 30px;
+  margin-top: -50px;
+  margin-left: 10px;
   z-index: 100;
   overflow: hidden;
   visibility: hidden;
