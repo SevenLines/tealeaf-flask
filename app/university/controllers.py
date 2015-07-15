@@ -31,21 +31,23 @@ class IndexView(View):
 def group_marks(group_id, discipline_id=None):
     group = Group.query.get_or_404(group_id)
 
-    if not discipline_id:
-        discipline_id = request.cookies.get('discipline_id', None)
-        if not discipline_id:
-            discipline = Discipline.query.first()
-            if discipline:
-                discipline_id = discipline.id
-            else:
-                return redirect(url_for("university.index"))
-
     if current_user_is_logged():
         disciplines = Discipline.query
     else:
         disciplines = group.disciplines
 
+    if not discipline_id:
+        discipline_id = request.cookies.get('discipline_id', None)
+        if not discipline_id:
+            discipline = disciplines.first()
+            if discipline:
+                discipline_id = discipline.id
+            else:
+                return redirect(url_for("university.index"))
+
     discipline = disciplines.filter(Discipline.id == discipline_id).first()
+    if discipline is None:
+        discipline = disciplines.first()
 
     # if not discipline and user is not logged then redirect
     if not discipline and not current_user_is_logged():

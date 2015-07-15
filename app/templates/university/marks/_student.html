@@ -2,35 +2,35 @@
     {% if is_logged and student %}
         <div class="student-menu">
             <div class="student-menu-body">
-                <form class="form" action="">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input class="form-control" name="second-second_name" type="text"
-                                   value="{{ student.second_name }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" name="second_name" type="text"
+                               value="{{ student.second_name }}" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <input class="form-control" name="name" type="text" value="{{ student.name }}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group pull-left" style="margin-right: 1em">
+                    <div class="btn-group">
+                        <div class="btn btn-female {% if student.sex == 0 %} btn-primary{% else %}btn-default{% endif %} btn-female">
+                            <span class="fa fa-venus"></span>
                         </div>
-                        <div class="input-group">
-                            <input class="form-control" name="name" type="text" value="{{ student.name }}">
+                        <div class="btn {% if student.sex == 0 %} btn-default{% else %}btn-primary{% endif %} btn-male">
+                            <span class="fa fa-mars"></span>
                         </div>
                     </div>
-                    <div class="form-group pull-left"  style="margin-right: 1em">
-                        <div class="btn-group">
-                            <div class="btn {% if student.sex == 0 %} btn-primary{% else %}btn-default{% endif %}">
-                                <span class="fa fa-female"></span>
-                            </div>
-                            <div class="btn {% if student.sex == 0 %} btn-default{% else %}btn-primary{% endif %}">
-                                <span class="fa fa-male"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-success pull-left">
+                </div>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-success btn-update">
                         <span class="fa fa-save"></span>
                     </button>
-                </form>
-                <form class="form pull-right" action="">
-                    <button class="btn btn-danger pull-right">
+                    <button class="btn btn-danger btn-remove"
+                            data-href="{{ url_for("university.student_delete", student_id=student.id) }}">
                         <span class="fa fa-remove"></span>
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     {% endif %}

@@ -16,13 +16,15 @@
                         {% if is_logged %}
                     data-name="{{ student.name }}"
                     data-id="{{ student.id }}"
+                    data-sex="{{ student.sex }}"
+                    data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"
                         {% endif %}>
                     <td>
                         {% include "university/marks/_student.html" %}
                     </td>
                 </tr>
             {% endfor %}
-            <tr class="t-row add-student">
+            <tr class="t-row add-student" data-points="-999" data-second-name="ЯЯЯЯ">
                 <td>
                     {% include "university/marks/_student.html" %}
                 </td>

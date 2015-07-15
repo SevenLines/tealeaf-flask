@@ -1145,6 +1145,11 @@ pre {
     padding: 0;
     width: auto;
     border-right: none; }
+  #marks-editor .marks-table .s-table .btn-female.btn-primary {
+    background-color: #F02B62;
+    border-color: #d90f48; }
+  #marks-editor .marks-table .s-table .modified {
+    border-left: 10px solid #0fd49d; }
   #marks-editor .marks-table .s-table .s-table-header.t-cell {
     text-align: left;
     padding: 4px; }

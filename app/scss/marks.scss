@@ -103,6 +103,17 @@
         border-right: none;
       }
 
+      .btn-female {
+        &.btn-primary {
+          background-color: #F02B62;
+          border-color: darken(#F02B62, 10);
+        }
+      }
+
+      .modified {
+        border-left: 10px solid invert($base_color);
+      }
+
       .s-table-header {
         &.t-cell {
           text-align: left;
