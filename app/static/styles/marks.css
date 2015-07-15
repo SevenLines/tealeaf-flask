@@ -946,6 +946,34 @@ pre {
   #lesson-editor textarea {
     max-width: 100%; }
 
+.s-table .open .t-cell .student-menu {
+  opacity: 1;
+  visibility: visible; }
+
+.student-menu {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: -50px;
+  margin-left: 10px;
+  z-index: 100;
+  overflow: hidden;
+  visibility: hidden;
+  box-shadow: 0 0 4px black;
+  border-radius: 0.5em;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s; }
+  .student-menu .student-menu-body {
+    padding: 0.5em;
+    background-color: white;
+    overflow: hidden; }
+
+.add-student {
+  cursor: pointer; }
+
 @-moz-document url-prefix() {
   fieldset {
     display: table-cell; } }
@@ -1117,6 +1145,11 @@ pre {
     padding: 0;
     width: auto;
     border-right: none; }
+  #marks-editor .marks-table .s-table .btn-female.btn-primary {
+    background-color: #F02B62;
+    border-color: #d90f48; }
+  #marks-editor .marks-table .s-table .modified {
+    border-left: 10px solid #0fd49d; }
   #marks-editor .marks-table .s-table .s-table-header.t-cell {
     text-align: left;
     padding: 4px; }

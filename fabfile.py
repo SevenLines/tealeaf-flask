@@ -12,11 +12,11 @@ env.activate = 'source {}/env/bin/activate'.format(env.directory)
 
 def build_assets():
     try:
-        local("git checkout master")
-        local("git merge --no-ff develop")
         local("python manage.py assets --parse-templates build")
+        local("git commit -a -m 'build assets'")
         try:
-            local("git commit -a -m 'build assets'")
+            local("git checkout master")
+            local("git merge --no-ff develop")
         except:
             pass
     finally:

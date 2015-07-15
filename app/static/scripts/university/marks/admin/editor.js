@@ -6,7 +6,30 @@ var LessonsCollection = Backbone.Collection.extend({
 });
 
 var StudentsCollection = Backbone.Collection.extend({
-    model: Student
+    model: Student,
+
+    save: function () {
+        var changed = new StudentsCollection(this.filter(function (item) {
+            return item.is_changed();
+        }));
+
+        var requests = changed.forEach(function (item) {
+            item.save();
+        });
+        $.when.apply($, requests).then(function () {
+            loadToContent(window.location);
+        })
+    }
+});
+
+var StudentsCollectionView = Backbone.View.extend({
+    events: {
+        "click .btn-update": "save"
+    },
+
+    save: function () {
+        this.collection.save();
+    }
 });
 
 var MarksCollection = Backbone.Collection.extend({
@@ -70,6 +93,11 @@ function EditorController(options) {
         el: ".btn-save-marks"
     });
 
+    new StudentsCollectionView({
+        collection: students,
+        el: ".s-table"
+    });
+
     function bind() {
         // bind lessons
         $(".m-table .t-header .mark").each(function (idx, item) {
@@ -101,7 +129,19 @@ function EditorController(options) {
         $(".s-table .t-content .t-row").each(function (idx, item) {
             var data = $(item).data();
             var student = new Student({
-                id: data.id
+                id: data.id,
+                name: data.name.toString(),
+                second_name: data.secondName.toString(),
+                group_id: data.group_id,
+                sex: data.sex != "undefined" ? data.sex : 1,
+                urlUpdate: data.urlUpdate,
+                urlRemove: data.urlRemove,
+                urlCreate: data.urlCreate
+            });
+            console.log(student);
+            new StudentView({
+                model: student,
+                el: item
             });
             students.add(student);
         });

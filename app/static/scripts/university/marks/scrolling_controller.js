@@ -7,7 +7,6 @@
 function ScrollController() {
     var containerMoved = false;
     (function () {
-
         var lastX = -1;
         var leftButtonDown = false;
         var funcScroll = function (e) {
@@ -21,7 +20,7 @@ function ScrollController() {
             }
             lastX = left;
         };
-        $(document).on({
+        $(".m-table-container").on({
             mousedown: function (e) {
                 if (e.which === 1) {
                     leftButtonDown = true;
@@ -30,7 +29,7 @@ function ScrollController() {
             },
             touchmove: funcScroll,
             mousemove: funcScroll
-        }, ".m-table-container");
+        });
 
         $(document).mouseup(function (e) {
             if (leftButtonDown) {

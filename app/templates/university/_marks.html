@@ -16,12 +16,29 @@
                         {% if is_logged %}
                     data-name="{{ student.name }}"
                     data-id="{{ student.id }}"
+                    data-sex="{{ student.sex }}"
+                    data-url-remove="{{ url_for("university.student_delete", student_id=student.id) }}"
+                    data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"
                         {% endif %}>
                     <td>
                         {% include "university/marks/_student.html" %}
                     </td>
                 </tr>
             {% endfor %}
+            {% if is_logged %}
+                <tr class="t-row add-student"
+                    data-ignore=""
+                    data-name=""
+                    data-second-name=""
+                    data-sex=""
+                    data-group_id="{{ group.id }}"
+                    data-url-create="{{ url_for("university.student_create") }}"
+                        >
+                    <td>
+                        {% include "university/marks/_student.html" %}
+                    </td>
+                </tr>
+            {% endif %}
             </tbody>
             <tfoot class="t-footer">
             {% include "university/marks/_students_menu.html" %}
@@ -40,6 +57,11 @@
                         {% include "university/marks/_students_row.html" %}
                     </tr>
                 {% endfor %}
+                {% if is_logged %}
+                    <tr class="t-row" data-ignore="">
+                        {% include "university/marks/_students_row.html" %}
+                    </tr>
+                {% endif %}
                 </tbody>
                 <tfoot class="t-footer">
                 {% include "university/marks/_lessons_row.html" %}
@@ -52,7 +74,6 @@
 {% if is_logged %}
     {% include "university/marks/_marks_selector.html" %}
 {% endif %}
-
 
 <script>
     new ScoreController();
@@ -67,4 +88,21 @@
             }
         });
     {% endif %}
+    $("#marks-editor").on({
+        mouseenter: function () {
+            var index = $(this).index();
+            $(this).addClass("hover");
+            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+                $($(item).find(">.t-row")[index]).addClass("hover");
+            });
+        },
+        mouseleave: function () {
+            $(this).removeClass("hover");
+            var index = $(this).index();
+            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+                $($(item).find(">.t-row")[index]).removeClass("hover");
+            });
+        }
+    }, ".m-table>tbody>.t-row,.s-table>tbody>.t-row");
+
 </script>

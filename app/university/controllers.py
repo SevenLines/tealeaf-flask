@@ -7,7 +7,7 @@ from app.cache import cache
 from app.security import current_user_is_logged
 
 from app.university import university
-from app.university.forms import LessonEditForm, LessonCreateForm, DisciplineForm, GroupForm
+from app.university.forms import *
 from app.university.models import *
 
 
@@ -16,6 +16,18 @@ def cache_key_for_students_marks(group_id, discipline_id):
         group_id=group_id,
         discipline_id=discipline_id
     )
+
+
+def reset_student_marks_cache_for_group_id(group_id):
+    group = Group.get(group_id)
+    for (discipline_id,) in group.disciplines.with_entities(Discipline.id).all():
+        cache.delete(cache_key_for_students_marks(group_id, discipline_id))
+
+
+def reset_student_marks_cache_for_discipline_id(discipline_id):
+    # discipline = Discipline.get(discipline_id)
+    for (group_id,) in Group.query.with_entities(Group.id).all():
+        cache.delete(cache_key_for_students_marks(group_id, discipline_id))
 
 
 class IndexView(View):
@@ -31,21 +43,23 @@ class IndexView(View):
 def group_marks(group_id, discipline_id=None):
     group = Group.query.get_or_404(group_id)
 
-    if not discipline_id:
-        discipline_id = request.cookies.get('discipline_id', None)
-        if not discipline_id:
-            discipline = Discipline.query.first()
-            if discipline:
-                discipline_id = discipline.id
-            else:
-                return redirect(url_for("university.index"))
-
     if current_user_is_logged():
         disciplines = Discipline.query
     else:
         disciplines = group.disciplines
 
+    if not discipline_id:
+        discipline_id = request.cookies.get('discipline_id', None)
+        if not discipline_id:
+            discipline = disciplines.first()
+            if discipline:
+                discipline_id = discipline.id
+            else:
+                return redirect(url_for("university.index"))
+
     discipline = disciplines.filter(Discipline.id == discipline_id).first()
+    if discipline is None:
+        discipline = disciplines.first()
 
     # if not discipline and user is not logged then redirect
     if not discipline and not current_user_is_logged():
@@ -223,6 +237,59 @@ def group_update(group_id):
 def group_delete(group_id):
     group = Group.get_or_404(group_id)
     group.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/", methods=['POST', ])
+@login_required
+def student_create():
+    form = StudentForm(request.form)
+    if form.validate_on_submit():
+        student = Student()
+        form.populate_obj(student)
+        db.session.add(student)
+        db.session.commit()
+
+        reset_student_marks_cache_for_group_id(student.group_id)
+
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/<int:student_id>/u/", methods=['POST', ])
+@login_required
+def student_update(student_id):
+    student = Student.get_or_404(student_id)
+    form = StudentForm(request.form, student)
+    if form.validate_on_submit():
+        form.populate_obj(student)
+        student.update()
+
+        reset_student_marks_cache_for_group_id(student.group_id)
+
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/student/<int:student_id>/d/", methods=['POST', ])
+@login_required
+def student_delete(student_id):
+    student = Student.get_or_404(student_id)
+    group_id = student.group_id
+    student.delete()
+
+    reset_student_marks_cache_for_group_id(group_id)
+
     if request.is_xhr:
         return Response()
     return redirect(request.referrer or "/")
