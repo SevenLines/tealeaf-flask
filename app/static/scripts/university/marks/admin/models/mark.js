@@ -88,7 +88,7 @@ var MarkView = Backbone.View.extend({
         var new_value = $(selected_item).data("value");
         this.new_style = $(selected_item).data("class");
         this.model.set('value', new_value);
-        $mark_selector.hide();
+        $mark_selector.fadeOut("fast");
     },
 
     showMarkSelector: function () {
@@ -114,7 +114,7 @@ var MarkView = Backbone.View.extend({
         var item_width = 28;
         var ul_width = $mark_selector.find("ul").first().width();
 
-        var items = $mark_selector.show().offset({
+        var items = $mark_selector.fadeIn("fast").offset({
             left: offset.left - ul_width / 2 + width / 2,
             top: offset.top - ul_width / 2 + height / 2
         }).find("li");
@@ -140,6 +140,21 @@ var MarkView = Backbone.View.extend({
                 }
             });
         }
+
+        $(document).on("mouseover.markSelector", function (e) {
+            var x = e.clientX;
+            var y = e.clientY;
+
+            var radius = width + 10;
+
+            var xdiff = (x - (offset.left + 28 / 2));
+            var ydiff = (y - (offset.top + 36 / 2));
+
+            if (Math.sqrt(xdiff * xdiff + ydiff * ydiff) > radius) {
+                $(document).off("mouseover.markSelector");
+                $mark_selector.fadeOut("fast");
+            }
+        });
 
         $mark_selector.find(".mark").removeClass("lect exam test current");
         $mark_selector.find(".mark").toggleClass(this.model.get("lesson").get("style"), true);
