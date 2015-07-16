@@ -4,8 +4,8 @@
     </thead>
     <tbody class="t-content">
     {% for student in students %}
-        <tr class="t-row" data-points="{{ students_marks[student.id]['points'] }}"
-            data-percents="{{ students_marks[student.id]['percents'] }}"
+        <tr class="t-row" data-points="{{ students_info[student.id]['points'] }}"
+            data-percents="{{ students_info[student.id]['percents'] }}"
             data-second-name="{{ student.second_name }}">
             {% include "university/lessons/_students_row.html" %}
         </tr>

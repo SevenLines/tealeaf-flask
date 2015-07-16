@@ -12,7 +12,7 @@ def inject_groups():
     groups = Group.active_groups()
     return {
         'menu_item_width': 100 / groups.count() if groups.count() else 100,
-        'groups': groups.all()
+        'groups': groups
     }
 
 

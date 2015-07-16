@@ -3,6 +3,7 @@ from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import current_user, login_url, login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
+from sqlalchemy.orm import joinedload
 from app.cache import cache
 from app.security import current_user_is_logged
 
@@ -68,9 +69,46 @@ def group_marks(group_id, discipline_id=None):
     def make_cache_key():
         return cache_key_for_students_marks(group.id, discipline.id)
 
-    tasks_results = TaskResult.get_student_labs(group_id, discipline_id)
-    students, lessons, students_marks = cache.cached(key_prefix=make_cache_key)(
-        Mark.get_student_lessons)(group, discipline)
+    @cache.cached(key_prefix=make_cache_key)
+    def get_all_data(group, discipline):
+        students = group.students.all()
+        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline.id) \
+            .order_by(Lesson.date).all()
+        marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
+        labs = discipline.labs.options(joinedload('tasks')).all()
+        tasks_results = TaskResult.query \
+            .join(Task).join(Lab).join(Student) \
+            .filter(Student.group_id == group.id, Lab.discipline_id == discipline.id) \
+            .with_entities(Student.id, Task.id, TaskResult.done).all()
+
+        students_info = {}
+        for student in students:
+            student_info = {
+                'marks': {},
+                'tasks': {},
+                'points': 0,
+                'percents': 0,
+            }
+            students_info[student.id] = student_info
+
+            for mark in marks:
+                if mark.student_id == student.id:
+                    student_info['marks'][mark.lesson_id] = mark
+
+            for r in tasks_results:
+                if r[0] == student.id:
+                    student_info['tasks'][r[1]] = r[2]
+
+            student_info['points'], student_info['percents'] = student.points(student_info['marks'], lessons)
+
+        return {
+            'students': students,
+            'lessons': lessons,
+            'labs': labs,
+            'students_info': students_info
+        }
+
+    data = get_all_data(group, discipline)
 
     template = "university/group.html"
     if request.headers.get('X-Pjax', None):
@@ -80,13 +118,17 @@ def group_marks(group_id, discipline_id=None):
         template,
         group=group,
         discipline=discipline,
-        students_marks=students_marks,
-        tasks_results=tasks_results,
-        students=students,
-        lessons=lessons,
+
+        students=data['students'],
+        lessons=data['lessons'],
+        labs=data['labs'],
+        disciplines=disciplines.order_by(Discipline.title).all(),
+
+        students_info=data['students_info'],
+
         lesson_types=Lesson.LESSON_TYPES,
         marks_types=Mark.MARKS,
-        disciplines=disciplines.order_by(Discipline.title).all(),
+
     ))
 
     response.set_cookie('discipline_id', str(discipline_id))
