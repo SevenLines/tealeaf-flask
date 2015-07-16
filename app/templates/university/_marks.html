@@ -48,13 +48,9 @@
             <table class="m-table-container-row">
                 <tbody>
                 <tr>
-                    <td>
-                        {% include "university/__lessons.html" %}
-                    </td>
+                    <td>{% include "university/__lessons.html" %}</td>
                     {% for lab in discipline.labs if lab.regular and lab.visible %}
-                        <td>
-                            {% include "university/__labs.html" %}
-                        </td>
+                        <td style="vertical-align: top">{% include "university/__labs.html" %}</td>
                     {% endfor %}
                 </tr>
                 </tbody>

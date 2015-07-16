@@ -10,6 +10,11 @@
             {% include "university/labs/_students_row.html" %}
         </tr>
     {% endfor %}
+    {% if is_logged %}
+        <tr class="t-row" data-ignore="">
+            {% include "university/labs/_students_row.html" %}
+        </tr>
+    {% endif %}
     </tbody>
     <tfoot class="t-footer">
     {% include "university/labs/_tasks_row.html" %}
