@@ -1,12 +1,12 @@
 <div id="marks-editor">
     <div class="admin-line">
-        {% include "university/marks/_admin_line.html" %}
+        {% include "university/lessons/_admin_line.html" %}
     </div>
 
     <div class="marks-table">
         <table class="s-table">
             <thead class="t-header">
-            {% include "university/marks/_students_menu.html" %}
+            {% include "university/lessons/_students_menu.html" %}
             </thead>
             <tbody class="t-content">
             {% for student in group.students.all() %}
@@ -21,7 +21,7 @@
                     data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"
                         {% endif %}>
                     <td>
-                        {% include "university/marks/_student.html" %}
+                        {% include "university/lessons/_student.html" %}
                     </td>
                 </tr>
             {% endfor %}
@@ -35,44 +35,36 @@
                     data-url-create="{{ url_for("university.student_create") }}"
                         >
                     <td>
-                        {% include "university/marks/_student.html" %}
+                        {% include "university/lessons/_student.html" %}
                     </td>
                 </tr>
             {% endif %}
             </tbody>
             <tfoot class="t-footer">
-            {% include "university/marks/_students_menu.html" %}
+            {% include "university/lessons/_students_menu.html" %}
             </tfoot>
         </table>
         <div class="m-table-container">
-            <table class="m-table">
-                <thead class="t-header">
-                {% include "university/marks/_lessons_row.html" %}
-                </thead>
-                <tbody class="t-content">
-                {% for student in group.students.all() %}
-                    <tr class="t-row" data-points="{{ students_marks[student.id]['points'] }}"
-                        data-percents="{{ students_marks[student.id]['percents'] }}"
-                        data-second-name="{{ student.second_name }}">
-                        {% include "university/marks/_students_row.html" %}
-                    </tr>
-                {% endfor %}
-                {% if is_logged %}
-                    <tr class="t-row" data-ignore="">
-                        {% include "university/marks/_students_row.html" %}
-                    </tr>
-                {% endif %}
+            <table class="m-table-container-row">
+                <tbody>
+                <tr>
+                    <td>
+                        {% include "university/__lessons.html" %}
+                    </td>
+                    {% for lab in discipline.labs if lab.regular and lab.visible %}
+                        <td>
+                            {% include "university/__labs.html" %}
+                        </td>
+                    {% endfor %}
+                </tr>
                 </tbody>
-                <tfoot class="t-footer">
-                {% include "university/marks/_lessons_row.html" %}
-                </tfoot>
             </table>
         </div>
     </div>
     <div class="clearfix"></div>
 </div>
 {% if is_logged %}
-    {% include "university/marks/_marks_selector.html" %}
+    {% include "university/lessons/_marks_selector.html" %}
 {% endif %}
 
 <script>

@@ -138,7 +138,6 @@ function EditorController(options) {
                 urlRemove: data.urlRemove,
                 urlCreate: data.urlCreate
             });
-            console.log(student);
             new StudentView({
                 model: student,
                 el: item

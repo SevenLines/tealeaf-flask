@@ -1,0 +1,9 @@
+<td>
+    {% if student.id in tasks_results and task.id in tasks_results[student.id] %}
+        <div class="t-cell mark done">
+        </div>
+    {% else %}
+        <div class="t-cell mark">
+        </div>
+    {% endif %}
+</td>

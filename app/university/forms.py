@@ -7,7 +7,7 @@ from app.university.models.discipline import Discipline
 from app.university.models.lesson import Lesson
 
 DisciplineForm = model_form(Discipline, base_class=Form,
-                            exclude=['created_at', 'updated_at'])
+                            only=['title', 'description', 'discipline_id', 'visible', 'regular'])
 
 GroupForm = model_form(Group, base_class=Form,
                        exclude=['created_at', 'updated_at', 'students'])

@@ -49,7 +49,7 @@ class Mark(BaseMixin, db.Model):
         )
 
     @staticmethod
-    def get_student_marks(group, discipline):
+    def get_student_lessons(group, discipline):
         """
         fetch all data from database, form marks table
         :param group: Group instance

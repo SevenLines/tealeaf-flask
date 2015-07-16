@@ -6,3 +6,4 @@ from app.university.models.lab import *
 from app.university.models.mark import *
 from app.university.models.lesson import *
 from app.university.models.task import *
+from app.university.models.taskresult import *

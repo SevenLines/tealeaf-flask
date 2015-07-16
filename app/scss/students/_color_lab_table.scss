@@ -9,102 +9,104 @@ $color2: #ffe500;
 $max_tables: length($bgcolors) - 1;
 @for $i from 0 through $max_tables {
   &:nth-child(#{$i+1}) {
+    .l-table {
 
-    $color: nth($bgcolors, $i + 1);
-    $color2: nth($fgcolors, $i + 1);
-    background-repeat: no-repeat;
+      $color: nth($bgcolors, $i + 1);
+      $color2: nth($fgcolors, $i + 1);
+      background-repeat: no-repeat;
 
-    thead, tfoot {
-      background-color: white;
-    }
-
-    &.with_pic {
-
-      .t-cell {
-        background-color: hsl(hue($color2), saturation($color2), 97);
-        //  display: block;
+      thead, tfoot {
+        background-color: white;
       }
 
-      .hover {
+      &.with_pic {
+
         .t-cell {
-          background-color: white;
-          &.done {
-            background-color: rgba($color, 0.1);
+          background-color: hsl(hue($color2), saturation($color2), 97);
+          //  display: block;
+        }
+
+        .hover {
+          .t-cell {
+            background-color: white;
+            &.done {
+              background-color: rgba($color, 0.1);
+            }
           }
         }
+
+        .done {
+          $doneclass: fast-normal, normal, normal-slow, slow, slow-veryslow, veryslow;
+          box-shadow: none;
+          $base: 0.1;
+          background-color: rgba($color, 0.1);
+          color: darken($color, 30);
+
+          @for $j from 1 to length($doneclass) + 1 {
+            &.#{nth($doneclass, $j)} {
+              background-color: rgba($color, 0.1);
+            }
+          }
+        }
+      }
+
+      background-color: hsl(hue($color2), saturation($color2), 97);
+      &:hover {
+        .lab-title {
+          background-color: lighten($color2, 0);
+        }
+      }
+
+      .lab-title {
+        //background-color: lighten($color2, 25);
+        color: darken($color, 40);
+        text-shadow: 0 0 1px white;
+      }
+      .task-title {
+        &:hover {
+          background-color: lighten($color2, 25);
+          color: darken($color, 20);
+          text-shadow: 0 0 1px white;
+        }
+
       }
 
       .done {
         $doneclass: fast-normal, normal, normal-slow, slow, slow-veryslow, veryslow;
-        box-shadow: none;
-        $base: 0.1;
-        background-color: rgba($color, 0.1);
+        //box-shadow: 0 0 3px darken($color, 20), 0 0 4px $color inset;
+        background-color: $color2;
+        box-shadow: 0 0 0 4px $color inset;
         color: darken($color, 30);
 
         @for $j from 1 to length($doneclass) + 1 {
           &.#{nth($doneclass, $j)} {
-            background-color: rgba($color, 0.1);
+            background-color: lighten($color2, 5 + $j*4);
           }
         }
       }
-    }
 
-    background-color: hsl(hue($color2), saturation($color2), 97);
-    &:hover {
-      .lab-title {
-        background-color: lighten($color2, 0);
-      }
-    }
-
-    .lab-title {
-      //background-color: lighten($color2, 25);
-      color: darken($color, 40);
-      text-shadow: 0 0 1px white;
-    }
-    .task-title {
-      &:hover {
-        background-color: lighten($color2, 25);
-        color: darken($color, 20);
-        text-shadow: 0 0 1px white;
-      }
-
-    }
-
-    .done {
-      $doneclass: fast-normal, normal, normal-slow, slow, slow-veryslow, veryslow;
-      //box-shadow: 0 0 3px darken($color, 20), 0 0 4px $color inset;
-      background-color: $color2;
-      box-shadow: 0 0 0 4px $color inset;
-      color: darken($color, 30);
-
-      @for $j from 1 to length($doneclass) + 1 {
-        &.#{nth($doneclass, $j)} {
-          background-color: lighten($color2, 5 + $j*4);
+      .tooltip {
+        &.bottom {
+          .tooltip-arrow {
+            border-bottom-color: $color;
+          }
+        }
+        &.top {
+          .tooltip-arrow {
+            border-top-color: $color;
+          }
+        }
+        .tooltip-inner {
+          color: darken($color, 40);
+          box-shadow: 0 0 4px darken($color, 20);
+          background-color: lighten($color2, 20);
         }
       }
-    }
 
-    .tooltip {
-      &.bottom {
-        .tooltip-arrow {
-          border-bottom-color: $color;
+      .t-cell {
+        &.changed {
+          box-shadow: 0 0 0 4px darken($color, 25) inset;
         }
-      }
-      &.top {
-        .tooltip-arrow {
-          border-top-color: $color;
-        }
-      }
-      .tooltip-inner {
-        color: darken($color, 40);
-        box-shadow: 0 0 4px darken($color, 20);
-        background-color: lighten($color2, 20);
-      }
-    }
-
-    .t-cell {
-      &.changed {
-        box-shadow: 0 0 0 4px darken($color, 25) inset;
       }
     }
   }
