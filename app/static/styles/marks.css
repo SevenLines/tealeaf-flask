@@ -1226,378 +1226,6 @@ pre {
     color: inherit; }
   #marks-editor .marks-table .l-table .t-row td:last-child .t-cell {
     border-right: none; }
-  #marks-editor .marks-table .l-table:nth-child(1) {
-    background-repeat: no-repeat;
-    background-color: #fffdf0; }
-    #marks-editor .marks-table .l-table:nth-child(1) thead, #marks-editor .marks-table .l-table:nth-child(1) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(1).with_pic .t-cell {
-      background-color: #fffdf0; }
-    #marks-editor .marks-table .l-table:nth-child(1).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .hover .t-cell.done {
-        background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(1).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(214, 165, 3, 0.1);
-      color: #3f3101; }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.fast-normal {
-        background-color: rgba(214, 165, 3, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.normal {
-        background-color: rgba(214, 165, 3, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.normal-slow {
-        background-color: rgba(214, 165, 3, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.slow {
-        background-color: rgba(214, 165, 3, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.slow-veryslow {
-        background-color: rgba(214, 165, 3, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(1).with_pic .done.veryslow {
-        background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(1):hover .lab-title {
-      background-color: #ffe500; }
-    #marks-editor .marks-table .l-table:nth-child(1) .lab-title {
-      color: #0d0a00;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(1) .task-title:hover {
-      background-color: #fff280;
-      color: #715702;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(1) .done {
-      background-color: #ffe500;
-      box-shadow: 0 0 0 4px #d6a503 inset;
-      color: #3f3101; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.fast-normal {
-        background-color: #ffea2e; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.normal {
-        background-color: #ffec42; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.normal-slow {
-        background-color: #ffee57; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.slow {
-        background-color: #fff06b; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.slow-veryslow {
-        background-color: #fff280; }
-      #marks-editor .marks-table .l-table:nth-child(1) .done.veryslow {
-        background-color: #fff494; }
-    #marks-editor .marks-table .l-table:nth-child(1) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #d6a503; }
-    #marks-editor .marks-table .l-table:nth-child(1) .tooltip.top .tooltip-arrow {
-      border-top-color: #d6a503; }
-    #marks-editor .marks-table .l-table:nth-child(1) .tooltip .tooltip-inner {
-      color: #0d0a00;
-      box-shadow: 0 0 4px #715702;
-      background-color: #ffef66; }
-    #marks-editor .marks-table .l-table:nth-child(1) .t-cell.changed {
-      box-shadow: 0 0 0 4px #584401 inset; }
-  #marks-editor .marks-table .l-table:nth-child(2) {
-    background-repeat: no-repeat;
-    background-color: #fcfff0; }
-    #marks-editor .marks-table .l-table:nth-child(2) thead, #marks-editor .marks-table .l-table:nth-child(2) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(2).with_pic .t-cell {
-      background-color: #fcfff0; }
-    #marks-editor .marks-table .l-table:nth-child(2).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .hover .t-cell.done {
-        background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(2).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(93, 162, 0, 0.1);
-      color: #050900; }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.fast-normal {
-        background-color: rgba(93, 162, 0, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.normal {
-        background-color: rgba(93, 162, 0, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.normal-slow {
-        background-color: rgba(93, 162, 0, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.slow {
-        background-color: rgba(93, 162, 0, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.slow-veryslow {
-        background-color: rgba(93, 162, 0, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(2).with_pic .done.veryslow {
-        background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(2):hover .lab-title {
-      background-color: #c1f400; }
-    #marks-editor .marks-table .l-table:nth-child(2) .lab-title {
-      color: black;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(2) .task-title:hover {
-      background-color: #e2ff74;
-      color: #223c00;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(2) .done {
-      background-color: #c1f400;
-      box-shadow: 0 0 0 4px #5da200 inset;
-      color: #050900; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.fast-normal {
-        background-color: #d1ff23; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.normal {
-        background-color: #d5ff37; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.normal-slow {
-        background-color: #daff4c; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.slow {
-        background-color: #deff60; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.slow-veryslow {
-        background-color: #e2ff74; }
-      #marks-editor .marks-table .l-table:nth-child(2) .done.veryslow {
-        background-color: #e6ff89; }
-    #marks-editor .marks-table .l-table:nth-child(2) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #5da200; }
-    #marks-editor .marks-table .l-table:nth-child(2) .tooltip.top .tooltip-arrow {
-      border-top-color: #5da200; }
-    #marks-editor .marks-table .l-table:nth-child(2) .tooltip .tooltip-inner {
-      color: black;
-      box-shadow: 0 0 4px #223c00;
-      background-color: #ddff5b; }
-    #marks-editor .marks-table .l-table:nth-child(2) .t-cell.changed {
-      box-shadow: 0 0 0 4px #142200 inset; }
-  #marks-editor .marks-table .l-table:nth-child(3) {
-    background-repeat: no-repeat;
-    background-color: #f1fdf9; }
-    #marks-editor .marks-table .l-table:nth-child(3) thead, #marks-editor .marks-table .l-table:nth-child(3) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(3).with_pic .t-cell {
-      background-color: #f1fdf9; }
-    #marks-editor .marks-table .l-table:nth-child(3).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .hover .t-cell.done {
-        background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(3).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(88, 174, 142, 0.1);
-      color: #24493b; }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.fast-normal {
-        background-color: rgba(88, 174, 142, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.normal {
-        background-color: rgba(88, 174, 142, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.normal-slow {
-        background-color: rgba(88, 174, 142, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.slow {
-        background-color: rgba(88, 174, 142, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.slow-veryslow {
-        background-color: rgba(88, 174, 142, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(3).with_pic .done.veryslow {
-        background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(3):hover .lab-title {
-      background-color: #7ff0cb; }
-    #marks-editor .marks-table .l-table:nth-child(3) .lab-title {
-      color: #132720;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(3) .task-title:hover {
-      background-color: #f1fdf9;
-      color: #346c57;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(3) .done {
-      background-color: #7ff0cb;
-      box-shadow: 0 0 0 4px #58ae8e inset;
-      color: #24493b; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.fast-normal {
-        background-color: #a8f5dc; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.normal {
-        background-color: #baf7e3; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.normal-slow {
-        background-color: #cdf9eb; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.slow {
-        background-color: #dffbf2; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.slow-veryslow {
-        background-color: #f1fdf9; }
-      #marks-editor .marks-table .l-table:nth-child(3) .done.veryslow {
-        background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(3) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #58ae8e; }
-    #marks-editor .marks-table .l-table:nth-child(3) .tooltip.top .tooltip-arrow {
-      border-top-color: #58ae8e; }
-    #marks-editor .marks-table .l-table:nth-child(3) .tooltip .tooltip-inner {
-      color: #132720;
-      box-shadow: 0 0 4px #346c57;
-      background-color: #dafbf0; }
-    #marks-editor .marks-table .l-table:nth-child(3) .t-cell.changed {
-      box-shadow: 0 0 0 4px #2c5b49 inset; }
-  #marks-editor .marks-table .l-table:nth-child(4) {
-    background-repeat: no-repeat;
-    background-color: #f0fbff; }
-    #marks-editor .marks-table .l-table:nth-child(4) thead, #marks-editor .marks-table .l-table:nth-child(4) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(4).with_pic .t-cell {
-      background-color: #f0fbff; }
-    #marks-editor .marks-table .l-table:nth-child(4).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .hover .t-cell.done {
-        background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(4).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(0, 132, 178, 0.1);
-      color: #001319; }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.fast-normal {
-        background-color: rgba(0, 132, 178, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.normal {
-        background-color: rgba(0, 132, 178, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.normal-slow {
-        background-color: rgba(0, 132, 178, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.slow {
-        background-color: rgba(0, 132, 178, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.slow-veryslow {
-        background-color: rgba(0, 132, 178, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(4).with_pic .done.veryslow {
-        background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(4):hover .lab-title {
-      background-color: #00c4ff; }
-    #marks-editor .marks-table .l-table:nth-child(4) .lab-title {
-      color: black;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(4) .task-title:hover {
-      background-color: #80e2ff;
-      color: #00384c;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(4) .done {
-      background-color: #00c4ff;
-      box-shadow: 0 0 0 4px #0084b2 inset;
-      color: #001319; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.fast-normal {
-        background-color: #2ecfff; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.normal {
-        background-color: #42d3ff; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.normal-slow {
-        background-color: #57d8ff; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.slow {
-        background-color: #6bddff; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.slow-veryslow {
-        background-color: #80e2ff; }
-      #marks-editor .marks-table .l-table:nth-child(4) .done.veryslow {
-        background-color: #94e6ff; }
-    #marks-editor .marks-table .l-table:nth-child(4) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #0084b2; }
-    #marks-editor .marks-table .l-table:nth-child(4) .tooltip.top .tooltip-arrow {
-      border-top-color: #0084b2; }
-    #marks-editor .marks-table .l-table:nth-child(4) .tooltip .tooltip-inner {
-      color: black;
-      box-shadow: 0 0 4px #00384c;
-      background-color: #66dcff; }
-    #marks-editor .marks-table .l-table:nth-child(4) .t-cell.changed {
-      box-shadow: 0 0 0 4px #002532 inset; }
-  #marks-editor .marks-table .l-table:nth-child(5) {
-    background-repeat: no-repeat;
-    background-color: #fff0f4; }
-    #marks-editor .marks-table .l-table:nth-child(5) thead, #marks-editor .marks-table .l-table:nth-child(5) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(5).with_pic .t-cell {
-      background-color: #fff0f4; }
-    #marks-editor .marks-table .l-table:nth-child(5).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .hover .t-cell.done {
-        background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(5).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(178, 94, 120, 0.1);
-      color: #512733; }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.fast-normal {
-        background-color: rgba(178, 94, 120, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.normal {
-        background-color: rgba(178, 94, 120, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.normal-slow {
-        background-color: rgba(178, 94, 120, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.slow {
-        background-color: rgba(178, 94, 120, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.slow-veryslow {
-        background-color: rgba(178, 94, 120, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(5).with_pic .done.veryslow {
-        background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(5):hover .lab-title {
-      background-color: #ff8cab; }
-    #marks-editor .marks-table .l-table:nth-child(5) .lab-title {
-      color: #2e161d;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(5) .task-title:hover {
-      background-color: white;
-      color: #73374a;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(5) .done {
-      background-color: #ff8cab;
-      box-shadow: 0 0 0 4px #b25e78 inset;
-      color: #512733; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.fast-normal {
-        background-color: #ffbacd; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.normal {
-        background-color: #ffcedb; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.normal-slow {
-        background-color: #ffe3ea; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.slow {
-        background-color: #fff7f9; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.slow-veryslow {
-        background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(5) .done.veryslow {
-        background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(5) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #b25e78; }
-    #marks-editor .marks-table .l-table:nth-child(5) .tooltip.top .tooltip-arrow {
-      border-top-color: #b25e78; }
-    #marks-editor .marks-table .l-table:nth-child(5) .tooltip .tooltip-inner {
-      color: #2e161d;
-      box-shadow: 0 0 4px #73374a;
-      background-color: #fff2f6; }
-    #marks-editor .marks-table .l-table:nth-child(5) .t-cell.changed {
-      box-shadow: 0 0 0 4px #622f3f inset; }
-  #marks-editor .marks-table .l-table:nth-child(6) {
-    background-repeat: no-repeat;
-    background-color: #fff7f0; }
-    #marks-editor .marks-table .l-table:nth-child(6) thead, #marks-editor .marks-table .l-table:nth-child(6) tfoot {
-      background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(6).with_pic .t-cell {
-      background-color: #fff7f0; }
-    #marks-editor .marks-table .l-table:nth-child(6).with_pic .hover .t-cell {
-      background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .hover .t-cell.done {
-        background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(6).with_pic .done {
-      box-shadow: none;
-      background-color: rgba(209, 136, 105, 0.1);
-      color: #7b3f26; }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.fast-normal {
-        background-color: rgba(209, 136, 105, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.normal {
-        background-color: rgba(209, 136, 105, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.normal-slow {
-        background-color: rgba(209, 136, 105, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.slow {
-        background-color: rgba(209, 136, 105, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.slow-veryslow {
-        background-color: rgba(209, 136, 105, 0.1); }
-      #marks-editor .marks-table .l-table:nth-child(6).with_pic .done.veryslow {
-        background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .l-table:nth-child(6):hover .lab-title {
-      background-color: #ffbf85; }
-    #marks-editor .marks-table .l-table:nth-child(6) .lab-title {
-      color: #542b1a;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(6) .task-title:hover {
-      background-color: white;
-      color: #a25332;
-      text-shadow: 0 0 1px white; }
-    #marks-editor .marks-table .l-table:nth-child(6) .done {
-      background-color: #ffbf85;
-      box-shadow: 0 0 0 4px #d18869 inset;
-      color: #7b3f26; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.fast-normal {
-        background-color: #ffd7b3; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.normal {
-        background-color: #ffe2c7; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.normal-slow {
-        background-color: #ffecdc; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.slow {
-        background-color: #fff7f0; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.slow-veryslow {
-        background-color: white; }
-      #marks-editor .marks-table .l-table:nth-child(6) .done.veryslow {
-        background-color: white; }
-    #marks-editor .marks-table .l-table:nth-child(6) .tooltip.bottom .tooltip-arrow {
-      border-bottom-color: #d18869; }
-    #marks-editor .marks-table .l-table:nth-child(6) .tooltip.top .tooltip-arrow {
-      border-top-color: #d18869; }
-    #marks-editor .marks-table .l-table:nth-child(6) .tooltip .tooltip-inner {
-      color: #542b1a;
-      box-shadow: 0 0 4px #a25332;
-      background-color: #fff5eb; }
-    #marks-editor .marks-table .l-table:nth-child(6) .t-cell.changed {
-      box-shadow: 0 0 0 4px #8f492c inset; }
   #marks-editor .marks-table .l-table .t-cell {
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
@@ -1627,6 +1255,378 @@ pre {
     padding-bottom: 2px; }
   #marks-editor .marks-table .l-table .tooltip {
     font-size: 1em; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table {
+  background-repeat: no-repeat;
+  background-color: #fffdf0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .t-cell {
+    background-color: #fffdf0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(214, 165, 3, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(214, 165, 3, 0.1);
+    color: #3f3101; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(214, 165, 3, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.normal {
+      background-color: rgba(214, 165, 3, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(214, 165, 3, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.slow {
+      background-color: rgba(214, 165, 3, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(214, 165, 3, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.veryslow {
+      background-color: rgba(214, 165, 3, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table:hover .lab-title {
+    background-color: #ffe500; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .lab-title {
+    color: #0d0a00;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .task-title:hover {
+    background-color: #fff280;
+    color: #715702;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done {
+    background-color: #ffe500;
+    box-shadow: 0 0 0 4px #d6a503 inset;
+    color: #3f3101; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.fast-normal {
+      background-color: #ffea2e; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.normal {
+      background-color: #ffec42; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.normal-slow {
+      background-color: #ffee57; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.slow {
+      background-color: #fff06b; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.slow-veryslow {
+      background-color: #fff280; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.veryslow {
+      background-color: #fff494; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #d6a503; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #d6a503; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip .tooltip-inner {
+    color: #0d0a00;
+    box-shadow: 0 0 4px #715702;
+    background-color: #ffef66; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #584401 inset; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table {
+  background-repeat: no-repeat;
+  background-color: #fcfff0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .t-cell {
+    background-color: #fcfff0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(93, 162, 0, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(93, 162, 0, 0.1);
+    color: #050900; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(93, 162, 0, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.normal {
+      background-color: rgba(93, 162, 0, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(93, 162, 0, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.slow {
+      background-color: rgba(93, 162, 0, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(93, 162, 0, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.veryslow {
+      background-color: rgba(93, 162, 0, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table:hover .lab-title {
+    background-color: #c1f400; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .lab-title {
+    color: black;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .task-title:hover {
+    background-color: #e2ff74;
+    color: #223c00;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done {
+    background-color: #c1f400;
+    box-shadow: 0 0 0 4px #5da200 inset;
+    color: #050900; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.fast-normal {
+      background-color: #d1ff23; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.normal {
+      background-color: #d5ff37; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.normal-slow {
+      background-color: #daff4c; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow {
+      background-color: #deff60; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow-veryslow {
+      background-color: #e2ff74; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.veryslow {
+      background-color: #e6ff89; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #5da200; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #5da200; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip .tooltip-inner {
+    color: black;
+    box-shadow: 0 0 4px #223c00;
+    background-color: #ddff5b; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #142200 inset; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table {
+  background-repeat: no-repeat;
+  background-color: #f1fdf9; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .t-cell {
+    background-color: #f1fdf9; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(88, 174, 142, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(88, 174, 142, 0.1);
+    color: #24493b; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(88, 174, 142, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.normal {
+      background-color: rgba(88, 174, 142, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(88, 174, 142, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.slow {
+      background-color: rgba(88, 174, 142, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(88, 174, 142, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.veryslow {
+      background-color: rgba(88, 174, 142, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table:hover .lab-title {
+    background-color: #7ff0cb; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .lab-title {
+    color: #132720;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .task-title:hover {
+    background-color: #f1fdf9;
+    color: #346c57;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done {
+    background-color: #7ff0cb;
+    box-shadow: 0 0 0 4px #58ae8e inset;
+    color: #24493b; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.fast-normal {
+      background-color: #a8f5dc; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.normal {
+      background-color: #baf7e3; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.normal-slow {
+      background-color: #cdf9eb; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.slow {
+      background-color: #dffbf2; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.slow-veryslow {
+      background-color: #f1fdf9; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.veryslow {
+      background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #58ae8e; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #58ae8e; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip .tooltip-inner {
+    color: #132720;
+    box-shadow: 0 0 4px #346c57;
+    background-color: #dafbf0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #2c5b49 inset; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table {
+  background-repeat: no-repeat;
+  background-color: #f0fbff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .t-cell {
+    background-color: #f0fbff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(0, 132, 178, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(0, 132, 178, 0.1);
+    color: #001319; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(0, 132, 178, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.normal {
+      background-color: rgba(0, 132, 178, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(0, 132, 178, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.slow {
+      background-color: rgba(0, 132, 178, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(0, 132, 178, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.veryslow {
+      background-color: rgba(0, 132, 178, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table:hover .lab-title {
+    background-color: #00c4ff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .lab-title {
+    color: black;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .task-title:hover {
+    background-color: #80e2ff;
+    color: #00384c;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done {
+    background-color: #00c4ff;
+    box-shadow: 0 0 0 4px #0084b2 inset;
+    color: #001319; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.fast-normal {
+      background-color: #2ecfff; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.normal {
+      background-color: #42d3ff; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.normal-slow {
+      background-color: #57d8ff; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.slow {
+      background-color: #6bddff; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.slow-veryslow {
+      background-color: #80e2ff; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.veryslow {
+      background-color: #94e6ff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #0084b2; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #0084b2; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip .tooltip-inner {
+    color: black;
+    box-shadow: 0 0 4px #00384c;
+    background-color: #66dcff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #002532 inset; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table {
+  background-repeat: no-repeat;
+  background-color: #fff0f4; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .t-cell {
+    background-color: #fff0f4; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(178, 94, 120, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(178, 94, 120, 0.1);
+    color: #512733; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(178, 94, 120, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.normal {
+      background-color: rgba(178, 94, 120, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(178, 94, 120, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.slow {
+      background-color: rgba(178, 94, 120, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(178, 94, 120, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.veryslow {
+      background-color: rgba(178, 94, 120, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table:hover .lab-title {
+    background-color: #ff8cab; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .lab-title {
+    color: #2e161d;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .task-title:hover {
+    background-color: white;
+    color: #73374a;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done {
+    background-color: #ff8cab;
+    box-shadow: 0 0 0 4px #b25e78 inset;
+    color: #512733; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.fast-normal {
+      background-color: #ffbacd; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.normal {
+      background-color: #ffcedb; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.normal-slow {
+      background-color: #ffe3ea; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.slow {
+      background-color: #fff7f9; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.slow-veryslow {
+      background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.veryslow {
+      background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #b25e78; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #b25e78; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip .tooltip-inner {
+    color: #2e161d;
+    box-shadow: 0 0 4px #73374a;
+    background-color: #fff2f6; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #622f3f inset; }
+#marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table {
+  background-repeat: no-repeat;
+  background-color: #fff7f0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table tfoot {
+    background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .t-cell {
+    background-color: #fff7f0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .hover .t-cell.done {
+      background-color: rgba(209, 136, 105, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done {
+    box-shadow: none;
+    background-color: rgba(209, 136, 105, 0.1);
+    color: #7b3f26; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.fast-normal {
+      background-color: rgba(209, 136, 105, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.normal {
+      background-color: rgba(209, 136, 105, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.normal-slow {
+      background-color: rgba(209, 136, 105, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.slow {
+      background-color: rgba(209, 136, 105, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.slow-veryslow {
+      background-color: rgba(209, 136, 105, 0.1); }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.veryslow {
+      background-color: rgba(209, 136, 105, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table:hover .lab-title {
+    background-color: #ffbf85; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .lab-title {
+    color: #542b1a;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .task-title:hover {
+    background-color: white;
+    color: #a25332;
+    text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done {
+    background-color: #ffbf85;
+    box-shadow: 0 0 0 4px #d18869 inset;
+    color: #7b3f26; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.fast-normal {
+      background-color: #ffd7b3; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.normal {
+      background-color: #ffe2c7; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.normal-slow {
+      background-color: #ffecdc; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.slow {
+      background-color: #fff7f0; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.slow-veryslow {
+      background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.veryslow {
+      background-color: white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #d18869; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip.top .tooltip-arrow {
+    border-top-color: #d18869; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip .tooltip-inner {
+    color: #542b1a;
+    box-shadow: 0 0 4px #a25332;
+    background-color: #fff5eb; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell.changed {
+    box-shadow: 0 0 0 4px #8f492c inset; }
 #marks-editor .marks-table .t-header .t-cell, #marks-editor .marks-table .t-footer .t-cell {
   height: 36.4px; }
 #marks-editor .marks-table .t-row {

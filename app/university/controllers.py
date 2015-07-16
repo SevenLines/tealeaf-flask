@@ -68,8 +68,9 @@ def group_marks(group_id, discipline_id=None):
     def make_cache_key():
         return cache_key_for_students_marks(group.id, discipline.id)
 
+    tasks_results = TaskResult.get_student_labs(group_id, discipline_id)
     students, lessons, students_marks = cache.cached(key_prefix=make_cache_key)(
-        Mark.get_student_marks)(group, discipline)
+        Mark.get_student_lessons)(group, discipline)
 
     template = "university/group.html"
     if request.headers.get('X-Pjax', None):
@@ -80,6 +81,7 @@ def group_marks(group_id, discipline_id=None):
         group=group,
         discipline=discipline,
         students_marks=students_marks,
+        tasks_results=tasks_results,
         students=students,
         lessons=lessons,
         lesson_types=Lesson.LESSON_TYPES,

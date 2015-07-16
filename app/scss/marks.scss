@@ -240,7 +240,7 @@
         }
       }
 
-      @import "students/color_lab_table";
+
       //@import "students/color_lab_table_with_pics";
 
       .t-cell {
@@ -284,6 +284,10 @@
         }
       }
 
+    }
+
+    .m-table-container-row > tbody > tr > td {
+      @import "students/color_lab_table";
     }
 
     // глобальные футеры и хидеры

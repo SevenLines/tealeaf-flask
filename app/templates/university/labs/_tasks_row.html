@@ -1,0 +1,23 @@
+<tr>
+    <td colspan="{{ lab.tasks.count() }}">
+        <div style="position: relative;">
+            <div class="lab-title" style="" data-bind="text: title">{{ lab.title }}</div>
+        </div>
+    </td>
+</tr>
+<tr class="t-row">
+    {% for task in lab.tasks %}
+        <td>
+            <div data-original-title="{{ task.description }}"
+                 style="position: relative;"
+                 rel="tooltip"
+                 data-html="true"
+                 data-toggle="tooltip"
+                    >
+                <div class="t-cell task-title">
+                    <span>{{ loop.index }}</span>
+                </div>
+            </div>
+        </td>
+    {% endfor %}
+</tr>

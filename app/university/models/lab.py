@@ -8,14 +8,15 @@ class Lab(BaseMixin, db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('disciplines.id'))
     visible = db.Column(db.Boolean)
     regular = db.Column(db.Boolean)
+    tasks = db.relationship("Task", lazy="dynamic")
 
     def __repr__(self):
-        return "<Lab({title:s}|{discipline_id:d} v:{visible:s} r:{visible:s}>".format(**{
+        return u"<Lab({title:s}|{discipline_id:d} v:{visible:s} r:{visible:s}>".format(**{
             "title": self.title,
             "discipline_id": self.discipline_id,
             "visible": "+" if self.visible else "-",
             "regular": "+" if self.regular else "-",
-        })
+        }).encode("utf-8")
 
 
 event.listen(Lab, 'before_insert', Lab.before_insert)

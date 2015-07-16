@@ -48,10 +48,16 @@ function SortController() {
         var $students = $(".s-table .t-content");
         var $marks = $(".m-table .t-content");
 
+        $marks.each(function (idx, item) {
+            var $item = $(item);
+            $item.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($item);
+            $item.find(".t-row[data-ignore]").appendTo($item);
+        });
+
         $students.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($students);
         $students.find(".t-row[data-ignore]").appendTo($students);
-        $marks.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($marks);
-        $marks.find(".t-row[data-ignore]").appendTo($marks);
+        //$marks.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($marks);
+        //$marks.find(".t-row[data-ignore]").appendTo($marks);
 
         $(".btn-students-sorting .btn-text").html(sortingFunction[lastSortingIndex].title);
     }

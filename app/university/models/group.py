@@ -1,6 +1,9 @@
 from datetime import datetime
 from sqlalchemy import event
 from app.models import db, BaseMixin
+from app.university.models.taskresult import TaskResult
+from app.university.models.task import Task
+from app.university.models.lab import Lab
 from app.university.models.student import Student
 from app.university.models.mark import Mark
 from app.university.models.lesson import Lesson
@@ -11,7 +14,7 @@ class Group(BaseMixin, db.Model):
     title = db.Column(db.String(20))
     year = db.Column(db.SmallInteger)
     captain_id = db.Column(db.Integer)
-    students = db.relationship("Student", backref='group', lazy='dynamic')
+    students = db.relationship("Student", backref='group', lazy='dynamic', order_by=Student.second_name)
 
     @staticmethod
     def current_year():
@@ -47,9 +50,20 @@ class Group(BaseMixin, db.Model):
 
     @property
     def disciplines(self):
-        return Discipline.query.filter(Discipline.id.in_(
-            db.session.query(Lesson.discipline_id).filter(Lesson.group_id == self.id).distinct()
-        ))
+        lesson_discipline = Lesson.query \
+            .join(Discipline) \
+            .filter(Lesson.group_id == self.id) \
+            .with_entities(Discipline).distinct()
+
+        tasks_discipline = TaskResult.query \
+            .join(Student) \
+            .join(Task) \
+            .join(Lab) \
+            .join(Discipline) \
+            .filter(Student.group_id == self.id) \
+            .with_entities(Discipline).distinct()
+
+        return lesson_discipline.union(tasks_discipline)
 
     def marks(self, value):
         out_marks = Mark.query.filter(Mark.student_id.in_(self.students.with_entities(Student.id)))
