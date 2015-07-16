@@ -1,6 +1,7 @@
 from app.models import BaseMixin, db
 from app.university.models.task import Task
 from app.university.models.student import Student
+from app.university.models.discipline import Discipline
 from app.university.models.lab import Lab
 
 
@@ -15,12 +16,12 @@ class TaskResult(BaseMixin, db.Model):
         )
 
     @classmethod
-    def get_student_labs(cls, group_id, discipline_id):
+    def get_student_labs(cls, group_id, discipline):
         student_taskresults = {}
 
         results = TaskResult.query \
             .join(Task).join(Lab).join(Student) \
-            .filter(Student.group_id == group_id, Lab.discipline_id == discipline_id)\
+            .filter(Student.group_id == group_id, Lab.discipline_id == discipline.id)\
             .with_entities(Student.id, Task.id, TaskResult.done)
 
         for (student_id, task_id, done) in results:
@@ -29,4 +30,6 @@ class TaskResult(BaseMixin, db.Model):
             if task_id not in student_taskresults[student_id]:
                 student_taskresults[student_id][task_id] = done
 
-        return student_taskresults
+        tasks = Task.query.filter(Task.lab_id.in_(discipline.labs.with_entities(Lab.id)))
+
+        return student_taskresults, discipline.labs, tasks

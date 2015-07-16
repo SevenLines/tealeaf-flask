@@ -1,5 +1,5 @@
 <td>
-    {% if student and student.id in tasks_results and task.id in tasks_results[student.id] %}
+    {% if student and task.id in students_info[student.id]['tasks'] and students_info[student.id]['tasks'][task.id] %}
         <div class="t-cell mark done">
         </div>
     {% else %}
