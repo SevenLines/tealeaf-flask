@@ -2,7 +2,6 @@
 @import "common/spec-buttons";
 @import "common/admin_panel";
 @import "bootstrap_custom";
-
 @import "custom-fonts";
 
 $nav-height: 50px;
@@ -22,10 +21,36 @@ body {
   }
 
   padding: 1em;
-  @media (min-width: $width-big) {
+  @media (min-width: $width-medium) {
     margin-bottom: 200px;
     border-radius: 0 0 8px 8px;
     border-bottom: 8px solid $border-color;
+  }
+
+  @media (max-width: $width-small) {
+    padding-top: 60px;
+  }
+
+  @media (max-width: $width-medium) {
+    .main {
+      display: none;
+    }
+    .full {
+      li {
+        float: left;
+        width: 100% !important;
+        max-width: none;
+        a {
+          min-height: auto !important;
+        }
+        .info {
+          margin: 0 !important;
+          display: inline-block !important;
+          //float: left;
+        }
+      }
+    }
+     border-bottom: none;
   }
 }
 
@@ -219,6 +244,12 @@ body {
         $hover-height: 4 * $height;
         //height: $hover-height;
         li {
+          //&:hover {
+          //  display: block;
+          //  max-width: none;
+          //  z-index: 100;
+          //}
+
           a {
             //margin-top: 0.5em;
             padding-top: 1em;
@@ -245,6 +276,19 @@ body {
               //border-radius: $size;
             }
           }
+        }
+      }
+    }
+
+    @media (max-width: $width-xsmall) {
+      &.full {
+        li {
+          &:first-child {
+            padding-top: 0.5em;
+          }
+          .info {
+          }
+          padding: 0.25em 0;
         }
       }
     }
@@ -291,8 +335,12 @@ body {
   }
 }
 
-.groups {
-
+@media (max-width: $width-small) {
+  .menu {
+    position: fixed !important;
+    z-index: 100;
+    width: 100%;
+  }
 }
 
 .admin-line {
