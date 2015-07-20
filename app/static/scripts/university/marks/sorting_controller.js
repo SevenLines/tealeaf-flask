@@ -46,7 +46,7 @@ function SortController() {
         var sortFunction = sortingFunction[lastSortingIndex];
 
         var $students = $(".s-table .t-content");
-        var $marks = $(".m-table .t-content");
+        var $marks = $(".m-table .t-content, .l-table .t-content");
 
         $marks.each(function (idx, item) {
             var $item = $(item);

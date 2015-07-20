@@ -1,6 +1,9 @@
 from datetime import datetime
+
 from flask.ext.login import current_user
+
 from flask.ext.security.forms import LoginForm
+
 from app.load_app import app
 from app.security import current_user_is_logged
 from app.university import Group
@@ -54,4 +57,3 @@ def inject_admin():
             'admin_disciplines': Discipline.query.all(),
         }
     return {}
-
