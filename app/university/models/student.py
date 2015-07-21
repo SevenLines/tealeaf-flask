@@ -1,6 +1,6 @@
 # coding=utf-8
-from datetime import datetime
-from sqlalchemy import text, event
+from sqlalchemy import event
+
 from app.models import db, BaseMixin
 from app.university.models.lesson import Lesson
 from app.university.models.mark import Mark
@@ -22,7 +22,7 @@ class Student(BaseMixin, db.Model):
             "group": self.group.title
         }).encode('utf8')
 
-    def points(self, marks, lessons):
+    def points(self, marks, lessons, tasks_count=0, tasks_done=0):
         points_sum = 0
         lessons_count = 0
         for lesson in lessons:
@@ -48,10 +48,12 @@ class Student(BaseMixin, db.Model):
                 elif mark.value:
                     points_sum += mark.value
 
-        max = lessons_count * 3
+        max = lessons_count * 3 + tasks_count
         min = lessons_count * -2
         base = 0.3
-        percents_sum = base
+
+        points_sum += tasks_done
+
         if points_sum == 0:
             percents_sum = base
         elif points_sum > 0:

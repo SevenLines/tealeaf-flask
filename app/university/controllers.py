@@ -1,12 +1,13 @@
-from pprint import pprint, pformat
-from flask import render_template, request, redirect, url_for, Response, abort
-from flask.ext.login import current_user, login_url, login_required
+from pprint import pformat
+
+from flask import render_template, request, redirect, url_for, Response
+from flask.ext.login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
 from sqlalchemy.orm import joinedload
+
 from app.cache import cache
 from app.security import current_user_is_logged
-
 from app.university import university
 from app.university.forms import *
 from app.university.models import *
@@ -79,6 +80,7 @@ def group_marks(group_id, discipline_id=None):
         tasks_results = TaskResult.query \
             .join(Task).join(Lab).join(Student) \
             .filter(Student.group_id == group.id, Lab.discipline_id == discipline.id) \
+            .filter(TaskResult.done == True) \
             .with_entities(Student.id, Task.id, TaskResult.done).all()
 
         students_info = {}
@@ -99,7 +101,11 @@ def group_marks(group_id, discipline_id=None):
                 if r[0] == student.id:
                     student_info['tasks'][r[1]] = r[2]
 
-            student_info['points'], student_info['percents'] = student.points(student_info['marks'], lessons)
+            student_info['points'], student_info['percents'] \
+                = student.points(student_info['marks'],
+                                 lessons,
+                                 sum([len(lab.tasks) for lab in labs if lab.regular and lab.visible]),
+                                 len(student_info['tasks']))
 
         return {
             'students': students,
@@ -153,6 +159,26 @@ class SaveMarks(MethodView):
         # reset cache
         for lesson in Lesson.query.filter(Lesson.id.in_([m['lesson_id'] for m in marks])).all():
             cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
+
+        db.session.commit()
+
+        return Response()
+
+
+class SaveTaskResults(MethodView):
+    @login_required
+    def post(self):
+        tasks_results = request.get_json()
+        for result in tasks_results:
+            r = TaskResult.query.filter(TaskResult.student_id == result['student_id'],
+                                        TaskResult.task_id == result['task_id']).first()
+            if r is None:
+                r = TaskResult(
+                    student_id=result['student_id'],
+                    task_id=result['task_id']
+                )
+                db.session.add(r)
+            r.done = result['done']
 
         db.session.commit()
 
@@ -340,5 +366,7 @@ def student_delete(student_id):
 
 
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
+                        methods=['POST', ])
+university.add_url_rule('/tasks-results/', view_func=SaveTaskResults.as_view('save_task_results'),
                         methods=['POST', ])
 university.add_url_rule('/', view_func=IndexView.as_view('index'))

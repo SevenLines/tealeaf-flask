@@ -5,6 +5,15 @@ var LessonsCollection = Backbone.Collection.extend({
     model: Lesson
 });
 
+var LabsCollection = Backbone.Collection.extend({
+    model: Lab
+});
+
+var TasksCollection = Backbone.Collection.extend({
+    model: Task
+});
+
+
 var StudentsCollection = Backbone.Collection.extend({
     model: Student,
 
@@ -47,33 +56,47 @@ var MarksCollection = Backbone.Collection.extend({
             return item.is_changed();
         }));
 
-        $.ajax({
-            url: this.urls.save_marks,
-            data: JSON.stringify(changed.toJSON()),
-            method: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
-        });
-
-        changed.forEach(function (mark) {
-            mark.reset();
-        });
-
-        loadToContent(window.location);
+        if (changed.length) {
+            $.ajax({
+                url: this.urls.save_marks,
+                data: JSON.stringify(changed.toJSON()),
+                method: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function () {
+                changed.forEach(function (mark) {
+                    mark.reset();
+                });
+            });
+        }
     }
 });
 
-var MarksCollectionSaveButton = Backbone.View.extend({
-    events: {
-        "click": "save"
+var TasksResultsCollection = Backbone.Collection.extend({
+    initialize: function (models, options) {
+        if (options) {
+            this.urls = options.urls;
+        }
     },
 
+    model: TaskResult,
     save: function () {
-        this.collection.save();
-    },
-
-    render: function () {
-        return this;
+        var changed = new TasksResultsCollection(this.filter(function (item) {
+            return item.is_changed();
+        }));
+        if (changed.length) {
+            $.ajax({
+                url: this.urls.save_tasks_results,
+                data: JSON.stringify(changed.toJSON()),
+                method: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function () {
+                changed.forEach(function (mark) {
+                    mark.reset();
+                });
+            });
+        }
     }
 });
 
@@ -82,15 +105,22 @@ function EditorController(options) {
     var lessons = new LessonsCollection([], options);
     var students = new StudentsCollection([], options);
     var marks = new MarksCollection([], options);
+    var tasks_results = new TasksResultsCollection([], options);
+    var labs = new LabsCollection([], options);
+    var tasks = new TasksCollection([], options);
 
     var lessonEditor = new LessonEditorView({
         el: "#lesson-editor"
     });
 
+    $(".btn-save-marks").click(function () {
+        var marks_ajax = marks.save();
+        var tasks_ajax = tasks_results.save();
 
-    new MarksCollectionSaveButton({
-        collection: marks,
-        el: ".btn-save-marks"
+        $.when(tasks_ajax, marks_ajax).done(function (data, textStatus, jqXHR) {
+            console.log("cool");
+            loadToContent(window.location);
+        })
     });
 
     new StudentsCollectionView({
@@ -98,10 +128,21 @@ function EditorController(options) {
         el: ".s-table"
     });
 
+    function bind_selectors(selector, callback, collection) {
+        if (callback == null)
+            return;
+        $(selector).each(function (idx, item) {
+            var data = $(item).data();
+            var out = callback(data, item);
+            if (collection && out) {
+                collection.add(out);
+            }
+        })
+    }
+
     function bind() {
         // bind lessons
-        $(".m-table .t-header .mark").each(function (idx, item) {
-            var data = $(item).data();
+        bind_selectors(".m-table .t-header .mark", function (data, item) {
             var lesson = new Lesson({
                 id: data.id,
                 date: data.date,
@@ -122,12 +163,28 @@ function EditorController(options) {
             }, {
                 lessonEditor: lessonEditor
             });
-            lessons.add(lesson);
-        });
+
+            return lesson;
+        }, lessons);
+
+        // bind labs
+        bind_selectors(".l-table .t-header", function (data, item) {
+            return new Lab({
+                id: data.id
+            });
+        }.labs);
+
+        // bind tasks
+        bind_selectors(".l-table .t-header .t-cell-task", function (data, item) {
+            return new Task({
+                id: data.id,
+                lab: labs.get(data.lab)
+            });
+        }, tasks);
+
 
         // bind students
-        $(".s-table .t-content .t-row").each(function (idx, item) {
-            var data = $(item).data();
+        bind_selectors(".s-table .t-content .t-row", function (data, item) {
             var student = new Student({
                 id: data.id,
                 name: data.name.toString(),
@@ -142,12 +199,11 @@ function EditorController(options) {
                 model: student,
                 el: item
             });
-            students.add(student);
-        });
+            return student
+        }, students);
 
         // bind marks
-        $(".m-table .t-content .t-cell.mark").each(function (idx, item) {
-            var data = $(item).data();
+        bind_selectors(".m-table .t-content .t-cell.mark", function (data, item) {
             if (data.lesson && data.student) {
                 var lesson = lessons.get(data.lesson);
                 var student = students.get(data.student);
@@ -159,12 +215,29 @@ function EditorController(options) {
                 });
                 new MarkView({
                     model: mark,
-                    el: item,
+                    el: item
                 });
                 lesson.get("marks").add(mark);
-                marks.add(mark);
+                return mark;
             }
-        });
+        }, marks);
+
+        // bind tasks results
+        bind_selectors(".l-table .t-content .t-cell.mark", function (data, item) {
+            var taskResult = new TaskResult({
+                task: tasks.get(data.task),
+                student: students.get(data.student),
+                done: data.done
+            });
+
+            new TaskResultView({
+                model: taskResult,
+                el: item
+            });
+
+            return taskResult;
+        }, tasks_results);
+
 
     }
 
