@@ -4,7 +4,7 @@ from sqlalchemy import event
 from app.load_app import app
 from app.models import db, BaseMixin
 
-login_manager = LoginManager()
+# login_manager = LoginManager()
 
 # Define models
 roles_users = db.Table('roles_users',

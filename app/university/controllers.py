@@ -319,10 +319,14 @@ def student_create():
     if form.validate_on_submit():
         student = Student()
         form.populate_obj(student)
+
+        student.photo = StudentStorage.save(request.files['photo'])
+
         db.session.add(student)
         db.session.commit()
 
-        reset_student_marks_cache_for_group_id(student.group_id)
+        if student.group_id:
+            reset_student_marks_cache_for_group_id(student.group_id)
 
         if request.is_xhr:
             return Response()
@@ -339,10 +343,13 @@ def student_update(student_id):
     form = StudentForm(request.form, student)
     if form.validate_on_submit():
         form.populate_obj(student)
+
+        student.photo = StudentStorage.save(request.files['photo'])
+
+        if student.group_id:
+            reset_student_marks_cache_for_group_id(student.group_id)
+
         student.update()
-
-        reset_student_marks_cache_for_group_id(student.group_id)
-
         if request.is_xhr:
             return Response()
         return redirect(request.referrer or "/")
@@ -358,7 +365,8 @@ def student_delete(student_id):
     group_id = student.group_id
     student.delete()
 
-    reset_student_marks_cache_for_group_id(group_id)
+    if student.group_id:
+        reset_student_marks_cache_for_group_id(group_id)
 
     if request.is_xhr:
         return Response()

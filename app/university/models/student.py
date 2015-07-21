@@ -2,8 +2,13 @@
 from sqlalchemy import event
 
 from app.models import db, BaseMixin
+from app.storage import Storage
 from app.university.models.lesson import Lesson
 from app.university.models.mark import Mark
+
+
+class StudentStorage(Storage):
+    subdir = "students"
 
 
 class Student(BaseMixin, db.Model):
@@ -12,6 +17,12 @@ class Student(BaseMixin, db.Model):
     sex = db.Column(db.SmallInteger)
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'))
     email = db.Column(db.String)
+
+    photo = db.Column(db.String)
+
+    @staticmethod
+    def before_update(mapper, connection, target):
+        return BaseMixin.before_update(mapper, connection, target)
 
     def __repr__(self):
         return u"<Student({id:d}|{name:s} {second_name:s}, {sex:s} из группы {group:s})>".format(**{
