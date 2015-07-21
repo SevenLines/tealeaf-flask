@@ -165,6 +165,26 @@ class SaveMarks(MethodView):
         return Response()
 
 
+class SaveTaskResults(MethodView):
+    @login_required
+    def post(self):
+        tasks_results = request.get_json()
+        for result in tasks_results:
+            r = TaskResult.query.filter(TaskResult.student_id == result['student_id'],
+                                        TaskResult.task_id == result['task_id']).first()
+            if r is None:
+                r = TaskResult(
+                    student_id=result['student_id'],
+                    task_id=result['task_id']
+                )
+                db.session.add(r)
+            r.done = result['done']
+
+        db.session.commit()
+
+        return Response()
+
+
 @university.route('/lesson/<int:lesson_id>/', methods=['POST', ])
 @login_required
 def update_lesson(lesson_id):
@@ -346,5 +366,7 @@ def student_delete(student_id):
 
 
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
+                        methods=['POST', ])
+university.add_url_rule('/tasks-results/', view_func=SaveTaskResults.as_view('save_task_results'),
                         methods=['POST', ])
 university.add_url_rule('/', view_func=IndexView.as_view('index'))

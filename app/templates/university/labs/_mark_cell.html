@@ -1,7 +1,22 @@
 <td>
-    {% if student and task.id in students_info[student.id]['tasks'] and students_info[student.id]['tasks'][task.id] %}
-        <div class="t-cell mark done">
-        </div>
+    {% if student %}
+        {% if task.id in students_info[student.id]['tasks'] and students_info[student.id]['tasks'][task.id] %}
+            <div class="t-cell mark done"
+                    {% if is_logged %}
+                 data-student="{{ student.id }}"
+                 data-task="{{ task.id }}"
+                 data-done="true"
+                    {% endif %}>
+            </div>
+        {% else %}
+            <div class="t-cell mark"
+                    {% if is_logged %}
+                 data-student="{{ student.id }}"
+                 data-task="{{ task.id }}"
+                 data-done="false"
+                    {% endif %}>
+            </div>
+        {% endif %}
     {% else %}
         <div class="t-cell mark">
         </div>

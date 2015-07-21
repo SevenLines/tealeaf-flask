@@ -8,11 +8,15 @@
 <tr class="t-row">
     {% for task in lab.tasks %}
         <td>
-            <div data-original-title="{{ task.description }}"
+            <div class="t-cell-task" data-original-title="{{ task.description }}"
                  style="position: relative;"
                  rel="tooltip"
                  data-html="true"
                  data-toggle="tooltip"
+                    {% if is_logged %}
+                        data-id="{{ task.id }}"
+                        data-lab="{{ lab.id }}"
+                    {% endif %}
                     >
                 <div class="t-cell task-title">
                     <span>{{ loop.index }}</span>

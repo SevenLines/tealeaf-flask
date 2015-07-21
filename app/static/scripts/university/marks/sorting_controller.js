@@ -56,8 +56,6 @@ function SortController() {
 
         $students.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($students);
         $students.find(".t-row[data-ignore]").appendTo($students);
-        //$marks.find(".t-row:not([data-ignore])").sort(sortFunction).appendTo($marks);
-        //$marks.find(".t-row[data-ignore]").appendTo($marks);
 
         $(".btn-students-sorting .btn-text").html(sortingFunction[lastSortingIndex].title);
     }

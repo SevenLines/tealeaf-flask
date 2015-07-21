@@ -11,7 +11,7 @@
     <ul class="groups full">
         {% for group in groups %}
             <li style="width:{{ menu_item_width }}%">
-                <a class="load-to-content" href="{{ url_for('university.group_marks', group_id=group.id) }}">
+                <a href="javascript: void(0)">
                     <canvas id="info-canvas{{ group.id }}-gender" class="info">
                     </canvas>
                     <canvas id="info-canvas{{ group.id }}-score" class="info">

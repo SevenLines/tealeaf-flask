@@ -68,6 +68,7 @@ DROP TABLE students_mark CASCADE;
 DROP TABLE students_studentlab CASCADE;
 DROP TABLE students_lesson CASCADE;
 DROP TABLE students_studenttask CASCADE;
+DROP TABLE students_studenttaskresult CASCADE;
 SQL
 
 psql -U postgres ${destiny} << SQL
@@ -81,4 +82,5 @@ SELECT setval('roles_id_seq', (SELECT MAX(id) FROM roles));
 SELECT setval('students_id_seq', (SELECT MAX(id) FROM students));
 SELECT setval('tasks_id_seq', (SELECT MAX(id) FROM tasks));
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
+SELECT setval('taskresults_id_seq', (SELECT MAX(id) FROM taskresults));
 SQL

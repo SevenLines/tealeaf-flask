@@ -1,5 +1,5 @@
 <table class="l-table showable">
-    <thead class="t-header">
+    <thead class="t-header" {% if is_logged %}data-id="{{ lab.id }}" {% endif %}>
     {% include "university/labs/_tasks_row.html" %}
     </thead>
     <tbody class="t-content">
