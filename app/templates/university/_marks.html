@@ -16,6 +16,7 @@
                         {% if is_logged %}
                     data-name="{{ student.name }}"
                     data-id="{{ student.id }}"
+                    data-group_id="{{ student.group_id }}"
                     data-sex="{{ student.sex }}"
                     data-url-remove="{{ url_for("university.student_delete", student_id=student.id) }}"
                     data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"

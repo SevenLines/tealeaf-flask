@@ -192,7 +192,7 @@ def update_lesson(lesson_id):
 
     form = LessonEditForm(request.form, lesson)
     if form.validate_on_submit():
-        form.populate_obj(lesson)
+        populate(form, lesson)
         lesson.update()
         cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
         return Response()
@@ -217,7 +217,7 @@ def create_lesson():
     form = LessonCreateForm(request.form)
     if form.validate_on_submit():
         lesson = Lesson()
-        form.populate_obj(lesson)
+        populate(form, lesson)
         lesson.save()
 
         cache.delete(cache_key_for_students_marks(lesson.group_id, lesson.discipline_id))
@@ -232,7 +232,7 @@ def discipline_create():
     form = DisciplineForm(request.form)
     if form.validate_on_submit():
         discipline = Discipline()
-        form.populate_obj(discipline)
+        populate(form, discipline)
         db.session.add(discipline)
         db.session.commit()
         if request.is_xhr:
@@ -259,7 +259,7 @@ def discipline_update(discipline_id):
     discipline = Discipline.get_or_404(discipline_id)
     form = DisciplineForm(request.form, discipline)
     if form.validate_on_submit():
-        form.populate_obj(discipline)
+        populate(form, discipline)
         discipline.update()
         if request.is_xhr:
             return Response()
@@ -275,7 +275,7 @@ def group_create():
     form = GroupForm(request.form)
     if form.validate_on_submit():
         group = Group()
-        form.populate_obj(group)
+        populate(form, group)
         db.session.add(group)
         db.session.commit()
         if request.is_xhr:
@@ -292,7 +292,7 @@ def group_update(group_id):
     group = Group.get_or_404(group_id)
     form = GroupForm(request.form, group)
     if form.validate_on_submit():
-        form.populate_obj(group)
+        populate(form, group)
         group.update()
         if request.is_xhr:
             return Response()
@@ -318,7 +318,7 @@ def student_create():
     form = StudentForm(request.form)
     if form.validate_on_submit():
         student = Student()
-        form.populate_obj(student)
+        populate(form, student)
 
         student.photo = StudentStorage.save(request.files['photo'])
 
@@ -340,11 +340,16 @@ def student_create():
 @login_required
 def student_update(student_id):
     student = Student.get_or_404(student_id)
-    form = StudentForm(request.form, student)
+    form = StudentForm(obj=student)
     if form.validate_on_submit():
-        form.populate_obj(student)
+        assert isinstance(form, Form)
 
-        student.photo = StudentStorage.save(request.files['photo'])
+        populate(form, student)
+
+        if "photo" in request.files:
+            student.photo = StudentStorage.save(request.files['photo'])
+        elif "remove_photo" in request.form:
+            student.photo = None
 
         if student.group_id:
             reset_student_marks_cache_for_group_id(student.group_id)

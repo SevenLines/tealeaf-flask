@@ -23,14 +23,14 @@ class TestConfiguration(BaseConfiguration):
 config.current_config = TestConfiguration
 
 from app.load_app import app
+app.config.from_object(TestConfiguration)
+
 from app.security import User
 from app.university import Student
 from app import db, init_app, cache
 
-
 class TestCaseBase(TestCase):
     def create_app(self):
-        # app.config.from_object(TestConfiguration)
         init_app()
         return app
 
