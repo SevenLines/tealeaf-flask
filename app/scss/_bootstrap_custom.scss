@@ -3,13 +3,13 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+@import "common/const";
 // Core variables and mixins
-@import "../static/3rdparty/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bootstrap_vars";
 
-$icon-font-path: "../fonts/";
+
+
 @import "../static/3rdparty/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-
 
 // Reset and dependencies
 @import "../static/3rdparty/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
