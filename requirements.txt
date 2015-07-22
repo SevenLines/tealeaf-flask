@@ -9,6 +9,7 @@ Flask-cache
 Flask-Migrate
 Flask-Security
 flask-debugtoolbar
+Flask-Uploads
 
 
 psycopg2

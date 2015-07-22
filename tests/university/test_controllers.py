@@ -1,8 +1,12 @@
 import json
+import os
+
 from flask import url_for
-from flask.ext.login import current_user
-from flask.ext.security import login_user
-from app.tests import TestCaseBase
+
+from werkzeug.datastructures import FileStorage
+
+from app.university.models.student import StudentStorage
+from tests import TestCaseBase
 from app.university import Lesson, Student, Mark, Discipline
 from app.models import db
 from app.university.models.group import Group
@@ -55,10 +59,11 @@ class TestGroupMarksView(TestCaseBase):
 
     @TestCaseBase.guest_cant
     def test_guest_cant_see_hidden_discipline(self):
-        return self.client.get(url_for("university.group_marks",
-                                       group_id=self.group.id,
-                                       discipline_id=self.discipline_without_lessons.id
-                                       ))
+        response = self.client.get(url_for("university.group_marks",
+                                           group_id=self.group.id,
+                                           discipline_id=self.discipline_without_lessons.id
+                                           ))
+        return response
 
     def test_guest_can_see_visible_discipline(self):
         response = self.client.get(url_for("university.group_marks",
@@ -290,8 +295,8 @@ class TestGroupsApi(TestCaseBase):
     def test_user_can_update_group(self):
         group = Group.create()
         data = {
-            'title': "new_group2",
-            "year": 2015,
+            'title': 'new_group2',
+            'year': 2015,
         }
         response = self.client.post(url_for("university.group_update", group_id=group.id), data=data)
         self.assertRedirects(response, "/")
@@ -299,3 +304,89 @@ class TestGroupsApi(TestCaseBase):
         db.session.refresh(group)
         self.assertEqual(group.title, data['title'])
         self.assertEqual(group.year, data['year'])
+
+
+class TestStudentsApi(TestCaseBase):
+    @TestCaseBase.guest_cant
+    def test_guest_cant_create_student(self):
+        return self.client.post(url_for("university.student_create"))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_remove_student(self):
+        s = Student.create()
+        return self.client.post(url_for("university.student_delete", student_id=s.id))
+
+    @TestCaseBase.guest_cant
+    def test_guest_cant_update_student(self):
+        s = Student.create()
+        return self.client.post(url_for("university.student_update", student_id=s.id))
+
+    @TestCaseBase.login
+    def test_user_can_create_student(self):
+        count_before = Student.query.count()
+
+        data = {
+            "name": "m",
+            "second_name": "k",
+            "sex": 1,
+            "photo": open(self.test_image_path)
+        }
+
+        response = self.client.post(url_for("university.student_create"), data=data)
+        self.assertRedirects(response, "/")
+        self.assertEqual(count_before + 1, Student.query.count())
+
+        student = Student.query.first()
+        self.assertTrue(os.path.exists(student.photo))
+
+    @TestCaseBase.login
+    def test_user_can_update_student(self):
+        s = Student.create(
+            name="cool",
+            second_name="second_name",
+            sex=0,
+        )
+
+        data = {
+            "name": "m",
+            "second_name": "k",
+            "sex": 1,
+            "photo": open(self.test_image_path)
+        }
+
+        response = self.client.post(url_for("university.student_update", student_id=s.id), data=data)
+        self.assertRedirects(response, "/")
+        db.session.refresh(s)
+
+        self.assertTrue(os.path.exists(s.photo))
+        self.assertEqual(s.name, data['name'])
+        self.assertEqual(s.second_name, data['second_name'])
+        self.assertEqual(s.sex, data['sex'])
+
+    @TestCaseBase.login
+    def test_user_can_remove_photo(self):
+        photo_path = StudentStorage.save(FileStorage(open(self.test_image_path)))
+
+        student_org = {
+            "name": "cool",
+            "second_name": "second_name",
+            "sex": 0,
+            "photo": photo_path
+        }
+
+        s = Student.create(**student_org)
+
+        self.assertTrue(os.path.exists(photo_path))
+
+        data = {
+            "remove_photo": True
+        }
+
+        response = self.client.post(url_for("university.student_update", student_id=s.id), data=data)
+        self.assertRedirects(response, "/")
+        db.session.refresh(s)
+        self.assertIsNone(s.photo)
+        self.assertFalse(os.path.exists(photo_path))
+        self.assertEqual(s.name, student_org['name'])
+        self.assertEqual(s.second_name, student_org['second_name'])
+        self.assertEqual(s.sex, student_org['sex'])

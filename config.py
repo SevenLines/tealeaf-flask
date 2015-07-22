@@ -40,3 +40,9 @@ class BaseConfiguration(object):
     ASSETS_MANIFEST = False
     if not DEBUG:
         ASSETS_AUTO_BUILD = False
+
+    # file uploads
+    UPLOAD_FOLDER = os.path.abspath(os.path.join(BASE_DIR, 'app/public'))
+    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+
+current_config = BaseConfiguration

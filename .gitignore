@@ -7,3 +7,5 @@ db.sqlite3
 env.sh
 logs
 cache
+app/public
+tests/public

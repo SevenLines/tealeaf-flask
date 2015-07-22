@@ -1,12 +1,10 @@
 # Import flask and template operators
 from flask import render_template
-
-from flask.ext.assets import Environment, ManageAssets
-from flask.ext.script import Manager
+from flask.ext.assets import Environment
 from flask.ext.wtf import CsrfProtect
-from app.admin import admin
 from flask_debugtoolbar import DebugToolbarExtension
 
+from app.admin import admin
 from app.contexts import *
 from app.logs import *
 from app.cache import *
@@ -14,6 +12,7 @@ from load_app import app
 from app.security import security
 from app.models import db
 from app.university import university
+
 
 # Sample HTTP error handling
 @app.errorhandler(404)

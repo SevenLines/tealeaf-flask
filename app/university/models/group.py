@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from sqlalchemy import event
+
 from app.models import db, BaseMixin
 from app.university.models.taskresult import TaskResult
 from app.university.models.task import Task
@@ -17,11 +19,10 @@ class Group(BaseMixin, db.Model):
     students = db.relationship("Student", backref='group', lazy='dynamic', order_by=Student.second_name)
 
     @staticmethod
-    def current_year():
+    def current_year(now=datetime.now()):
         """
         :return: current learning year
         """
-        now = datetime.now()
         if now.month < 9:  # if not september yet
             return now.year - 1
         return now.year

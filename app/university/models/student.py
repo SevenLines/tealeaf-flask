@@ -1,9 +1,18 @@
 # coding=utf-8
+import os
+
 from sqlalchemy import event
 
+from sqlalchemy.orm.attributes import get_history
+
 from app.models import db, BaseMixin
+from app.storage import Storage
 from app.university.models.lesson import Lesson
 from app.university.models.mark import Mark
+
+
+class StudentStorage(Storage):
+    subdir = "students"
 
 
 class Student(BaseMixin, db.Model):
@@ -12,6 +21,24 @@ class Student(BaseMixin, db.Model):
     sex = db.Column(db.SmallInteger)
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'))
     email = db.Column(db.String)
+
+    photo = db.Column(db.String)
+
+    @property
+    def photo_url(self):
+        if self.photo:
+            return StudentStorage.url(self.photo)
+        return ""
+
+    @staticmethod
+    def before_update(mapper, connection, target):
+        # remove old photo
+        old_photo_path = get_history(target, 'photo')
+        if old_photo_path.has_changes():
+            if len(old_photo_path[2]) and old_photo_path[2][0]:
+                os.remove(old_photo_path[2][0])
+        # continue with base method
+        return BaseMixin.before_update(mapper, connection, target)
 
     def __repr__(self):
         return u"<Student({id:d}|{name:s} {second_name:s}, {sex:s} из группы {group:s})>".format(**{
