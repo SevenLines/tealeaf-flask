@@ -17,6 +17,8 @@
         "3rdparty/jquery-pjax/jquery.pjax.js",
         "3rdparty/tinycolor/tinycolor.js",
 
+        "scripts/university/marks/load_controller.js",
+        "scripts/university/marks/marks_hover_controller.js",
         "scripts/university/marks/tooltips_controller.js",
         "scripts/university/marks/scoring_controller.js",
         "scripts/university/marks/scrolling_controller.js",
@@ -104,12 +106,6 @@
 {% if is_logged %}
     {% include "_admin_panel.html" %}
 {% endif %}
-
-{#<%= render 'layouts/login_modal' %>#}
-{#<% if Rails.env.production? %>#}
-{#    <%= render 'layouts/yandex_metric' %>#}
-{#<% else %>#}
-{#    <!-- metric not available in development mode -->#}
-{#<% end %>#}
+{% include "_yandex.html" %}
 </body>
 </html>
