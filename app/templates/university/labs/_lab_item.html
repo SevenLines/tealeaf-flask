@@ -1,0 +1,101 @@
+<div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}">
+    <table style="width: 100%">
+        <tr>
+            {#            {% if user.is_authenticated %}#}
+            {#                <td style="width: 1%;white-space: nowrap">#}
+            {#                    <div class="btn-group btn-group-sm btn-group-vertical">#}
+            {#                        <button class="btn btn-default" data-bind="click: $parent.moveLabUp, visible: $index() > 0">#}
+            {#                            <span class="glyphicon glyphicon-chevron-up"></span>#}
+            {#                        </button>#}
+            {#                        <button class="btn btn-default"#}
+            {#                                data-bind="click: $parent.moveLabDown, visible: $index() < $parent.labs().length - 1">#}
+            {#                            <span class="glyphicon glyphicon-chevron-down"></span>#}
+            {#                        </button>#}
+            {#                    </div>#}
+            {#                </td>#}
+            {#            {% endif %}#}
+            <td>
+
+                <span>{{ lab.title }}</span>
+                {#                {% if user.is_authenticated %}#}
+                {#                    <input class="form-control" style="display: inline-block; max-width: 65%" type="text"#}
+                {#                           data-bind="value: title, valueUpdate: 'input'"#}
+                {#                           onclick="arguments[0].stopImmediatePropagation()"/>#}
+                {#                    <select class="form-control" style="display: inline-block; max-width: 4em"#}
+                {#                            data-bind="options: [1,2,3,4], value: columns_count"#}
+                {#                            onclick="arguments[0].stopImmediatePropagation()"></select>#}
+                {#                {% else %}#}
+                {#                    <span data-bind="text: title"></span>#}
+                {#                {% endif %}#}
+            </td>
+            <td>
+                {#                {% if user.is_authenticated %}#}
+                {#                    <div class="pull-right">#}
+                {#                        <div class="btn-group">#}
+                {#                            <button class="btn"#}
+                {#                                    data-bind="click: toggle, css: {'btn-success': visible, 'btn-default': !visible()}">#}
+                {#                <span class="glyphicon glyphicon-eye-close"#}
+                {#                      data-bind="css: {'glyphicon-eye-close': !visible(), 'glyphicon-eye-open': visible }"></span>#}
+                {#                            </button>#}
+                {#                            <button data-tooltip="лабораторная содержит список занятий обязательный для всех стдуентов"#}
+                {#                                    class="btn"#}
+                {#                                    data-bind="click: toggle_regular, css: {'btn-success': regular, 'btn-default': !regular()}">#}
+                {#                                <span class="glyphicon glyphicon-user"></span>#}
+                {#                            </button>#}
+                {#                            <button class="btn btn-default" data-bind="click: save, css: {'btn-success': changed }">#}
+                {#                                <span class="glyphicon glyphicon-save"></span>#}
+                {#                            </button>#}
+                {#                            <button class="btn btn-primary" data-bind="click: addTask"><span#}
+                {#                                    class="glyphicon glyphicon-plus"></span></button>#}
+                {#                            <button class="btn btn-danger" data-bind="click: $parents[0].removeLab"><span#}
+                {#                                    class="glyphicon glyphicon-remove"></span></button>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                {% endif %}#}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="m-lab-info collapse" id="lab{{ lab.id }}">
+    <div>
+        {#        {% if not user.is_authenticated %}#}
+        {% if lab.description %}
+            <div class="m-lab-description">
+                <span>{{ lab.description|safe }}</span>
+                <hr>
+            </div>
+        {% endif %}
+        {#        {% else %}#}
+        {#            <div class="lab-bgimage-container" style="float: left; padding-right: 1em; position: relative">#}
+        {#                <img alt="" data-bind="attr: {src: bgimage}, click: clearImage" style="max-height: 30px"/>#}
+        {#                <img alt="" class="preview-lab-image" data-bind="attr: {src: bgimage}"/>#}
+        {#            </div>#}
+        {#            <input type="file" accept="image/*"#}
+        {#                   data-bind="event: { change: setImage.bind($data, $element)  }"/>#}
+        {#            <hr/>#}
+        {#            <div class="m-lab-description">#}
+        {#                <div style="background-color:#f8f8f8;min-width: 20px;min-height: 20px" contenteditable#}
+        {#                     data-bind="ckeditorInline: description"></div>#}
+        {#                <hr>#}
+        {#            </div>#}
+        {#        {% endif %}#}
+        <div class="row">
+            {% for task in lab.tasks %}
+                <div class="m-task {{ task.style }}">
+                    <table style="table-layout: fixed;width: 100%">
+                        <tr>
+                            <td class="m-task-label">{{ loop.index }}</td>
+                            <td class="m-task-description">
+                                {#                <ul class="m-task-students" data-bind="visible: students().length, foreach: students">#}
+                                {#                    <li class="m-task-student" data-bind="text: text"></li>#}
+                                {#                </ul>#}
+                                <span>{{ task.description|safe }}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    {#                    {% include "university/labs/__task_item.html" %}#}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

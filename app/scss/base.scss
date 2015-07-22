@@ -9,6 +9,7 @@ $nav-height: 50px;
 body {
   @include transition(0.3s);
   font-family: Georgia, "Times New Roman", Times, serif !important;
+  //background: url("../build/images/paisley.png");
 }
 
 #content {
@@ -80,7 +81,6 @@ body {
   right: 0;
   top: $nav-height + 2px;
   bottom: 0;
-  //background-color: white;
   display: none;
   .icon-container {
     position: absolute;

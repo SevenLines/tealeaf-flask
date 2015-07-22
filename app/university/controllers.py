@@ -129,6 +129,8 @@ def group_marks(group_id, discipline_id=None):
         lessons=data['lessons'],
         labs=data['labs'],
         disciplines=disciplines.order_by(Discipline.title).all(),
+        has_visible_labs=len([lab for lab in data['labs'] if lab.visible]) > 0,
+
 
         students_info=data['students_info'],
 
