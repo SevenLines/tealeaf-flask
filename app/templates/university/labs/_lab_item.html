@@ -1,4 +1,4 @@
-<div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}">
+<div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}" data-parent="#labs-accordion">
     <table style="width: 100%">
         <tr>
             {#            {% if user.is_authenticated %}#}
@@ -56,7 +56,7 @@
         </tr>
     </table>
 </div>
-<div class="m-lab-info collapse" id="lab{{ lab.id }}">
+<div class="m-lab-info collapse" id="lab{{ lab.id }}" style="">
     <div>
         {#        {% if not user.is_authenticated %}#}
         {% if lab.description %}
@@ -79,7 +79,7 @@
         {#                <hr>#}
         {#            </div>#}
         {#        {% endif %}#}
-        <div class="row">
+{#        <div class="row">#}
             {% for task in lab.tasks %}
                 <div class="m-task {{ task.style }}">
                     <table style="table-layout: fixed;width: 100%">
@@ -96,6 +96,6 @@
                     {#                    {% include "university/labs/__task_item.html" %}#}
                 </div>
             {% endfor %}
-        </div>
+{#        </div>#}
     </div>
 </div>

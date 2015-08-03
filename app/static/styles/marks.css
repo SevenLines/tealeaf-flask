@@ -44,10 +44,18 @@
   cursor: pointer;
   padding: 0.25em 0.5em;
   border-bottom: 1px solid #c0c0c0;
-  font-size: 1.75em;
+  font-size: 1.5em;
   background-color: #FDFDFD; }
+.m-lab.panel {
+  margin-top: 0 !important; }
 .m-lab .m-lab-info {
+  max-height: 300px;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-bottom: 1px solid #c0c0c0; }
+  .m-lab .m-lab-info img {
+    max-width: 100%; }
   .m-lab .m-lab-info > div {
     padding: 1em; }
 
@@ -693,192 +701,140 @@ pre {
     .mark#lesson-editor.exam {
       box-shadow: #ec6aa0 0 0 0 4px inset; }
 
-@-webkit-keyframes black-hole-glow {
+@-webkit-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ff1800 inset; }
-
   50% {
     box-shadow: 0 0 32px #ff1800 inset; }
-
   100% {
     box-shadow: 0 0 2px #ff1800 inset; } }
-
-@-moz-keyframes black-hole-glow {
+@-moz-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ff1800 inset; }
-
   50% {
     box-shadow: 0 0 32px #ff1800 inset; }
-
   100% {
     box-shadow: 0 0 2px #ff1800 inset; } }
-
-@keyframes black-hole-glow {
+@keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ff1800 inset; }
-
   50% {
     box-shadow: 0 0 32px #ff1800 inset; }
-
   100% {
     box-shadow: 0 0 2px #ff1800 inset; } }
-
-@-webkit-keyframes shinig-glow {
+@-webkit-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ffb62c inset; }
-
   50% {
     box-shadow: 0 0 32px #ffb62c inset; }
-
   100% {
     box-shadow: 0 0 2px #ffb62c inset; } }
-
-@-moz-keyframes shinig-glow {
+@-moz-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ffb62c inset; }
-
   50% {
     box-shadow: 0 0 32px #ffb62c inset; }
-
   100% {
     box-shadow: 0 0 2px #ffb62c inset; } }
-
-@keyframes shinig-glow {
+@keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ffb62c inset; }
-
   50% {
     box-shadow: 0 0 32px #ffb62c inset; }
-
   100% {
     box-shadow: 0 0 2px #ffb62c inset; } }
-
-@-webkit-keyframes mercy-glow {
+@-webkit-keyframes $animation-name {
   0% {
     box-shadow: 0 0 0px #cef08a inset; }
-
   50% {
     box-shadow: 0 0 32px #cef08a inset; }
-
   100% {
     box-shadow: 0 0 0px #cef08a inset; } }
-
-@-moz-keyframes mercy-glow {
+@-moz-keyframes $animation-name {
   0% {
     box-shadow: 0 0 0px #cef08a inset; }
-
   50% {
     box-shadow: 0 0 32px #cef08a inset; }
-
   100% {
     box-shadow: 0 0 0px #cef08a inset; } }
-
-@keyframes mercy-glow {
+@keyframes $animation-name {
   0% {
     box-shadow: 0 0 0px #cef08a inset; }
-
   50% {
     box-shadow: 0 0 32px #cef08a inset; }
-
   100% {
     box-shadow: 0 0 0px #cef08a inset; } }
-
 @-webkit-keyframes loaderAnimation {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
-
 @keyframes loaderAnimation {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
-
-@-webkit-keyframes godAnimation {
+@-webkit-keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
-@-moz-keyframes godAnimation {
+@-moz-keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
-@keyframes godAnimation {
+@keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
-@-webkit-keyframes godAnimation2 {
+@-webkit-keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
-@-moz-keyframes godAnimation2 {
+@-moz-keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
-@keyframes godAnimation2 {
+@keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
-@-webkit-keyframes godAnimation {
+@-webkit-keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
-@-moz-keyframes godAnimation {
+@-moz-keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
-@keyframes godAnimation {
+@keyframes $animation-name {
   0% {
     background-position: 0 0; }
-
   100% {
     background-position: 40px 0; } }
-
 #mark-selector {
   display: none;
   position: absolute;
@@ -977,7 +933,6 @@ pre {
 @-moz-document url-prefix() {
   fieldset {
     display: table-cell; } }
-
 .pickmeup {
   z-index: 20000 !important; }
 
@@ -1061,42 +1016,33 @@ pre {
   -o-animation-delay: 1s;
   animation-delay: 1s; }
 
-@-webkit-keyframes godAnimation2 {
+@-webkit-keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
-@-moz-keyframes godAnimation2 {
+@-moz-keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
-@keyframes godAnimation2 {
+@keyframes $animation-name {
   0% {
     opacity: 0;
     width: 0; }
-
   50% {
     opacity: .4; }
-
   100% {
     opacity: 0;
     width: 100%; } }
-
 .jumbotron.loading {
   background-color: #ffe500;
   box-shadow: 0 0 6px #f49900;
@@ -1135,10 +1081,10 @@ pre {
     color: #c16400; }
 
 #marks-editor .marks-table .s-table {
-  border-left: 1px solid #cccccc;
-  border-top: 1px solid #cccccc;
+  border-left: 1px solid #CCC;
+  border-top: 1px solid #CCC;
   float: left;
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid #CCC;
   width: 220px; }
   #marks-editor .marks-table .s-table .t-cell {
     overflow: visible;
@@ -1194,8 +1140,8 @@ pre {
   cursor: move;
   white-space: nowrap; }
 #marks-editor .marks-table .m-table {
-  border-top: 1px solid #cccccc;
-  border-left: 1px solid #cccccc;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
   display: inline-block;
   table-layout: fixed; }
   #marks-editor .marks-table .m-table:first-child {
@@ -1204,8 +1150,8 @@ pre {
   #marks-editor .marks-table .m-table .t-content .t-cell {
     padding-top: 3px; }
 #marks-editor .marks-table .l-table {
-  border-top: 1px solid #cccccc;
-  border-right: 1px solid #cccccc;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
   opacity: 0;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
@@ -1246,7 +1192,7 @@ pre {
     text-align: center;
     z-index: 99;
     background-color: white;
-    border-bottom: 1px solid #cccccc; }
+    border-bottom: 1px solid #CCC; }
   #marks-editor .marks-table .l-table .task-title {
     cursor: pointer;
     background-color: #ffffff;
@@ -1350,7 +1296,7 @@ pre {
     color: black;
     text-shadow: 0 0 1px white; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .task-title:hover {
-    background-color: #e2ff74;
+    background-color: #e2ff75;
     color: #223c00;
     text-shadow: 0 0 1px white; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done {
@@ -1366,7 +1312,7 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow {
       background-color: #deff60; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow-veryslow {
-      background-color: #e2ff74; }
+      background-color: #e2ff75; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.veryslow {
       background-color: #e6ff89; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip.bottom .tooltip-arrow {
@@ -1378,7 +1324,7 @@ pre {
     box-shadow: 0 0 4px #223c00;
     background-color: #ddff5b; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #142200 inset; }
+    box-shadow: 0 0 0 4px #142300 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table {
   background-repeat: no-repeat;
   background-color: #f1fdf9; }
@@ -1502,7 +1448,7 @@ pre {
     box-shadow: 0 0 4px #00384c;
     background-color: #66dcff; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #002532 inset; }
+    box-shadow: 0 0 0 4px #002533 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table {
   background-repeat: no-repeat;
   background-color: #fff0f4; }
@@ -1517,7 +1463,7 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done {
     box-shadow: none;
     background-color: rgba(178, 94, 120, 0.1);
-    color: #512733; }
+    color: #512734; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.fast-normal {
       background-color: rgba(178, 94, 120, 0.1); }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.normal {
@@ -1542,7 +1488,7 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done {
     background-color: #ff8cab;
     box-shadow: 0 0 0 4px #b25e78 inset;
-    color: #512733; }
+    color: #512734; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.fast-normal {
       background-color: #ffbacd; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.normal {
@@ -1630,7 +1576,7 @@ pre {
 #marks-editor .marks-table .t-header .t-cell, #marks-editor .marks-table .t-footer .t-cell {
   height: 36.4px; }
 #marks-editor .marks-table .t-row {
-  border-bottom: 1px solid #cccccc; }
+  border-bottom: 1px solid #CCC; }
   #marks-editor .marks-table .t-row.collapsed {
     display: none; }
     #marks-editor .marks-table .t-row.collapsed .t-cell {
@@ -1659,7 +1605,7 @@ pre {
   text-align: center;
   vertical-align: middle;
   padding-top: 7px;
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid #CCC;
   width: 36.4px;
   height: 28px;
   max-height: 35px; }
@@ -1678,13 +1624,7 @@ pre {
     padding-right: 10px; }
   #marks-editor .s-table {
     max-width: 176px;
-    width: 176px; }
-    #marks-editor .s-table .info .name .name-n {
-      display: inline !important; }
-    #marks-editor .s-table .info .name .name-name {
-      display: none; }
-  #marks-editor .m-table-container {
-    margin-left: 88px !important; } }
+    width: 176px; } }
   @media (max-width: 768px) and (max-width: 500px) {
     #marks-editor .s-table {
       max-width: 132px;
@@ -1695,3 +1635,12 @@ pre {
         -ms-transition: opacity 0.3s;
         -o-transition: opacity 0.3s;
         transition: opacity 0.3s; } }
+@media (max-width: 768px) {
+    #marks-editor .s-table .info .name .name-n {
+      display: inline !important; }
+    #marks-editor .s-table .info .name .name-name {
+      display: none; }
+  #marks-editor .m-table-container {
+    margin-left: 88px !important; } }
+
+/*# sourceMappingURL=marks.css.map */

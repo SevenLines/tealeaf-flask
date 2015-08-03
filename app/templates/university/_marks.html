@@ -67,7 +67,9 @@
 {% if has_visible_labs %}
     </div>
     <div class="col-md-6">
-    {% include "university/__labs_list.html" %}
+        <div id="labs-editor">
+            {% include "university/__labs_list.html" %}
+        </div>
     </div>
     </div>
 {% endif %}
