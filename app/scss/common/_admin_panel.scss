@@ -1,6 +1,7 @@
 @import "const";
 
 #admin-panel {
+  z-index: 100;
   margin-top: 50px;
   .menu {
     border-bottom: 1px solid black;

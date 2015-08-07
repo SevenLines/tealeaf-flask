@@ -1,0 +1,100 @@
+<div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}" data-parent="#labs-accordion">
+    <table style="width: 100%">
+        <tr>
+            {% if is_logged %}
+                <td rowspan="2" style="width: 40px">
+                    <div class="btn-group-vertical btn-group-sm">
+                        <button class="btn btn-default">
+                            <span class="fa fa-chevron-up"></span>
+                        </button>
+                        <button class="btn btn-default">
+                            <span class="fa fa-chevron-down"></span>
+                        </button>
+                    </div>
+                </td>
+            {% endif %}
+            <td rowspan="2">
+                {% if is_logged %}
+                    <input class="form-control" type="text" value="{{ lab.title }}">
+                {% else %}
+                    <span>{{ lab.title }}</span>
+                {% endif %}
+            </td>
+            {% if is_logged %}
+                <td style="width: 120px">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button class="btn btn-default" data-bind="click: save, css: {'btn-success': changed }">
+                                <span class="fa fa-save"></span>
+                            </button>
+                            <button class="btn btn-primary" data-bind="click: addTask"><span
+                                    class="fa fa-plus"></span></button>
+                            <button class="btn btn-danger" data-bind="click: $parents[0].removeLab"><span
+                                    class="fa fa-remove"></span></button>
+                        </div>
+                    </div>
+                </td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if is_logged %}
+            <td>
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <button class="btn btn-default">
+                            <span class="fa fa-eye-slash"></span>
+                        </button>
+                        <button data-tooltip="лабораторная содержит список занятий обязательный для всех стдуентов"
+                                class="btn btn-default">
+                            <span class="fa fa-user"></span>
+                        </button>
+                    </div>
+                </div>
+            </td>
+            {% endif %}
+        </tr>
+    </table>
+</div>
+<div class="m-lab-info collapse" id="lab{{ lab.id }}" style="">
+    <div>
+        {#        {% if not user.is_authenticated %}#}
+        {% if lab.description %}
+            <div class="m-lab-description">
+                <span>{{ lab.description|safe }}</span>
+                <hr>
+            </div>
+        {% endif %}
+        {#        {% else %}#}
+        {#            <div class="lab-bgimage-container" style="float: left; padding-right: 1em; position: relative">#}
+        {#                <img alt="" data-bind="attr: {src: bgimage}, click: clearImage" style="max-height: 30px"/>#}
+        {#                <img alt="" class="preview-lab-image" data-bind="attr: {src: bgimage}"/>#}
+        {#            </div>#}
+        {#            <input type="file" accept="image/*"#}
+        {#                   data-bind="event: { change: setImage.bind($data, $element)  }"/>#}
+        {#            <hr/>#}
+        {#            <div class="m-lab-description">#}
+        {#                <div style="background-color:#f8f8f8;min-width: 20px;min-height: 20px" contenteditable#}
+        {#                     data-bind="ckeditorInline: description"></div>#}
+        {#                <hr>#}
+        {#            </div>#}
+        {#        {% endif %}#}
+{#        <div class="row">#}
+            {% for task in lab.tasks %}
+                <div class="m-task {{ task.style }}">
+                    <table style="table-layout: fixed;width: 100%">
+                        <tr>
+                            <td class="m-task-label">{{ loop.index }}</td>
+                            <td class="m-task-description">
+                                {#                <ul class="m-task-students" data-bind="visible: students().length, foreach: students">#}
+                                {#                    <li class="m-task-student" data-bind="text: text"></li>#}
+                                {#                </ul>#}
+                                <span>{{ task.description|safe }}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    {#                    {% include "university/labs/__task_item.html" %}#}
+                </div>
+            {% endfor %}
+{#        </div>#}
+    </div>
+</div>

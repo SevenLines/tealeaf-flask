@@ -1,0 +1,48 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading labs-panel-heading" style="cursor: pointer" role="tab">
+            <h5 class="panel-title pull-left">
+                <span>Лабораторные</span>
+            </h5>
+
+                    {% if is_logged %}
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-primary btn-sm" data-bind="click: addLab"><span
+                                    class="fa fa-plus"></span></button>
+                            <button class="btn btn-warning btn-sm" data-bind="click: refresh"><span
+                                    class="fa fa-refresh"></span></button>
+                            <button class="btn btn-default btn-sm" data-bind="click: saveAll, css: {'btn-success': changed}"><span
+                                    class="fa fa-sort"> Сохранить порядок</span></button>
+                        </div>
+                    {% endif %}
+            <div style="clear: both"></div>
+
+        </div>
+        <div class="panel-collapse collapse in">
+            <div class="panel-body" style=" padding: 0">
+                <ul class="panel-group m-labs" id="labs-accordion">
+                    {% for lab in labs if is_logged or lab.visible %}
+                        <li class="m-lab panel">
+                            {% include "university/labs/_lab_item.html" %}
+                            {#                    {% include "students/labs/lab.html" %}#}
+                            <div style="clear: both;"></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var height = $("#marks-editor").outerHeight();
+
+        var lab_panels = $(".m-lab.panel");
+        var labs_heading = $(".labs-panel-heading");
+        var height_limit = Math.max(300, height - lab_panels.outerHeight() * lab_panels.size() - labs_heading.outerHeight());
+
+        $(".m-lab-info").css({
+            'max-height': height_limit
+        });
+    })
+</script>

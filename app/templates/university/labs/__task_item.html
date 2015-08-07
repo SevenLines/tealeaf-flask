@@ -1,0 +1,65 @@
+{#<div class="label label-default" data-bind="text: $index" style="float: left;"></div>#}
+{#{% if not user.is_authenticated %}#}
+    <table style="table-layout: fixed;width: 100%">
+        <tr>
+            <td class="m-task-label">{{ loop.index }}</td>
+            <td class="m-task-description">
+{#                <ul class="m-task-students" data-bind="visible: students().length, foreach: students">#}
+{#                    <li class="m-task-student" data-bind="text: text"></li>#}
+{#                </ul>#}
+                <span>{{ task.description|safe }}</span>
+            </td>
+        </tr>
+    </table>
+{#{% else %}#}
+{#    <table style="table-layout: fixed; width: 100%">#}
+{#        <tr>#}
+{#            <td class="m-task-label" rowspan=2>#}
+{#                <div class="btn-group btn-group-vertical btn-group-sm">#}
+{#                    <button class="btn btn-link" data-bind="click: $parents[1].moveTaskUp">#}
+{#                        <span class="glyphicon glyphicon-chevron-up"></span>#}
+{#                    </button>#}
+{#                    <span  data-bind="text: order"></span>#}
+{#                    <button class="btn btn-link" data-bind="click: $parents[1].moveTaskDown">#}
+{#                        <span class="glyphicon glyphicon-chevron-down"></span>#}
+{#                    </button>#}
+{#                </div>#}
+{#            </td>#}
+{#            <td class="m-task-description">#}
+{#                <div contenteditable data-bind="ckeditorInline: description"></div>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td class="m-task-menu">#}
+{#                <!-- ko ifnot: $parents[1].regular -->#}
+{#                <!-- СТУДЕНТЫ ВЫБРАВШИЕ ЗАДАЧУ -->#}
+{#                <div class="m-task-user-selector"#}
+{#                     data-ajax-url="{% url "students.views.students.ajax.json.list_students" %}"#}
+{#                     data-ajax-term="filter"#}
+{#                     data-placeholder="никто не выбрал эту задачу"#}
+{#                     data-bind="select2: students">#}
+{##}
+{#                </div>#}
+{#                <!-- / СТУДЕНТЫ ВЫБРАВШИЕ ЗАДАЧУ -->#}
+{#                <!-- /ko -->#}
+{##}
+{#                <!-- СЛОЖНОСТЬ ЗАДАЧИ -->#}
+{#                <div class="menu-complexity" data-bind="foreach: complex_choices">#}
+{#                    <div class="menu-complexity-item"#}
+{#                         data-bind="css: $data.class, click: $parents[0].setComplex,#}
+{#                                  visible: $parents[0].complexity() != $data.value"></div>#}
+{#                </div>#}
+{#                <!-- / СЛОЖНОСТЬ ЗАДАЧИ -->#}
+{##}
+{#                <!-- КНОПКИ УПРАВЛЕНИЯ ЗАДАЧЕЙ -->#}
+{#                <div>#}
+{#                    <a href="#" class="save pull-left" style="margin-left: 8px"#}
+{#                       data-bind="visible: changed, click: save">сохранить</a>#}
+{#                    <a href="#" class="text-danger pull-right" data-bind="click: $parents[1].removeTask">удалить</a>#}
+{#                </div>#}
+{#                <!-- / КНОПКИ УПРАВЛЕНИЯ ЗАДАЧЕЙ -->#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+{##}
+{#{% endif %}#}
