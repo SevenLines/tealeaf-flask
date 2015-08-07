@@ -1,21 +1,20 @@
 <div>
     <div class="panel panel-default">
-        <div class="panel-heading labs-panel-heading" style="cursor: pointer" role="tab"
-             data-toggle="collapse" data-target="#labs-editor">
+        <div class="panel-heading labs-panel-heading" style="cursor: pointer" role="tab">
             <h5 class="panel-title pull-left">
                 <span>Лабораторные</span>
             </h5>
 
-            {#        {% if user.is_authenticated %}#}
-            {#            <div class="btn-group pull-right">#}
-            {#                <button class="btn btn-primary btn-sm" data-bind="click: addLab"><span#}
-            {#                        class="glyphicon glyphicon-plus"></span></button>#}
-            {#                <button class="btn btn-warning btn-sm" data-bind="click: refresh"><span#}
-            {#                        class="glyphicon glyphicon-refresh"></span></button>#}
-            {#                <button class="btn btn-default btn-sm" data-bind="click: saveAll, css: {'btn-success': changed}"><span#}
-            {#                        class="glyphicon glyphicon-sort"> Сохранить порядок</span></button>#}
-            {#            </div>#}
-            {#        {% endif %}#}
+                    {% if is_logged %}
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-primary btn-sm" data-bind="click: addLab"><span
+                                    class="fa fa-plus"></span></button>
+                            <button class="btn btn-warning btn-sm" data-bind="click: refresh"><span
+                                    class="fa fa-refresh"></span></button>
+                            <button class="btn btn-default btn-sm" data-bind="click: saveAll, css: {'btn-success': changed}"><span
+                                    class="fa fa-sort"> Сохранить порядок</span></button>
+                        </div>
+                    {% endif %}
             <div style="clear: both"></div>
 
         </div>

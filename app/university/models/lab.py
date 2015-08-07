@@ -8,7 +8,7 @@ class Lab(BaseMixin, db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('disciplines.id'))
     visible = db.Column(db.Boolean)
     regular = db.Column(db.Boolean)
-    tasks = db.relationship("Task")
+    tasks = db.relationship("Task", order_by="Task.complexity",)
 
     def __repr__(self):
         return u"<Lab({title:s}|{discipline_id:d} v:{visible:s} r:{visible:s}>".format(**{

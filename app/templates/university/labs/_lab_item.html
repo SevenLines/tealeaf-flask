@@ -1,58 +1,57 @@
 <div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}" data-parent="#labs-accordion">
     <table style="width: 100%">
         <tr>
-            {#            {% if user.is_authenticated %}#}
-            {#                <td style="width: 1%;white-space: nowrap">#}
-            {#                    <div class="btn-group btn-group-sm btn-group-vertical">#}
-            {#                        <button class="btn btn-default" data-bind="click: $parent.moveLabUp, visible: $index() > 0">#}
-            {#                            <span class="glyphicon glyphicon-chevron-up"></span>#}
-            {#                        </button>#}
-            {#                        <button class="btn btn-default"#}
-            {#                                data-bind="click: $parent.moveLabDown, visible: $index() < $parent.labs().length - 1">#}
-            {#                            <span class="glyphicon glyphicon-chevron-down"></span>#}
-            {#                        </button>#}
-            {#                    </div>#}
-            {#                </td>#}
-            {#            {% endif %}#}
-            <td>
-
-                <span>{{ lab.title }}</span>
-                {#                {% if user.is_authenticated %}#}
-                {#                    <input class="form-control" style="display: inline-block; max-width: 65%" type="text"#}
-                {#                           data-bind="value: title, valueUpdate: 'input'"#}
-                {#                           onclick="arguments[0].stopImmediatePropagation()"/>#}
-                {#                    <select class="form-control" style="display: inline-block; max-width: 4em"#}
-                {#                            data-bind="options: [1,2,3,4], value: columns_count"#}
-                {#                            onclick="arguments[0].stopImmediatePropagation()"></select>#}
-                {#                {% else %}#}
-                {#                    <span data-bind="text: title"></span>#}
-                {#                {% endif %}#}
+            {% if is_logged %}
+                <td rowspan="2" style="width: 40px">
+                    <div class="btn-group-vertical btn-group-sm">
+                        <button class="btn btn-default">
+                            <span class="fa fa-chevron-up"></span>
+                        </button>
+                        <button class="btn btn-default">
+                            <span class="fa fa-chevron-down"></span>
+                        </button>
+                    </div>
+                </td>
+            {% endif %}
+            <td rowspan="2">
+                {% if is_logged %}
+                    <input class="form-control" type="text" value="{{ lab.title }}">
+                {% else %}
+                    <span>{{ lab.title }}</span>
+                {% endif %}
             </td>
+            {% if is_logged %}
+                <td style="width: 120px">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button class="btn btn-default" data-bind="click: save, css: {'btn-success': changed }">
+                                <span class="fa fa-save"></span>
+                            </button>
+                            <button class="btn btn-primary" data-bind="click: addTask"><span
+                                    class="fa fa-plus"></span></button>
+                            <button class="btn btn-danger" data-bind="click: $parents[0].removeLab"><span
+                                    class="fa fa-remove"></span></button>
+                        </div>
+                    </div>
+                </td>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if is_logged %}
             <td>
-                {#                {% if user.is_authenticated %}#}
-                {#                    <div class="pull-right">#}
-                {#                        <div class="btn-group">#}
-                {#                            <button class="btn"#}
-                {#                                    data-bind="click: toggle, css: {'btn-success': visible, 'btn-default': !visible()}">#}
-                {#                <span class="glyphicon glyphicon-eye-close"#}
-                {#                      data-bind="css: {'glyphicon-eye-close': !visible(), 'glyphicon-eye-open': visible }"></span>#}
-                {#                            </button>#}
-                {#                            <button data-tooltip="лабораторная содержит список занятий обязательный для всех стдуентов"#}
-                {#                                    class="btn"#}
-                {#                                    data-bind="click: toggle_regular, css: {'btn-success': regular, 'btn-default': !regular()}">#}
-                {#                                <span class="glyphicon glyphicon-user"></span>#}
-                {#                            </button>#}
-                {#                            <button class="btn btn-default" data-bind="click: save, css: {'btn-success': changed }">#}
-                {#                                <span class="glyphicon glyphicon-save"></span>#}
-                {#                            </button>#}
-                {#                            <button class="btn btn-primary" data-bind="click: addTask"><span#}
-                {#                                    class="glyphicon glyphicon-plus"></span></button>#}
-                {#                            <button class="btn btn-danger" data-bind="click: $parents[0].removeLab"><span#}
-                {#                                    class="glyphicon glyphicon-remove"></span></button>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                {% endif %}#}
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <button class="btn btn-default">
+                            <span class="fa fa-eye-slash"></span>
+                        </button>
+                        <button data-tooltip="лабораторная содержит список занятий обязательный для всех стдуентов"
+                                class="btn btn-default">
+                            <span class="fa fa-user"></span>
+                        </button>
+                    </div>
+                </div>
             </td>
+            {% endif %}
         </tr>
     </table>
 </div>
