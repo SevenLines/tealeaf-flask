@@ -1,0 +1,29 @@
+{% if not is_logged and not discipline.articles.count() %}
+{% else %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdown_articles" data-toggle="dropdown">
+            <span class="fa fa-bookmark"></span>
+            &nbsp;Статьи&nbsp;
+            <span class="fa fa-caret-down"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown_articles">
+            <li>
+                <a href="">Длинное название статьи</a>
+            </li>
+            <li>
+                <a href="">Длинное название второй статьи</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li class>
+                <a href=""> <span class="fa fa-plus"> Добавить</span></a>
+            </li>
+            {#        <li role="presentation" class="dropdown-header">Dropdown header</li>#}
+            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>#}
+            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>#}
+            {#        <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>#}
+            {#        <li role="presentation" class="divider"></li>#}
+            {#        <li role="presentation" class="dropdown-header">Dropdown header</li>#}
+            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>#}
+        </ul>
+    </div>
+{% endif %}

@@ -22,11 +22,13 @@ $marks-size: 30px;
 
 @mixin tooltip($hue-offset) {
   .tooltip > {
+
     .tooltip-arrow {
       display: none;
     }
     .tooltip-inner {
-          overflow: hidden;
+
+      overflow: hidden;
       font-weight: bold;
       background-color: white;
       color: adjust_hue($full, $hue-offset);

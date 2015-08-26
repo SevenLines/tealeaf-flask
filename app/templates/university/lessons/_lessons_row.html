@@ -18,7 +18,7 @@
                  data-update-lesson="{{ url_for("university.update_lesson", lesson_id=lesson.id) }}"
                  data-delete-lesson="{{ url_for("university.delete_lesson", lesson_id=lesson.id) }}"
                     {% endif %}
-                 data-original-title="{{ lesson.description }}">
+                 data-original-title="{{ lesson.description_rendered }}">
                 <span class="label">{{ lesson.date.strftime('%d') if lesson.date else "" }}</span>
             </div>
         </td>

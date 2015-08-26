@@ -9,6 +9,8 @@
             </option>
         {% endfor %}
     </select>
+    {% include "university/lessons/__books_menu.html" %}
+    {% include "university/lessons/__articles_menu.html" %}
     {% if is_logged %}
         <div class="btn btn-success btn-save-marks">
             Сохранить

@@ -43,6 +43,6 @@ class BaseConfiguration(object):
 
     # file uploads
     UPLOAD_FOLDER = os.path.abspath(os.path.join(BASE_DIR, 'app/public'))
-    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'docx', 'doc', 'xls', 'xlsx', 'djvu'}
 
 current_config = BaseConfiguration

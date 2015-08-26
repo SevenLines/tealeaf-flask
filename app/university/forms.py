@@ -1,11 +1,11 @@
 from flask.ext.wtf import Form
 from wtforms.ext.sqlalchemy.orm import model_form
 from wtforms.validators import DataRequired
-from app.models import db
 
+from app.models import db
 from app.university.models.student import Student
 from app.university.models.group import Group
-from app.university.models.discipline import Discipline
+from app.university.models.discipline import Discipline, DisciplineFile
 from app.university.models.lesson import Lesson
 
 
@@ -23,13 +23,16 @@ StudentForm = model_form(Student, base_class=Form, exclude_fk=False,
                          field_args={
                          })
 
-
-# class StudentForm(StudentFormBase):
-#     photo = FileField('photo')
-
-
 DisciplineForm = model_form(Discipline, base_class=Form,
-                            only=['title', 'year', 'visible', 'regular'])
+                            only=['title', 'year', 'visible', 'regular'],
+                            )
+
+DisciplineFileForm = model_form(DisciplineFile, base_class=Form,
+                                field_args={
+                                    'file': {
+                                        'validators': [DataRequired(), ]
+                                    },
+                                })
 
 GroupForm = model_form(Group, base_class=Form,
                        exclude=['created_at', 'updated_at', 'students'])

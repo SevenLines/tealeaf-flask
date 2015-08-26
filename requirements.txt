@@ -11,6 +11,7 @@ Flask-Security
 flask-debugtoolbar
 Flask-Uploads
 
+mistune
 
 psycopg2
 py-bcrypt
