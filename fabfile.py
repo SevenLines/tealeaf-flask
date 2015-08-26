@@ -8,7 +8,7 @@ env.hosts = ['93.170.123.27']
 env.directory = '/home/mick/projects/tealeaf-flask'
 env.additional_env = 'source {}/env.sh'.format(env.directory)
 env.activate = 'source {}/env/bin/activate'.format(env.directory)
-
+env.use_ssh_config=True
 
 def build_assets():
     try:
