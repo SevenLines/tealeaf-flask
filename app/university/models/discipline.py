@@ -30,7 +30,10 @@ class DisciplineFile(BaseMixin, db.Model):
 
     @property
     def url(self):
-        return DisciplineFileStorage.url(self.path)
+        if self.path:
+            return DisciplineFileStorage.url(self.path)
+        else:
+            return None
 
 
 event.listen(DisciplineFile, 'before_insert', DisciplineFile.before_insert)

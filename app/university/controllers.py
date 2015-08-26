@@ -1,6 +1,6 @@
 from pprint import pformat
 
-from flask import render_template, request, redirect, url_for, Response
+from flask import render_template, request, redirect, url_for, Response, abort
 from flask.ext.login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
@@ -281,6 +281,10 @@ def discipline_file_create(discipline_id):
 
         populate(form, discipline_file)
         discipline_file.path = DisciplineFileStorage.save(request.files['file'])
+
+        if discipline_file.path is None:
+            return redirect(request.referrer or "/")
+
         discipline_file.discipline_id = discipline_id
         if not discipline_file.title:
             discipline_file.title = request.files['file'].filename
