@@ -271,6 +271,40 @@ def discipline_update(discipline_id):
     return redirect(request.referrer or "/")
 
 
+@university.route("/discipline/<int:discipline_id>/file/", methods=['POST', ])
+@login_required
+def discipline_file_create(discipline_id):
+    discipline = Discipline.get_or_404(discipline_id)
+    form = DisciplineFileForm(request.form)
+    if form.validate_on_submit():
+        discipline_file = DisciplineFile()
+
+        populate(form, discipline_file)
+        discipline_file.path = DisciplineFileStorage.save(request.files['file'])
+        discipline_file.discipline_id = discipline_id
+        if not discipline_file.title:
+            discipline_file.title = request.files['file'].filename
+
+        db.session.add(discipline_file)
+        db.session.commit()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/discipline_file/<int:discipline_file_id>/d/", methods=['POST', ])
+@login_required
+def discipline_file_delete(discipline_file_id):
+    discipline_file = DisciplineFile.get_or_404(discipline_file_id)
+    discipline_file.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
 @university.route("/group/", methods=['POST', ])
 @login_required
 def group_create():

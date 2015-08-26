@@ -1,6 +1,7 @@
 # coding=utf-8
 from sqlalchemy import event
 from app.models import BaseMixin, db
+import mistune
 
 
 class Lesson(BaseMixin, db.Model):
@@ -32,6 +33,10 @@ class Lesson(BaseMixin, db.Model):
         if not type:
             return ""
         return type["cls"]
+
+    @property
+    def description_rendered(self):
+        return mistune.markdown(self.description, hard_wrap=True)
 
     def __repr__(self):
         return u"<Lesson({description:s} {date}|{discipline_id:d} lt:{lesson_type:d} si:{score_ignore:s}>" \

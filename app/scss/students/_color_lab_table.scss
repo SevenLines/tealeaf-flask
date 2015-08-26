@@ -86,6 +86,7 @@ $max_tables: length($bgcolors) - 1;
       }
 
       .tooltip {
+
         &.bottom {
           .tooltip-arrow {
             border-bottom-color: $color;
