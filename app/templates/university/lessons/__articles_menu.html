@@ -7,23 +7,35 @@
             <span class="fa fa-caret-down"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown_articles">
-            <li>
-                <a href="">Длинное название статьи</a>
-            </li>
-            <li>
-                <a href="">Длинное название второй статьи</a>
-            </li>
-            <li role="presentation" class="divider"></li>
-            <li class>
-                <a href=""> <span class="fa fa-plus"> Добавить</span></a>
-            </li>
-            {#        <li role="presentation" class="dropdown-header">Dropdown header</li>#}
-            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>#}
-            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>#}
-            {#        <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>#}
-            {#        <li role="presentation" class="divider"></li>#}
-            {#        <li role="presentation" class="dropdown-header">Dropdown header</li>#}
-            {#        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>#}
+            {% for article in discipline.articles %}
+                <li>
+                    <a href="{{ url_for("university.article", article_id=article.id) }}">{{ article.title }}</a>
+                </li>
+            {% endfor %}
+            {% if is_logged %}
+                <li role="presentation" class="divider"></li>
+                <li class>
+                    <form action="{{ url_for("university.article_create") }}"
+                          method="post"
+                          enctype="multipart/form-data"
+                          class="form-inline" style="padding: 0.5em">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        <input type="hidden" name="discipline_id" value="{{ discipline.id }}"/>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="title">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default"
+                                            type="submit"
+                                            ><span class="fa fa-plus"></span></button>
+                                </span>
+                            </div>
+                        </div>
+
+                    </form>
+                </li>
+            {% endif %}
         </ul>
     </div>
 {% endif %}

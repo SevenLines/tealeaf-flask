@@ -84,6 +84,7 @@
                             <form action="{{ url_for("university.group_create") }}" method="POST">
                                 <div class="input-group">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="year" value="{{ year }}">
                                     <input class="form-control" type="text" name="title" value=""
                                            placeholder="название новой группы">
 

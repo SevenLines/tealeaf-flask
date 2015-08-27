@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if is_logged %}
+        <div class="admin-line">
+            {% include "university/lessons/__articles_menu.html" %}
+        </div>
+        <form id="article-form" action="" method="post">
+
+            <div class="form-group">
+                <input class="form-control" name="title" value="{{ article.title }}" type="text" placeholder="Title?"/>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            <div class="form-group">
+                <textarea id="article-content"
+                          name="text"
+                          data-provide="markdown"
+                          data-iconlibrary='fa'
+                          data-savable="true"
+                          data-language="ru"
+                          rows="10">{{ article.text }}</textarea>
+            </div>
+        </form>
+        <script>
+            $("#article-content").markdown({
+                onSave: function (e) {
+                    $("#article-form").submit()
+                }
+            })
+        </script>
+
+    {% else %}{{ article.rendered_text }}{% endif %}
+{% endblock %}

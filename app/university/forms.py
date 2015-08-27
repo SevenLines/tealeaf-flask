@@ -3,6 +3,7 @@ from wtforms.ext.sqlalchemy.orm import model_form
 from wtforms.validators import DataRequired
 
 from app.models import db
+from app.university.models.article import Article
 from app.university.models.student import Student
 from app.university.models.group import Group
 from app.university.models.discipline import Discipline, DisciplineFile
@@ -23,6 +24,13 @@ StudentForm = model_form(Student, base_class=Form, exclude_fk=False,
                          field_args={
                          })
 
+ArticleForm = model_form(Article, base_class=Form, exclude_fk=False,
+                         field_args={
+                             'discipline_id': {
+                                 'validators': [DataRequired(), ]
+                             },
+                         })
+
 DisciplineForm = model_form(Discipline, base_class=Form,
                             only=['title', 'year', 'visible', 'regular'],
                             )
@@ -35,7 +43,12 @@ DisciplineFileForm = model_form(DisciplineFile, base_class=Form,
                                 })
 
 GroupForm = model_form(Group, base_class=Form,
-                       exclude=['created_at', 'updated_at', 'students'])
+                       exclude=['created_at', 'updated_at', 'students'],
+                       field_args={
+                           'year': {
+                               'validators': [DataRequired(), ]
+                           },
+                       })
 
 LessonEditForm = model_form(Lesson, base_class=Form,
                             exclude_fk=True,

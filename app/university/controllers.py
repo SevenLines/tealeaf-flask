@@ -1,11 +1,14 @@
+# coding=utf-8
 from pprint import pformat
 
-from flask import render_template, request, redirect, url_for, Response, abort
+from flask import render_template, request, redirect, url_for, Response
 from flask.ext.login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
+
 from sqlalchemy.orm import joinedload
 
+from datetime import datetime
 from app.cache import cache
 from app.security import current_user_is_logged
 from app.university import university
@@ -308,6 +311,56 @@ def discipline_file_delete(discipline_file_id):
         return Response()
     return redirect(request.referrer or "/")
 
+
+@university.route("/article/<int:article_id>/", methods=['GET', ])
+def article(article_id):
+    a = Article.get_or_404(article_id)
+    discipline = Discipline.get_or_404(a.discipline_id)
+
+
+    response = make_response(render_template(
+        "university/_article.html",
+        article=a,
+        discipline=discipline,
+    ))
+
+    return response
+
+
+@university.route("/article/<int:article_id>/", methods=['POST', ])
+def article_update(article_id):
+    a = Article.get_or_404(article_id)
+
+    form = ArticleForm(request.form, a)
+    if form.validate_on_submit():
+        populate(form, a)
+        a.update()
+        if request.is_xhr:
+            return Response()
+        return redirect(request.referrer or "/")
+
+    if request.is_xhr:
+        return Response(pformat(form.errors), status=400)
+    return redirect(request.referrer or "/")
+
+
+@university.route("/article/", methods=['POST', ])
+@login_required
+def article_create():
+    form = ArticleForm(request.form)
+    if form.validate_on_submit():
+        a = Article()
+
+        populate(form, a)
+        db.session.add(a)
+        if not a.title:
+            a.title = u'новая статья от {}'.format(datetime.now())
+
+        db.session.commit()
+
+        return redirect(url_for('university.article', article_id=a.id))
+
+    return redirect(request.referrer or "/")
 
 @university.route("/group/", methods=['POST', ])
 @login_required
