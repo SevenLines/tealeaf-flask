@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import event
 
-from app.models import db, BaseMixin
+from app.models import db, BaseMixin, Setting
 from app.university.models.taskresult import TaskResult
 from app.university.models.task import Task
 from app.university.models.lab import Lab
@@ -23,9 +23,10 @@ class Group(BaseMixin, db.Model):
         """
         :return: current learning year
         """
-        if now.month < 9:  # if not september yet
-            return now.year - 1
-        return now.year
+        # if now.month < 9:  # if not september yet
+        #     return now.year - 1
+        # return now.year
+        return Setting.instance().active_year
 
     def __repr__(self):
         return u"<Group({id:d}|{year:d}|{title:s})>".format(**self.__dict__).encode("utf-8")

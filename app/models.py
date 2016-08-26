@@ -56,3 +56,19 @@ class BaseMixin(object):
     def delete(self, commit=True):
         db.session.delete(self)
         return commit and db.session.commit()
+
+
+class Setting(BaseMixin, db.Model):
+    active_year = db.Column(db.SmallInteger, default=datetime.today().year)
+
+    @classmethod
+    def instance(cls):
+        """
+
+        :return: Setting
+        """
+        setting = Setting.query.first()
+        if not setting:
+            setting = Setting.create()
+        return setting
+

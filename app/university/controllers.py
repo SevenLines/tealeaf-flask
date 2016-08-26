@@ -362,6 +362,17 @@ def article_create():
 
     return redirect(request.referrer or "/")
 
+
+@university.route("/article/<int:article_id>/d/", methods=['POST', ])
+@login_required
+def article_delete(article_id):
+    article = Article.get_or_404(article_id)
+    article.delete()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
 @university.route("/group/", methods=['POST', ])
 @login_required
 def group_create():
@@ -413,7 +424,8 @@ def student_create():
         student = Student()
         populate(form, student)
 
-        student.photo = StudentStorage.save(request.files['photo'])
+        if 'photo' in request.files:
+            student.photo = StudentStorage.save(request.files['photo'])
 
         db.session.add(student)
         db.session.commit()
