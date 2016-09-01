@@ -1,10 +1,10 @@
 # coding=utf-8
 from flask import url_for, request, abort
-from flask.ext.admin.base import Admin
-from flask.ext.admin.contrib import sqla
-from flask.ext.admin.contrib.sqla.view import ModelView
-from flask.ext.login import current_user
-from flask.ext.security.decorators import roles_required
+from flask_admin.base import Admin
+from flask_admin.contrib import sqla
+from flask_admin.contrib.sqla.view import ModelView
+from flask_login import current_user
+from flask_security.decorators import roles_required
 from werkzeug.utils import redirect
 from app.load_app import app
 from app.models import db

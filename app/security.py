@@ -1,5 +1,5 @@
-from flask.ext.login import LoginManager, current_user
-from flask.ext.security import RoleMixin, UserMixin, SQLAlchemyUserDatastore, Security
+from flask_login import LoginManager, current_user
+from flask_security import RoleMixin, UserMixin, SQLAlchemyUserDatastore, Security
 from sqlalchemy import event
 from app.load_app import app
 from app.models import db, BaseMixin
@@ -39,7 +39,7 @@ class User(BaseMixin, UserMixin, db.Model):
 
 
 def current_user_is_logged():
-    return current_user.is_active() and current_user.is_authenticated()
+    return current_user.is_active and current_user.is_authenticated
 
 
 def current_user_is_superuser():

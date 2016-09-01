@@ -1,10 +1,10 @@
 from getpass import getpass
 from flask import url_for
-from flask.ext.assets import ManageAssets
-from flask.ext.migrate import Migrate, MigrateCommand
-from flask.ext.script import Manager
-from flask.ext.security.registerable import register_user
-from flask.ext.security.utils import encrypt_password
+from flask_assets import ManageAssets
+from flask_migrate import Migrate, MigrateCommand
+from flask_script import Manager
+from flask_security.registerable import register_user
+from flask_security.utils import encrypt_password
 from app import app, db, init_app
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-
