@@ -6,7 +6,7 @@ env.user = 'hosting_mmailm'
 env.hosts = ['phosphorus.locum.ru']
 
 env.directory = '/var/www/home/hosting_mmailm/projects/tealeaf-flask'
-env.additional_env = 'source {}/env.sh'.format(env.directory)
+env.additional_env = 'source {}/.env'.format(env.directory)
 env.activate = 'source {}/env/bin/activate'.format(env.directory)
 env.use_ssh_config=True
 
@@ -34,6 +34,5 @@ def deploy():
         run("git pull")
         with prefix(env.activate):
             with prefix(env.additional_env):
-                run(". .env")
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
