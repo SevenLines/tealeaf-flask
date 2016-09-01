@@ -30,5 +30,6 @@ def deploy():
         run("git pull")
         with prefix(env.activate):
             with prefix(env.additional_env):
+                run(". .env")
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
