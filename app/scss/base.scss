@@ -9,6 +9,7 @@ $nav-height: 50px;
 body {
   @include transition(0.3s);
   font-family: Georgia, "Times New Roman", Times, serif !important;
+  background-color: darken($base_color, 30);
   //background: url("../build/images/paisley.png");
 }
 
@@ -145,7 +146,7 @@ body {
       //transition: all 0.3s;
 
       li {
-        max-width: 20%;
+        max-width: 50%;
         float: left;
         a {
           white-space: nowrap;
@@ -193,16 +194,12 @@ body {
       }
 
       // это основные цвета для заголовка
-      $colors: lighten($base_color, 3),
-      #ff3f87,
-      #ff831e,
-      #ffb734,
-      #ffe83b,
-      #d8ff3d,
-      #77ff3d,
-      #3dff84,
-      #3dffc2,
-      #3ddbff;
+      $colors:
+      #3ec0ee,
+      #3bf0b5,
+      #cdf43d,
+      #ffdf36,
+      #ffac2b;
 
       @for $i from 1 to length($colors) + 1 {
         $color: nth($colors, $i);
@@ -371,4 +368,24 @@ body {
       opacity: 1;
     }
   }
+}
+
+#main-page-info {
+  padding: 1em;
+  background-color: darken($base_color, 30);
+  box-shadow: 0 4px 8px 8px darken($base_color, 41) inset;
+}
+
+#main-page-image {
+  max-height: 500px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.main-page-info {
+  text-transform: uppercase;
+  color: #b7d1e5;
+  text-align: center;
+  font-size: 1.4em;
 }
