@@ -15,6 +15,10 @@ def build_assets():
         local("python manage.py assets --parse-templates build")
         try:
             local("git commit -a -m 'build assets'")
+        except:
+            pass
+
+        try:
             local("git checkout master")
             local("git merge --no-ff develop")
         except:
