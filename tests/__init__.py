@@ -2,8 +2,8 @@ import os
 import shutil
 
 from flask import url_for, request
-from flask.ext.security.utils import encrypt_password
-from flask.ext.testing import TestCase
+from flask_security.utils import encrypt_password
+from flask_testing import TestCase
 
 import config
 from config import BaseConfiguration

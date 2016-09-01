@@ -1,7 +1,7 @@
 # Import flask and template operators
 from flask import render_template
-from flask.ext.assets import Environment
-from flask.ext.wtf import CsrfProtect
+from flask_assets import Environment
+from flask_wtf import CsrfProtect
 from flask_debugtoolbar import DebugToolbarExtension
 
 from app.admin import admin

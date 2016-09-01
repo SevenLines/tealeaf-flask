@@ -2,7 +2,7 @@
 from pprint import pformat
 
 from flask import render_template, request, redirect, url_for, Response
-from flask.ext.login import login_required
+from flask_login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
 

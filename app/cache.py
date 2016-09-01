@@ -1,5 +1,5 @@
 import os
-from flask.ext.cache import Cache
+from flask_cache import Cache
 from app.load_app import app
 
 cache = Cache(app, config={

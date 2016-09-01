@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from flask.ext.login import current_user
+from flask_login import current_user
 
-from flask.ext.security.forms import LoginForm
+from flask_security.forms import LoginForm
 
 from app.load_app import app
 from app.security import current_user_is_logged
