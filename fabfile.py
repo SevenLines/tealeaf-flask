@@ -2,7 +2,7 @@ from fabric.context_managers import cd, prefix
 from fabric.operations import run, local
 from fabric.state import env
 
-env.user = 'mick'
+env.user = 'mmailm_hosting'
 env.hosts = ['193.106.92.221']
 
 env.directory = '/var/www/home/hosting_mmailm/projects/tealeaf-flask'
