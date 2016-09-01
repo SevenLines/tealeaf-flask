@@ -13,8 +13,8 @@ env.use_ssh_config=True
 def build_assets():
     try:
         local("python manage.py assets --parse-templates build")
-        local("git commit -a -m 'build assets'")
         try:
+            local("git commit -a -m 'build assets'")
             local("git checkout master")
             local("git merge --no-ff develop")
         except:
