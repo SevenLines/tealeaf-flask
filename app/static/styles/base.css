@@ -4355,7 +4355,8 @@ body {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  font-family: Georgia, "Times New Roman", Times, serif !important; }
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  background-color: #c10e40; }
 
 #content {
   background: white;
@@ -4673,5 +4674,23 @@ body {
   .dropdown.open .dropdown-menu {
     max-height: 300px;
     opacity: 1; }
+
+#main-page-info {
+  padding: 1em;
+  background-color: white;
+  border-bottom: 2px solid #f02b62; }
+
+#main-page-image {
+  max-height: 500px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #f02b62;
+  border-radius: 8px; }
+
+.main-page-info {
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 0.5em; }
 
 /*# sourceMappingURL=base.css.map */

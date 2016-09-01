@@ -9,6 +9,7 @@ $nav-height: 50px;
 body {
   @include transition(0.3s);
   font-family: Georgia, "Times New Roman", Times, serif !important;
+  background-color: darken($base_color, 15);
   //background: url("../build/images/paisley.png");
 }
 
@@ -371,4 +372,25 @@ body {
       opacity: 1;
     }
   }
+}
+
+#main-page-info {
+  padding: 1em;
+  background-color: white;
+  border-bottom: 2px solid $base_color;
+}
+
+#main-page-image {
+  max-height: 500px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid $base_color;
+  border-radius: 8px;
+}
+
+.main-page-info {
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 0.5em;
 }
