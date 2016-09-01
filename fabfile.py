@@ -3,7 +3,7 @@ from fabric.operations import run, local
 from fabric.state import env
 
 env.user = 'hosting_mmailm'
-env.hosts = ['193.106.92.221']
+env.hosts = ['phosphorus.locum.ru']
 
 env.directory = '/var/www/home/hosting_mmailm/projects/tealeaf-flask'
 env.additional_env = 'source {}/env.sh'.format(env.directory)
