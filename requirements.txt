@@ -1,20 +1,20 @@
-Flask
-Flask-SQLAlchemy
-Flask-WTF
-Flask-login
-Flask-testing
-Flask-Assets
-Flask-admin
-Flask-cache
-Flask-Migrate
-Flask-Security
-flask-debugtoolbar
-Flask-Uploads
+Flask==0.11.1
+Flask-SQLAlchemy==2.1
+Flask-WTF==0.12
+Flask-login==0.3.2
+Flask-testing==0.5.0
+Flask-Assets==0.12
+Flask-admin==1.4.2
+Flask-cache==0.13.1
+Flask-Migrate==2.0.0
+Flask-Security==1.7.5
+flask-debugtoolbar==0.10.0
+Flask-Uploads==0.2.1
 
-mistune
+mistune==0.7.3
 
 psycopg2
-py-bcrypt
+py-bcrypt==0.4
 gunicorn
 
 fabric
