@@ -13,7 +13,11 @@ env.use_ssh_config=True
 def build_assets():
     try:
         local("python manage.py assets --parse-templates build")
-        local("git commit -a -m 'build assets'")
+        try:
+            local("git commit -a -m 'build assets'")
+        except:
+            pass
+
         try:
             local("git checkout master")
             local("git merge --no-ff develop")
@@ -30,5 +34,6 @@ def deploy():
         run("git pull")
         with prefix(env.activate):
             with prefix(env.additional_env):
+                run(". .env")
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
