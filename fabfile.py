@@ -5,7 +5,7 @@ from fabric.state import env
 env.user = 'mick'
 env.hosts = ['93.170.123.27']
 
-env.directory = '/home/mick/projects/tealeaf-flask'
+env.directory = '/var/www/home/hosting_mmailm/projects/tealeaf-flask'
 env.additional_env = 'source {}/env.sh'.format(env.directory)
 env.activate = 'source {}/env/bin/activate'.format(env.directory)
 env.use_ssh_config=True
@@ -32,4 +32,3 @@ def deploy():
             with prefix(env.additional_env):
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
-        run("sudo restart tealeaf")

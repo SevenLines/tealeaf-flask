@@ -1,4 +1,7 @@
+import mistune
 from sqlalchemy import event
+
+from datetime import datetime
 from app.models import BaseMixin, db
 
 
@@ -17,6 +20,15 @@ class Article(BaseMixin, db.Model):
             "visible": "+" if self.visible else "-",
             "discipline_id": self.discipline_id
         })
+
+    @staticmethod
+    def before_insert(mapper, connection, target):
+        target.created_at = datetime.utcnow()
+        target.updated_at = datetime.utcnow()
+
+        if target.text:
+            target.rendered_text = mistune.markdown(target.text)
+
 
 
 event.listen(Article, 'before_insert', Article.before_insert)
