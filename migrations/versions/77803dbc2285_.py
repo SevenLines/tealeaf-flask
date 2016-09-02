@@ -23,7 +23,6 @@ def upgrade():
     sa.Column('message', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
-    op.drop_table('django_migrations')
     ### end Alembic commands ###
 
 
