@@ -1,7 +1,7 @@
 <div class="details">
     <div id="main-page-info">
         <div class="main-page-info">
-            {{ message.rendered_message|safe }}
+            {{ message.rendered_message|safe if message else "" }}
         </div>
     </div>
     <ul class="main">

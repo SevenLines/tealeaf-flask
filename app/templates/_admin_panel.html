@@ -21,7 +21,7 @@
                           data-iconlibrary='fa'
                           data-savable="true"
                           data-language="ru"
-                          rows="10">{{ message.message }}</textarea>
+                          rows="10">{{ message.message if message else "" }}</textarea>
                 </div>
         </form>
 
