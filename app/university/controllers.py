@@ -5,11 +5,13 @@ from flask import render_template, request, redirect, url_for, Response
 from flask_login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
+from sqlalchemy import desc
 
 from sqlalchemy.orm import joinedload
 
 from datetime import datetime
 from app.cache import cache
+from app.models import Message
 from app.security import current_user_is_logged
 from app.university import university
 from app.university.forms import *
@@ -40,7 +42,12 @@ class IndexView(View):
         template = "university/index.html"
         if request.headers.get('X-Pjax', None):
             template = "university/_charts.html"
-        return render_template(template)
+
+        message = Message.query.order_by(desc(Message.created_at)).first()
+
+        return render_template(template, **{
+            'message': message
+        })
 
 
 @university.route("/g/<int:group_id>/m/<int:discipline_id>/")
@@ -145,6 +152,26 @@ def group_marks(group_id, discipline_id=None):
     response.set_cookie('discipline_id', str(discipline_id))
 
     return response
+
+
+class SetMessage(MethodView):
+    @login_required
+    def post(self):
+        data = request.form
+        m = Message.create(message=data.get('message'))
+        return redirect(request.headers['REFERER'])
+
+
+class SetSetting(MethodView):
+    @login_required
+    def post(self):
+        key = request.form['key']
+        value = request.form['value']
+        s = Setting.instance()
+        setattr(s, key, value)
+        s.save()
+
+        return redirect(request.headers['REFERER'])
 
 
 class SaveMarks(MethodView):
@@ -315,7 +342,6 @@ def discipline_file_delete(discipline_file_id):
 @university.route("/article/<int:article_id>/", methods=['GET', ])
 def article(article_id):
     a = Article.get_or_404(article_id)
-    discipline = Discipline.get_or_404(a.discipline_id)
 
 
     response = make_response(render_template(
@@ -488,3 +514,5 @@ university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
 university.add_url_rule('/tasks-results/', view_func=SaveTaskResults.as_view('save_task_results'),
                         methods=['POST', ])
 university.add_url_rule('/', view_func=IndexView.as_view('index'))
+university.add_url_rule('/message/', view_func=SetMessage.as_view('set_message'), methods=['POST', ])
+university.add_url_rule('/settting/', view_func=SetSetting.as_view('set_setting'), methods=['POST', ])
