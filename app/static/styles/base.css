@@ -4612,9 +4612,10 @@ body {
   margin: 0 auto; }
 
 .main-page-info {
-  text-transform: uppercase;
   color: #b7d1e5;
   text-align: center;
   font-size: 1.4em; }
+  .main-page-info p:last-child {
+    margin-bottom: 0px; }
 
 /*# sourceMappingURL=base.css.map */

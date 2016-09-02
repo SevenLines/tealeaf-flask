@@ -23,6 +23,7 @@ def build_assets():
             local("git merge --no-ff develop")
         except:
             pass
+        local("git push")
     finally:
         local("git checkout develop")
 
@@ -36,3 +37,4 @@ def deploy():
             with prefix(env.additional_env):
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
+                run("touch django_wsgi.py")

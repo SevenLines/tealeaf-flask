@@ -1,6 +1,9 @@
 from datetime import datetime
+
+import mistune
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import event
 from sqlalchemy import text, func
 from sqlalchemy.ext.declarative.api import declarative_base, declared_attr
 from app.load_app import app
@@ -72,3 +75,22 @@ class Setting(BaseMixin, db.Model):
             setting = Setting.create()
         return setting
 
+
+class Message(BaseMixin, db.Model):
+    message = db.Column(db.Text, default="")
+    rendered_message = db.Column(db.Text, default="")
+
+    @staticmethod
+    def before_insert(mapper, connection, target):
+        target.created_at = datetime.utcnow()
+        target.updated_at = datetime.utcnow()
+
+        if target.message:
+            target.rendered_message = mistune.markdown(target.message)
+
+
+event.listen(Message, 'before_insert', Message.before_insert)
+event.listen(Message, 'before_insert', Message.before_insert)
+
+event.listen(Setting, 'before_insert', Setting.before_insert)
+event.listen(Setting, 'before_insert', Setting.before_insert)

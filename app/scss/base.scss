@@ -384,8 +384,10 @@ body {
 }
 
 .main-page-info {
-  text-transform: uppercase;
   color: #b7d1e5;
   text-align: center;
   font-size: 1.4em;
+  p:last-child {
+    margin-bottom: 0px;
+  }
 }

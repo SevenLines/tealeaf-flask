@@ -8,6 +8,38 @@
         </a>
     </div>
     <div class="content">
+        <h2>Сообщение на сайте</h2>
+        <form id="main-message-form" action="{{ url_for("university.set_message") }}" method="post">
+            {#            <input type="text" name="message" class="form-control" value="{{ message }}">#}
+            {#            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">#}
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                <div class="form-group">
+                <textarea id="main-message-content"
+                          name="message"
+                          data-provide="markdown"
+                          data-iconlibrary='fa'
+                          data-savable="true"
+                          data-language="ru"
+                          rows="10">{{ message.message }}</textarea>
+                </div>
+        </form>
+
+        <h2>Настройки</h2>
+        <form action="{{ url_for("university.set_setting") }}" method="post">
+            <div class="input-group">
+                <div class="input-group-addon">Текущий год</div>
+                <input class="form-control" type="number" name="value" value="{{ current_year }}">
+                <div class="input-group-btn">
+                    <button class="btn btn-success">
+                        <span class="fa fa-save"></span>
+                    </button>
+                </div>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="key" value="active_year">
+        </form>
+
         <h2>Дисциплины</h2>
         <ul class="list-group">
             {% for discipline in admin_disciplines %}
@@ -165,4 +197,10 @@
         }
         return false;
     });
+
+    $("#main-message-content").markdown({
+        onSave: function (e) {
+            $("#main-message-form").submit()
+        }
+    })
 </script>
