@@ -142,13 +142,16 @@ var MarkView = Backbone.View.extend({
         }
 
         $(document).on("mouseover.markSelector", function (e) {
-            var x = e.clientX;
-            var y = e.clientY;
-
+            console.log(e);
+            var x = e.pageX;
+            var y = e.pageY;
             var radius = width + 10;
 
-            var xdiff = (x - (offset.left + 28 / 2));
-            var ydiff = (y - (offset.top + 36 / 2));
+            var xdiff = (x - (last_offset.left + 28 / 2));
+            var ydiff = (y - (last_offset.top + 36 / 2));
+
+            console.log(last_offset, e.clientX, e.clientY);
+
 
             if (Math.sqrt(xdiff * xdiff + ydiff * ydiff) > radius) {
                 $(document).off("mouseover.markSelector");
