@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta content='Ому' name='apple-mobile-web-app-title'>
-    <meta content='Ому' name='description'/>
+    <meta content='Чаинка' name='apple-mobile-web-app-title'>
+    <meta content='Чаинка' name='description'/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Чаинка</title>
     {% assets filters="yui_js", output="build/scripts/main.js",
@@ -26,6 +26,7 @@
         "scripts/university/marks/scoring_controller.js",
         "scripts/university/marks/scrolling_controller.js",
         "scripts/university/marks/sorting_controller.js",
+        "scripts/university/marks/view_controller.js",
         "scripts/university/marks/coloring_controller.js" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
