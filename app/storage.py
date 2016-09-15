@@ -24,7 +24,7 @@ class Storage(object):
         :return:
         """
         if file and cls.allowed_file(file.filename):
-            filename = secure_filename(file.filename.split('/')[-1])
+            filename = file.filename.split('/')[-1]
             save_dir = os.path.join(app.config['UPLOAD_FOLDER'], cls.subdir)
             save_path = os.path.join(save_dir, filename)
             try:

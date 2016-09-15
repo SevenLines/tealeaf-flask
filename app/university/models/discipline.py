@@ -25,7 +25,7 @@ event.listen(Discipline, 'before_update', Discipline.before_update)
 
 class DisciplineFile(BaseMixin, db.Model):
     discipline_id = db.Column(db.Integer, db.ForeignKey('disciplines.id'))
-    title = db.Column(db.String(50))
+    title = db.Column(db.String(300))
     path = db.Column(db.String)
 
     @property
