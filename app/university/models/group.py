@@ -33,7 +33,7 @@ class Group(BaseMixin, db.Model):
 
     @classmethod
     def active_groups(cls):
-        return Group.query.filter(Group.year == Group.current_year())
+        return Group.query.filter(Group.year == Group.current_year()).order_by(Group.year, Group.title)
 
     @classmethod
     def active_years(cls):
