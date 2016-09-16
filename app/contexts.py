@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from datetime import datetime
 
 from flask_login import current_user
@@ -46,8 +47,8 @@ def inject_user():
 @app.context_processor
 def inject_admin():
     if current_user_is_logged():
-        groups = Group.query.order_by(Group.title).all()
-        admin_groups = {}
+        groups = Group.query.order_by(Group.title).order_by(Group.year, Group.title)
+        admin_groups = OrderedDict()
         for year in Group.active_years():
             admin_groups[year] = [group for group in groups if group.year == year]
 

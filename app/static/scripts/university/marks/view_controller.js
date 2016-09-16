@@ -8,7 +8,7 @@ function ViewController() {
         state = !state;
 
         $('.t-row').filter(function () {
-            return $(this).data('points') <= 0;
+            return $(this).data('percents') < 30;
         }).toggle(state);
 
         var el = $(".btn-hide-nulls");
