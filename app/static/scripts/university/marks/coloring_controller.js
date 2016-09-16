@@ -10,6 +10,11 @@ function ColorController() {
         $rows.each(function (item) {
             var percents = $(this).data("percents");
             var $info = $(this).find(".info");
+            if (percents < 30) {
+                $(this).find(".badge").css({
+                    "color": "red"
+                })
+            }
             $info.css({
                 "background-color": tinycolor.mix(tinycolor("#FFE6DD"), tinycolor("#DBFF6D"), percents)
             });
