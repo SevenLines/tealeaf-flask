@@ -355,6 +355,14 @@ body {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+
+    @media (max-width: $width-xsmall) {
+      li {
+        a {
+          white-space: normal;
+        }
+      }
+    }
     
     max-height: 0;
     display: block;
