@@ -98,7 +98,8 @@
   transition: width 0.3s, border-right-color 0.3s; }
   #admin-panel .menu {
     border-bottom: 1px solid black;
-    overflow: hidden; }
+    overflow: hidden;
+    width: auto !important; }
   #admin-panel .content {
     padding: 1em;
     display: none; }
@@ -4596,6 +4597,9 @@ body {
     display: block;
     overflow: hidden;
     opacity: 0; }
+    @media (max-width: 420px) {
+      .dropdown .dropdown-menu li a {
+        white-space: normal; } }
   .dropdown.open .dropdown-menu {
     max-height: 300px;
     opacity: 1; }
