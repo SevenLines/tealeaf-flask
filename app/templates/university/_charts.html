@@ -16,19 +16,7 @@
         </div>
     </div>
     <script type="text/javascript">
-	Amplitude.init({
-		"songs": [
-			{
-				"name": "Rooms",
-				"artist": "Mia and Jonah",
-				"album": "Rooms For Adelaide",
-				"url": "http://a656.phobos.apple.com/us/r30/Music/2d/d1/52/mzm.oymgnziu.aac.p.m4a",
-				"live": false,
-				"cover_art_url": "images/roomsforadelaide.jpg"
-			}
-		],
-		"default_album_art": "images/no-cover-large.png"
-	});
+
 </script>
     <ul class="main">
         <li>
@@ -42,9 +30,21 @@
     <ul class="groups full">
         {% for group in groups %}
             <li style="width:{{ menu_item_width }}%">
-                <a href="javascript: void(0)">
-                    <canvas id="info-canvas{{ group.id }}-score" class="info">
-                    </canvas>
+                <a href="">
+                    {% set group_marks = marks[group.id] %}
+                    {% set count = group_marks['marks_count_positive'] %}
+                    {% set total_summ = group_marks['marks_summ_positive'] %}
+                    {% for score in range(1, 7) %}
+                        {% set score_marks = group_marks['marks'].get(score) %}
+                        {% if score_marks %}
+                            <div class="group-global-mark group-global-mark-{{ score }}"
+                                 style="width: {{ (score_marks['marks_count']/count )*100 }}%;"
+                            >
+                                <div class="group-global-mark-summ" style="top: {{ 100 - (score_marks['marks_summ']/total_summ )*100 }}%;">
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </a>
             </li>
         {% endfor %}
@@ -52,47 +52,5 @@
 </div>
 
 <script>
-    setTimeout(function () {
-        var ctx;
-
-        Chart.defaults.global.animation = false;
-        colors = [
-            "#cef08a",
-            "#cfeb47",
-            "#9cb814",
-            "#758a0f",
-            "#4e5b0b",
-            "#3a4408"
-        ];
-
-        titles = [
-            'нормально',
-            'хорошо',
-            'отлично',
-            'замечательно',
-            'прекрасно',
-            'невероятно'
-        ];
-
-        $(function () {
-            {% for group in groups %}
-                data = [
-                        {% for score in range(1, 7) %}{
-                            value: {{ group.marks(score).count() }},
-                            color: colors[{{ score-1 }}],
-                            highlight: "white",
-                            label: titles[{{ score-1 }}]
-                            },
-                        {% endfor %}
-                ];
-
-                element = document.getElementById("info-canvas{{ group.id }}-score");
-                ctx = element.getContext("2d");
-                ctx.clearRect(0, 0, element.width, element.height);
-                new Chart(ctx).Doughnut(data);
-            {% endfor %}
-        });
-    }, 0);
-
 
 </script>

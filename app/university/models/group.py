@@ -67,9 +67,11 @@ class Group(BaseMixin, db.Model):
 
         return lesson_discipline.union(tasks_discipline)
 
-    def marks(self, value):
+    def marks(self, value=None, only_positive=False):
         out_marks = Mark.query.filter(Mark.student_id.in_(self.students.with_entities(Student.id)))
-        if value:
+        if only_positive:
+            out_marks = out_marks.filter(Mark.value >= 0)
+        if value is not None:
             out_marks = out_marks.filter(Mark.value == value)
         return out_marks
 

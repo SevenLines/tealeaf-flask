@@ -1,4 +1,5 @@
 # coding=utf-8
+from itertools import groupby
 from pprint import pformat
 
 from flask import render_template, request, redirect, url_for, Response
@@ -44,8 +45,35 @@ class IndexView(View):
 
         message = Message.query.order_by(desc(Message.created_at)).first()
 
+        marks = Mark.query.join(Student, Group).filter(
+            Group.year == Group.current_year()
+        ).with_entities(
+            Mark.value,
+            Group.id.label("group_id"),
+            Student.id.label("student_id"),
+            Student.sex
+        ).order_by("group_id", "value", "sex")
+
+        marks = {
+            groupd_id: {
+                "marks": {
+                    v: {
+                        "marks_count": len(marks),
+                        "marks_summ": sum(i.value for i in marks)
+                    }
+                    for v, marks in {v: list(marks) for v, marks in groupby(items, lambda x: x.value)}.items()
+                },
+                "marks_count": len(items),
+                "marks_count_positive": len(list(i for i in items if i.value > 0)),
+                "marks_summ": sum(i.value for i in items),
+                "marks_summ_positive": sum(i.value for i in items if i.value > 0)
+            }
+            for groupd_id, items in {id: list(items) for id, items in groupby(marks, lambda x: x.group_id)}.items()
+        }
+
         return render_template(template, **{
-            'message': message
+            'message': message,
+            'marks': marks,
         })
 
 
@@ -145,7 +173,6 @@ def group_marks(group_id, discipline_id=None):
 
         lesson_types=Lesson.LESSON_TYPES,
         marks_types=Mark.MARKS,
-
     ))
 
     response.set_cookie('discipline_id', str(discipline_id))
