@@ -238,9 +238,19 @@ body {
                 background-color: darken($color, 6*$mark);
                 box-shadow: 2px 0 2px darken($color, 7*$mark) inset;
               }
+              .group-global-mark-summ-info {
+                @if $mark == 1 {
+                  color: darken($color, 18);
+                } @else {
+                  color: darken($color, 7*$mark);
+                }
+                &.sml {
+                  color: lighten($color, 3*$mark);
+                }
+              }
               &:hover {
                 .group-global-mark-summ {
-                  background-color: lighten($color, 4*$mark);
+                  background-color: lighten($color, 3*$mark);
                 }
               }
             }
@@ -251,7 +261,7 @@ body {
         }
       }
       &.full {
-        $hover-height: 4 * $height;
+        $hover-height: 5 * $height;
 
         .group-global-mark {
 
@@ -260,7 +270,9 @@ body {
           height: 100%;
           float: left;
           position: relative;
+          overflow: hidden;
           .group-global-mark-summ {
+
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             -ms-transition: all 0.3s;
@@ -272,7 +284,31 @@ body {
             right: 0;
             bottom: 0;
           }
+          .group-global-mark-summ-info {
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
 
+            left: -100px;
+            position: absolute;
+            color: white;
+            text-align: center;
+            width: 100%;
+            opacity: 0;
+            display: block;
+            padding-top: 0.75em;
+            padding-bottom: 0.25em;
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+          &:hover {
+            .group-global-mark-summ-info {
+              opacity: 100;
+              left: 0;
+            }
+          }
         }
 
         li {
