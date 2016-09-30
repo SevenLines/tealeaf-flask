@@ -24,6 +24,8 @@ class Student(BaseMixin, db.Model):
 
     photo = db.Column(db.String)
 
+    marks = db.relationship("Mark", backref='student')
+
     @property
     def photo_url(self):
         if self.photo:

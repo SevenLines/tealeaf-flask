@@ -212,7 +212,6 @@ body {
             box-shadow: 0 0 6px darken($color, 20);
             &:hover {
               border-top: $border_top_width solid lighten($color, 30);
-              //padding-right: 1em;
             }
             .title {
               @if ($i > 5) {
@@ -224,39 +223,68 @@ body {
             a {
               pointer-events: none;
               border-top: $border_top_width solid white;
-              //background: white;
               .title {
-                //color: $color;
                 text-decoration: none;
               }
-              //box-shadow: 0 0 8px darken($color, 20);
               .info {
                 opacity: 1;
               }
             }
           }
+          @for $mark from 1 to 7 {
+            .group-global-mark-#{$mark} {
+              background-color: darken($color, 7*$mark);
+              .group-global-mark-summ {
+                background-color: darken($color, 6*$mark);
+                box-shadow: 2px 0 2px darken($color, 7*$mark) inset;
+              }
+              &:hover {
+                .group-global-mark-summ {
+                  background-color: lighten($color, 4*$mark);
+                }
+              }
+            }
+          }
+          .group-global-mark--2 {
+            background-color: mix($color, red, 85%);
+          }
         }
       }
       &.full {
         $hover-height: 4 * $height;
-        //height: $hover-height;
-        li {
-          //&:hover {
-          //  display: block;
-          //  max-width: none;
-          //  z-index: 100;
-          //}
 
+        .group-global-mark {
+
+          top: 0;
+          bottom: 0;
+          height: 100%;
+          float: left;
+          position: relative;
+          .group-global-mark-summ {
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+          }
+
+        }
+
+        li {
           a {
-            //margin-top: 0.5em;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            min-height: $hover-height;
+            //padding-top: 1em;
+            //padding-bottom: 1em;
+            height: $hover-height * 2;
+
             .info {
               opacity: 1;
               display: block;
               background: transparent;
-              //margin-top: $hover-height * 0.08;
               $size: 0.72 * $hover-height - $hover-height * 0.09;
               height: $size*1.25;
               width: $size*1.25;
@@ -270,7 +298,6 @@ body {
               -ms-transition: all 0.3s;
               -o-transition: all 0.3s;
               transition: all 0.3s;
-              //border-radius: $size;
             }
           }
         }
