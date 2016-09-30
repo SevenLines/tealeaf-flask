@@ -32,7 +32,7 @@ function LoadController() {
                         complete: function () {
                             $.pjax({
                                 url: url,
-                                container: '#content',
+                                container: '#content-wrapper',
                                 timeout: 10000,
                                 target: target
                             })

@@ -16,6 +16,7 @@ body {
 #content {
   $border-color: darken($base_color, 40);
   background: white;
+  overflow: hidden;
 
   @media (min-width: $width-medium) {
     border-left: 2px solid $base_color;
@@ -23,9 +24,10 @@ body {
   }
 
   padding: 1em;
+  padding-bottom: 0;
   @media (min-width: $width-medium) {
     margin-bottom: 50px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 18px 18px;
     border-bottom: 8px solid $border-color;
   }
 
@@ -53,6 +55,13 @@ body {
     }
      border-bottom: none;
   }
+}
+
+#footer {
+  margin: 0 -1em;
+  padding: 1em;
+  //background-color: #3ec0ee;
+  border-radius: 0 0 4px 4px;
 }
 
 .main-info {
@@ -99,6 +108,7 @@ body {
 .details {
   background-color: lighten($base_color, 3);
   margin: -1em;
+  margin-bottom: 0;
   ul {
     border-bottom: 0 !important;
     &.groups {

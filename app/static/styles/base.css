@@ -4361,7 +4361,9 @@ body {
 
 #content {
   background: white;
-  padding: 1em; }
+  overflow: hidden;
+  padding: 1em;
+  padding-bottom: 0; }
   @media (min-width: 768px) {
     #content {
       border-left: 2px solid #408fc6;
@@ -4369,7 +4371,7 @@ body {
   @media (min-width: 768px) {
     #content {
       margin-bottom: 50px;
-      border-radius: 0 0 8px 8px;
+      border-radius: 0 0 18px 18px;
       border-bottom: 8px solid #0d202d; } }
   @media (max-width: 500px) {
     #content {
@@ -4388,6 +4390,11 @@ body {
         #content .full li .info {
           margin: 0 !important;
           display: inline-block !important; } }
+
+#footer {
+  margin: 0 -1em;
+  padding: 1em;
+  border-radius: 0 0 4px 4px; }
 
 .main-info .left {
   background-color: #50b3fa; }
@@ -4416,7 +4423,8 @@ body {
 
 .details {
   background-color: #4c96ca;
-  margin: -1em; }
+  margin: -1em;
+  margin-bottom: 0; }
   .details ul {
     border-bottom: 0 !important; }
     .details ul.groups {
