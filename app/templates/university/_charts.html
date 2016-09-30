@@ -37,10 +37,18 @@
                     {% for score in range(1, 7) %}
                         {% set score_marks = group_marks['marks'].get(score) %}
                         {% if score_marks %}
+                            {% set summ_part = (score_marks['marks_summ']/total_summ )*100 %}
                             <div class="group-global-mark group-global-mark-{{ score }}"
-                                 style="width: {{ (score_marks['marks_count']/count )*100 }}%;"
-                            >
-                                <div class="group-global-mark-summ" style="top: {{ 100 - (score_marks['marks_summ']/total_summ )*100 }}%;">
+                                 style="width: {{ (score_marks['marks_count']/count )*100 }}%;">
+                                <div class="group-global-mark-summ"
+                                     style="top: {{ 100 - summ_part }}%;"></div>
+                                <div class="group-global-mark-summ-info {% if summ_part < 10 %}sml{% endif %}"
+                                        {% if summ_part < 10 %}
+                                     style="bottom: {{ summ_part }}%;"
+                                        {% else %}
+                                     style="top: {{ 100 - summ_part }}%;"
+                                        {% endif %}>
+                                    {{ score_marks['marks_summ'] }}
                                 </div>
                             </div>
                         {% endif %}
