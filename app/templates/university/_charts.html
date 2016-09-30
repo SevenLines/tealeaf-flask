@@ -1,9 +1,35 @@
 <div class="details">
     <div id="main-page-info">
         <div class="main-page-info">
+{#            <div class="row">#}
+{#                <div class="col-md-4" style="padding: 0">#}
+{#                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/ypApKTXuOxU"#}
+{#                            frameborder="0" allowfullscreen></iframe>#}
+{#                </div>#}
+{#                <div class="col-md-4" style="padding: 0">#}
+{#                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/-uJ61jgFCMM" frameborder="0" allowfullscreen></iframe>#}
+{#                </div>#}
+{#                <div class="col-md-4" style="padding: 0"></div>#}
+{#            </div>#}
+
             {{ message.rendered_message|safe if message else "" }}
         </div>
     </div>
+    <script type="text/javascript">
+	Amplitude.init({
+		"songs": [
+			{
+				"name": "Rooms",
+				"artist": "Mia and Jonah",
+				"album": "Rooms For Adelaide",
+				"url": "http://a656.phobos.apple.com/us/r30/Music/2d/d1/52/mzm.oymgnziu.aac.p.m4a",
+				"live": false,
+				"cover_art_url": "images/roomsforadelaide.jpg"
+			}
+		],
+		"default_album_art": "images/no-cover-large.png"
+	});
+</script>
     <ul class="main">
         <li>
             <a href="/">

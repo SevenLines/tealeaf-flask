@@ -35,6 +35,12 @@ def inject_now():
         "now": datetime.now()
     }
 
+@app.context_processor
+def inject_min_cells_count():
+    return {
+        "min_cells_count": 25
+    }
+
 
 @app.context_processor
 def inject_user():
