@@ -1,17 +1,6 @@
 <div class="details">
     <div id="main-page-info">
         <div class="main-page-info">
-{#            <div class="row">#}
-{#                <div class="col-md-4" style="padding: 0">#}
-{#                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/ypApKTXuOxU"#}
-{#                            frameborder="0" allowfullscreen></iframe>#}
-{#                </div>#}
-{#                <div class="col-md-4" style="padding: 0">#}
-{#                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/-uJ61jgFCMM" frameborder="0" allowfullscreen></iframe>#}
-{#                </div>#}
-{#                <div class="col-md-4" style="padding: 0"></div>#}
-{#            </div>#}
-
             {{ message.rendered_message|safe if message else "" }}
         </div>
     </div>
@@ -31,28 +20,31 @@
         {% for group in groups %}
             <li style="width:{{ menu_item_width }}%">
                 <a href="">
-                    {% set group_marks = marks[group.id] %}
-                    {% set count = group_marks['marks_count_positive'] %}
-                    {% set total_summ = group_marks['marks_summ_positive'] %}
-                    {% for score in range(1, 7) %}
-                        {% set score_marks = group_marks['marks'].get(score) %}
-                        {% if score_marks %}
-                            {% set summ_part = (score_marks['marks_summ']/total_summ )*100 %}
-                            <div class="group-global-mark group-global-mark-{{ score }}"
-                                 style="width: {{ (score_marks['marks_count']/count )*100 }}%;">
-                                <div class="group-global-mark-summ"
-                                     style="top: {{ 100 - summ_part }}%;"></div>
-                                <div class="group-global-mark-summ-info {% if summ_part < 10 %}sml{% endif %}"
-                                        {% if summ_part < 10 %}
-                                     style="bottom: {{ summ_part }}%;"
-                                        {% else %}
-                                     style="top: {{ 100 - summ_part }}%;"
-                                        {% endif %}>
-                                    {{ score_marks['marks_summ'] }}
+                    {% set group_marks = marks.get(group.id) %}
+                    {% if group_marks %}
+                        {% set count = group_marks['marks_count_positive'] %}
+                        {% set total_summ = group_marks['marks_summ_positive'] %}
+                        {% set max_summ = group_marks['max_summ'] %}
+                        {% for score in range(1, 7) %}
+                            {% set score_marks = group_marks['marks'].get(score) %}
+                            {% if score_marks %}
+                                {% set summ_part = (score_marks['marks_summ']/max_summ )*99 %}
+                                <div class="group-global-mark group-global-mark-{{ score }}"
+                                     style="width: {{ (score_marks['marks_count']/count )*100 }}%;">
+                                    <div class="group-global-mark-summ"
+                                         style="top: {{ 100 - summ_part }}%;"></div>
+                                    <div class="group-global-mark-summ-info {% if summ_part < 15 %}sml{% endif %}"
+                                         style="{% if summ_part < 15 %}
+                                             bottom: {{ summ_part }}%;
+                                         {% else %}
+                                             top: {{ 100 - summ_part }}%;
+                                         {% endif %}">
+                                        {{ score_marks['marks_summ'] }}
+                                    </div>
                                 </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </a>
             </li>
         {% endfor %}

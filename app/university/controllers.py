@@ -71,6 +71,9 @@ class IndexView(View):
             for groupd_id, items in {id: list(items) for id, items in groupby(marks, lambda x: x.group_id)}.items()
         }
 
+        for group_id, info in marks.items():
+            info['max_summ'] = max(i['marks_summ'] for i in info['marks'].values())
+
         return render_template(template, **{
             'message': message,
             'marks': marks,

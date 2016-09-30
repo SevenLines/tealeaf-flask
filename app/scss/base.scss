@@ -48,7 +48,6 @@ body {
         .info {
           margin: 0 !important;
           display: inline-block !important;
-          //float: left;
         }
       }
     }
@@ -88,12 +87,10 @@ body {
     top: calc(50% - 5em);
     left: calc(50% - 4.2em);
     .load-icon {
-      //display: block;
       color: $base_color;
       font-size: 10em;
     }
     .info {
-      //text-align: center;
       color: $base_color;
     }
   }
@@ -110,7 +107,6 @@ body {
           border-top: none !important;
         }
       }
-      //border-left: 2px solid $base_color;
       border-right: none !important;
     }
     &.main {
@@ -132,18 +128,8 @@ body {
 
     &.groups, &.main, &.disciplines {
       border-bottom: 2px solid $base_color;
-      //z-index: 200;
 
       overflow: hidden;
-      ////border-top: $border_top_width solid lighten($base_color, 20);
-      ////height: $height;
-      //background-color: $base_color;
-      //
-      //-webkit-transition: all 0.3s;
-      //-moz-transition: all 0.3s;
-      //-ms-transition: all 0.3s;
-      //-o-transition: all 0.3s;
-      //transition: all 0.3s;
 
       li {
         max-width: 50%;
@@ -155,7 +141,6 @@ body {
           display: block;
 
           text-align: center;
-          //height: $height;
 
           -webkit-transition: all 0.3s;
           -moz-transition: all 0.3s;
@@ -164,31 +149,16 @@ body {
           transition: all 0.3s;
 
           .title {
-            //text-decoration: underline;
-            //position: absolute;
-            //left: 0;
-            //right: 0;
             padding: 0.5em;
             font-size: 1.2em;
-            //font-weight: bold;
             bottom: 1em;
             color: white;
           }
-
-          &:hover {
-            //.info {
-            //  opacity: 1;
-            //}
-          }
-
         }
         &.active {
           a {
             cursor: auto;
             border-top: $border_top_width solid lighten($base_color, 40);
-            .info {
-              //opacity: 1;
-            }
           }
         }
       }
@@ -236,7 +206,7 @@ body {
               background-color: darken($color, 7*$mark);
               .group-global-mark-summ {
                 background-color: darken($color, 6*$mark);
-                box-shadow: 2px 0 2px darken($color, 7*$mark) inset;
+                box-shadow: 2px 0 2px darken($color, 7*$mark) inset, 0 0 4px darken($color, 8*$mark);
               }
               .group-global-mark-summ-info {
                 @if $mark == 1 {
@@ -261,7 +231,7 @@ body {
         }
       }
       &.full {
-        $hover-height: 5 * $height;
+        $hover-height: 3 * $height;
 
         .group-global-mark {
 
@@ -283,6 +253,7 @@ body {
             left: 0;
             right: 0;
             bottom: 0;
+            box-shadow: -2px 0 2px black;
           }
           .group-global-mark-summ-info {
             -webkit-transition: all 0.3s;

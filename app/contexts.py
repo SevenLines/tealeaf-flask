@@ -38,7 +38,7 @@ def inject_now():
 @app.context_processor
 def inject_min_cells_count():
     return {
-        "min_cells_count": 25
+        "min_cells_count": 20
     }
 
 
