@@ -6,3 +6,9 @@
         <div class="mark t-cell"></div>
     </td>
 {% endif %}
+{% for lesson in range(min_cells_count - lessons|length) %}
+    <td>
+        <div class="t-cell mark">
+        </div>
+    </td>
+{% endfor %}

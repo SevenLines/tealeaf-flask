@@ -1,0 +1,33 @@
+{
+  "name": "amplitude",
+  "version": "2.0.0",
+  "homepage": "https://github.com/521dimensions/amplitudejs",
+  "authors": [
+    "Dan Pastori <dan@521dimensions.com>",
+    "Jay Rogers <jay@521dimensions.com>"
+  ],
+  "description": "A Javascript library that allows you to control the design of your media controls in your webpage -- not the browser.",
+  "main": "js/amplitude.js",
+  "keywords": [
+    "html5 audio"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples"
+  ],
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "2d40be88626e275bdf80f9cf4468ae613bfdbdd6"
+  },
+  "_source": "https://github.com/521dimensions/amplitudejs.git",
+  "_target": "^2.0.0",
+  "_originalSource": "amplitude",
+  "_direct": true
+}

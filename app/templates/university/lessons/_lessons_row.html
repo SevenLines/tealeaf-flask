@@ -35,4 +35,12 @@
             </div>
         </td>
     {% endif %}
+    {% for lesson in range(min_cells_count - lessons|length) %}
+        <td>
+        <div class="mark t-cell t-cell-head {{ lesson.style }}"
+                 data-original-title="{{ lesson.description_rendered }}">
+                <span class="label">{{ lesson.date.strftime('%d') if lesson.date else "" }}</span>
+            </div>
+        </td>
+    {% endfor %}
 </tr>
