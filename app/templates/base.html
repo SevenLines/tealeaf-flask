@@ -103,9 +103,17 @@
         </div>
     </div>
     <div id="content">
+        <div id="content-wrapper" style="padding-bottom: 0.5em">
         {% block content %}
         {% endblock %}
+        </div>
+{#        <div id="footer" style="overflow: hidden;">#}
+{#            <div style="float: right;">#}
+{#                <span>для писем</span> <a href="mailto:mmailm@mail.ru">mmailm@mail.ru</a>#}
+{#            </div>#}
+{#        </div>#}
     </div>
+
 
     {% include "_scripts.html" %}
     {% include "_login_modal.html" %}
