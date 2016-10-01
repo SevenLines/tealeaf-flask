@@ -4359,34 +4359,41 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif !important;
   background-color: #193c54; }
 
+.back-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -100;
+  background: repeating-linear-gradient(-45deg, #0d202d, #0d202d 30px, #132e40 30px, #132e40 60px); }
+
 #content {
+  box-shadow: 0 5px 10px #2b668f;
   background: white;
   overflow: hidden;
-  padding: 1em;
-  padding-bottom: 0; }
+  padding: 1em; }
   @media (min-width: 768px) {
     #content {
       border-left: 2px solid #408fc6;
-      border-right: 2px solid #408fc6; } }
-  @media (min-width: 768px) {
-    #content {
+      border-right: 2px solid #408fc6;
       margin-bottom: 50px;
-      border-radius: 0 0 18px 18px;
+      border-radius: 0 0 12px 12px;
       border-bottom: 8px solid #0d202d; } }
-  @media (max-width: 500px) {
-    #content {
-      padding-top: 60px; } }
   @media (max-width: 768px) {
     #content {
+      padding-top: 60px;
       border-bottom: none; }
       #content .main {
         display: none; }
       #content .full li {
         float: left;
         width: 100% !important;
-        max-width: none; }
+        max-width: none;
+        padding: 0.25em 0;
+        box-shadow: 0 0 2px #193c54; }
         #content .full li a {
-          min-height: auto !important; }
+          height: 200px; }
         #content .full li .info {
           margin: 0 !important;
           display: inline-block !important; } }
@@ -4408,7 +4415,7 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  top: 52px;
+  top: 50px;
   bottom: 0;
   display: none; }
   #loading-screen .icon-container {
@@ -4928,10 +4935,8 @@ body {
           -o-transition: all 0.3s;
           transition: all 0.3s; }
     @media (max-width: 420px) {
-      .menu ul.full li, .details ul.full li {
-        padding: 0.25em 0; }
-        .menu ul.full li:first-child, .details ul.full li:first-child {
-          padding-top: 0.5em; } }
+      .menu ul.full li:first-child, .details ul.full li:first-child {
+        padding-top: 0.5em; } }
     .menu ul.main, .details ul.main {
       float: left;
       overflow: hidden; }
@@ -4960,7 +4965,7 @@ body {
         .menu ul.disciplines li a, .details ul.disciplines li a {
           border-top: 0 !important; }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .menu {
     position: fixed !important;
     z-index: 100;

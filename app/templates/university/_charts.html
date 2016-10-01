@@ -1,4 +1,4 @@
-<div class="details" style="margin-bottom: -0.5em">
+<div class="details" style="margin-bottom: -1em">
     <div id="main-page-info">
         <div class="main-page-info">
             {{ message.rendered_message|safe if message else "" }}
@@ -19,7 +19,7 @@
     <ul class="groups full">
         {% for group in groups %}
             <li style="width:{{ menu_item_width }}%">
-                <a href="">
+                <a href="" onclick="return false;">
                     {% set group_marks = marks.get(group.id) %}
                     {% if group_marks %}
                         {% set count = group_marks['marks_count_positive'] %}

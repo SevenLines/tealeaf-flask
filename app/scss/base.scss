@@ -10,32 +10,43 @@ body {
   @include transition(0.3s);
   font-family: Georgia, "Times New Roman", Times, serif !important;
   background-color: darken($base_color, 30);
-  //background: url("../build/images/paisley.png");
 }
+
+.back-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -100;
+
+  background: repeating-linear-gradient(
+      -45deg,
+      darken($base_color, 40),
+      darken($base_color, 40) 30px,
+      darken($base_color, 35) 30px,
+      darken($base_color, 35) 60px
+  );
+}
+
 
 #content {
   $border-color: darken($base_color, 40);
+  box-shadow: 0 5px 10px darken($base_color, 15);
   background: white;
   overflow: hidden;
 
+  padding: 1em;
   @media (min-width: $width-medium) {
     border-left: 2px solid $base_color;
     border-right: 2px solid $base_color;
-  }
-
-  padding: 1em;
-  padding-bottom: 0;
-  @media (min-width: $width-medium) {
     margin-bottom: 50px;
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 12px 12px;
     border-bottom: 8px solid $border-color;
   }
 
-  @media (max-width: $width-small) {
-    padding-top: 60px;
-  }
-
   @media (max-width: $width-medium) {
+    padding-top: 60px;
     .main {
       display: none;
     }
@@ -45,12 +56,14 @@ body {
         width: 100% !important;
         max-width: none;
         a {
-          min-height: auto !important;
+          height: $nav-height * 4;
         }
         .info {
           margin: 0 !important;
           display: inline-block !important;
         }
+        padding: 0.25em 0;
+        box-shadow: 0 0 2px darken($base_color, 30);
       }
     }
      border-bottom: none;
@@ -88,7 +101,7 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  top: $nav-height + 2px;
+  top: $nav-height;
   bottom: 0;
   display: none;
   .icon-container {
@@ -130,6 +143,8 @@ body {
   position: relative;
   $height: $nav-height;
   $border_top_width: 5px;
+  $hover-height: 3 * $height;
+
   background-color: $base_color;
   ul {
     list-style: none;
@@ -241,7 +256,6 @@ body {
         }
       }
       &.full {
-        $hover-height: 3 * $height;
 
         .group-global-mark {
 
@@ -294,8 +308,6 @@ body {
 
         li {
           a {
-            //padding-top: 1em;
-            //padding-bottom: 1em;
             height: $hover-height * 2;
 
             .info {
@@ -329,7 +341,6 @@ body {
           }
           .info {
           }
-          padding: 0.25em 0;
         }
       }
     }
@@ -376,7 +387,7 @@ body {
   }
 }
 
-@media (max-width: $width-small) {
+@media (max-width: $width-medium) {
   .menu {
     position: fixed !important;
     z-index: 100;

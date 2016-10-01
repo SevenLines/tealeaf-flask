@@ -20,7 +20,6 @@ function LoadController() {
         window.loadToContent = function (url, info, target, callback) {
             var $loadingScreen = $("#loading-screen");
             if (!info) {
-                info = "<h2>Загрузка</h2>"
             }
             $loadingScreen.find(".info").html(info);
 
