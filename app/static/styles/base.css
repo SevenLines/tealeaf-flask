@@ -4366,7 +4366,9 @@ body {
   right: 0;
   bottom: 0;
   z-index: -100;
-  background: repeating-linear-gradient(-45deg, #0d202d, #0d202d 30px, #132e40 30px, #132e40 60px); }
+  opacity: 0.65;
+  background: url("images/flower_ornament_everywhere_300_.png"), url("images/flower_ornament_everywhere_300_alpha.png"), repeating-linear-gradient(-45deg, #0d202d, #0d202d 30px, #132e40 30px, #132e40 60px);
+  background-position: top left, top 150px left 0, top left; }
 
 #content {
   box-shadow: 0 5px 10px #2b668f;
@@ -4423,7 +4425,8 @@ body {
     top: calc(50% - 5em);
     left: calc(50% - 4.2em); }
     #loading-screen .icon-container .load-icon {
-      color: #408fc6;
+      color: #b6d4e9;
+      text-shadow: 0 0 10px white;
       font-size: 10em; }
     #loading-screen .icon-container .info {
       color: #408fc6; }
@@ -4493,9 +4496,9 @@ body {
           background-color: #22b7ec;
           box-shadow: 2px 0 2px #1db5eb inset, 0 0 4px #19b4eb; }
         .menu ul.groups li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info {
-          color: #1192bf; }
+          color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-1 .group-global-mark-summ-info.sml {
-            color: #4cc5ef; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-1:hover .group-global-mark-summ {
           background-color: #4cc5ef; }
       .menu ul.groups li:nth-child(1) .group-global-mark-2, .menu ul.main li:nth-child(1) .group-global-mark-2, .menu ul.disciplines li:nth-child(1) .group-global-mark-2, .details ul.groups li:nth-child(1) .group-global-mark-2, .details ul.main li:nth-child(1) .group-global-mark-2, .details ul.disciplines li:nth-child(1) .group-global-mark-2 {
@@ -4504,9 +4507,9 @@ body {
           background-color: #13a7db;
           box-shadow: 2px 0 2px #13a0d2 inset, 0 0 4px #1299c9; }
         .menu ul.groups li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info {
-          color: #13a0d2; }
+          color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-2 .group-global-mark-summ-info.sml {
-            color: #5ac9f0; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-2:hover .group-global-mark-summ {
           background-color: #5ac9f0; }
       .menu ul.groups li:nth-child(1) .group-global-mark-3, .menu ul.main li:nth-child(1) .group-global-mark-3, .menu ul.disciplines li:nth-child(1) .group-global-mark-3, .details ul.groups li:nth-child(1) .group-global-mark-3, .details ul.main li:nth-child(1) .group-global-mark-3, .details ul.disciplines li:nth-child(1) .group-global-mark-3 {
@@ -4515,9 +4518,9 @@ body {
           background-color: #1192bf;
           box-shadow: 2px 0 2px #1087b1 inset, 0 0 4px #0e7ca3; }
         .menu ul.groups li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info {
-          color: #1087b1; }
+          color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-3 .group-global-mark-summ-info.sml {
-            color: #68cef2; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-3:hover .group-global-mark-summ {
           background-color: #68cef2; }
       .menu ul.groups li:nth-child(1) .group-global-mark-4, .menu ul.main li:nth-child(1) .group-global-mark-4, .menu ul.disciplines li:nth-child(1) .group-global-mark-4, .details ul.groups li:nth-child(1) .group-global-mark-4, .details ul.main li:nth-child(1) .group-global-mark-4, .details ul.disciplines li:nth-child(1) .group-global-mark-4 {
@@ -4526,9 +4529,9 @@ body {
           background-color: #0e7ca3;
           box-shadow: 2px 0 2px #0d6e90 inset, 0 0 4px #0b607e; }
         .menu ul.groups li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info {
-          color: #0d6e90; }
+          color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-4 .group-global-mark-summ-info.sml {
-            color: #76d2f3; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-4:hover .group-global-mark-summ {
           background-color: #76d2f3; }
       .menu ul.groups li:nth-child(1) .group-global-mark-5, .menu ul.main li:nth-child(1) .group-global-mark-5, .menu ul.disciplines li:nth-child(1) .group-global-mark-5, .details ul.groups li:nth-child(1) .group-global-mark-5, .details ul.main li:nth-child(1) .group-global-mark-5, .details ul.disciplines li:nth-child(1) .group-global-mark-5 {
@@ -4539,7 +4542,7 @@ body {
         .menu ul.groups li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info {
           color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-5 .group-global-mark-summ-info.sml {
-            color: #84d7f4; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-5:hover .group-global-mark-summ {
           background-color: #84d7f4; }
       .menu ul.groups li:nth-child(1) .group-global-mark-6, .menu ul.main li:nth-child(1) .group-global-mark-6, .menu ul.disciplines li:nth-child(1) .group-global-mark-6, .details ul.groups li:nth-child(1) .group-global-mark-6, .details ul.main li:nth-child(1) .group-global-mark-6, .details ul.disciplines li:nth-child(1) .group-global-mark-6 {
@@ -4548,9 +4551,9 @@ body {
           background-color: #09516b;
           box-shadow: 2px 0 2px #073c4f inset, 0 0 4px #042733; }
         .menu ul.groups li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.main li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info, .details ul.groups li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info, .details ul.main li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info {
-          color: #073c4f; }
+          color: #0a5570; }
           .menu ul.groups li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(1) .group-global-mark-6 .group-global-mark-summ-info.sml {
-            color: #92dcf5; }
+            color: #9cdff6; }
         .menu ul.groups li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.main li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ, .details ul.groups li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ, .details ul.main li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(1) .group-global-mark-6:hover .group-global-mark-summ {
           background-color: #92dcf5; }
       .menu ul.groups li:nth-child(1) .group-global-mark--2, .menu ul.main li:nth-child(1) .group-global-mark--2, .menu ul.disciplines li:nth-child(1) .group-global-mark--2, .details ul.groups li:nth-child(1) .group-global-mark--2, .details ul.main li:nth-child(1) .group-global-mark--2, .details ul.disciplines li:nth-child(1) .group-global-mark--2 {
@@ -4574,9 +4577,9 @@ body {
           background-color: #1feeaa;
           box-shadow: 2px 0 2px #1aeda8 inset, 0 0 4px #15eda7; }
         .menu ul.groups li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info {
-          color: #0fc087; }
+          color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-1 .group-global-mark-summ-info.sml {
-            color: #49f1ba; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-1:hover .group-global-mark-summ {
           background-color: #49f1ba; }
       .menu ul.groups li:nth-child(2) .group-global-mark-2, .menu ul.main li:nth-child(2) .group-global-mark-2, .menu ul.disciplines li:nth-child(2) .group-global-mark-2, .details ul.groups li:nth-child(2) .group-global-mark-2, .details ul.main li:nth-child(2) .group-global-mark-2, .details ul.disciplines li:nth-child(2) .group-global-mark-2 {
@@ -4585,9 +4588,9 @@ body {
           background-color: #11dd9a;
           box-shadow: 2px 0 2px #10d394 inset, 0 0 4px #0fca8d; }
         .menu ul.groups li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info {
-          color: #10d394; }
+          color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-2 .group-global-mark-summ-info.sml {
-            color: #57f2c0; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-2:hover .group-global-mark-summ {
           background-color: #57f2c0; }
       .menu ul.groups li:nth-child(2) .group-global-mark-3, .menu ul.main li:nth-child(2) .group-global-mark-3, .menu ul.disciplines li:nth-child(2) .group-global-mark-3, .details ul.groups li:nth-child(2) .group-global-mark-3, .details ul.main li:nth-child(2) .group-global-mark-3, .details ul.disciplines li:nth-child(2) .group-global-mark-3 {
@@ -4596,9 +4599,9 @@ body {
           background-color: #0fc087;
           box-shadow: 2px 0 2px #0eb27d inset, 0 0 4px #0da473; }
         .menu ul.groups li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info {
-          color: #0eb27d; }
+          color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-3 .group-global-mark-summ-info.sml {
-            color: #66f3c5; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-3:hover .group-global-mark-summ {
           background-color: #66f3c5; }
       .menu ul.groups li:nth-child(2) .group-global-mark-4, .menu ul.main li:nth-child(2) .group-global-mark-4, .menu ul.disciplines li:nth-child(2) .group-global-mark-4, .details ul.groups li:nth-child(2) .group-global-mark-4, .details ul.main li:nth-child(2) .group-global-mark-4, .details ul.disciplines li:nth-child(2) .group-global-mark-4 {
@@ -4607,9 +4610,9 @@ body {
           background-color: #0da473;
           box-shadow: 2px 0 2px #0b9165 inset, 0 0 4px #0a7e58; }
         .menu ul.groups li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info {
-          color: #0b9165; }
+          color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-4 .group-global-mark-summ-info.sml {
-            color: #74f4ca; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-4:hover .group-global-mark-summ {
           background-color: #74f4ca; }
       .menu ul.groups li:nth-child(2) .group-global-mark-5, .menu ul.main li:nth-child(2) .group-global-mark-5, .menu ul.disciplines li:nth-child(2) .group-global-mark-5, .details ul.groups li:nth-child(2) .group-global-mark-5, .details ul.main li:nth-child(2) .group-global-mark-5, .details ul.disciplines li:nth-child(2) .group-global-mark-5 {
@@ -4620,7 +4623,7 @@ body {
         .menu ul.groups li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info {
           color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-5 .group-global-mark-summ-info.sml {
-            color: #82f5d0; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-5:hover .group-global-mark-summ {
           background-color: #82f5d0; }
       .menu ul.groups li:nth-child(2) .group-global-mark-6, .menu ul.main li:nth-child(2) .group-global-mark-6, .menu ul.disciplines li:nth-child(2) .group-global-mark-6, .details ul.groups li:nth-child(2) .group-global-mark-6, .details ul.main li:nth-child(2) .group-global-mark-6, .details ul.disciplines li:nth-child(2) .group-global-mark-6 {
@@ -4629,9 +4632,9 @@ body {
           background-color: #086b4b;
           box-shadow: 2px 0 2px #064f37 inset, 0 0 4px #043223; }
         .menu ul.groups li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.main li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info, .details ul.groups li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info, .details ul.main li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info {
-          color: #064f37; }
+          color: #09704e; }
           .menu ul.groups li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(2) .group-global-mark-6 .group-global-mark-summ-info.sml {
-            color: #90f7d5; }
+            color: #9af7d9; }
         .menu ul.groups li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.main li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ, .details ul.groups li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ, .details ul.main li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(2) .group-global-mark-6:hover .group-global-mark-summ {
           background-color: #90f7d5; }
       .menu ul.groups li:nth-child(2) .group-global-mark--2, .menu ul.main li:nth-child(2) .group-global-mark--2, .menu ul.disciplines li:nth-child(2) .group-global-mark--2, .details ul.groups li:nth-child(2) .group-global-mark--2, .details ul.main li:nth-child(2) .group-global-mark--2, .details ul.disciplines li:nth-child(2) .group-global-mark--2 {
@@ -4655,9 +4658,9 @@ body {
           background-color: #c6f220;
           box-shadow: 2px 0 2px #c4f21b inset, 0 0 4px #c3f216; }
         .menu ul.groups li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info {
-          color: #a1ca0b; }
+          color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-1 .group-global-mark-summ-info.sml {
-            color: #d1f54b; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-1:hover .group-global-mark-summ {
           background-color: #d1f54b; }
       .menu ul.groups li:nth-child(3) .group-global-mark-2, .menu ul.main li:nth-child(3) .group-global-mark-2, .menu ul.disciplines li:nth-child(3) .group-global-mark-2, .details ul.groups li:nth-child(3) .group-global-mark-2, .details ul.main li:nth-child(3) .group-global-mark-2, .details ul.disciplines li:nth-child(3) .group-global-mark-2 {
@@ -4666,9 +4669,9 @@ body {
           background-color: #b8e70d;
           box-shadow: 2px 0 2px #b1dd0d inset, 0 0 4px #a9d30c; }
         .menu ul.groups li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info {
-          color: #b1dd0d; }
+          color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-2 .group-global-mark-summ-info.sml {
-            color: #d4f65a; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-2:hover .group-global-mark-summ {
           background-color: #d4f65a; }
       .menu ul.groups li:nth-child(3) .group-global-mark-3, .menu ul.main li:nth-child(3) .group-global-mark-3, .menu ul.disciplines li:nth-child(3) .group-global-mark-3, .details ul.groups li:nth-child(3) .group-global-mark-3, .details ul.main li:nth-child(3) .group-global-mark-3, .details ul.disciplines li:nth-child(3) .group-global-mark-3 {
@@ -4677,9 +4680,9 @@ body {
           background-color: #a1ca0b;
           box-shadow: 2px 0 2px #96bb0b inset, 0 0 4px #8aad0a; }
         .menu ul.groups li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info {
-          color: #96bb0b; }
+          color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-3 .group-global-mark-summ-info.sml {
-            color: #d8f668; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-3:hover .group-global-mark-summ {
           background-color: #d8f668; }
       .menu ul.groups li:nth-child(3) .group-global-mark-4, .menu ul.main li:nth-child(3) .group-global-mark-4, .menu ul.disciplines li:nth-child(3) .group-global-mark-4, .details ul.groups li:nth-child(3) .group-global-mark-4, .details ul.main li:nth-child(3) .group-global-mark-4, .details ul.disciplines li:nth-child(3) .group-global-mark-4 {
@@ -4688,9 +4691,9 @@ body {
           background-color: #8aad0a;
           box-shadow: 2px 0 2px #7b9909 inset, 0 0 4px #6b8608; }
         .menu ul.groups li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info {
-          color: #7b9909; }
+          color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-4 .group-global-mark-summ-info.sml {
-            color: #dcf777; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-4:hover .group-global-mark-summ {
           background-color: #dcf777; }
       .menu ul.groups li:nth-child(3) .group-global-mark-5, .menu ul.main li:nth-child(3) .group-global-mark-5, .menu ul.disciplines li:nth-child(3) .group-global-mark-5, .details ul.groups li:nth-child(3) .group-global-mark-5, .details ul.main li:nth-child(3) .group-global-mark-5, .details ul.disciplines li:nth-child(3) .group-global-mark-5 {
@@ -4701,7 +4704,7 @@ body {
         .menu ul.groups li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info {
           color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-5 .group-global-mark-summ-info.sml {
-            color: #e0f885; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-5:hover .group-global-mark-summ {
           background-color: #e0f885; }
       .menu ul.groups li:nth-child(3) .group-global-mark-6, .menu ul.main li:nth-child(3) .group-global-mark-6, .menu ul.disciplines li:nth-child(3) .group-global-mark-6, .details ul.groups li:nth-child(3) .group-global-mark-6, .details ul.main li:nth-child(3) .group-global-mark-6, .details ul.disciplines li:nth-child(3) .group-global-mark-6 {
@@ -4710,9 +4713,9 @@ body {
           background-color: #5c7307;
           box-shadow: 2px 0 2px #455605 inset, 0 0 4px #2e3903; }
         .menu ul.groups li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.main li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info, .details ul.groups li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info, .details ul.main li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info {
-          color: #455605; }
+          color: #607807; }
           .menu ul.groups li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(3) .group-global-mark-6 .group-global-mark-summ-info.sml {
-            color: #e3f994; }
+            color: #e6f99e; }
         .menu ul.groups li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.main li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ, .details ul.groups li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ, .details ul.main li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(3) .group-global-mark-6:hover .group-global-mark-summ {
           background-color: #e3f994; }
       .menu ul.groups li:nth-child(3) .group-global-mark--2, .menu ul.main li:nth-child(3) .group-global-mark--2, .menu ul.disciplines li:nth-child(3) .group-global-mark--2, .details ul.groups li:nth-child(3) .group-global-mark--2, .details ul.main li:nth-child(3) .group-global-mark--2, .details ul.disciplines li:nth-child(3) .group-global-mark--2 {
@@ -4736,9 +4739,9 @@ body {
           background-color: #ffda17;
           box-shadow: 2px 0 2px #ffd912 inset, 0 0 4px #ffd90d; }
         .menu ul.groups li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info {
-          color: #d9b700; }
+          color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-1 .group-global-mark-summ-info.sml {
-            color: #ffe145; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-1:hover .group-global-mark-summ {
           background-color: #ffe145; }
       .menu ul.groups li:nth-child(4) .group-global-mark-2, .menu ul.main li:nth-child(4) .group-global-mark-2, .menu ul.disciplines li:nth-child(4) .group-global-mark-2, .details ul.groups li:nth-child(4) .group-global-mark-2, .details ul.main li:nth-child(4) .group-global-mark-2, .details ul.disciplines li:nth-child(4) .group-global-mark-2 {
@@ -4747,9 +4750,9 @@ body {
           background-color: #f8d000;
           box-shadow: 2px 0 2px #eec800 inset, 0 0 4px #e3bf00; }
         .menu ul.groups li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info {
-          color: #eec800; }
+          color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-2 .group-global-mark-summ-info.sml {
-            color: #ffe455; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-2:hover .group-global-mark-summ {
           background-color: #ffe455; }
       .menu ul.groups li:nth-child(4) .group-global-mark-3, .menu ul.main li:nth-child(4) .group-global-mark-3, .menu ul.disciplines li:nth-child(4) .group-global-mark-3, .details ul.groups li:nth-child(4) .group-global-mark-3, .details ul.main li:nth-child(4) .group-global-mark-3, .details ul.disciplines li:nth-child(4) .group-global-mark-3 {
@@ -4758,9 +4761,9 @@ body {
           background-color: #d9b700;
           box-shadow: 2px 0 2px #caaa00 inset, 0 0 4px #bb9d00; }
         .menu ul.groups li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info {
-          color: #caaa00; }
+          color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-3 .group-global-mark-summ-info.sml {
-            color: #ffe664; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-3:hover .group-global-mark-summ {
           background-color: #ffe664; }
       .menu ul.groups li:nth-child(4) .group-global-mark-4, .menu ul.main li:nth-child(4) .group-global-mark-4, .menu ul.disciplines li:nth-child(4) .group-global-mark-4, .details ul.groups li:nth-child(4) .group-global-mark-4, .details ul.main li:nth-child(4) .group-global-mark-4, .details ul.disciplines li:nth-child(4) .group-global-mark-4 {
@@ -4769,9 +4772,9 @@ body {
           background-color: #bb9d00;
           box-shadow: 2px 0 2px #a68c00 inset, 0 0 4px #927b00; }
         .menu ul.groups li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info {
-          color: #a68c00; }
+          color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-4 .group-global-mark-summ-info.sml {
-            color: #ffe973; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-4:hover .group-global-mark-summ {
           background-color: #ffe973; }
       .menu ul.groups li:nth-child(4) .group-global-mark-5, .menu ul.main li:nth-child(4) .group-global-mark-5, .menu ul.disciplines li:nth-child(4) .group-global-mark-5, .details ul.groups li:nth-child(4) .group-global-mark-5, .details ul.main li:nth-child(4) .group-global-mark-5, .details ul.disciplines li:nth-child(4) .group-global-mark-5 {
@@ -4782,7 +4785,7 @@ body {
         .menu ul.groups li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info {
           color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-5 .group-global-mark-summ-info.sml {
-            color: #ffeb83; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-5:hover .group-global-mark-summ {
           background-color: #ffeb83; }
       .menu ul.groups li:nth-child(4) .group-global-mark-6, .menu ul.main li:nth-child(4) .group-global-mark-6, .menu ul.disciplines li:nth-child(4) .group-global-mark-6, .details ul.groups li:nth-child(4) .group-global-mark-6, .details ul.main li:nth-child(4) .group-global-mark-6, .details ul.disciplines li:nth-child(4) .group-global-mark-6 {
@@ -4791,9 +4794,9 @@ body {
           background-color: #7d6900;
           box-shadow: 2px 0 2px #5f5000 inset, 0 0 4px #403600; }
         .menu ul.groups li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.main li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info, .details ul.groups li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info, .details ul.main li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info {
-          color: #5f5000; }
+          color: #836e00; }
           .menu ul.groups li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(4) .group-global-mark-6 .group-global-mark-summ-info.sml {
-            color: #ffee92; }
+            color: #ffef9c; }
         .menu ul.groups li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.main li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ, .details ul.groups li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ, .details ul.main li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(4) .group-global-mark-6:hover .group-global-mark-summ {
           background-color: #ffee92; }
       .menu ul.groups li:nth-child(4) .group-global-mark--2, .menu ul.main li:nth-child(4) .group-global-mark--2, .menu ul.disciplines li:nth-child(4) .group-global-mark--2, .details ul.groups li:nth-child(4) .group-global-mark--2, .details ul.main li:nth-child(4) .group-global-mark--2, .details ul.disciplines li:nth-child(4) .group-global-mark--2 {
@@ -4817,9 +4820,9 @@ body {
           background-color: #ffa00c;
           box-shadow: 2px 0 2px #ff9e07 inset, 0 0 4px #ff9c02; }
         .menu ul.groups li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info {
-          color: #ce7d00; }
+          color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-1 .group-global-mark-summ-info.sml {
-            color: #ffb23a; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-1:hover .group-global-mark-summ {
           background-color: #ffb23a; }
       .menu ul.groups li:nth-child(5) .group-global-mark-2, .menu ul.main li:nth-child(5) .group-global-mark-2, .menu ul.disciplines li:nth-child(5) .group-global-mark-2, .details ul.groups li:nth-child(5) .group-global-mark-2, .details ul.main li:nth-child(5) .group-global-mark-2, .details ul.disciplines li:nth-child(5) .group-global-mark-2 {
@@ -4828,9 +4831,9 @@ body {
           background-color: #ed9000;
           box-shadow: 2px 0 2px #e38a00 inset, 0 0 4px #d88400; }
         .menu ul.groups li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info {
-          color: #e38a00; }
+          color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-2 .group-global-mark-summ-info.sml {
-            color: #ffb84a; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-2:hover .group-global-mark-summ {
           background-color: #ffb84a; }
       .menu ul.groups li:nth-child(5) .group-global-mark-3, .menu ul.main li:nth-child(5) .group-global-mark-3, .menu ul.disciplines li:nth-child(5) .group-global-mark-3, .details ul.groups li:nth-child(5) .group-global-mark-3, .details ul.main li:nth-child(5) .group-global-mark-3, .details ul.disciplines li:nth-child(5) .group-global-mark-3 {
@@ -4839,9 +4842,9 @@ body {
           background-color: #ce7d00;
           box-shadow: 2px 0 2px #bf7400 inset, 0 0 4px #b06b00; }
         .menu ul.groups li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info {
-          color: #bf7400; }
+          color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-3 .group-global-mark-summ-info.sml {
-            color: #ffbe59; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-3:hover .group-global-mark-summ {
           background-color: #ffbe59; }
       .menu ul.groups li:nth-child(5) .group-global-mark-4, .menu ul.main li:nth-child(5) .group-global-mark-4, .menu ul.disciplines li:nth-child(5) .group-global-mark-4, .details ul.groups li:nth-child(5) .group-global-mark-4, .details ul.main li:nth-child(5) .group-global-mark-4, .details ul.disciplines li:nth-child(5) .group-global-mark-4 {
@@ -4850,9 +4853,9 @@ body {
           background-color: #b06b00;
           box-shadow: 2px 0 2px #9b5e00 inset, 0 0 4px #875200; }
         .menu ul.groups li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info {
-          color: #9b5e00; }
+          color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-4 .group-global-mark-summ-info.sml {
-            color: #ffc468; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-4:hover .group-global-mark-summ {
           background-color: #ffc468; }
       .menu ul.groups li:nth-child(5) .group-global-mark-5, .menu ul.main li:nth-child(5) .group-global-mark-5, .menu ul.disciplines li:nth-child(5) .group-global-mark-5, .details ul.groups li:nth-child(5) .group-global-mark-5, .details ul.main li:nth-child(5) .group-global-mark-5, .details ul.disciplines li:nth-child(5) .group-global-mark-5 {
@@ -4863,7 +4866,7 @@ body {
         .menu ul.groups li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info {
           color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-5 .group-global-mark-summ-info.sml {
-            color: #ffca78; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-5:hover .group-global-mark-summ {
           background-color: #ffca78; }
       .menu ul.groups li:nth-child(5) .group-global-mark-6, .menu ul.main li:nth-child(5) .group-global-mark-6, .menu ul.disciplines li:nth-child(5) .group-global-mark-6, .details ul.groups li:nth-child(5) .group-global-mark-6, .details ul.main li:nth-child(5) .group-global-mark-6, .details ul.disciplines li:nth-child(5) .group-global-mark-6 {
@@ -4872,9 +4875,9 @@ body {
           background-color: #724600;
           box-shadow: 2px 0 2px #543300 inset, 0 0 4px #352000; }
         .menu ul.groups li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.main li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info, .menu ul.disciplines li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info, .details ul.groups li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info, .details ul.main li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info, .details ul.disciplines li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info {
-          color: #543300; }
+          color: #784900; }
           .menu ul.groups li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.main li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml, .menu ul.disciplines li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.groups li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.main li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml, .details ul.disciplines li:nth-child(5) .group-global-mark-6 .group-global-mark-summ-info.sml {
-            color: #ffd087; }
+            color: #ffd491; }
         .menu ul.groups li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.main li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ, .menu ul.disciplines li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ, .details ul.groups li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ, .details ul.main li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ, .details ul.disciplines li:nth-child(5) .group-global-mark-6:hover .group-global-mark-summ {
           background-color: #ffd087; }
       .menu ul.groups li:nth-child(5) .group-global-mark--2, .menu ul.main li:nth-child(5) .group-global-mark--2, .menu ul.disciplines li:nth-child(5) .group-global-mark--2, .details ul.groups li:nth-child(5) .group-global-mark--2, .details ul.main li:nth-child(5) .group-global-mark--2, .details ul.disciplines li:nth-child(5) .group-global-mark--2 {
@@ -4887,6 +4890,9 @@ body {
         position: relative;
         overflow: hidden; }
         .menu ul.groups.full .group-global-mark .group-global-mark-summ, .menu ul.main.full .group-global-mark .group-global-mark-summ, .menu ul.disciplines.full .group-global-mark .group-global-mark-summ, .details ul.groups.full .group-global-mark .group-global-mark-summ, .details ul.main.full .group-global-mark .group-global-mark-summ, .details ul.disciplines.full .group-global-mark .group-global-mark-summ {
+          background-image: url("images/paisley_pattern_02.png");
+          background-repeat: repeat-x;
+          background-position: left 10px top;
           -webkit-transition: all 0.3s;
           -moz-transition: all 0.3s;
           -ms-transition: all 0.3s;
@@ -4913,7 +4919,8 @@ body {
           padding-top: 0.75em;
           padding-bottom: 0.25em;
           font-size: 1.2em;
-          font-weight: bold; }
+          font-weight: bold;
+          text-shadow: 0 0 10px white; }
         .menu ul.groups.full .group-global-mark:hover .group-global-mark-summ-info, .menu ul.main.full .group-global-mark:hover .group-global-mark-summ-info, .menu ul.disciplines.full .group-global-mark:hover .group-global-mark-summ-info, .details ul.groups.full .group-global-mark:hover .group-global-mark-summ-info, .details ul.main.full .group-global-mark:hover .group-global-mark-summ-info, .details ul.disciplines.full .group-global-mark:hover .group-global-mark-summ-info {
           opacity: 100;
           left: 0; }
