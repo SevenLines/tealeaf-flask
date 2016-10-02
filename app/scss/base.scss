@@ -10,6 +10,7 @@ body {
   @include transition(0.3s);
   font-family: Georgia, "Times New Roman", Times, serif !important;
   background-color: darken($base_color, 30);
+  //background-image:
 }
 
 .back-wrapper {
@@ -19,14 +20,19 @@ body {
   right: 0;
   bottom: 0;
   z-index: -100;
-
-  background: repeating-linear-gradient(
+  opacity: 0.65;
+  background:
+  url("images/flower_ornament_everywhere_300_.png"),
+  url("images/flower_ornament_everywhere_300_alpha.png"),
+  repeating-linear-gradient(
       -45deg,
       darken($base_color, 40),
       darken($base_color, 40) 30px,
       darken($base_color, 35) 30px,
       darken($base_color, 35) 60px
   );
+
+  background-position: top left, top 150px left 0, top left;
 }
 
 
@@ -109,7 +115,8 @@ body {
     top: calc(50% - 5em);
     left: calc(50% - 4.2em);
     .load-icon {
-      color: $base_color;
+      color: lighten($base_color, 30);
+      text-shadow: 0 0 10px white;
       font-size: 10em;
     }
     .info {
@@ -235,12 +242,12 @@ body {
               }
               .group-global-mark-summ-info {
                 @if $mark == 1 {
-                  color: darken($color, 18);
+                  color: darken($color, 35);
                 } @else {
-                  color: darken($color, 7*$mark);
+                  color: darken($color, 35);
                 }
                 &.sml {
-                  color: lighten($color, 3*$mark);
+                  color: lighten($color, 20);
                 }
               }
               &:hover {
@@ -265,7 +272,11 @@ body {
           float: left;
           position: relative;
           overflow: hidden;
+
           .group-global-mark-summ {
+            background-image: url("images/paisley_pattern_02.png");
+            background-repeat: repeat-x;
+            background-position: left 10px top;
 
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
@@ -297,6 +308,7 @@ body {
             padding-bottom: 0.25em;
             font-size: 1.2em;
             font-weight: bold;
+            text-shadow: 0 0 10px white;
           }
           &:hover {
             .group-global-mark-summ-info {
