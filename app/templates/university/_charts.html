@@ -32,7 +32,9 @@
                                 <div class="group-global-mark group-global-mark-{{ score }}"
                                      style="width: {{ (score_marks['marks_count']/count )*100 }}%;">
                                     <div class="group-global-mark-summ"
-                                         style="top: {{ 100 - summ_part }}%;"></div>
+                                         style="top: {{ 100 - summ_part }}%;">
+
+                                    </div>
                                     <div class="group-global-mark-summ-info {% if summ_part < 15 %}sml{% endif %}"
                                          style="{% if summ_part < 15 %}
                                              bottom: {{ summ_part }}%;
@@ -41,6 +43,7 @@
                                          {% endif %}">
                                         {{ score_marks['marks_summ'] }}
                                     </div>
+
                                 </div>
                             {% endif %}
                         {% endfor %}

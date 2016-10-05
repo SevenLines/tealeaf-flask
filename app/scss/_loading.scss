@@ -1,0 +1,153 @@
+@mixin animation($name, $duration:1s, $delay:0, $ease:linear, $iterations:infinite, $endState:normal) {
+  -webkit-animation: $name $duration $ease $iterations $endState;
+  -moz-animation: $name $duration $ease $iterations $endState;
+  -ms-animation: $name $duration $ease $iterations $endState;
+  animation: $name $duration $ease $iterations $endState;
+  @include delay($delay);
+}
+
+@keyframes spin-right {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 1.0;
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@-moz-keyframes spin-right {
+  from {
+    -moz-transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    -moz-transform: rotate(180deg);
+    opacity: 1.0;
+  }
+  to {
+    -moz-transform: rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes spin-right {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    opacity: 1.0;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes spin-left {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotate(-180deg);
+    opacity: 1.0;
+  }
+  to {
+    transform: rotate(-360deg);
+    opacity: 0.2;
+  }
+}
+
+@-moz-keyframes spin-left {
+  from {
+    -moz-transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    -moz-transform: rotate(-180deg);
+    opacity: 1.0;
+  }
+  to {
+    -moz-transform: rotate(-360deg);
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes spin-left {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    -webkit-transform: rotate(-180deg);
+    opacity: 1.0;
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    opacity: 0.2;
+  }
+}
+
+#ajaxloader2 {
+  position: relative;
+  //margin:30px auto 0;
+  .outer {
+    position: absolute;
+    border: 5px solid blue;
+    opacity: .9;
+    width: 70px;
+    height: 70px;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    //.box-shadow(0 0 35px darken(blue, 20));
+    @include animation(spin-right, .5s);
+    //margin:0 auto;
+  }
+  .inner {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid blue;
+    opacity: .9;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    //.box-shadow(0 0 35px darken(blue, 20));
+    //position:relative;
+    //top:-50px;
+    margin: 0 auto;
+    @include animation(spin-left, .5s);
+  }
+}
+
+#loading-screen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: $nav-height;
+  bottom: 0;
+  display: none;
+  .icon-container {
+    position: absolute;
+    top: calc(50% - 5em);
+    left: calc(50% - 4.2em);
+    .load-icon {
+      color: lighten($base_color, 30);
+      text-shadow: 0 0 10px white;
+      font-size: 10em;
+    }
+    .info {
+      color: $base_color;
+    }
+  }
+}

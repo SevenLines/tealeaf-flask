@@ -4413,24 +4413,6 @@ body {
 .container {
   padding: 0 !important; }
 
-#loading-screen {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 50px;
-  bottom: 0;
-  display: none; }
-  #loading-screen .icon-container {
-    position: absolute;
-    top: calc(50% - 5em);
-    left: calc(50% - 4.2em); }
-    #loading-screen .icon-container .load-icon {
-      color: #b6d4e9;
-      text-shadow: 0 0 10px white;
-      font-size: 10em; }
-    #loading-screen .icon-container .info {
-      color: #408fc6; }
-
 .details {
   background-color: #4c96ca;
   margin: -1em;
@@ -4889,6 +4871,16 @@ body {
         float: left;
         position: relative;
         overflow: hidden; }
+        .menu ul.groups.full .group-global-mark img, .menu ul.main.full .group-global-mark img, .menu ul.disciplines.full .group-global-mark img, .details ul.groups.full .group-global-mark img, .details ul.main.full .group-global-mark img, .details ul.disciplines.full .group-global-mark img {
+          position: absolute;
+          margin: auto;
+          padding: 4px;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          max-width: 100%;
+          max-height: 100%; }
         .menu ul.groups.full .group-global-mark .group-global-mark-summ, .menu ul.main.full .group-global-mark .group-global-mark-summ, .menu ul.disciplines.full .group-global-mark .group-global-mark-summ, .details ul.groups.full .group-global-mark .group-global-mark-summ, .details ul.main.full .group-global-mark .group-global-mark-summ, .details ul.disciplines.full .group-global-mark .group-global-mark-summ {
           background-image: url("images/paisley_pattern_02.png");
           background-repeat: repeat-x;
@@ -5017,5 +5009,122 @@ body {
   font-size: 1.4em; }
   .main-page-info p:last-child {
     margin-bottom: 0px; }
+
+@keyframes spin-right {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    transform: rotate(180deg);
+    opacity: 1.0; }
+  to {
+    transform: rotate(360deg);
+    opacity: 0.2; } }
+@-moz-keyframes spin-right {
+  from {
+    -moz-transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    -moz-transform: rotate(180deg);
+    opacity: 1.0; }
+  to {
+    -moz-transform: rotate(360deg);
+    opacity: 0.2; } }
+@-webkit-keyframes spin-right {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    -webkit-transform: rotate(180deg);
+    opacity: 1.0; }
+  to {
+    -webkit-transform: rotate(360deg);
+    opacity: 0.2; } }
+@keyframes spin-left {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    transform: rotate(-180deg);
+    opacity: 1.0; }
+  to {
+    transform: rotate(-360deg);
+    opacity: 0.2; } }
+@-moz-keyframes spin-left {
+  from {
+    -moz-transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    -moz-transform: rotate(-180deg);
+    opacity: 1.0; }
+  to {
+    -moz-transform: rotate(-360deg);
+    opacity: 0.2; } }
+@-webkit-keyframes spin-left {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 0.2; }
+  50% {
+    -webkit-transform: rotate(-180deg);
+    opacity: 1.0; }
+  to {
+    -webkit-transform: rotate(-360deg);
+    opacity: 0.2; } }
+#ajaxloader2 {
+  position: relative; }
+  #ajaxloader2 .outer {
+    position: absolute;
+    border: 5px solid blue;
+    opacity: .9;
+    width: 70px;
+    height: 70px;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spin-right 0.5s linear infinite normal;
+    -moz-animation: spin-right 0.5s linear infinite normal;
+    -ms-animation: spin-right 0.5s linear infinite normal;
+    animation: spin-right 0.5s linear infinite normal;
+    -webkit-animation-delay: 0;
+    -moz-animation-delay: 0;
+    -o-animation-delay: 0;
+    animation-delay: 0; }
+  #ajaxloader2 .inner {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid blue;
+    opacity: .9;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    margin: 0 auto;
+    -webkit-animation: spin-left 0.5s linear infinite normal;
+    -moz-animation: spin-left 0.5s linear infinite normal;
+    -ms-animation: spin-left 0.5s linear infinite normal;
+    animation: spin-left 0.5s linear infinite normal;
+    -webkit-animation-delay: 0;
+    -moz-animation-delay: 0;
+    -o-animation-delay: 0;
+    animation-delay: 0; }
+
+#loading-screen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  display: none; }
+  #loading-screen .icon-container {
+    position: absolute;
+    top: calc(50% - 5em);
+    left: calc(50% - 4.2em); }
+    #loading-screen .icon-container .load-icon {
+      color: #b6d4e9;
+      text-shadow: 0 0 10px white;
+      font-size: 10em; }
+    #loading-screen .icon-container .info {
+      color: #408fc6; }
 
 /*# sourceMappingURL=base.css.map */

@@ -65,9 +65,9 @@ class IndexView(View):
                     if Mark.MARK_ABSENT <= v <= Mark.MARK_INCREDIBLE or v == Mark.MARK_SHINING
                 },
                 "marks_count": len(items),
-                "marks_count_positive": len(list(i for i in items if Mark.MARK_BASE <= i.value <= Mark.MARK_INCREDIBLE)),
+                "marks_count_positive": len(list(i for i in items if Mark.MARK_BASE < i.value <= Mark.MARK_INCREDIBLE)),
                 "marks_summ": sum(i.value for i in items),
-                "marks_summ_positive": sum(i.value for i in items if Mark.MARK_BASE <= i.value <= Mark.MARK_INCREDIBLE)
+                "marks_summ_positive": sum(i.value for i in items if Mark.MARK_BASE < i.value <= Mark.MARK_INCREDIBLE)
             }
             for groupd_id, items in {id: list(items) for id, items in groupby(marks, lambda x: x.group_id)}.items()
         }
