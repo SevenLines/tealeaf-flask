@@ -108,6 +108,9 @@ def group_marks(group_id, discipline_id=None):
     if not discipline and not current_user_is_logged():
         return redirect(url_for('security.login', next=request.path))
 
+    if group.year != Group.current_year() and not current_user_is_logged():
+        return redirect(url_for('security.login', next=request.path))
+
     def make_cache_key():
         return cache_key_for_students_marks(group.id, discipline.id)
 
