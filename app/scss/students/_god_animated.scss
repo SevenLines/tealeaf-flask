@@ -13,7 +13,7 @@
     background: white;
     margin: 3px;
     border-radius: 3px;
-    @include animation(godAnimation2 3s linear infinite);
+    @include animation(animate-shine 3s linear infinite);
   }
 }
 
