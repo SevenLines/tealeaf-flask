@@ -47,3 +47,17 @@ $base_color: #408fc6;
   -o-animation: $description;
   animation: $description;
 }
+
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+    width: 95%;
+  }
+}

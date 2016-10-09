@@ -1,4 +1,22 @@
 @charset "UTF-8";
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 .panel .panel-heading {
   background-color: #FDFDFD;
   -webkit-transition: all ease-in-out 0.3s;
@@ -430,6 +448,15 @@ pre {
   margin: 0.5em 0;
   background-color: white; }
 
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 .mark {
   color: transparent; }
   .mark.exam {
@@ -701,6 +728,15 @@ pre {
     .mark#lesson-editor.exam {
       box-shadow: #ec6aa0 0 0 0 4px inset; }
 
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 @-webkit-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ff1800 inset; }
@@ -953,6 +989,15 @@ pre {
   box-shadow: 0 0 4px #f49900 !important;
   background-color: #ffe500 !important; }
 
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 .god:after {
   content: ' ';
   opacity: 0;
@@ -964,10 +1009,10 @@ pre {
   background: white;
   margin: 3px;
   border-radius: 3px;
-  -webkit-animation: godAnimation2 3s linear infinite;
-  -moz-animation: godAnimation2 3s linear infinite;
-  -o-animation: godAnimation2 3s linear infinite;
-  animation: godAnimation2 3s linear infinite; }
+  -webkit-animation: animate-shine 3s linear infinite;
+  -moz-animation: animate-shine 3s linear infinite;
+  -o-animation: animate-shine 3s linear infinite;
+  animation: animate-shine 3s linear infinite; }
 
 .s-table > tbody > tr:nth-child(1) .god:after {
   -webkit-animation-delay: 0.1s;
@@ -1614,6 +1659,15 @@ pre {
   height: 28px;
   max-height: 35px; }
 
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 .s-table {
   -webkit-transition: max-width 0.3s, width 0.3s;
   -moz-transition: max-width 0.3s, width 0.3s;

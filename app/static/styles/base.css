@@ -1,3 +1,21 @@
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 #enter-button-area {
   -webkit-transition: all ease-in-out 0.3s;
   -moz-transition: all ease-in-out 0.3s;
@@ -79,6 +97,15 @@
   #page-properties:hover {
     left: 0; }
 
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 #admin-panel {
   z-index: 100;
   margin-top: 50px;
@@ -134,6 +161,24 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
+@keyframes animate-shine {
+  0% {
+    opacity: 0;
+    width: 0; }
+  50% {
+    opacity: .5; }
+  100% {
+    opacity: 0;
+    width: 95%; } }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -4446,11 +4491,9 @@ body {
           position: relative;
           display: block;
           text-align: center;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s; }
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s; }
           .menu ul.groups li a .title, .menu ul.main li a .title, .menu ul.disciplines li a .title, .details ul.groups li a .title, .details ul.main li a .title, .details ul.disciplines li a .title {
             padding: 0.5em;
             font-size: 1.2em;
@@ -4885,22 +4928,18 @@ body {
           background-image: url("images/paisley_pattern_02.png");
           background-repeat: repeat-x;
           background-position: left 10px top;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s;
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s;
           position: absolute;
           left: 0;
           right: 0;
           bottom: 0;
           box-shadow: -2px 0 2px black; }
         .menu ul.groups.full .group-global-mark .group-global-mark-summ-info, .menu ul.main.full .group-global-mark .group-global-mark-summ-info, .menu ul.disciplines.full .group-global-mark .group-global-mark-summ-info, .details ul.groups.full .group-global-mark .group-global-mark-summ-info, .details ul.main.full .group-global-mark .group-global-mark-summ-info, .details ul.disciplines.full .group-global-mark .group-global-mark-summ-info {
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s;
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s;
           left: -100px;
           position: absolute;
           color: white;
@@ -4928,11 +4967,9 @@ body {
           border-radius: 1px;
           margin: 0 auto;
           margin-bottom: 1em;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s; }
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s; }
     @media (max-width: 420px) {
       .menu ul.full li:first-child, .details ul.full li:first-child {
         padding-top: 0.5em; } }
@@ -4952,11 +4989,9 @@ body {
       max-height: 0;
       position: absolute;
       z-index: 100;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s; }
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
       .menu ul.disciplines.show, .details ul.disciplines.show {
         max-height: 500px; }
       .menu ul.disciplines li, .details ul.disciplines li {
@@ -4976,11 +5011,9 @@ body {
   clear: none;
   display: inline-block; }
   .dropdown .dropdown-menu {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
     max-height: 0;
     display: block;
     overflow: hidden;

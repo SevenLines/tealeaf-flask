@@ -28,9 +28,9 @@
                         {% for score in range(1, 7) %}
                             {% set score_marks = group_marks['marks'].get(score) %}
                             {% if score_marks %}
-                                {% set summ_part = (score_marks['marks_summ']/max_summ )*99 %}
+                                {% set summ_part = (score_marks['marks_summ']/max_summ)*99 %}
                                 <div class="group-global-mark group-global-mark-{{ score }}"
-                                     style="width: {{ (score_marks['marks_count']/count )*100 }}%;">
+                                     style="width: {{ (score_marks['marks_summ']/total_summ )*100 }}%;">
                                     <div class="group-global-mark-summ"
                                          style="top: {{ 100 - summ_part }}%;">
 
