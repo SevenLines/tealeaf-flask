@@ -13,7 +13,7 @@
             {% include "university/lessons/_students_menu.html" %}
             </thead>
             <tbody class="t-content">
-            {% for student in group.students.all() %}
+            {% for student in students %}
                 <tr class="t-row" data-points="{{ students_info[student.id]['points'] }}"
                     data-percents="{{ students_info[student.id]['percents'] }}"
                     data-second-name="{{ student.second_name }}"

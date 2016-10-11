@@ -1,5 +1,6 @@
 # coding=utf-8
 from itertools import groupby
+from operator import or_
 from pprint import pformat
 
 from flask import render_template, request, redirect, url_for, Response
@@ -8,7 +9,7 @@ from flask.helpers import make_response
 from flask.views import View, MethodView
 from sqlalchemy import desc
 
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, contains_eager
 
 from datetime import datetime
 from app.cache import cache
@@ -27,7 +28,6 @@ def cache_key_for_students_marks(group_id, discipline_id):
 
 
 def reset_student_marks_cache_for_group_id(group_id):
-    group = Group.get(group_id)
     for (discipline_id,) in Discipline.query.with_entities(Discipline.id).all():
         cache.delete(cache_key_for_students_marks(group_id, discipline_id))
 
@@ -100,7 +100,8 @@ def group_marks(group_id, discipline_id=None):
             else:
                 return redirect(url_for("university.index"))
 
-    discipline = disciplines.filter(Discipline.id == discipline_id).first()
+    discipline = disciplines.filter(Discipline.id == discipline_id)\
+        .options(joinedload('labs'), joinedload('files'), joinedload('articles')).first()
     if discipline is None:
         discipline = disciplines.first()
 
@@ -114,19 +115,25 @@ def group_marks(group_id, discipline_id=None):
     def make_cache_key():
         return cache_key_for_students_marks(group.id, discipline.id)
 
-    @cache.cached(key_prefix=make_cache_key)
+    # @cache.cached(key_prefix=make_cache_key)
     def get_all_data(group, discipline):
-        students = group.students.all()
-        lessons = Lesson.query.filter(Lesson.group_id == group.id, Lesson.discipline_id == discipline.id) \
+        lessons = Lesson.query.filter(Lesson.group_id == group.id)\
+            .filter(Lesson.discipline_id == discipline.id) \
             .order_by(Lesson.date).all()
-        marks = Mark.query.filter(Mark.lesson_id.in_([l.id for l in lessons])).all()
-        labs = discipline.labs.options(joinedload('tasks')).all()
-        tasks_results = TaskResult.query \
-            .join(Task).join(Lab).join(Student) \
-            .filter(Student.group_id == group.id, Lab.discipline_id == discipline.id) \
-            .filter(TaskResult.done == True) \
-            .with_entities(Student.id, Task.id, TaskResult.done).all()
 
+        students = group.students\
+            .outerjoin(Student.marks)\
+            .options(contains_eager(Student.marks))\
+            .filter(or_(Mark.lesson_id == None, Mark.lesson_id.in_([i.id for i in lessons]))).all()
+
+        labs = discipline.labs
+
+        # tasks_results = TaskResult.query \
+        #     .join(Task).join(Lab).join(Student) \
+        #     .filter(Student.group_id == group.id, Lab.discipline_id == discipline.id) \
+        #     .filter(TaskResult.done == True) \
+        #     .with_entities(Student.id, Task.id, TaskResult.done).all()
+        #
         students_info = {}
         for student in students:
             student_info = {
@@ -136,14 +143,13 @@ def group_marks(group_id, discipline_id=None):
                 'percents': 0,
             }
             students_info[student.id] = student_info
-
-            for mark in marks:
-                if mark.student_id == student.id:
-                    student_info['marks'][mark.lesson_id] = mark
-
-            for r in tasks_results:
-                if r[0] == student.id:
-                    student_info['tasks'][r[1]] = r[2]
+            #
+            for mark in student.marks:
+                student_info['marks'][mark.lesson_id] = mark
+            #
+            # for r in tasks_results:
+            #     if r[0] == student.id:
+            #         student_info['tasks'][r[1]] = r[2]
 
             student_info['points'], student_info['percents'] \
                 = student.points(student_info['marks'],
@@ -174,7 +180,6 @@ def group_marks(group_id, discipline_id=None):
         labs=data['labs'],
         disciplines=disciplines.order_by(Discipline.title).all(),
         has_visible_labs=len([lab for lab in data['labs'] if lab.visible]) > 0,
-
 
         students_info=data['students_info'],
 

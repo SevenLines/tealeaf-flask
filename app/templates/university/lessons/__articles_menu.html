@@ -1,4 +1,4 @@
-{% if not is_logged and not discipline.articles.count() %}
+{% if not is_logged and not discipline.articles|length > 0 %}
 {% else %}
     <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdown_articles" data-toggle="dropdown">

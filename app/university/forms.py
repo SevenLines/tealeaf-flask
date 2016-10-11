@@ -25,6 +25,7 @@ StudentForm = model_form(Student, base_class=Form, exclude_fk=False,
                          })
 
 ArticleForm = model_form(Article, base_class=Form, exclude_fk=False,
+                         exclude=['discipline'],
                          field_args={
                              'discipline_id': {
                                  'validators': [DataRequired(), ]
@@ -36,6 +37,7 @@ DisciplineForm = model_form(Discipline, base_class=Form,
                             )
 
 DisciplineFileForm = model_form(DisciplineFile, base_class=Form,
+                                exclude=['discipline'],
                                 field_args={
                                     'file': {
                                         'validators': [DataRequired(), ]
@@ -52,7 +54,7 @@ GroupForm = model_form(Group, base_class=Form,
 
 LessonEditForm = model_form(Lesson, base_class=Form,
                             exclude_fk=True,
-                            exclude=['created_at', 'updated_at', 'marks'],
+                            exclude=['created_at', 'updated_at', 'marks', 'discipline'],
                             field_args={
                                 'date': {
                                     'format': '%Y-%m-%d'
@@ -60,7 +62,7 @@ LessonEditForm = model_form(Lesson, base_class=Form,
                             })
 
 LessonCreateForm = model_form(Lesson, base_class=Form, exclude_fk=False,
-                              exclude=['created_at', 'updated_at', 'marks'],
+                              exclude=['created_at', 'updated_at', 'marks', 'discipline'],
                               field_args={
                                   'date': {
                                       'format': '%Y-%m-%d'
