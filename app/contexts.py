@@ -13,9 +13,9 @@ from app.university.models.discipline import Discipline
 
 @app.context_processor
 def inject_groups():
-    groups = Group.active_groups()
+    groups = Group.active_groups().all()
     return {
-        'menu_item_width': 100 / groups.count() if groups.count() else 100,
+        'menu_item_width': 100 / len(groups) if len(groups) else 100,
         'groups': groups
     }
 
