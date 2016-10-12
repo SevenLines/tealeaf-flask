@@ -1,0 +1,16 @@
+/* icons */
+@mixin icon($extension, $file) {
+  &[href$='.#{$extension}'] {
+    background: transparent url(../images/icons/#{$file}) center left 4px no-repeat;
+    display: inline-block;
+    padding-left: 24px !important;
+    line-height: 20px;
+  }
+}
+a {
+  @include icon('pdf', 'pdf.png');
+  @include icon('djvu', 'djvu.gif');
+  @include icon('doc', 'doc.png');
+  @include icon('sqlite', 'db.png');
+  @include icon('pptx', 'ppt.png');
+}
