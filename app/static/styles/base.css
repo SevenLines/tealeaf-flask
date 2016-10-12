@@ -4401,7 +4401,7 @@ body {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-family: 'PT Sans', Georgia, "Times New Roman", Times, serif !important;
   background-color: #193c54; }
 
 .back-wrapper {
@@ -4417,9 +4417,7 @@ body {
 
 #content {
   box-shadow: 0 5px 10px #2b668f;
-  background: white;
-  overflow: hidden;
-  padding: 1em; }
+  background: white; }
   @media (min-width: 768px) {
     #content {
       border-left: 2px solid #408fc6;
@@ -4429,7 +4427,7 @@ body {
       border-bottom: 8px solid #0d202d; } }
   @media (max-width: 768px) {
     #content {
-      padding-top: 60px;
+      padding-top: 3.25em;
       border-bottom: none; }
       #content .main {
         display: none; }
@@ -4445,10 +4443,27 @@ body {
           margin: 0 !important;
           display: inline-block !important; } }
 
+#content-wrapper {
+  padding: 1em; }
+
 #footer {
-  margin: 0 -1em;
-  padding: 1em;
-  border-radius: 0 0 4px 4px; }
+  box-shadow: 0 8px 8px #0d202d inset;
+  margin: 0;
+  padding: 0.65em;
+  border-radius: 0 0 4px 4px;
+  color: white;
+  background: repeating-linear-gradient(to right, #408fc6, #408fc6 15px, #193c54 15px, #193c54 16px, #25587b 16px, #25587b 30px); }
+  #footer .mail-info {
+    padding: 0.35em 1em;
+    float: right;
+    border-radius: 0.25em;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #0d202d; }
+    #footer .mail-info a {
+      color: #0d202d; }
 
 .main-info .left {
   background-color: #50b3fa; }
@@ -4460,8 +4475,7 @@ body {
 
 .details {
   background-color: #4c96ca;
-  margin: -1em;
-  margin-bottom: 0; }
+  margin: -1em; }
   .details ul {
     border-bottom: 0 !important; }
     .details ul.groups {

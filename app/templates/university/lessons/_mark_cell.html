@@ -10,7 +10,7 @@
                     data-student="{{ student.id }}"
                 {% endif %}
                     class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }}">
-                    {% if mark.value > 0 and mark.value < 6 %}{{ mark.value }}{% endif %}
+                    {% if mark.value > 0 and mark.value < 10 %}{{ mark.value }}{% endif %}
                 </div>
             </td>
         {% endwith %}
