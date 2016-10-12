@@ -76,14 +76,14 @@ body {
 
 #content-wrapper {
   padding: 1em;
-  //padding-bottom: 0;
 }
 
 #footer {
   box-shadow: 0 8px 8px darken($base_color, 40) inset;
   margin: 0;
   padding: 0.65em;
-  border-radius: 0 0 4px 4px;
+  padding-bottom: 0.5em;
+
   color: white;
   background: repeating-linear-gradient(
                   to right,
@@ -96,21 +96,16 @@ body {
   );
   .mail-info {
     padding: 0.35em 1em;
-    //color: white;
     float: right;
     border-radius: 0.25em;
     @include transition(0.3s);
-    //a {
-    //  @include transition(0.3s);
-    //  color: white;
-    //}
-      background-color: rgba(255,255,255, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
+    color: darken($base_color, 40);
+    a {
       color: darken($base_color, 40);
-      a {
-        color: darken($base_color, 40);
-      }
-  }
+    }
 
+  }
 
 }
 

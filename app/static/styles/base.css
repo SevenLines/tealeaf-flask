@@ -4450,7 +4450,7 @@ body {
   box-shadow: 0 8px 8px #0d202d inset;
   margin: 0;
   padding: 0.65em;
-  border-radius: 0 0 4px 4px;
+  padding-bottom: 0.5em;
   color: white;
   background: repeating-linear-gradient(to right, #408fc6, #408fc6 15px, #193c54 15px, #193c54 16px, #25587b 16px, #25587b 30px); }
   #footer .mail-info {
