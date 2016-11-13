@@ -4,10 +4,11 @@ from datetime import datetime
 from flask_login import current_user
 
 from flask_security.forms import LoginForm
+from sqlalchemy import desc
 
 from app.load_app import app
 from app.security import current_user_is_logged
-from app.university import Group
+from app.university import Group, Message
 from app.university.models.discipline import Discipline
 
 
@@ -52,15 +53,20 @@ def inject_user():
 
 @app.context_processor
 def inject_admin():
+    data = {}
+    message = Message.query.order_by(desc(Message.created_at)).first()
     if current_user_is_logged():
         groups = Group.query.order_by(Group.title).order_by(Group.year, Group.title).all()
         admin_groups = OrderedDict()
         for year in Group.active_years():
             admin_groups[year] = [group for group in groups if group.year == year]
 
-        return {
+        data = {
             'current_year': Group.current_year(),
             'admin_groups': admin_groups,
             'admin_disciplines': Discipline.query.all(),
         }
-    return {}
+    data.update({
+        'message': message,
+    })
+    return data

@@ -29,5 +29,8 @@
             })
         </script>
 
-    {% else %}{{ article.rendered_text }}{% endif %}
+    {% else %}
+        <h1 style="margin-top: 0">{{ article.title }}</h1>
+        {{ article.rendered_text|safe }}
+    {% endif %}
 {% endblock %}
