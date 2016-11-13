@@ -22,6 +22,11 @@ class Article(BaseMixin, db.Model):
         })
 
     @staticmethod
+    def before_update(mapper, connection, target):
+        if target.text:
+            target.rendered_text = mistune.markdown(target.text)
+
+    @staticmethod
     def before_insert(mapper, connection, target):
         target.created_at = datetime.utcnow()
         target.updated_at = datetime.utcnow()

@@ -43,8 +43,6 @@ class IndexView(View):
         if request.headers.get('X-Pjax', None):
             template = "university/_charts.html"
 
-        message = Message.query.order_by(desc(Message.created_at)).first()
-
         marks = Mark.query.join(Student, Group).filter(
             Group.year == Group.current_year()
         ).with_entities(
@@ -76,7 +74,6 @@ class IndexView(View):
             info['max_summ'] = max(i['marks_summ'] for i in info['marks'].values())
 
         return render_template(template, **{
-            'message': message,
             'marks': marks,
         })
 
