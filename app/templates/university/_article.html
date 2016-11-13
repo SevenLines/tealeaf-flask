@@ -6,8 +6,18 @@
         </div>
         <form id="article-form" action="" method="post">
 
-            <div class="form-group">
-                <input class="form-control" name="title" value="{{ article.title }}" type="text" placeholder="Title?"/>
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control" style="float: left;" name="title" value="{{ article.safe_title }}" type="text" placeholder="Title?"/>
+                <div class="input-group-btn">
+                    <a class="btn btn-danger"><i class="fa fa-remove"></i></a>
+                    <a class="btn {% if article.visible %}btn-success{% else %}btn-default{% endif %}" href="{{ url_for("university.article_toggle_hide", article_id=article.id) }}">
+                        {% if article.visible %}<i class="fa fa-eye"></i>{% else %}
+                            <i class="fa fa-eye-slash"></i>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
             </div>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 

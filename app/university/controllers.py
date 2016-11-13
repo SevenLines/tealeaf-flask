@@ -78,9 +78,10 @@ class IndexView(View):
         })
 
 
-@university.route("/g/<int:group_id>/m/<int:discipline_id>/")
+@university.route("/g/<int:group_id>/m/<int:discipline_id>/<slug>")
+@university.route("/g/<int:group_id>/<slug>")
 @university.route("/g/<int:group_id>/")
-def group_marks(group_id, discipline_id=None):
+def group_marks(group_id, slug=None, discipline_id=None):
     group = Group.query.get_or_404(group_id)
 
     if current_user_is_logged():
@@ -112,7 +113,6 @@ def group_marks(group_id, discipline_id=None):
     def make_cache_key():
         return cache_key_for_students_marks(group.id, discipline.id)
 
-    # @cache.cached(key_prefix=make_cache_key)
     def get_all_data(group, discipline):
         lessons = Lesson.query.filter(Lesson.group_id == group.id)\
             .filter(Lesson.discipline_id == discipline.id) \
@@ -125,12 +125,6 @@ def group_marks(group_id, discipline_id=None):
 
         labs = discipline.labs
 
-        # tasks_results = TaskResult.query \
-        #     .join(Task).join(Lab).join(Student) \
-        #     .filter(Student.group_id == group.id, Lab.discipline_id == discipline.id) \
-        #     .filter(TaskResult.done == True) \
-        #     .with_entities(Student.id, Task.id, TaskResult.done).all()
-        #
         students_info = {}
         for student in students:
             student_info = {
@@ -140,13 +134,8 @@ def group_marks(group_id, discipline_id=None):
                 'percents': 0,
             }
             students_info[student.id] = student_info
-            #
             for mark in student.marks:
                 student_info['marks'][mark.lesson_id] = mark
-            #
-            # for r in tasks_results:
-            #     if r[0] == student.id:
-            #         student_info['tasks'][r[1]] = r[2]
 
             student_info['points'], student_info['percents'] \
                 = student.points(student_info['marks'],
@@ -175,6 +164,7 @@ def group_marks(group_id, discipline_id=None):
         students=data['students'],
         lessons=data['lessons'],
         labs=data['labs'],
+        articles=[a for a in discipline.articles if a.visible or current_user_is_logged()],
         disciplines=disciplines.order_by(Discipline.title).all(),
         has_visible_labs=len([lab for lab in data['labs'] if lab.visible]) > 0,
 
@@ -375,9 +365,11 @@ def discipline_file_delete(discipline_file_id):
 
 
 @university.route("/article/<int:article_id>/", methods=['GET', ])
-def article(article_id):
+@university.route("/article/<int:article_id>/<slug>", methods=['GET', ])
+def article(article_id, slug=None):
     a = Article.get_or_404(article_id)
-
+    if not current_user_is_logged() and not a.visible:
+        return redirect(url_for('security.login', next=request.path))
 
     response = make_response(render_template(
         "university/_article.html",
@@ -389,6 +381,7 @@ def article(article_id):
 
 
 @university.route("/article/<int:article_id>/", methods=['POST', ])
+@login_required
 def article_update(article_id):
     a = Article.get_or_404(article_id)
 
@@ -404,6 +397,18 @@ def article_update(article_id):
         return Response(pformat(form.errors), status=400)
     return redirect(request.referrer or "/")
 
+
+@university.route("/article/<int:article_id>/toggle-hide", methods=['GET', ])
+@login_required
+def article_toggle_hide(article_id):
+    a = Article.get_or_404(article_id)
+
+    a.visible = not a.visible
+    a.save()
+
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
 
 @university.route("/article/", methods=['POST', ])
 @login_required

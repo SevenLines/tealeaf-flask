@@ -12,6 +12,7 @@ class Article(BaseMixin, db.Model):
     rendered_text = db.Column(db.String)
     discipline_id = db.Column(db.Integer, db.ForeignKey('disciplines.id'))
     visible = db.Column(db.Boolean)
+    deleted = db.Column(db.Boolean)
 
     def __repr__(self):
         return "<Article({title:s} {text:s} {visible:s} {discipline_id:d}>".format(**{
@@ -20,6 +21,10 @@ class Article(BaseMixin, db.Model):
             "visible": "+" if self.visible else "-",
             "discipline_id": self.discipline_id
         })
+
+    @property
+    def safe_title(self):
+        return self.title
 
     @staticmethod
     def before_update(mapper, connection, target):
@@ -33,7 +38,6 @@ class Article(BaseMixin, db.Model):
 
         if target.text:
             target.rendered_text = mistune.markdown(target.text)
-
 
 
 event.listen(Article, 'before_insert', Article.before_insert)

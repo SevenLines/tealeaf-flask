@@ -1,4 +1,4 @@
-{% if not is_logged and not discipline.articles|length > 0 %}
+{% if not is_logged and not articles|length > 0 %}
 {% else %}
     <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdown_articles" data-toggle="dropdown">
@@ -7,9 +7,9 @@
             <span class="fa fa-caret-down"></span>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown_articles">
-            {% for article in discipline.articles %}
-                <li>
-                    <a href="{{ url_for("university.article", article_id=article.id) }}">{{ article.title }}</a>
+            {% for article in articles %}
+                <li {% if not article.visible %}style="opacity: 0.5"{% endif %}>
+                    <a style="float: left" href="{{ url_for("university.article", article_id=article.id, slug=article.title) }}">{{ article.title }}</a>
                 </li>
             {% endfor %}
             {% if is_logged %}

@@ -85,7 +85,7 @@
                 <li data-title="{{ g.title }}"
                     class="nav-group{{ g.id }} {% if group and g.id == group.id %}active{% endif %}"
                     style="width:{{ menu_item_width }}%">
-                    <a class="load-to-content" href="{{ url_for('university.group_marks', group_id=g.id) }}">
+                    <a class="load-to-content" href="{{ url_for('university.group_marks', group_id=g.id, slug=g.title) }}">
                         <div class="title">
                             {{ g.title }}
                         </div>
