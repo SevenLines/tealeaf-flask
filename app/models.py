@@ -1,6 +1,9 @@
 from datetime import datetime
 
 import mistune
+import re
+
+from flask import url_for
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import event
@@ -87,6 +90,19 @@ class Message(BaseMixin, db.Model):
 
         if target.message:
             target.rendered_message = mistune.markdown(target.message)
+
+            def callback(match):
+                title = match.group('title')
+                text = match.group('text')
+                try:
+                    from app.university import Article
+                    article = Article.query.filter(Article.title==title).first()
+                    url = url_for('university.article', article_id=article.id, slug=article.title)
+                    return u'<a href="{}">{}</a>'.format(url, text)
+                except:
+                    return ""
+
+            target.rendered_message = re.sub('\\((?P<text>.*?)\)\[article\:(?P<title>.*?)\]', callback, target.rendered_message)
 
 
 event.listen(Message, 'before_insert', Message.before_insert)
