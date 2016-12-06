@@ -381,8 +381,9 @@ def article(article_id, slug=None):
 
 
 @university.route("/article/<int:article_id>/", methods=['POST', ])
+@university.route("/article/<int:article_id>/<slug>", methods=['POST', ])
 @login_required
-def article_update(article_id):
+def article_update(article_id,  slug=None):
     a = Article.get_or_404(article_id)
 
     form = ArticleForm(request.form, a)

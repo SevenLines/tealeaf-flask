@@ -1,4 +1,7 @@
 import mistune
+import re
+
+from flask.helpers import url_for
 from sqlalchemy import event
 
 from datetime import datetime
@@ -30,6 +33,16 @@ class Article(BaseMixin, db.Model):
     def before_update(mapper, connection, target):
         if target.text:
             target.rendered_text = mistune.markdown(target.text)
+
+            def callback(match):
+                title = match.group('title')
+                try:
+                    article = Article.filter(title=title).first()
+                    return url_for('university.article', article_id=article.pk)
+                except:
+                    return ""
+
+            target.rendered_text = re.sub('\[article\:(?P<title>.*?)\]', callback, target.rendered_text)
 
     @staticmethod
     def before_insert(mapper, connection, target):
