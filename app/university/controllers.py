@@ -116,7 +116,7 @@ def group_marks(group_id, slug=None, discipline_id=None):
     def get_all_data(group, discipline):
         lessons = Lesson.query.filter(Lesson.group_id == group.id)\
             .filter(Lesson.discipline_id == discipline.id) \
-            .order_by(Lesson.date).all()
+            .order_by(Lesson.date, Lesson.id).all()
 
         students = group.students\
             .outerjoin(Student.marks)\
