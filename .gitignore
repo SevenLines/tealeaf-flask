@@ -10,3 +10,4 @@ cache
 app/public
 tests/public
 /fabfile.py
+/parameters.json
