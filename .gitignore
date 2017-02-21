@@ -9,3 +9,4 @@ logs
 cache
 app/public
 tests/public
+/fabfile.py

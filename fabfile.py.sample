@@ -2,12 +2,11 @@ from fabric.context_managers import cd, prefix
 from fabric.operations import run, local
 from fabric.state import env
 
-env.user = 'hosting_mmailm'
-env.hosts = ['phosphorus.locum.ru']
+env.user = 'user_required'
+env.hosts = ['host_required']
 
-env.directory = '/var/www/home/hosting_mmailm/projects/tealeaf-flask'
-env.additional_env = 'source {}/.env'.format(env.directory)
-env.activate = 'source {}/env/bin/activate'.format(env.directory)
+env.directory = 'directory_required'
+env.virtualenvwrapper_workon = 'tealeaf-flask'
 env.use_ssh_config=True
 
 def build_assets():
@@ -33,8 +32,9 @@ def deploy():
     with cd(env.directory):
         run("git stash")
         run("git pull")
-        with prefix(env.activate):
+        with prefix("workon {}".format(env.virtualenvwrapper_workon)):
             with prefix(env.additional_env):
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
-                run("touch django_wsgi.py")
+                run("touch uwsgi.ini --no-dereference")
+    run("git stash apply")
