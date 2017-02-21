@@ -6,6 +6,7 @@ env.user = 'user_required'
 env.hosts = ['host_required']
 
 env.directory = 'directory_required'
+env.virtualenvwrapper_sh = "/usr/local/bin/virtualenvwrapper.sh"
 env.virtualenvwrapper_workon = 'tealeaf-flask'
 env.use_ssh_config=True
 
@@ -32,8 +33,9 @@ def deploy():
     with cd(env.directory):
         run("git stash")
         run("git pull")
-        with prefix("workon {}".format(env.virtualenvwrapper_workon)):
-            run("pip install -r requirements.txt")
-            run("python manage.py db upgrade")
-            run("touch uwsgi.ini --no-dereference")
+        with prefix("source {}".format(env.virtualenvwrapper_sh)):
+            with prefix("workon {}".format(env.virtualenvwrapper_workon)):
+                run("pip install -r requirements.txt")
+                run("python manage.py db upgrade")
+                run("touch uwsgi.ini --no-dereference")
     run("git stash apply")
