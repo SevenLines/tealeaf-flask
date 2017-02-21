@@ -5,9 +5,11 @@ app/static/.webassets-cache
 app/db.sqlite3
 db.sqlite3
 env.sh
-logs
-cache
+logs/*
+cache/*
 app/public
 tests/public
 /fabfile.py
 /parameters.json
+
+!.gitkeep
