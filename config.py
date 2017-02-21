@@ -1,27 +1,30 @@
 # Statement for enabling the development environment
+import json
 import os
+
+with open("parameters.json") as f:
+    parameters = json.load(f)
 
 
 # Define the application directory
 class BaseConfiguration(object):
-    DEBUG = os.environ.get("DEBUG", "True") == "True"
+    DEBUG = parameters.get("DEBUG", False)
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
     # Define the database - we are working with
     # SQLite for this example
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL',
-                                             'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
+    SQLALCHEMY_DATABASE_URI = parameters.get('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
     DATABASE_CONNECT_OPTIONS = {}
     DEBUG_TB_PROFILER_ENABLED = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
     SECURITY_PASSWORD_HASH = "bcrypt"
-    SECURITY_PASSWORD_SALT = "salt"  # os.environ.get("SECURITY_PASSWORD_SALT", "secret_salt")
+    SECURITY_PASSWORD_SALT = "salt"
     # Use a secure, unique and absolutely secret key for signing the data.
-    CSRF_SESSION_KEY = os.environ.get("SECURITY_PASSWORD_SALT", "secret")
+    CSRF_SESSION_KEY = parameters.get("SECURITY_PASSWORD_SALT", "secret")
 
     # Secret key for signing cookies
-    SECRET_KEY = os.environ.get("SECRET_KEY", "secret")
+    SECRET_KEY = parameters.get("SECRET_KEY", "secret")
 
     LOG_PATH = os.path.join(BASE_DIR, "logs/flask.log")
 
