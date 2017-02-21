@@ -7,6 +7,7 @@ from app.storage import Storage
 class DisciplineFileStorage(Storage):
     subdir = "disciplines"
 
+
 class Discipline(BaseMixin, db.Model):
     title = db.Column(db.String(50))
     year = db.Column(db.Integer)
