@@ -38,4 +38,4 @@ def deploy():
                 run("pip install -r requirements.txt")
                 run("python manage.py db upgrade")
                 run("touch uwsgi.ini --no-dereference")
-    run("git stash apply")
+        run("git stash apply")
