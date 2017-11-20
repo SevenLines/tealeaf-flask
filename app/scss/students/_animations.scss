@@ -13,19 +13,7 @@
   }
 }
 
-@include keyframes(shinig-glow) {
-  0% {
-    box-shadow: 0 0 2px rgb(255, 182, 44) inset;
-  }
-  50% {
-    box-shadow: 0 0 32px rgb(255, 182, 44) inset;
-  }
-  100% {
-    box-shadow: 0 0 2px rgb(255, 182, 44) inset;
-  }
-}
-
-@include keyframes(mercy-glow) {
+@keyframes mercy-glow {
   0% {
     box-shadow: 0 0 0px $quater inset;
   }

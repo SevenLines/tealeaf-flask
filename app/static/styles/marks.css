@@ -8,6 +8,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 @keyframes animate-shine {
   0% {
     opacity: 0;
@@ -17,6 +25,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 .panel .panel-heading {
   background-color: #FDFDFD;
   -webkit-transition: all ease-in-out 0.3s;
@@ -457,6 +473,14 @@ pre {
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 .mark {
   color: transparent; }
   .mark.exam {
@@ -698,11 +722,18 @@ pre {
   .mark.shining {
     background-color: #ffe20a;
     z-index: 100;
-    box-shadow: 0 0 0 4px #ffb62c inset; }
+    -webkit-animation: shining-glow 4s infinite;
+    -moz-animation: shining-glow 4s infinite;
+    -o-animation: shining-glow 4s infinite;
+    animation: shining-glow 4s infinite; }
   .mark.mercy {
     background-color: #f4fbe4;
     box-shadow: #ddf4ae 0 0 0 4px inset;
-    background-color: white; }
+    background-color: white;
+    -webkit-animation: mercy-glow 6s infinite;
+    -moz-animation: mercy-glow 6s infinite;
+    -o-animation: mercy-glow 6s infinite;
+    animation: mercy-glow 6s infinite; }
     .mark.mercy.test {
       box-shadow: #febba5 0 0 0 4px inset;
       background-color: #ffe8e1; }
@@ -737,6 +768,14 @@ pre {
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 @-webkit-keyframes $animation-name {
   0% {
     box-shadow: 0 0 2px #ff1800 inset; }
@@ -758,42 +797,7 @@ pre {
     box-shadow: 0 0 32px #ff1800 inset; }
   100% {
     box-shadow: 0 0 2px #ff1800 inset; } }
-@-webkit-keyframes $animation-name {
-  0% {
-    box-shadow: 0 0 2px #ffb62c inset; }
-  50% {
-    box-shadow: 0 0 32px #ffb62c inset; }
-  100% {
-    box-shadow: 0 0 2px #ffb62c inset; } }
-@-moz-keyframes $animation-name {
-  0% {
-    box-shadow: 0 0 2px #ffb62c inset; }
-  50% {
-    box-shadow: 0 0 32px #ffb62c inset; }
-  100% {
-    box-shadow: 0 0 2px #ffb62c inset; } }
-@keyframes $animation-name {
-  0% {
-    box-shadow: 0 0 2px #ffb62c inset; }
-  50% {
-    box-shadow: 0 0 32px #ffb62c inset; }
-  100% {
-    box-shadow: 0 0 2px #ffb62c inset; } }
-@-webkit-keyframes $animation-name {
-  0% {
-    box-shadow: 0 0 0px #cef08a inset; }
-  50% {
-    box-shadow: 0 0 32px #cef08a inset; }
-  100% {
-    box-shadow: 0 0 0px #cef08a inset; } }
-@-moz-keyframes $animation-name {
-  0% {
-    box-shadow: 0 0 0px #cef08a inset; }
-  50% {
-    box-shadow: 0 0 32px #cef08a inset; }
-  100% {
-    box-shadow: 0 0 0px #cef08a inset; } }
-@keyframes $animation-name {
+@keyframes mercy-glow {
   0% {
     box-shadow: 0 0 0px #cef08a inset; }
   50% {
@@ -998,6 +1002,14 @@ pre {
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 .god:after {
   content: ' ';
   opacity: 0;
@@ -1668,6 +1680,14 @@ pre {
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 .s-table {
   -webkit-transition: max-width 0.3s, width 0.3s;
   -moz-transition: max-width 0.3s, width 0.3s;
