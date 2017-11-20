@@ -7,6 +7,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 @keyframes animate-shine {
   0% {
     opacity: 0;
@@ -16,6 +24,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 #enter-button-area {
   -webkit-transition: all ease-in-out 0.3s;
   -moz-transition: all ease-in-out 0.3s;
@@ -106,6 +122,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 #admin-panel {
   z-index: 100;
   margin-top: 50px;
@@ -170,6 +194,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 @keyframes animate-shine {
   0% {
     opacity: 0;
@@ -179,6 +211,14 @@
   100% {
     opacity: 0;
     width: 95%; } }
+@keyframes shining-glow {
+  0% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; }
+  50% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 32px #ffb62c inset;
+    background-color: white; }
+  100% {
+    box-shadow: 0 0 0 4px #ffb62c inset, 0 0 2px #ffb62c inset; } }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;

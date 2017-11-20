@@ -154,15 +154,15 @@
   &.shining {
     background-color: #ffe20a;
     z-index: 100;
-    box-shadow: 0 0 0 4px rgb(255, 182, 44) inset;
-    //      @include animation(shinig-glow 4s infinite);
+    //box-shadow: 0 0 0 4px rgb(255, 182, 44) inset;
+    @include animation(shining-glow 4s infinite);
   }
   &.mercy {
     @include test_exam(lighten($quater, 20), true);
     background-color: white;
     //z-index: 100;
     //box-shadow: 0 0 4px white inset;
-    //      @include animation(mercy-glow 6s infinite);
+    @include animation(mercy-glow 6s infinite);
   }
   // КОНЕЦ ОЦЕНКИ ЗА ПАРУ
 
