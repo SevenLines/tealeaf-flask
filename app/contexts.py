@@ -70,3 +70,16 @@ def inject_admin():
         'message': message,
     })
     return data
+
+
+@app.context_processor
+def as_data_attributes():
+    def _inner(s, *fields):
+        output = []
+        for f in fields:
+            value = getattr(s, f)
+            if isinstance(value, bool):
+                value = str(value).lower()
+            output.append(u"data-{}=\"{}\"".format(f, value))
+        return " ".join(output)
+    return dict(as_data_attributes=_inner)

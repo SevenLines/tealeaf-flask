@@ -1,7 +1,7 @@
-{% if has_visible_labs %}
-    <div class="row">
-    <div class="col-md-6">
-{% endif %}
+{#{% if has_visible_labs %}#}
+{#    <div class="row">#}
+{#    <div class="col-md-6">#}
+{#{% endif %}#}
 <div id="marks-editor">
     <div class="admin-line">
         {% include "university/lessons/_admin_line.html" %}
@@ -62,17 +62,19 @@
             </table>
         </div>
     </div>
+
+    {% if has_visible_labs %}
+        <div class=row>
+        <div class="col-md-12">
+            <div id="labs-editor">
+                {% include "university/__labs_list.html" %}
+            </div>
+        </div>
+        </div>
+    {% endif %}
     <div class="clearfix"></div>
 </div>
-{% if has_visible_labs %}
-    </div>
-    <div class="col-md-6">
-        <div id="labs-editor">
-            {% include "university/__labs_list.html" %}
-        </div>
-    </div>
-    </div>
-{% endif %}
+
 <div class="clearfix"></div>
 {% if is_logged %}
     {% include "university/lessons/_marks_selector.html" %}

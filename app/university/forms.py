@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 
 from app.models import db
 from app.university.models.article import Article
+from app.university.models.lab import Lab
 from app.university.models.student import Student
 from app.university.models.group import Group
 from app.university.models.discipline import Discipline, DisciplineFile
@@ -74,3 +75,6 @@ LessonCreateForm = model_form(Lesson, base_class=Form, exclude_fk=False,
                                       'validators': [DataRequired(), ]
                                   }
                               })
+
+LabEditForm = model_form(Lab, base_class=Form, exclude_fk=True,
+                         exclude=['order', 'created_at', 'updated_at', 'tasks', 'discipline' ])

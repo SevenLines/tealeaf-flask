@@ -30,8 +30,7 @@ def list_routes():
             options[arg] = "[{0}]".format(arg)
 
         methods = ','.join(rule.methods)
-        url = url_for(rule.endpoint, **options)
-        line = urllib.unquote("{:50s} {:20s} {}".format(rule.endpoint, methods, url))
+        line = urllib.unquote("{:50s} {:20s} {}".format(rule.endpoint, methods, rule))
         output.append(line)
 
     for line in sorted(output):

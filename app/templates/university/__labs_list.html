@@ -22,7 +22,7 @@
             <div class="panel-body" style=" padding: 0">
                 <ul class="panel-group m-labs" id="labs-accordion">
                     {% for lab in labs if is_logged or lab.visible %}
-                        <li class="m-lab panel">
+                        <li class="m-lab panel" {% if is_logged %}{{as_data_attributes(lab, 'id', 'title', 'description', 'discipline_id', 'visible', 'regular', 'order')|safe }}{% endif %}>
                             {% include "university/labs/_lab_item.html" %}
                             {#                    {% include "students/labs/lab.html" %}#}
                             <div style="clear: both;"></div>
@@ -34,15 +34,15 @@
     </div>
 </div>
 <script>
-    $(function () {
-        var height = $("#marks-editor").outerHeight();
-
-        var lab_panels = $(".m-lab.panel");
-        var labs_heading = $(".labs-panel-heading");
-        var height_limit = Math.max(300, height - lab_panels.outerHeight() * lab_panels.size() - labs_heading.outerHeight());
-
-        $(".m-lab-info").css({
-            'max-height': height_limit
-        });
-    })
+{#    $(function () {#}
+{#        var height = $("#marks-editor").outerHeight();#}
+{##}
+{#        var lab_panels = $(".m-lab.panel");#}
+{#        var labs_heading = $(".labs-panel-heading");#}
+{#        var height_limit = Math.max(300, height - lab_panels.outerHeight() * lab_panels.size() - labs_heading.outerHeight());#}
+{##}
+{#        $(".m-lab-info").css({#}
+{#            'max-height': height_limit#}
+{#        });#}
+{#    })#}
 </script>

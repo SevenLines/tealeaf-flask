@@ -164,4 +164,3 @@ var MarkView = Backbone.View.extend({
     }
 });
 
-$("#mark-selector")

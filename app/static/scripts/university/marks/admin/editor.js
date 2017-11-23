@@ -9,6 +9,11 @@ var LabsCollection = Backbone.Collection.extend({
     model: Lab
 });
 
+var LabItemsCollection = Backbone.Collection.extend({
+    model: LabItem
+});
+
+
 var TasksCollection = Backbone.Collection.extend({
     model: Task
 });
@@ -108,6 +113,7 @@ function EditorController(options) {
     var tasks_results = new TasksResultsCollection([], options);
     var labs = new LabsCollection([], options);
     var tasks = new TasksCollection([], options);
+    var labsItems = new LabItemsCollection([], options);
 
     var lessonEditor = new LessonEditorView({
         el: "#lesson-editor"
@@ -170,9 +176,31 @@ function EditorController(options) {
         // bind labs
         bind_selectors(".l-table .t-header", function (data, item) {
             return new Lab({
-                id: data.id
+                id: data.id,
             });
-        }.labs);
+        }, labs);
+
+        // bind labs
+        bind_selectors(".m-labs .m-lab", function (data, item) {
+            var labItem =  new LabItem({
+                id: data.id,
+                title: data.title,
+                description: data.description,
+                discipline_id: data.discipline_id,
+                visible: data.visible,
+                regular: data.regular,
+                order: data.order
+            });
+
+            new LabItemView({
+                model: labItem,
+                el: item
+            }, {
+
+            });
+
+            return labItem
+        }, labsItems);
 
         // bind tasks
         bind_selectors(".l-table .t-header .t-cell-task", function (data, item) {
