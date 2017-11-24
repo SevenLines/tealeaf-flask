@@ -10,7 +10,11 @@ var LabsCollection = Backbone.Collection.extend({
 });
 
 var LabItemsCollection = Backbone.Collection.extend({
-    model: LabItem
+    model: LabItem,
+
+    saveOrder: function () {
+        console.log("save_order")
+    }
 });
 
 
@@ -181,6 +185,7 @@ function EditorController(options) {
         }, labs);
 
         // bind labs
+        var index = 0;
         bind_selectors(".m-labs .m-lab", function (data, item) {
             var labItem =  new LabItem({
                 id: data.id,
@@ -189,15 +194,17 @@ function EditorController(options) {
                 discipline_id: data.discipline_id,
                 visible: data.visible,
                 regular: data.regular,
-                order: data.order
+                order: index
             });
 
             new LabItemView({
                 model: labItem,
                 el: item
             }, {
-
+                lessonEditor: lessonEditor
             });
+
+            index++;
 
             return labItem
         }, labsItems);

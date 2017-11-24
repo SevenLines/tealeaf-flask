@@ -4,10 +4,10 @@
             {% if is_logged %}
                 <td rowspan="2" style="width: 40px">
                     <div class="btn-group-vertical btn-group-sm">
-                        <button class="btn btn-default">
+                        <button class="btn btn-default btn-order-up">
                             <span class="fa fa-chevron-up"></span>
                         </button>
-                        <button class="btn btn-default">
+                        <button class="btn btn-default btn-order-down">
                             <span class="fa fa-chevron-down"></span>
                         </button>
                     </div>
@@ -15,7 +15,7 @@
             {% endif %}
             <td rowspan="2">
                 {% if is_logged %}
-                    <input class="form-control" type="text" value="{{ lab.title }}">
+                    <input class="form-control lab-title-input" type="text" value="{{ lab.title }}">
                 {% else %}
                     <span>{{ lab.title }}</span>
                 {% endif %}
@@ -24,7 +24,7 @@
                 <td style="width: 120px">
                     <div class="pull-right">
                         <div class="btn-group">
-                            <button class="btn btn-default">
+                            <button class="btn btn-default btn-save">
                                 <span class="fa fa-save"></span>
                             </button>
                             <button class="btn btn-primary"><span

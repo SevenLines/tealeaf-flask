@@ -4,12 +4,11 @@
             <h5 class="panel-title pull-left">
                 <span>Лабораторные</span>
             </h5>
-
                     {% if is_logged %}
                         <div class="btn-group pull-right">
-                            <button class="btn btn-primary btn-sm" data-bind="click: addLab"><span
+                            <button class="btn btn-primary btn-sm"><span
                                     class="fa fa-plus"></span></button>
-                            <button class="btn btn-warning btn-sm" data-bind="click: refresh"><span
+                            <button class="btn btn-warning btn-sm"><span
                                     class="fa fa-refresh"></span></button>
                             <button class="btn btn-default btn-sm" data-bind="click: saveAll, css: {'btn-success': changed}"><span
                                     class="fa fa-sort"> Сохранить порядок</span></button>
