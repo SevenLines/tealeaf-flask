@@ -17,6 +17,7 @@ class BaseConfiguration(object):
     DATABASE_CONNECT_OPTIONS = {}
     DEBUG_TB_PROFILER_ENABLED = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
+    TEMPLATES_AUTO_RELOAD = True
 
     SECURITY_PASSWORD_HASH = "bcrypt"
     SECURITY_PASSWORD_SALT = "salt"

@@ -83,7 +83,6 @@
 .m-lab.panel {
   margin-top: 0 !important; }
 .m-lab .m-lab-info {
-  max-height: 300px;
   overflow: scroll;
   overflow-y: auto;
   overflow-x: hidden;

@@ -7,6 +7,7 @@ from flask import render_template, request, redirect, url_for, Response
 from flask_login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
+from flask_security.views import login
 from sqlalchemy import desc
 
 from sqlalchemy.orm import joinedload, contains_eager
@@ -137,6 +138,9 @@ def group_marks(group_id, slug=None, discipline_id=None):
             for mark in student.marks:
                 student_info['marks'][mark.lesson_id] = mark
 
+            for task in student.tasks:
+                student_info['tasks'][task.task_id] = task
+
             student_info['points'], student_info['percents'] \
                 = student.points(student_info['marks'],
                                  lessons,
@@ -235,7 +239,8 @@ class SaveTaskResults(MethodView):
                     task_id=result['task_id']
                 )
                 db.session.add(r)
-            r.done = result['done']
+            if not result['done']:
+                r.delete(commit=False)
 
         db.session.commit()
 
@@ -545,6 +550,20 @@ def student_delete(student_id):
     if student.group_id:
         reset_student_marks_cache_for_group_id(group_id)
 
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
+@university.route("/lab/<int:lab_id>/", methods=['POST'])
+@login_required
+def lab_edit(lab_id):
+    lab = Lab.get_or_404(lab_id)
+    data = request.get_json()
+    lab.visible = data['visible']
+    lab.description = data['description']
+    lab.title = data['title']
+    lab.update()
     if request.is_xhr:
         return Response()
     return redirect(request.referrer or "/")
