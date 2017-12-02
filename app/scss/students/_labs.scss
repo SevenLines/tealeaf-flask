@@ -5,7 +5,7 @@ $m_task_label_width: 32px;
 @mixin complexity($bg, $fg) {
   @include transition(0.3s);
   background-color: $bg;
-  box-shadow: 0 0 3px $fg !important;
+  box-shadow: 2px 2px 4px mix(silver, $fg, 50%) !important;
 
   pre {
     border: 2px solid darken($fg, 10);
@@ -35,7 +35,7 @@ $m_task_label_width: 32px;
 
 @mixin choices($lighten: 0) {
   $darken: 0;
-  $base-clr: #cafcb1;
+  $base-clr: #e4fca4;
 
   &.easy {
     $clr: $base-clr;
@@ -204,7 +204,7 @@ $m_task_label_width: 32px;
 .m-task {
   @include complex_style;
   margin: 0.5em 0;
-  border-radius: 10px;
+  //border-radius: 10px;
   position: relative;
   //      background: #EEEEEE;
   border: #c0c0c0 1px solid;
