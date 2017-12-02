@@ -20,7 +20,7 @@
 
   @mixin test_exam($color, $use-shadow: false, $stripes: false, $without_bg: false) {
     @if (not $without_bg) {
-      background-color: $color;
+      background-color: mix($color, white, 60%);
     }
     $lighten: 10;
     @if ($use-shadow) {
@@ -36,7 +36,10 @@
         @include shadow(darken($clr, $lighten));
       }
       @if (not $without_bg) {
-        background-color: $clr;
+        &.empty {
+          background-color: mix($clr, white, 85%);
+        }
+        background-color: mix($clr, white, 50%);
       }
       @if ($stripes) {
         @include mark-stripes($clr)

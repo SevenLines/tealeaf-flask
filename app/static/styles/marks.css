@@ -130,7 +130,6 @@
 
 .m-task {
   margin: 0.5em 0;
-  border-radius: 10px;
   position: relative;
   border: #c0c0c0 1px solid;
   overflow: hidden;
@@ -146,88 +145,88 @@
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #cafcb1;
-    box-shadow: 0 0 3px #cafcb1 !important; }
+    background-color: #e4fca4;
+    box-shadow: 2px 2px 4px #d2deb2 !important; }
     .m-task.easy pre {
-      border: 2px solid #a9fa80;
-      background-color: #f2feec; }
+      border: 2px solid #d5fa73;
+      background-color: #f6fedf; }
     .m-task.easy.selected:hover, .m-task.easy.selected2:hover, .m-task.easy.selected3:hover {
-      background-color: #cafcb1; }
+      background-color: #e4fca4; }
     .m-task.easy.selected {
-      background-color: #d7fdc5; }
+      background-color: #eafdb8; }
     .m-task.easy.selected2 {
-      background-color: #e1fdd3; }
+      background-color: #eefdc7; }
     .m-task.easy.selected3 {
-      background-color: #ebfee2; }
+      background-color: #f3fed5; }
     .m-task.easy .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #b9fb98 !important; }
+      border-color: #ddfb8b !important; }
   .m-task.medium {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fcfcb1;
-    box-shadow: 0 0 3px #fcfcb1 !important; }
+    background-color: #fcd9a4;
+    box-shadow: 2px 2px 4px #decdb2 !important; }
     .m-task.medium pre {
-      border: 2px solid #fafa80;
-      background-color: #fefeec; }
+      border: 2px solid #fac573;
+      background-color: #fef2df; }
     .m-task.medium.selected:hover, .m-task.medium.selected2:hover, .m-task.medium.selected3:hover {
-      background-color: #fcfcb1; }
+      background-color: #fcd9a4; }
     .m-task.medium.selected {
-      background-color: #fdfdc5; }
+      background-color: #fde2b8; }
     .m-task.medium.selected2 {
-      background-color: #fdfdd3; }
+      background-color: #fde8c7; }
     .m-task.medium.selected3 {
-      background-color: #fefee2; }
+      background-color: #feeed5; }
     .m-task.medium .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fbfb98 !important; }
+      border-color: #fbcf8b !important; }
   .m-task.hard {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fccab1;
-    box-shadow: 0 0 3px #fccab1 !important; }
+    background-color: #fca4a9;
+    box-shadow: 2px 2px 4px #deb2b5 !important; }
     .m-task.hard pre {
-      border: 2px solid #faa980;
-      background-color: #fef2ec; }
+      border: 2px solid #fa737b;
+      background-color: #fedfe1; }
     .m-task.hard.selected:hover, .m-task.hard.selected2:hover, .m-task.hard.selected3:hover {
-      background-color: #fccab1; }
+      background-color: #fca4a9; }
     .m-task.hard.selected {
-      background-color: #fdd7c5; }
+      background-color: #fdb8bc; }
     .m-task.hard.selected2 {
-      background-color: #fde1d3; }
+      background-color: #fdc7ca; }
     .m-task.hard.selected3 {
-      background-color: #feebe2; }
+      background-color: #fed5d8; }
     .m-task.hard .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fbb998 !important; }
+      border-color: #fb8b92 !important; }
   .m-task.nightmare {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fcb7b1;
-    box-shadow: 0 0 3px #fcb7b1 !important; }
+    background-color: #fca4bf;
+    box-shadow: 2px 2px 4px #deb2c0 !important; }
     .m-task.nightmare pre {
-      border: 2px solid #fa8a80;
-      background-color: #feedec; }
+      border: 2px solid #fa739d;
+      background-color: #fedfe9; }
     .m-task.nightmare.selected:hover, .m-task.nightmare.selected2:hover, .m-task.nightmare.selected3:hover {
-      background-color: #fcb7b1; }
+      background-color: #fca4bf; }
     .m-task.nightmare.selected {
-      background-color: #fdc9c5; }
+      background-color: #fdb8cd; }
     .m-task.nightmare.selected2 {
-      background-color: #fdd7d3; }
+      background-color: #fdc7d8; }
     .m-task.nightmare.selected3 {
-      background-color: #fee4e2; }
+      background-color: #fed5e2; }
     .m-task.nightmare .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fba198 !important; }
+      border-color: #fb8bae !important; }
   .m-task.selected {
     -webkit-transition: all ease-in-out 0.3;
     -moz-transition: all ease-in-out 0.3;
@@ -240,88 +239,88 @@
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #cafcb1;
-    box-shadow: 0 0 3px #cafcb1 !important; }
+    background-color: #e4fca4;
+    box-shadow: 2px 2px 4px #d2deb2 !important; }
     .m-task:hover.easy pre {
-      border: 2px solid #a9fa80;
-      background-color: #f2feec; }
+      border: 2px solid #d5fa73;
+      background-color: #f6fedf; }
     .m-task:hover.easy.selected:hover, .m-task:hover.easy.selected2:hover, .m-task:hover.easy.selected3:hover {
-      background-color: #cafcb1; }
+      background-color: #e4fca4; }
     .m-task:hover.easy.selected {
-      background-color: #d7fdc5; }
+      background-color: #eafdb8; }
     .m-task:hover.easy.selected2 {
-      background-color: #e1fdd3; }
+      background-color: #eefdc7; }
     .m-task:hover.easy.selected3 {
-      background-color: #ebfee2; }
+      background-color: #f3fed5; }
     .m-task:hover.easy .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #b9fb98 !important; }
+      border-color: #ddfb8b !important; }
   .m-task:hover.medium {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fcfcb1;
-    box-shadow: 0 0 3px #fcfcb1 !important; }
+    background-color: #fcd9a4;
+    box-shadow: 2px 2px 4px #decdb2 !important; }
     .m-task:hover.medium pre {
-      border: 2px solid #fafa80;
-      background-color: #fefeec; }
+      border: 2px solid #fac573;
+      background-color: #fef2df; }
     .m-task:hover.medium.selected:hover, .m-task:hover.medium.selected2:hover, .m-task:hover.medium.selected3:hover {
-      background-color: #fcfcb1; }
+      background-color: #fcd9a4; }
     .m-task:hover.medium.selected {
-      background-color: #fdfdc5; }
+      background-color: #fde2b8; }
     .m-task:hover.medium.selected2 {
-      background-color: #fdfdd3; }
+      background-color: #fde8c7; }
     .m-task:hover.medium.selected3 {
-      background-color: #fefee2; }
+      background-color: #feeed5; }
     .m-task:hover.medium .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fbfb98 !important; }
+      border-color: #fbcf8b !important; }
   .m-task:hover.hard {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fccab1;
-    box-shadow: 0 0 3px #fccab1 !important; }
+    background-color: #fca4a9;
+    box-shadow: 2px 2px 4px #deb2b5 !important; }
     .m-task:hover.hard pre {
-      border: 2px solid #faa980;
-      background-color: #fef2ec; }
+      border: 2px solid #fa737b;
+      background-color: #fedfe1; }
     .m-task:hover.hard.selected:hover, .m-task:hover.hard.selected2:hover, .m-task:hover.hard.selected3:hover {
-      background-color: #fccab1; }
+      background-color: #fca4a9; }
     .m-task:hover.hard.selected {
-      background-color: #fdd7c5; }
+      background-color: #fdb8bc; }
     .m-task:hover.hard.selected2 {
-      background-color: #fde1d3; }
+      background-color: #fdc7ca; }
     .m-task:hover.hard.selected3 {
-      background-color: #feebe2; }
+      background-color: #fed5d8; }
     .m-task:hover.hard .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fbb998 !important; }
+      border-color: #fb8b92 !important; }
   .m-task:hover.nightmare {
     -webkit-transition: all ease-in-out 0.3s;
     -moz-transition: all ease-in-out 0.3s;
     -ms-transition: all ease-in-out 0.3s;
     -o-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
-    background-color: #fcb7b1;
-    box-shadow: 0 0 3px #fcb7b1 !important; }
+    background-color: #fca4bf;
+    box-shadow: 2px 2px 4px #deb2c0 !important; }
     .m-task:hover.nightmare pre {
-      border: 2px solid #fa8a80;
-      background-color: #feedec; }
+      border: 2px solid #fa739d;
+      background-color: #fedfe9; }
     .m-task:hover.nightmare.selected:hover, .m-task:hover.nightmare.selected2:hover, .m-task:hover.nightmare.selected3:hover {
-      background-color: #fcb7b1; }
+      background-color: #fca4bf; }
     .m-task:hover.nightmare.selected {
-      background-color: #fdc9c5; }
+      background-color: #fdb8cd; }
     .m-task:hover.nightmare.selected2 {
-      background-color: #fdd7d3; }
+      background-color: #fdc7d8; }
     .m-task:hover.nightmare.selected3 {
-      background-color: #fee4e2; }
+      background-color: #fed5e2; }
     .m-task:hover.nightmare .user-info {
       box-shadow: 0 0 0 2px white;
-      border-color: #fba198 !important; }
+      border-color: #fb8bae !important; }
 
 .m-task-students {
   float: right;
@@ -367,88 +366,88 @@
         -ms-transition: all ease-in-out 0.3s;
         -o-transition: all ease-in-out 0.3s;
         transition: all ease-in-out 0.3s;
-        background-color: #cafcb1;
-        box-shadow: 0 0 3px #cafcb1 !important; }
+        background-color: #e4fca4;
+        box-shadow: 2px 2px 4px #d2deb2 !important; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy pre {
-          border: 2px solid #a9fa80;
-          background-color: #f2feec; }
+          border: 2px solid #d5fa73;
+          background-color: #f6fedf; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy.selected:hover, .m-task-menu .menu-complexity .menu-complexity-item.easy.selected2:hover, .m-task-menu .menu-complexity .menu-complexity-item.easy.selected3:hover {
-          background-color: #cafcb1; }
+          background-color: #e4fca4; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy.selected {
-          background-color: #d7fdc5; }
+          background-color: #eafdb8; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy.selected2 {
-          background-color: #e1fdd3; }
+          background-color: #eefdc7; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy.selected3 {
-          background-color: #ebfee2; }
+          background-color: #f3fed5; }
         .m-task-menu .menu-complexity .menu-complexity-item.easy .user-info {
           box-shadow: 0 0 0 2px white;
-          border-color: #b9fb98 !important; }
+          border-color: #ddfb8b !important; }
       .m-task-menu .menu-complexity .menu-complexity-item.medium {
         -webkit-transition: all ease-in-out 0.3s;
         -moz-transition: all ease-in-out 0.3s;
         -ms-transition: all ease-in-out 0.3s;
         -o-transition: all ease-in-out 0.3s;
         transition: all ease-in-out 0.3s;
-        background-color: #fcfcb1;
-        box-shadow: 0 0 3px #fcfcb1 !important; }
+        background-color: #fcd9a4;
+        box-shadow: 2px 2px 4px #decdb2 !important; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium pre {
-          border: 2px solid #fafa80;
-          background-color: #fefeec; }
+          border: 2px solid #fac573;
+          background-color: #fef2df; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium.selected:hover, .m-task-menu .menu-complexity .menu-complexity-item.medium.selected2:hover, .m-task-menu .menu-complexity .menu-complexity-item.medium.selected3:hover {
-          background-color: #fcfcb1; }
+          background-color: #fcd9a4; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium.selected {
-          background-color: #fdfdc5; }
+          background-color: #fde2b8; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium.selected2 {
-          background-color: #fdfdd3; }
+          background-color: #fde8c7; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium.selected3 {
-          background-color: #fefee2; }
+          background-color: #feeed5; }
         .m-task-menu .menu-complexity .menu-complexity-item.medium .user-info {
           box-shadow: 0 0 0 2px white;
-          border-color: #fbfb98 !important; }
+          border-color: #fbcf8b !important; }
       .m-task-menu .menu-complexity .menu-complexity-item.hard {
         -webkit-transition: all ease-in-out 0.3s;
         -moz-transition: all ease-in-out 0.3s;
         -ms-transition: all ease-in-out 0.3s;
         -o-transition: all ease-in-out 0.3s;
         transition: all ease-in-out 0.3s;
-        background-color: #fccab1;
-        box-shadow: 0 0 3px #fccab1 !important; }
+        background-color: #fca4a9;
+        box-shadow: 2px 2px 4px #deb2b5 !important; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard pre {
-          border: 2px solid #faa980;
-          background-color: #fef2ec; }
+          border: 2px solid #fa737b;
+          background-color: #fedfe1; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard.selected:hover, .m-task-menu .menu-complexity .menu-complexity-item.hard.selected2:hover, .m-task-menu .menu-complexity .menu-complexity-item.hard.selected3:hover {
-          background-color: #fccab1; }
+          background-color: #fca4a9; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard.selected {
-          background-color: #fdd7c5; }
+          background-color: #fdb8bc; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard.selected2 {
-          background-color: #fde1d3; }
+          background-color: #fdc7ca; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard.selected3 {
-          background-color: #feebe2; }
+          background-color: #fed5d8; }
         .m-task-menu .menu-complexity .menu-complexity-item.hard .user-info {
           box-shadow: 0 0 0 2px white;
-          border-color: #fbb998 !important; }
+          border-color: #fb8b92 !important; }
       .m-task-menu .menu-complexity .menu-complexity-item.nightmare {
         -webkit-transition: all ease-in-out 0.3s;
         -moz-transition: all ease-in-out 0.3s;
         -ms-transition: all ease-in-out 0.3s;
         -o-transition: all ease-in-out 0.3s;
         transition: all ease-in-out 0.3s;
-        background-color: #fcb7b1;
-        box-shadow: 0 0 3px #fcb7b1 !important; }
+        background-color: #fca4bf;
+        box-shadow: 2px 2px 4px #deb2c0 !important; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare pre {
-          border: 2px solid #fa8a80;
-          background-color: #feedec; }
+          border: 2px solid #fa739d;
+          background-color: #fedfe9; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected:hover, .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected2:hover, .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected3:hover {
-          background-color: #fcb7b1; }
+          background-color: #fca4bf; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected {
-          background-color: #fdc9c5; }
+          background-color: #fdb8cd; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected2 {
-          background-color: #fdd7d3; }
+          background-color: #fdc7d8; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare.selected3 {
-          background-color: #fee4e2; }
+          background-color: #fed5e2; }
         .m-task-menu .menu-complexity .menu-complexity-item.nightmare .user-info {
           box-shadow: 0 0 0 2px white;
-          border-color: #fba198 !important; }
+          border-color: #fb8bae !important; }
       .m-task-menu .menu-complexity .menu-complexity-item.selected {
         -webkit-transition: all ease-in-out 0.3;
         -moz-transition: all ease-in-out 0.3;
@@ -582,12 +581,14 @@ pre {
   .mark.modified {
     box-shadow: #9ebdff 0px 0px 8px inset !important; }
   .mark.absent {
-    background-color: #f0fadb;
+    background-color: #f6fce9;
     box-shadow: #d9f3a5 0 0 0 4px inset;
     color: grey; }
     .mark.absent.test {
       box-shadow: #fdb39b 0 0 0 4px inset;
-      background-color: #fee1d7; }
+      background-color: #fff0eb; }
+      .mark.absent.test.empty {
+        background-color: #fee6dd; }
     .mark.absent.lect {
       box-shadow: #a5f3f3 0 0 0 4px inset;
       background-color: #dbfafa; }
@@ -600,9 +601,11 @@ pre {
     .mark.absent:after {
       content: "н"; }
   .mark.empty {
-    background-color: #f0fadb; }
+    background-color: #f6fce9; }
     .mark.empty.test {
-      background-color: #fee1d7; }
+      background-color: #fff0eb; }
+      .mark.empty.test.empty {
+        background-color: #fee6dd; }
     .mark.empty.lect {
       background-color: #dbfafa; }
     .mark.empty.laba {
@@ -610,11 +613,13 @@ pre {
     .mark.empty.exam {
       background-color: #fdf1f6; }
   .mark.normal {
-    background-color: #cef08a;
+    background-color: #e2f6b9;
     box-shadow: #b7e953 0 0 0 4px inset; }
     .mark.normal.test {
       box-shadow: #fc6f40 0 0 0 4px inset;
-      background-color: #fd9d7c; }
+      background-color: #fecebe; }
+      .mark.normal.test.empty {
+        background-color: #fdac90; }
     .mark.normal.lect {
       box-shadow: #53e9e9 0 0 0 4px inset;
       background-color: #8af0f0; }
@@ -625,11 +630,13 @@ pre {
       box-shadow: #ec6aa0 0 0 0 4px inset;
       background-color: #f3a0c3; }
   .mark.good {
-    background-color: #cfeb47;
+    background-color: #e2f391;
     box-shadow: #bcdc18 0 0 0 4px inset; }
     .mark.good.test {
       box-shadow: #f51400 0 0 0 4px inset;
-      background-color: #ff4433; }
+      background-color: #ffa299; }
+      .mark.good.test.empty {
+        background-color: #ff6052; }
     .mark.good.lect {
       box-shadow: #18dcbc 0 0 0 4px inset;
       background-color: #47ebcf; }
@@ -640,11 +647,13 @@ pre {
       box-shadow: #e72797 0 0 0 4px inset;
       background-color: #ed5eb2; }
   .mark.excellent {
-    background-color: #9cb814;
+    background-color: #c4d472;
     box-shadow: #6d810e 0 0 0 4px inset; }
     .mark.excellent.test {
       box-shadow: #8f0c00 0 0 0 4px inset;
-      background-color: #cc1100; }
+      background-color: #e68880; }
+      .mark.excellent.test.empty {
+        background-color: #d43526; }
     .mark.excellent.lect {
       box-shadow: #0e816d 0 0 0 4px inset;
       background-color: #14b89c; }
@@ -655,11 +664,13 @@ pre {
       box-shadow: #97115f 0 0 0 4px inset;
       background-color: #cf1782; }
   .mark.awesome {
-    background-color: #758a0f;
+    background-color: #acb96f;
     box-shadow: #465309 0 0 0 4px inset; }
     .mark.awesome.test {
       box-shadow: #5c0800 0 0 0 4px inset;
-      background-color: #990d00; }
+      background-color: #cc8680; }
+      .mark.awesome.test.empty {
+        background-color: #a83126; }
     .mark.awesome.lect {
       box-shadow: #095346 0 0 0 4px inset;
       background-color: #0f8a75; }
@@ -670,11 +681,13 @@ pre {
       box-shadow: #6a0c42 0 0 0 4px inset;
       background-color: #a11265; }
   .mark.fantastic {
-    background-color: #4e5b0b;
+    background-color: #959d6d;
     box-shadow: #1f2404 0 0 0 4px inset; }
     .mark.fantastic.test {
       box-shadow: #280400 0 0 0 4px inset;
-      background-color: #650901; }
+      background-color: #b28480; }
+      .mark.fantastic.test.empty {
+        background-color: #7c2e27; }
     .mark.fantastic.lect {
       box-shadow: #04241f 0 0 0 4px inset;
       background-color: #0b5b4e; }
@@ -685,11 +698,13 @@ pre {
       box-shadow: #3b0725 0 0 0 4px inset;
       background-color: #710e48; }
   .mark.incredible {
-    background-color: #3a4408;
+    background-color: #898f6b;
     box-shadow: #0c0e02 0 0 0 4px inset; }
     .mark.incredible.test {
       box-shadow: #0f0100 0 0 0 4px inset;
-      background-color: #4c0701; }
+      background-color: #a68380; }
+      .mark.incredible.test.empty {
+        background-color: #672c27; }
     .mark.incredible.lect {
       box-shadow: #020e0c 0 0 0 4px inset;
       background-color: #08443a; }
@@ -700,11 +715,13 @@ pre {
       box-shadow: #240417 0 0 0 4px inset;
       background-color: #5b0b3a; }
   .mark.godlike {
-    background-color: #272e05;
+    background-color: #7d8269;
     box-shadow: black 0 0 0 4px inset; }
     .mark.godlike.test {
       box-shadow: black 0 0 0 4px inset;
-      background-color: #330400; }
+      background-color: #998280; }
+      .mark.godlike.test.empty {
+        background-color: #522a26; }
     .mark.godlike.lect {
       box-shadow: black 0 0 0 4px inset;
       background-color: #052e27; }
@@ -726,7 +743,7 @@ pre {
     -o-animation: shining-glow 4s infinite;
     animation: shining-glow 4s infinite; }
   .mark.mercy {
-    background-color: #f4fbe4;
+    background-color: #f8fdef;
     box-shadow: #ddf4ae 0 0 0 4px inset;
     background-color: white;
     -webkit-animation: mercy-glow 6s infinite;
@@ -735,7 +752,9 @@ pre {
     animation: mercy-glow 6s infinite; }
     .mark.mercy.test {
       box-shadow: #febba5 0 0 0 4px inset;
-      background-color: #ffe8e1; }
+      background-color: #fff4f0; }
+      .mark.mercy.test.empty {
+        background-color: #ffebe6; }
     .mark.mercy.lect {
       box-shadow: #aef4f4 0 0 0 4px inset;
       background-color: #e4fbfb; }
@@ -1262,32 +1281,8 @@ pre {
   #marks-editor .marks-table .l-table .tooltip {
     font-size: 1em; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table {
-  background-repeat: no-repeat;
-  background-color: #fffdf0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .t-cell {
-    background-color: #fffdf0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(214, 165, 3, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(214, 165, 3, 0.1);
-    color: #3f3101; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.normal {
-      background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.slow {
-      background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(214, 165, 3, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table.with_pic .done.veryslow {
-      background-color: rgba(214, 165, 3, 0.1); }
+  background-color: #fffdf0;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table:hover .lab-title {
     background-color: #ffe500; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .lab-title {
@@ -1297,22 +1292,27 @@ pre {
     background-color: #fff280;
     color: #715702;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-footer {
+    background-color: #fffdf0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell {
+    background-color: #fffdf0;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done {
-    background-color: #ffe500;
-    box-shadow: 0 0 0 4px #d6a503 inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #3f3101; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.fast-normal {
-      background-color: #ffea2e; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.normal {
-      background-color: #ffec42; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.normal-slow {
-      background-color: #ffee57; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.slow {
-      background-color: #fff06b; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.slow-veryslow {
-      background-color: #fff280; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .done.veryslow {
-      background-color: #fff494; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #d6a503; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip.top .tooltip-arrow {
@@ -1321,60 +1321,43 @@ pre {
     color: #0d0a00;
     box-shadow: 0 0 4px #715702;
     background-color: #ffef66; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #584401 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table {
-  background-repeat: no-repeat;
-  background-color: #fcfff0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .t-cell {
-    background-color: #fcfff0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(93, 162, 0, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(93, 162, 0, 0.1);
-    color: #050900; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.normal {
-      background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.slow {
-      background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(93, 162, 0, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table.with_pic .done.veryslow {
-      background-color: rgba(93, 162, 0, 0.1); }
+  background-color: #fcfef1;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table:hover .lab-title {
-    background-color: #c1f400; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .lab-title {
     color: black;
     text-shadow: 0 0 1px white; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .task-title:hover {
-    background-color: #e2ff75;
+    background-color: #fafde6;
     color: #223c00;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-footer {
+    background-color: #fcfef1; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell {
+    background-color: #fcfef1;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done {
-    background-color: #c1f400;
-    box-shadow: 0 0 0 4px #5da200 inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #050900; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.fast-normal {
-      background-color: #d1ff23; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.normal {
-      background-color: #d5ff37; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.normal-slow {
-      background-color: #daff4c; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow {
-      background-color: #deff60; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.slow-veryslow {
-      background-color: #e2ff75; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .done.veryslow {
-      background-color: #e6ff89; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #5da200; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip.top .tooltip-arrow {
@@ -1382,36 +1365,14 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .tooltip .tooltip-inner {
     color: black;
     box-shadow: 0 0 4px #223c00;
-    background-color: #ddff5b; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #142300 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table {
-  background-repeat: no-repeat;
-  background-color: #f1fdf9; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .t-cell {
-    background-color: #f1fdf9; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(88, 174, 142, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(88, 174, 142, 0.1);
-    color: #24493b; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.normal {
-      background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.slow {
-      background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(88, 174, 142, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table.with_pic .done.veryslow {
-      background-color: rgba(88, 174, 142, 0.1); }
+  background-color: #f1fdf9;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table:hover .lab-title {
     background-color: #7ff0cb; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .lab-title {
@@ -1421,22 +1382,27 @@ pre {
     background-color: #f1fdf9;
     color: #346c57;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-footer {
+    background-color: #f1fdf9; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell {
+    background-color: #f1fdf9;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done {
-    background-color: #7ff0cb;
-    box-shadow: 0 0 0 4px #58ae8e inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #24493b; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.fast-normal {
-      background-color: #a8f5dc; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.normal {
-      background-color: #baf7e3; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.normal-slow {
-      background-color: #cdf9eb; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.slow {
-      background-color: #dffbf2; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.slow-veryslow {
-      background-color: #f1fdf9; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .done.veryslow {
-      background-color: white; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #58ae8e; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip.top .tooltip-arrow {
@@ -1445,35 +1411,13 @@ pre {
     color: #132720;
     box-shadow: 0 0 4px #346c57;
     background-color: #dafbf0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #2c5b49 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table {
-  background-repeat: no-repeat;
-  background-color: #f0fbff; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .t-cell {
-    background-color: #f0fbff; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(0, 132, 178, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(0, 132, 178, 0.1);
-    color: #001319; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.normal {
-      background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.slow {
-      background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(0, 132, 178, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table.with_pic .done.veryslow {
-      background-color: rgba(0, 132, 178, 0.1); }
+  background-color: #f0fbff;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table:hover .lab-title {
     background-color: #00c4ff; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .lab-title {
@@ -1483,22 +1427,27 @@ pre {
     background-color: #80e2ff;
     color: #00384c;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-footer {
+    background-color: #f0fbff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell {
+    background-color: #f0fbff;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done {
-    background-color: #00c4ff;
-    box-shadow: 0 0 0 4px #0084b2 inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #001319; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.fast-normal {
-      background-color: #2ecfff; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.normal {
-      background-color: #42d3ff; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.normal-slow {
-      background-color: #57d8ff; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.slow {
-      background-color: #6bddff; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.slow-veryslow {
-      background-color: #80e2ff; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .done.veryslow {
-      background-color: #94e6ff; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #0084b2; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip.top .tooltip-arrow {
@@ -1507,35 +1456,13 @@ pre {
     color: black;
     box-shadow: 0 0 4px #00384c;
     background-color: #66dcff; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #002533 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table {
-  background-repeat: no-repeat;
-  background-color: #fff0f4; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .t-cell {
-    background-color: #fff0f4; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(178, 94, 120, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(178, 94, 120, 0.1);
-    color: #512734; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.normal {
-      background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.slow {
-      background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(178, 94, 120, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table.with_pic .done.veryslow {
-      background-color: rgba(178, 94, 120, 0.1); }
+  background-color: #fff0f4;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table:hover .lab-title {
     background-color: #ff8cab; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .lab-title {
@@ -1545,22 +1472,27 @@ pre {
     background-color: white;
     color: #73374a;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-footer {
+    background-color: #fff0f4; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell {
+    background-color: #fff0f4;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done {
-    background-color: #ff8cab;
-    box-shadow: 0 0 0 4px #b25e78 inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #512734; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.fast-normal {
-      background-color: #ffbacd; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.normal {
-      background-color: #ffcedb; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.normal-slow {
-      background-color: #ffe3ea; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.slow {
-      background-color: #fff7f9; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.slow-veryslow {
-      background-color: white; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .done.veryslow {
-      background-color: white; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #b25e78; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip.top .tooltip-arrow {
@@ -1569,35 +1501,13 @@ pre {
     color: #2e161d;
     box-shadow: 0 0 4px #73374a;
     background-color: #fff2f6; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #622f3f inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table {
-  background-repeat: no-repeat;
-  background-color: #fff7f0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table thead, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table tfoot {
-    background-color: white; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .t-cell {
-    background-color: #fff7f0; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .hover .t-cell {
-    background-color: white; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .hover .t-cell.done {
-      background-color: rgba(209, 136, 105, 0.1); }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done {
-    box-shadow: none;
-    background-color: rgba(209, 136, 105, 0.1);
-    color: #7b3f26; }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.fast-normal {
-      background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.normal {
-      background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.normal-slow {
-      background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.slow {
-      background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.slow-veryslow {
-      background-color: rgba(209, 136, 105, 0.1); }
-    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table.with_pic .done.veryslow {
-      background-color: rgba(209, 136, 105, 0.1); }
+  background-color: #fff7f0;
+  background-image: url("images/repin_sadko2.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table:hover .lab-title {
     background-color: #ffbf85; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .lab-title {
@@ -1607,22 +1517,27 @@ pre {
     background-color: white;
     color: #a25332;
     text-shadow: 0 0 1px white; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-header, #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-footer {
+    background-color: #fff7f0; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell {
+    background-color: #fff7f0;
+    display: block; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done {
-    background-color: #ffbf85;
-    box-shadow: 0 0 0 4px #d18869 inset;
+    border-right: none;
+    background-color: rgba(0, 0, 0, 0);
     color: #7b3f26; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.fast-normal {
-      background-color: #ffd7b3; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.normal {
-      background-color: #ffe2c7; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.normal-slow {
-      background-color: #ffecdc; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.slow {
-      background-color: #fff7f0; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.slow-veryslow {
-      background-color: white; }
+      background-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .done.veryslow {
-      background-color: white; }
+      background-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #d18869; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip.top .tooltip-arrow {
@@ -1631,6 +1546,8 @@ pre {
     color: #542b1a;
     box-shadow: 0 0 4px #a25332;
     background-color: #fff5eb; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-content .t-row {
+    border-bottom-color: transparent; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell.changed {
     box-shadow: 0 0 0 4px #8f492c inset; }
 #marks-editor .marks-table .t-header .t-cell, #marks-editor .marks-table .t-footer .t-cell {
