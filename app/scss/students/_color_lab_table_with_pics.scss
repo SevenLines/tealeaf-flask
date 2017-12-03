@@ -24,7 +24,7 @@ $max_tables: length($bgcolors) - 1;
             $color2: nth($fgcolors, $i + 1);
 
             background-color: hsl(hue($color2), saturation($color2), 97);
-            background-image: url('images/repin_sadko2.jpg'); //url(nth($bgimages, $i + 1));
+            background-image: url('images/repin_sadko.jpg'); //url(nth($bgimages, $i + 1));
             &:hover {
                 .lab-title {
                     background-color: lighten($color2, 0);

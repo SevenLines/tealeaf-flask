@@ -55,14 +55,14 @@
         </tr>
     </table>
 </div>
-<div class="m-lab-info collapse" id="lab{{ lab.id }}" style="">
-    <div>
+<div class="m-lab-info collapse" data-id="{{ lab.id }}" id="lab{{ lab.id }}" style="">
+    <div style="position: relative">
         {#        {% if not user.is_authenticated %}#}
-        {% if lab.description %}
+        {% if is_logged or lab.description %}
             <div class="m-lab-description">
-                <span>{{ lab.description|safe }}</span>
-                <hr>
+                {{ lab.description|safe }}
             </div>
+            <hr>
         {% endif %}
         {#        {% else %}#}
         {#            <div class="lab-bgimage-container" style="float: left; padding-right: 1em; position: relative">#}
@@ -79,22 +79,23 @@
         {#            </div>#}
         {#        {% endif %}#}
 {#        <div class="row">#}
+        <div class="m-lab-info-tasks">
             {% for task in lab.tasks %}
-                <div class="m-task {{ task.style }}">
+                <div {% if is_logged %}data-id="{{ task.id }}"{% endif %} class="m-task {{ task.style }}">
+                    {% if is_logged %}
+                        <button class="btn m-task-btn-save btn-default"><i class="fa fa-save"></i></button>
+                    {% endif %}
                     <table style="table-layout: fixed;width: 100%">
                         <tr>
                             <td class="m-task-label">{{ loop.index }}</td>
                             <td class="m-task-description">
-                                {#                <ul class="m-task-students" data-bind="visible: students().length, foreach: students">#}
-                                {#                    <li class="m-task-student" data-bind="text: text"></li>#}
-                                {#                </ul>#}
-                                <span>{{ task.description|safe }}</span>
+                                {{ task.description|safe }}
                             </td>
                         </tr>
                     </table>
                     {#                    {% include "university/labs/__task_item.html" %}#}
                 </div>
             {% endfor %}
-{#        </div>#}
+        </div>
     </div>
 </div>

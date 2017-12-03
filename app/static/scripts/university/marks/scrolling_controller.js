@@ -40,6 +40,4 @@ function ScrollController() {
             }
         });
     })();
-
-    $(".m-table-container")[0].scrollLeft = $.cookie("lastScroll") || 0;
 };
