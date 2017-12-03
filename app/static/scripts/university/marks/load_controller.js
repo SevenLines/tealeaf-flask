@@ -63,6 +63,8 @@ function LoadController() {
             $(document).trigger("load:groups:complete");
             $(document).trigger("load:complete");
 
+            OpenActiveLab();
+            ScrollToLastScrollPosition();
         });
 
         $(document).on("pjax:popstate", function (e) {
@@ -77,22 +79,33 @@ function LoadController() {
         });
 
 
-        $("#labs-accordion").find("li .m-lab-info").on('shown.bs.collapse', function (e) {
-            var id = $(e.currentTarget).data('id');
-            $.cookie('active_lab', id,  {expires: 100, path: '/'})
-        }).on('hidden.bs.collapse', function (e) {
-            var id = $(e.currentTarget).data('id');
-            $.cookie('active_lab', null,  {expires: 100, path: '/'})
-        });
+        var OpenActiveLab = function () {
+            $("#labs-accordion").find("li .m-lab-info").on('shown.bs.collapse', function (e) {
+                var id = $(e.currentTarget).data('id');
+                $.cookie('active_lab', id,  {expires: 100, path: '/'})
+            }).on('hidden.bs.collapse', function (e) {
+                var id = $(e.currentTarget).data('id');
+                $.cookie('active_lab', null,  {expires: 100, path: '/'})
+            });
 
-        var active_lab_id = $.cookie('active_lab');
-        if (active_lab_id) {
-            $("#labs-accordion").find("li .m-lab-info").each(function (idx, item) {
-                if ($(item).data('id') == active_lab_id) {
-                    $(item).collapse("show")
-                }
-            })
+            var active_lab_id = $.cookie('active_lab');
+            if (active_lab_id) {
+                $("#labs-accordion").find("li .m-lab-info").each(function (idx, item) {
+                    if ($(item).data('id') == active_lab_id) {
+                        $(item).collapse("show")
+                    }
+                })
+            }
+        };
+
+        var ScrollToLastScrollPosition = function () {
+            var container = $(".m-table-container")[0];
+            if (container) {
+                container.scrollLeft = $.cookie("lastScroll") || 0;
+            }
         }
 
+        OpenActiveLab();
+        ScrollToLastScrollPosition();
     });
 }

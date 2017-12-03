@@ -217,6 +217,7 @@ $m_task_label_width: 32px;
 }
 
 .m-task {
+
   @include complex_style;
   margin: 0.5em 0;
   //border-radius: 10px;
@@ -298,5 +299,8 @@ pre {
   .m-lab-description {
     background-color: #ebebeb;
     min-height: 1em;
+  }
+  .m-task-label {
+    cursor: move;
   }
 }

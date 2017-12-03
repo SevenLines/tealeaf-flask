@@ -475,6 +475,8 @@ pre {
 .logged .m-lab-description {
   background-color: #ebebeb;
   min-height: 1em; }
+.logged .m-task-label {
+  cursor: move; }
 
 @keyframes animate-shine {
   0% {
