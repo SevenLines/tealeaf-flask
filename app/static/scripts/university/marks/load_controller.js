@@ -74,6 +74,25 @@ function LoadController() {
                 $menu.find(".groups>li, .main>li").removeClass("active");
                 $(a_tag).parents("li").addClass("active");
             }
-        })
+        });
+
+
+        $("#labs-accordion").find("li .m-lab-info").on('shown.bs.collapse', function (e) {
+            var id = $(e.currentTarget).data('id');
+            $.cookie('active_lab', id,  {expires: 100, path: '/'})
+        }).on('hidden.bs.collapse', function (e) {
+            var id = $(e.currentTarget).data('id');
+            $.cookie('active_lab', null,  {expires: 100, path: '/'})
+        });
+
+        var active_lab_id = $.cookie('active_lab');
+        if (active_lab_id) {
+            $("#labs-accordion").find("li .m-lab-info").each(function (idx, item) {
+                if ($(item).data('id') == active_lab_id) {
+                    $(item).collapse("show")
+                }
+            })
+        }
+
     });
 }

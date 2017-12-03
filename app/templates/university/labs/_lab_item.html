@@ -55,7 +55,7 @@
         </tr>
     </table>
 </div>
-<div class="m-lab-info collapse" id="lab{{ lab.id }}" style="">
+<div class="m-lab-info collapse" data-id="{{ lab.id }}" id="lab{{ lab.id }}" style="">
     <div style="position: relative">
         {#        {% if not user.is_authenticated %}#}
         {% if is_logged or lab.description %}
