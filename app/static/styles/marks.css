@@ -1229,7 +1229,7 @@ pre {
   -ms-user-select: none;
   user-select: none;
   overflow: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   margin-left: 220px;
   cursor: move;
