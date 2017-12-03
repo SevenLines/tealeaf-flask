@@ -92,9 +92,20 @@ $max_tables: length($bgcolors) - 1;
 
             .t-content .t-row {
                 border-bottom-color: transparent;
+
+            }
+
+            .t-row:hover {
+                .t-cell {
+                    background-color: white;
+                    &.done {
+                        background-color: rgba(white, 0.1);
+                    }
+                }
             }
 
             .t-cell {
+                @include transition(0.1s);
                 &.changed {
                     box-shadow: 0 0 0 4px darken($color, 25) inset;
                     //border-color: ;

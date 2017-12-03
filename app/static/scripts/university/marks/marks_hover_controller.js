@@ -6,16 +6,16 @@ function MarksHoverController() {
         mouseenter: function () {
             var index = $(this).index();
             $(this).addClass("hover");
-            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+            $(".m-table>tbody, .s-table>tbody, .l-table>tbody").each(function (i, item) {
                 $($(item).find(">.t-row")[index]).addClass("hover");
             });
         },
         mouseleave: function () {
             $(this).removeClass("hover");
             var index = $(this).index();
-            $(".m-table>tbody, .s-table>tbody").each(function (i, item) {
+            $(".m-table>tbody, .s-table>tbody, .l-table>tbody").each(function (i, item) {
                 $($(item).find(">.t-row")[index]).removeClass("hover");
             });
         }
-    }, ".m-table>tbody>.t-row,.s-table>tbody>.t-row");
+    }, ".m-table>tbody>.t-row,.s-table>tbody>.t-row,.l-table>tbody>.t-row");
 }

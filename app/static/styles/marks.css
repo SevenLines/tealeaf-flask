@@ -1229,7 +1229,7 @@ pre {
   -ms-user-select: none;
   user-select: none;
   overflow: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   margin-left: 220px;
   cursor: move;
@@ -1339,8 +1339,18 @@ pre {
     background-color: #ffef66; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #584401 inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #584401 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table {
   background-color: #fcfef1;
   background-image: url("images/repin_sadko.jpg"); }
@@ -1384,8 +1394,18 @@ pre {
     background-color: #f5fbcf; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #142300 inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #142300 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table {
   background-color: #f1fdf9;
   background-image: url("images/repin_sadko.jpg"); }
@@ -1429,8 +1449,18 @@ pre {
     background-color: #dafbf0; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #2c5b49 inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #2c5b49 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table {
   background-color: #f0fbff;
   background-image: url("images/repin_sadko.jpg"); }
@@ -1474,8 +1504,18 @@ pre {
     background-color: #66dcff; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #002533 inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #002533 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table {
   background-color: #fff0f4;
   background-image: url("images/repin_sadko.jpg"); }
@@ -1519,8 +1559,18 @@ pre {
     background-color: #fff2f6; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #622f3f inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #622f3f inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table {
   background-color: #fff7f0;
   background-image: url("images/repin_sadko.jpg"); }
@@ -1564,8 +1614,18 @@ pre {
     background-color: #fff5eb; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
-  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell.changed {
-    box-shadow: 0 0 0 4px #8f492c inset; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-row:hover .t-cell {
+    background-color: white; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-row:hover .t-cell.done {
+      background-color: rgba(255, 255, 255, 0.1); }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell {
+    -webkit-transition: all ease-in-out 0.1s;
+    -moz-transition: all ease-in-out 0.1s;
+    -ms-transition: all ease-in-out 0.1s;
+    -o-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s; }
+    #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-cell.changed {
+      box-shadow: 0 0 0 4px #8f492c inset; }
 #marks-editor .marks-table .t-header .t-cell, #marks-editor .marks-table .t-footer .t-cell {
   height: 36.4px; }
 #marks-editor .marks-table .t-row {
