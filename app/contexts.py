@@ -8,7 +8,7 @@ from sqlalchemy import desc
 
 from app.load_app import app
 from app.security import current_user_is_logged
-from app.university import Group, Message
+from app.university import Group, Message, Task
 from app.university.models.discipline import Discipline
 
 
@@ -62,6 +62,7 @@ def inject_admin():
             admin_groups[year] = [group for group in groups if group.year == year]
 
         data = {
+            'COMPLEX_CHOICES': Task.COMPLEX_CHOICES,
             'current_year': Group.current_year(),
             'admin_groups': admin_groups,
             'admin_disciplines': Discipline.query.all(),

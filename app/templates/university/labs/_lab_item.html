@@ -81,9 +81,17 @@
 {#        <div class="row">#}
         <div class="m-lab-info-tasks">
             {% for task in lab.tasks %}
-                <div {% if is_logged %}data-id="{{ task.id }}"{% endif %} class="m-task {{ task.style }}">
+                <div {% if is_logged %}data-complexity="{{ task.complexity }}" data-id="{{ task.id }}"{% endif %}
+                     class="m-task {{ task.style }}">
                     {% if is_logged %}
-                        <button class="btn m-task-btn-save btn-default"><i class="fa fa-save"></i></button>
+                        <div class="m-task-btn-actions">
+                            <div class="difficult pull-left">
+                                {% for complex, cls in COMPLEX_CHOICES.items() %}
+                                    <div data-id={{ complex }} class="{{ cls }}"></div>
+                                {% endfor %}
+                            </div>
+                            <button class="btn m-task-btn-save btn-default"><i class="fa fa-save"></i></button>
+                        </div>
                     {% endif %}
                     <table style="table-layout: fixed;width: 100%">
                         <tr>

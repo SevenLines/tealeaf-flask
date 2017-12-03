@@ -46,7 +46,7 @@
   list-style: none;
   margin-bottom: 0; }
 
-.m-lab .m-task-btn-save {
+.m-lab .m-task-btn-actions {
   position: absolute;
   right: 0;
   z-index: 100;
@@ -331,6 +331,106 @@
     .m-task:hover.nightmare .user-info {
       box-shadow: 0 0 0 2px white;
       border-color: #fb8bae !important; }
+  .m-task .m-task-btn-actions .difficult {
+    padding: 8px; }
+    .m-task .m-task-btn-actions .difficult div {
+      border: 1px solid rgba(0, 0, 0, 0);
+      height: 20px;
+      width: 20px;
+      border-radius: 20px 20px;
+      margin-right: 8px;
+      float: left;
+      cursor: pointer; }
+      .m-task .m-task-btn-actions .difficult div.easy {
+        -webkit-transition: all ease-in-out 0.3s;
+        -moz-transition: all ease-in-out 0.3s;
+        -ms-transition: all ease-in-out 0.3s;
+        -o-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+        background-color: #e4fca4;
+        box-shadow: 2px 2px 4px #d2deb2 !important; }
+        .m-task .m-task-btn-actions .difficult div.easy pre {
+          border: 2px solid #d5fa73;
+          background-color: #f6fedf; }
+        .m-task .m-task-btn-actions .difficult div.easy.selected:hover, .m-task .m-task-btn-actions .difficult div.easy.selected2:hover, .m-task .m-task-btn-actions .difficult div.easy.selected3:hover {
+          background-color: #e4fca4; }
+        .m-task .m-task-btn-actions .difficult div.easy.selected {
+          background-color: #eafdb8; }
+        .m-task .m-task-btn-actions .difficult div.easy.selected2 {
+          background-color: #eefdc7; }
+        .m-task .m-task-btn-actions .difficult div.easy.selected3 {
+          background-color: #f3fed5; }
+        .m-task .m-task-btn-actions .difficult div.easy .user-info {
+          box-shadow: 0 0 0 2px white;
+          border-color: #ddfb8b !important; }
+      .m-task .m-task-btn-actions .difficult div.medium {
+        -webkit-transition: all ease-in-out 0.3s;
+        -moz-transition: all ease-in-out 0.3s;
+        -ms-transition: all ease-in-out 0.3s;
+        -o-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+        background-color: #fcd9a4;
+        box-shadow: 2px 2px 4px #decdb2 !important; }
+        .m-task .m-task-btn-actions .difficult div.medium pre {
+          border: 2px solid #fac573;
+          background-color: #fef2df; }
+        .m-task .m-task-btn-actions .difficult div.medium.selected:hover, .m-task .m-task-btn-actions .difficult div.medium.selected2:hover, .m-task .m-task-btn-actions .difficult div.medium.selected3:hover {
+          background-color: #fcd9a4; }
+        .m-task .m-task-btn-actions .difficult div.medium.selected {
+          background-color: #fde2b8; }
+        .m-task .m-task-btn-actions .difficult div.medium.selected2 {
+          background-color: #fde8c7; }
+        .m-task .m-task-btn-actions .difficult div.medium.selected3 {
+          background-color: #feeed5; }
+        .m-task .m-task-btn-actions .difficult div.medium .user-info {
+          box-shadow: 0 0 0 2px white;
+          border-color: #fbcf8b !important; }
+      .m-task .m-task-btn-actions .difficult div.hard {
+        -webkit-transition: all ease-in-out 0.3s;
+        -moz-transition: all ease-in-out 0.3s;
+        -ms-transition: all ease-in-out 0.3s;
+        -o-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+        background-color: #fca4a9;
+        box-shadow: 2px 2px 4px #deb2b5 !important; }
+        .m-task .m-task-btn-actions .difficult div.hard pre {
+          border: 2px solid #fa737b;
+          background-color: #fedfe1; }
+        .m-task .m-task-btn-actions .difficult div.hard.selected:hover, .m-task .m-task-btn-actions .difficult div.hard.selected2:hover, .m-task .m-task-btn-actions .difficult div.hard.selected3:hover {
+          background-color: #fca4a9; }
+        .m-task .m-task-btn-actions .difficult div.hard.selected {
+          background-color: #fdb8bc; }
+        .m-task .m-task-btn-actions .difficult div.hard.selected2 {
+          background-color: #fdc7ca; }
+        .m-task .m-task-btn-actions .difficult div.hard.selected3 {
+          background-color: #fed5d8; }
+        .m-task .m-task-btn-actions .difficult div.hard .user-info {
+          box-shadow: 0 0 0 2px white;
+          border-color: #fb8b92 !important; }
+      .m-task .m-task-btn-actions .difficult div.nightmare {
+        -webkit-transition: all ease-in-out 0.3s;
+        -moz-transition: all ease-in-out 0.3s;
+        -ms-transition: all ease-in-out 0.3s;
+        -o-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+        background-color: #fca4bf;
+        box-shadow: 2px 2px 4px #deb2c0 !important; }
+        .m-task .m-task-btn-actions .difficult div.nightmare pre {
+          border: 2px solid #fa739d;
+          background-color: #fedfe9; }
+        .m-task .m-task-btn-actions .difficult div.nightmare.selected:hover, .m-task .m-task-btn-actions .difficult div.nightmare.selected2:hover, .m-task .m-task-btn-actions .difficult div.nightmare.selected3:hover {
+          background-color: #fca4bf; }
+        .m-task .m-task-btn-actions .difficult div.nightmare.selected {
+          background-color: #fdb8cd; }
+        .m-task .m-task-btn-actions .difficult div.nightmare.selected2 {
+          background-color: #fdc7d8; }
+        .m-task .m-task-btn-actions .difficult div.nightmare.selected3 {
+          background-color: #fed5e2; }
+        .m-task .m-task-btn-actions .difficult div.nightmare .user-info {
+          box-shadow: 0 0 0 2px white;
+          border-color: #fb8bae !important; }
+      .m-task .m-task-btn-actions .difficult div:hover, .m-task .m-task-btn-actions .difficult div.active {
+        border: 2px solid black; }
 
 .m-task-students {
   float: right;
