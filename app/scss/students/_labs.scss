@@ -91,6 +91,21 @@ $m_task_label_width: 32px;
   //  }
   //  display: block;
   //}
+
+  .m-task-btn-save {
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    top: 0
+  }
+
+  .m-lab-btn-save {
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    top: 0
+  }
+
   .lab-bgimage-container {
     cursor: pointer;
 
@@ -277,4 +292,11 @@ $m_task_label_width: 32px;
 pre {
   margin: 0.5em 0;
   background-color: white;
+}
+
+.logged {
+  .m-lab-description {
+    background-color: #ebebeb;
+    min-height: 1em;
+  }
 }

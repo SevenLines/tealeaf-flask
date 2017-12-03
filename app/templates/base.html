@@ -42,10 +42,12 @@
         "3rdparty/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
         "3rdparty/markdown/lib/markdown.js",
         "3rdparty/bootstrap-markdown/js/bootstrap-markdown.js",
+        "3rdparty/Sortable/Sortable.min.js",
 
         "scripts/university/marks/admin/models/student.js",
         "scripts/university/marks/admin/models/lesson.js",
         "scripts/university/marks/admin/models/mark.js",
+        "scripts/university/marks/admin/models/task_item.js",
         "scripts/university/marks/admin/models/lab.js",
         "scripts/university/marks/admin/models/lab_item.js",
         "scripts/university/marks/admin/models/task.js",
@@ -53,6 +55,12 @@
         "scripts/university/marks/admin/editor.js" %}
             <script type="text/javascript" src="{{ ASSET_URL }}"></script>
         {% endassets %}
+
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.2/noty.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.2/noty.min.js"></script>
     {% endif %}
 
     {% block scripts_top %}{% endblock %}
@@ -68,7 +76,7 @@
     {% endassets %}
     {% block styles %}{% endblock %}
 </head>
-<body>
+<body {% if is_logged %}class="logged"{% endif %}>
 <div class="back-wrapper"></div>
 <div class="container">
     <div class="menu">

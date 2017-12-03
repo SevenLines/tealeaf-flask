@@ -1,11 +1,10 @@
 var LabItem = Backbone.Model.extend({
     save: function () {
-        $.ajax({
+        return $.ajax({
             url: '/lab/' + this.get('id') + '/',
             data: JSON.stringify(this.toJSON()),
             method: "POST",
             contentType: "application/json; charset=utf-8",
-            dataType: "json"
         })
     },
 
@@ -32,8 +31,60 @@ var LabItem = Backbone.Model.extend({
 var LabItemView = Backbone.View.extend({
     initialize: function (model, options) {
         _.bindAll(this, "render");
+        var self = this;
         this.lessonEditor = options.lessonEditor;
         this.model.on('change', this.render);
+        this.taskOrder = [];
+
+        this.$el.find('.m-task').each(function (index, item) {
+            item.view = new TaskItemView({
+                el: item
+            })
+        });
+        this.sortable = Sortable.create(this.$el.find('.m-lab-info-tasks')[0], {
+            handle: '.m-task-label',
+            onEnd: function () {
+                self.taskOrder = [];
+                self.$el.find('.m-task').each(function (index, item) {
+                    self.taskOrder.push($(item).data('id'));
+                    $(item).find('.m-task-label').html(index + 1);
+                });
+                $.ajax({
+                    url: '/lab/set-tasks-order/',
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        'order': self.taskOrder
+                    })
+                }).done(function () {
+                    new Noty({
+                        theme: 'relax',
+                        text: "Сохранено",
+                        type: 'success',
+                        timeout: 1000
+                    }).show();
+                }).fail(function () {
+                    new Noty({
+                        theme: 'relax',
+                        text: "Ну удалось отсортировать",
+                        type: 'error',
+                        timeout: 1000
+                    }).show();
+                })
+            },
+        });
+
+        this.lastEditor = null;
+        this.editorOptions = {
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        };
         this.render()
     },
 
@@ -43,11 +94,55 @@ var LabItemView = Backbone.View.extend({
         "click .btn-order-down": "orderDown",
         "click .btn-save": "save",
         "click input": "stop",
+        "click .m-task .m-task-description": "createTaskItemEditor",
+        // "click .m-task .m-task-btn-save": "destroyTaskItemEdit",
+        "click .m-lab-description": "createLabEditor",
         "keyup .lab-title-input": "setTitle",
     },
 
+    createTaskItemEditor: function (e) {
+        var target = $(e.currentTarget).parents('.m-task')[0];
+        if (this.lastEditor && this.lastEditor.view && this.lastEditor.view !== target.view) {
+            this.lastEditor.view.removeEditor();
+        }
+        target.view.createEditor();
+        this.lastEditor = target;
+    },
+
+    removeLabEditor: function (e) {
+        this.$el.find(".m-lab-description").summernote('destroy')
+    },
+
+    createLabEditor: function (e) {
+        var self = this;
+        this.$el.find(".m-lab-description").summernote($.extend(this.editorOptions, {
+            callbacks: {
+                onChange: function (contents, $editable) {
+                    self.model.set('description', contents);
+                }
+            }
+        }));
+    },
+
     save: function (e) {
-        this.model.save();
+        var self = this;
+        this.model.save().done(function () {
+            self.removeLabEditor();
+            new Noty({
+                theme: 'relax',
+                text: "Сохранено",
+                type: 'success',
+                timeout: 1000
+            }).show();
+        }).fail(function () {
+            new Noty({
+                theme: 'relax',
+                text: "Ну удалось отсортировать",
+                type: 'error',
+                timeout: 1000
+            }).show();
+        })
+
         e.stopPropagation();
     },
 

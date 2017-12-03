@@ -8,7 +8,7 @@ from flask_login import login_required
 from flask.helpers import make_response
 from flask.views import View, MethodView
 from flask_security.views import login
-from sqlalchemy import desc
+from sqlalchemy import desc, case
 
 from sqlalchemy.orm import joinedload, contains_eager
 
@@ -568,6 +568,33 @@ def lab_edit(lab_id):
         return Response()
     return redirect(request.referrer or "/")
 
+
+@university.route("/task/<int:task_id>/", methods=['POST'])
+@login_required
+def lab_task_edit(task_id):
+    task = Task.get_or_404(task_id)
+    data = request.get_json()
+    task.description = data['description']
+    task.update()
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
+
+@university.route("/lab/set-tasks-order/", methods=['POST'])
+@login_required
+def update_lab_tasks_order():
+    data = request.get_json()
+    order_ids = data['order']
+    order = [(Task.id == task_id, index) for index, task_id in enumerate(order_ids)]
+    db.session.query(Task).filter(Task.id.in_(order_ids)).update({
+        'order': case(order, else_=-1)
+    }, synchronize_session=False)
+    db.session.commit()
+
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
 
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
                         methods=['POST', ])
