@@ -12,7 +12,7 @@ class Discipline(BaseMixin, db.Model):
     title = db.Column(db.String(50))
     year = db.Column(db.Integer)
     visible = db.Column(db.Boolean)
-    labs = db.relationship("Lab", backref='discipline')
+    labs = db.relationship("Lab", backref='discipline', order_by="Lab.order", )
     files = db.relationship("DisciplineFile", backref='discipline')
     articles = db.relationship("Article", backref='discipline')
 

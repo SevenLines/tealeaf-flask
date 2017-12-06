@@ -11,6 +11,7 @@ var TaskItemView = Backbone.View.extend({
     },
     events: {
         "click .m-task-btn-save": "save",
+        "click .m-task-btn-close": "close",
         "click .m-task-btn-actions .difficult div": 'setDifficult'
     },
 
@@ -39,6 +40,10 @@ var TaskItemView = Backbone.View.extend({
     createEditor: function () {
         this.editor = this.$el.find('.m-task-description').summernote();
         this.render();
+    },
+
+    close: function () {
+        this.removeEditor()
     },
 
     save: function () {
