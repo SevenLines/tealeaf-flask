@@ -76,14 +76,6 @@ var LabItemView = Backbone.View.extend({
 
         this.lastEditor = null;
         this.editorOptions = {
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
-            ]
         };
         this.render()
     },
