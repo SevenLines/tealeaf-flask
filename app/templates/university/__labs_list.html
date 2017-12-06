@@ -23,7 +23,6 @@
                     {% for lab in labs if is_logged or lab.visible %}
                         <li class="m-lab panel" {% if is_logged %}{{as_data_attributes(lab, 'id', 'title', 'description', 'discipline_id', 'visible', 'regular', 'order')|safe }}{% endif %}>
                             {% include "university/labs/_lab_item.html" %}
-                            {#                    {% include "students/labs/lab.html" %}#}
                             <div style="clear: both;"></div>
                         </li>
                     {% endfor %}
