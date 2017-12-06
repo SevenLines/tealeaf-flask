@@ -92,7 +92,7 @@ $m_task_label_width: 32px;
   //  display: block;
   //}
 
-  .m-task-btn-save {
+  .m-task-btn-actions {
     position: absolute;
     right: 0;
     z-index: 100;
@@ -234,6 +234,27 @@ $m_task_label_width: 32px;
   -ms-column-break-inside: avoid;
   column-break-inside: avoid;
   margin-top: 0;
+
+
+  .m-task-btn-actions .difficult {
+    padding: 8px;
+    div {
+      @include choices;
+
+      border: 1px solid rgba(0, 0, 0, 0);
+
+      &:hover, &.active {
+        border: 2px solid black;
+      }
+
+      height: 20px;
+      width: 20px;
+      border-radius: 20px 20px;
+      margin-right: 8px;
+      float: left;
+      cursor: pointer;
+    }
+  }
 }
 
 .m-task-students {

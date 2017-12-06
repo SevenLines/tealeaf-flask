@@ -575,6 +575,7 @@ def lab_task_edit(task_id):
     task = Task.get_or_404(task_id)
     data = request.get_json()
     task.description = data['description']
+    task.complexity = data['complexity']
     task.update()
     if request.is_xhr:
         return Response()
