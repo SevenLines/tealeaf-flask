@@ -561,7 +561,8 @@ def lab_edit(lab_id):
     lab = Lab.get_or_404(lab_id)
     data = request.get_json()
     lab.visible = data['visible']
-    lab.description = data['description']
+    if 'description' in data:
+        lab.description = data['description']
     lab.title = data['title']
     lab.update()
     if request.is_xhr:
@@ -596,6 +597,23 @@ def update_lab_tasks_order():
     if request.is_xhr:
         return Response()
     return redirect(request.referrer or "/")
+
+
+@university.route("/lab/set-order/", methods=['POST'])
+@login_required
+def update_lab_order():
+    data = request.get_json()
+    order_ids = data['order']
+    order = [(Lab.id == lab_id, index) for index, lab_id in enumerate(order_ids)]
+    db.session.query(Lab).filter(Lab.id.in_(order_ids)).update({
+        'order': case(order, else_=-1)
+    }, synchronize_session=False)
+    db.session.commit()
+
+    if request.is_xhr:
+        return Response()
+    return redirect(request.referrer or "/")
+
 
 university.add_url_rule('/marks/', view_func=SaveMarks.as_view('save_marks'),
                         methods=['POST', ])

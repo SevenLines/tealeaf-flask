@@ -17,6 +17,43 @@ var LabItemsCollection = Backbone.Collection.extend({
     }
 });
 
+var LabItemCollecitonView = Backbone.View.extend({
+    initialize: function () {
+        var self = this;
+        this.sortable = Sortable.create(this.$el.find('.panel-group.m-labs')[0], {
+            handle: '.m-lab-title',
+            onEnd: function () {
+                self.labOrder = [];
+                self.$el.find('.m-lab').each(function (index, item) {
+                    self.labOrder.push($(item).data('id'));
+                });
+                $.ajax({
+                    url: '/lab/set-order/',
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        'order': self.labOrder
+                    })
+                }).done(function () {
+                    new Noty({
+                        theme: 'relax',
+                        text: "Сохранено",
+                        type: 'success',
+                        timeout: 1000
+                    }).show();
+                }).fail(function () {
+                    new Noty({
+                        theme: 'relax',
+                        text: "Ну удалось отсортировать",
+                        type: 'error',
+                        timeout: 1000
+                    }).show();
+                })
+            },
+        });
+    }
+});
+
 
 var TasksCollection = Backbone.Collection.extend({
     model: Task
@@ -138,6 +175,11 @@ function EditorController(options) {
         el: ".s-table"
     });
 
+    new LabItemCollecitonView({
+        collection: labs,
+        el: '#labs-editor'
+    });
+
     function bind_selectors(selector, callback, collection) {
         if (callback == null)
             return;
@@ -190,7 +232,7 @@ function EditorController(options) {
             var labItem =  new LabItem({
                 id: data.id,
                 title: data.title,
-                description: data.description,
+                description: $(item).find('.m-lab-description').html(),
                 discipline_id: data.discipline_id,
                 visible: data.visible,
                 regular: data.regular,
@@ -208,6 +250,7 @@ function EditorController(options) {
 
             return labItem
         }, labsItems);
+
 
         // bind tasks
         bind_selectors(".l-table .t-header .t-cell-task", function (data, item) {

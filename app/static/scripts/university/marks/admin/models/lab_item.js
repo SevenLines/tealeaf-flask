@@ -133,7 +133,7 @@ var LabItemView = Backbone.View.extend({
                 type: 'error',
                 timeout: 1000
             }).show();
-        })
+        });
 
         e.stopPropagation();
     },
@@ -143,23 +143,12 @@ var LabItemView = Backbone.View.extend({
     },
 
     setTitle: function (e) {
-        console.log(e)
         this.model.set("title", e.currentTarget.value)
     },
 
     toggleHide: function (e) {
         this.model.set('visible', !this.model.get("visible"));
         this.model.save();
-        e.stopPropagation();
-    },
-
-    orderUp: function (e) {
-        this.model.increaseOrder();
-        e.stopPropagation();
-    },
-
-    orderDown: function (e) {
-        this.model.decreaseOrder();
         e.stopPropagation();
     },
 

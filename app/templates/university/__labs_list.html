@@ -10,8 +10,6 @@
                                     class="fa fa-plus"></span></button>
                             <button class="btn btn-warning btn-sm"><span
                                     class="fa fa-refresh"></span></button>
-                            <button class="btn btn-default btn-sm" data-bind="click: saveAll, css: {'btn-success': changed}"><span
-                                    class="fa fa-sort"> Сохранить порядок</span></button>
                         </div>
                     {% endif %}
             <div style="clear: both"></div>
@@ -21,7 +19,7 @@
             <div class="panel-body" style=" padding: 0">
                 <ul class="panel-group m-labs" id="labs-accordion">
                     {% for lab in labs if is_logged or lab.visible %}
-                        <li class="m-lab panel" {% if is_logged %}{{as_data_attributes(lab, 'id', 'title', 'description', 'discipline_id', 'visible', 'regular', 'order')|safe }}{% endif %}>
+                        <li class="m-lab panel" {% if is_logged %}{{as_data_attributes(lab, 'id', 'title', 'discipline_id', 'visible', 'regular', 'order')|safe }}{% endif %}>
                             {% include "university/labs/_lab_item.html" %}
                             <div style="clear: both;"></div>
                         </li>

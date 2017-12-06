@@ -1,18 +1,6 @@
 <div class="m-lab-title" data-toggle="collapse" href="#lab{{ lab.id }}" data-parent="#labs-accordion">
     <table style="width: 100%">
         <tr>
-            {% if is_logged %}
-                <td rowspan="2" style="width: 40px">
-                    <div class="btn-group-vertical btn-group-sm">
-                        <button class="btn btn-default btn-order-up">
-                            <span class="fa fa-chevron-up"></span>
-                        </button>
-                        <button class="btn btn-default btn-order-down">
-                            <span class="fa fa-chevron-down"></span>
-                        </button>
-                    </div>
-                </td>
-            {% endif %}
             <td rowspan="2">
                 {% if is_logged %}
                     <input class="form-control lab-title-input" type="text" value="{{ lab.title }}">
@@ -91,6 +79,7 @@
                                 {% endfor %}
                             </div>
                             <button class="btn m-task-btn-save btn-default"><i class="fa fa-save"></i></button>
+                            <button class="btn m-task-btn-close btn-default"><i class="fa fa-times"></i></button>
                         </div>
                     {% endif %}
                     <table style="table-layout: fixed;width: 100%">
