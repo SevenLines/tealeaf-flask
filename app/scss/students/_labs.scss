@@ -38,19 +38,19 @@ $m_task_label_width: 32px;
   $base-clr: #e4fca4;
 
   &.easy {
-    $clr: $base-clr;
+    $clr: lighten($base-clr, $lighten);
     @include complexity($clr, darken($clr, $darken));
   }
   &.medium {
-    $clr: adjust_hue($base-clr, -40);
+    $clr: lighten(adjust_hue($base-clr, -40), $lighten);
     @include complexity($clr, darken($clr, $darken));
   }
   &.hard {
-    $clr: adjust_hue($base-clr, -80);
+    $clr: lighten(adjust_hue($base-clr, -80), $lighten);
     @include complexity($clr, darken($clr, $darken));
   }
   &.nightmare {
-    $clr: adjust_hue($base-clr, -95);
+    $clr: lighten(adjust_hue($base-clr, -95), $lighten);
     @include complexity($clr, darken($clr, $darken));
   }
 }

@@ -8,7 +8,7 @@
 <tr class="t-row">
     {% for task in lab.tasks %}
         <td>
-            <div class="t-cell-task" data-original-title="{{ task.description }}"
+            <div class="t-cell-task {{ task.style }}" data-original-title="{{ task.description }}"
                  style="position: relative;"
                  rel="tooltip"
                  data-html="true"
