@@ -7,61 +7,7 @@
         {% include "university/lessons/_admin_line.html" %}
     </div>
 
-    <div class="marks-table">
-        <table class="s-table">
-            <thead class="t-header">
-            {% include "university/lessons/_students_menu.html" %}
-            </thead>
-            <tbody class="t-content">
-            {% for student in students %}
-                <tr class="t-row" data-points="{{ students_info[student.id]['points'] }}"
-                    data-percents="{{ students_info[student.id]['percents'] }}"
-                    data-second-name="{{ student.second_name }}"
-                        {% if is_logged %}
-                    data-name="{{ student.name }}"
-                    data-id="{{ student.id }}"
-                    data-group_id="{{ student.group_id }}"
-                    data-sex="{{ student.sex }}"
-                    data-url-remove="{{ url_for("university.student_delete", student_id=student.id) }}"
-                    data-url-update="{{ url_for("university.student_update", student_id=student.id) }}"
-                        {% endif %}>
-                    <td>
-                        {% include "university/lessons/_student.html" %}
-                    </td>
-                </tr>
-            {% endfor %}
-            {% if is_logged %}
-                <tr class="t-row add-student"
-                    data-ignore=""
-                    data-name=""
-                    data-second-name=""
-                    data-sex=""
-                    data-group_id="{{ group.id }}"
-                    data-url-create="{{ url_for("university.student_create") }}"
-                        >
-                    <td>
-                        {% include "university/lessons/_student.html" %}
-                    </td>
-                </tr>
-            {% endif %}
-            </tbody>
-            <tfoot class="t-footer">
-            {% include "university/lessons/_students_menu.html" %}
-            </tfoot>
-        </table>
-        <div class="m-table-container">
-            <table class="m-table-container-row">
-                <tbody>
-                <tr>
-                    <td>{% include "university/__lessons.html" %}</td>
-                    {% for lab in discipline.labs if lab.regular and lab.visible %}
-                        <td style="vertical-align: top">{% include "university/__labs.html" %}</td>
-                    {% endfor %}
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    {% include "university/__marks_table.html" %}
 
     {% if is_logged or has_visible_labs %}
         <div class=row>
