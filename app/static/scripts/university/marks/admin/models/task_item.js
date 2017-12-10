@@ -6,17 +6,23 @@ var TaskItemView = Backbone.View.extend({
     initialize: function(model, options) {
         this.editor = null;
         this.complexity = this.$el.data('complexity');
+        this.ignore = this.$el.data('ignore') === 'True';
         _.bindAll(this, "render");
         this.render();
     },
     events: {
         "click .m-task-btn-save": "save",
         "click .m-task-btn-close": "close",
+        "click .m-task-btn-ignore": "toggleIgnore",
         "click .m-task-btn-actions .difficult div": 'setDifficult'
     },
 
     render: function () {
         var self = this;
+        // ignore class
+        this.$el.find('.m-task-btn-ignore').removeClass("btn-default btn-success");
+        this.$el.find('.m-task-btn-ignore').addClass(this.ignore ? "btn-default" : 'btn-success');
+
         this.$el.find('.m-task-btn-actions').toggle(this.editor !== null);
         this.$el.find('.m-task-btn-actions .difficult div').removeClass("active");
         this.$el.find('.m-task-btn-actions .difficult div[data-id="' + self.complexity + '"]').addClass("active");
@@ -26,6 +32,12 @@ var TaskItemView = Backbone.View.extend({
 
     setDifficult: function (e) {
         this.complexity = $(e.currentTarget).data('id');
+        this.render()
+    },
+
+    toggleIgnore: function (e) {
+        this.ignore = !this.ignore;
+        this.save();
         this.render()
     },
 
@@ -55,6 +67,7 @@ var TaskItemView = Backbone.View.extend({
             data: JSON.stringify({
                 'description': this.editor.summernote('code'),
                 'complexity': this.complexity,
+                'ignore': this.ignore,
             })
         }).done(function () {
             new Noty({

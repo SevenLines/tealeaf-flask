@@ -144,7 +144,7 @@ def group_marks(group_id, slug=None, discipline_id=None):
             student_info['points'], student_info['percents'] \
                 = student.points(student_info['marks'],
                                  lessons,
-                                 sum([len(lab.tasks) for lab in labs if lab.regular and lab.visible]),
+                                 sum([len([t for t in lab.tasks if not t.ignore]) for lab in labs if lab.regular and lab.visible]),
                                  len(student_info['tasks']))
 
         return {
@@ -577,6 +577,8 @@ def lab_task_edit(task_id):
     data = request.get_json()
     task.description = data['description']
     task.complexity = data['complexity']
+    if 'ignore' in data:
+        task.ignore = data['ignore']
     task.update()
     if request.is_xhr:
         return Response()
