@@ -15,6 +15,100 @@ $color2: #ffe500;
 //$step: 35;
 $max_tables: length($bgcolors) - 1;
 
+
+.l-table {
+    border-top: 1px solid $table-border-color;
+    border-right: 1px solid $table-border-color;
+    .t-cell-icon {
+        display: none;
+    }
+
+    // для создания эффекта плавной загрузки
+    opacity: 0;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+    &.showable {
+        opacity: 1;
+    }
+
+    .hover {
+        .t-cell {
+            background-color: white;
+            .t-cell-icon {
+                display: inline;
+                color: lighten($table-border-color, 7);
+            }
+        }
+        .done {
+            .t-cell-icon {
+                display: none;
+                color: inherit;
+            }
+        }
+    }
+    .t-row {
+        td:last-child {
+            .t-cell {
+                border-right: none;
+            }
+        }
+    }
+
+
+    //@import "students/color_lab_table_with_pics";
+
+    .t-cell-task {
+        @include choices(3);
+    }
+
+    .task-title {
+        cursor: pointer;
+        //background-color: #ffffff;
+        padding-top: $row-height / 2 + 4px;
+        font-size: $row-height / 2 - 3px;
+        padding-bottom: 2px;
+    }
+
+    .t-cell {
+        -webkit-transition: background-color 0.3s;
+        -moz-transition: background-color 0.3s;
+        -ms-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+        &.changed {
+            //box-shadow: 0 0 0 4px #008000 inset;
+            //border-color: ;
+        }
+    }
+
+    .lab-title {
+        @include transition(0.3s);
+        position: absolute;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        font-size: $row-height / 2.5;
+        text-align: center;
+        z-index: 99;
+        background-color: white;
+        border-bottom: 1px solid $table-border-color;
+        //        border-right: 1px solid $table-border-color;
+    }
+
+
+    .tooltip {
+        font-size: 1em;
+        .tooltip-inner {
+            //          border-radius: 0;
+            //          background-color: white;
+        }
+    }
+
+}
+
 @for $i from 0 through $max_tables {
     &:nth-child(#{$i+1}) {
 
@@ -36,9 +130,14 @@ $max_tables: length($bgcolors) - 1;
                 color: darken($color, 40);
                 text-shadow: 0 0 1px white;
             }
+
+            .t-cell-task:hover {
+                @include choices(13);
+            }
+
             .task-title {
                 &:hover {
-                    background-color: lighten($color2, 25);
+                    //background-color: lighten($color2, 25);
                     color: darken($color, 20);
                     text-shadow: 0 0 1px white;
                 }
@@ -46,11 +145,11 @@ $max_tables: length($bgcolors) - 1;
             }
 
             .t-header, .t-footer {
-                background-color: hsl(hue($color2), saturation($color2), 97);
+                //background-color: hsl(hue($color2), saturation($color2), 97);
             }
 
             .t-cell {
-                background-color: hsl(hue($color2), saturation($color2), 97);
+                //background-color: hsl(hue($color2), saturation($color2), 97);
                 display: block;
             }
 
@@ -92,14 +191,12 @@ $max_tables: length($bgcolors) - 1;
 
             .t-content .t-row {
                 border-bottom-color: transparent;
-
-            }
-
-            .t-row:hover {
-                .t-cell {
-                    background-color: white;
-                    &.done {
-                        background-color: rgba(white, 0.1);
+                &:hover {
+                    .t-cell {
+                        background-color: white;
+                        &.done {
+                            background-color: rgba(white, 0.1);
+                        }
                     }
                 }
             }
