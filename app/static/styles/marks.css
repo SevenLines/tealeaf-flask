@@ -1484,10 +1484,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td .l-table .tooltip {
     font-size: 1em; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table {
-  background-color: #fffdf0;
+  background-color: rgba(252, 254, 241, 0.5);
   background-image: url("images/repin_sadko.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table:hover .lab-title {
-    background-color: #ffe500; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .lab-title {
     color: #0d0a00;
     text-shadow: 0 0 1px white; }
@@ -1607,7 +1607,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .tooltip .tooltip-inner {
     color: #0d0a00;
     box-shadow: 0 0 4px #715702;
-    background-color: #ffef66; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-content .t-row:hover .t-cell {
@@ -1623,7 +1626,7 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(1) .l-table .t-cell.changed {
       box-shadow: 0 0 0 4px #584401 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table {
-  background-color: #fcfef1;
+  background-color: rgba(252, 254, 241, 0.5);
   background-image: url("images/repin_sadko.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table:hover .lab-title {
     background-color: #e0f470; }
@@ -1747,6 +1750,9 @@ pre {
     color: black;
     box-shadow: 0 0 4px #223c00;
     background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-content .t-row:hover .t-cell {
@@ -1762,10 +1768,10 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(2) .l-table .t-cell.changed {
       box-shadow: 0 0 0 4px #142300 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table {
-  background-color: #f1fdf9;
-  background-image: url("images/repin_sadko.jpg"); }
+  background-color: rgba(252, 254, 241, 0.5);
+  background-image: url("images/mother-of-the-world-1937.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table:hover .lab-title {
-    background-color: #7ff0cb; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .lab-title {
     color: #132720;
     text-shadow: 0 0 1px white; }
@@ -1885,7 +1891,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .tooltip .tooltip-inner {
     color: #132720;
     box-shadow: 0 0 4px #346c57;
-    background-color: #dafbf0; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-content .t-row:hover .t-cell {
@@ -1901,10 +1910,10 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(3) .l-table .t-cell.changed {
       box-shadow: 0 0 0 4px #2c5b49 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table {
-  background-color: #f0fbff;
+  background-color: rgba(252, 254, 241, 0.5);
   background-image: url("images/repin_sadko.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table:hover .lab-title {
-    background-color: #00c4ff; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .lab-title {
     color: black;
     text-shadow: 0 0 1px white; }
@@ -2024,7 +2033,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .tooltip .tooltip-inner {
     color: black;
     box-shadow: 0 0 4px #00384c;
-    background-color: #66dcff; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-content .t-row:hover .t-cell {
@@ -2040,10 +2052,10 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(4) .l-table .t-cell.changed {
       box-shadow: 0 0 0 4px #002533 inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table {
-  background-color: #fff0f4;
+  background-color: rgba(252, 254, 241, 0.5);
   background-image: url("images/repin_sadko.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table:hover .lab-title {
-    background-color: #ff8cab; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .lab-title {
     color: #2e161d;
     text-shadow: 0 0 1px white; }
@@ -2163,7 +2175,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .tooltip .tooltip-inner {
     color: #2e161d;
     box-shadow: 0 0 4px #73374a;
-    background-color: #fff2f6; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-content .t-row:hover .t-cell {
@@ -2179,10 +2194,10 @@ pre {
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(5) .l-table .t-cell.changed {
       box-shadow: 0 0 0 4px #622f3f inset; }
 #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table {
-  background-color: #fff7f0;
+  background-color: rgba(252, 254, 241, 0.5);
   background-image: url("images/repin_sadko.jpg"); }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table:hover .lab-title {
-    background-color: #ffbf85; }
+    background-color: #e0f470; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .lab-title {
     color: #542b1a;
     text-shadow: 0 0 1px white; }
@@ -2302,7 +2317,10 @@ pre {
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .tooltip .tooltip-inner {
     color: #542b1a;
     box-shadow: 0 0 4px #a25332;
-    background-color: #fff5eb; }
+    background-color: #f5fbcf; }
+  #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-content.visible-image .t-cell.mark {
+    background-color: rgba(0, 0, 0, 0);
+    border-right: none; }
   #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-content .t-row {
     border-bottom-color: transparent; }
     #marks-editor .marks-table .m-table-container-row > tbody > tr > td:nth-child(6) .l-table .t-content .t-row:hover .t-cell {
