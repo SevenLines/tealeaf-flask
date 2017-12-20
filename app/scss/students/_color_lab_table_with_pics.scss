@@ -172,6 +172,10 @@ $max_tables: length($bgcolors) - 1;
                 opacity: 0.1;
             }
 
+            .hover-hide-50 .mark {
+                opacity: 0.25;
+            }
+
             .tooltip {
                 &.bottom {
                     .tooltip-arrow {

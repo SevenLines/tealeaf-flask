@@ -40,19 +40,20 @@ function MarksHoverController() {
         if (target.next()) {
             new_targets.push(target.next());
         }
-        new_targets.push(target);
 
         previous_targets.filter(function (item) {
             return new_targets.indexOf(item) === -1
         }).forEach(function (item) {
             setTimeout(function () {
-                item.removeClass("hover-hide");
+                item.removeClass("hover-hide hover-hide-50");
             }, 1000)
         });
 
         new_targets.forEach(function (item) {
-            item.addClass("hover-hide");
+            item.addClass("hover-hide-50");
         });
+        target.addClass("hover-hide");
+        new_targets.push(target);
 
         previous_targets = new_targets;
     });
