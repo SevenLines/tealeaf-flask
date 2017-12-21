@@ -561,6 +561,7 @@ def lab_edit(lab_id):
     lab = Lab.get_or_404(lab_id)
     data = request.get_json()
     lab.visible = data['visible']
+    lab.regular = data['regular']
     if 'description' in data:
         lab.description = data['description']
     lab.title = data['title']
