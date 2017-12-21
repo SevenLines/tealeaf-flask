@@ -39,6 +39,10 @@ $marks-size: 30px;
 
 @mixin btn-default($hue-offset) {
 
+  .was-updated {
+    background-color: adjust_hue(lighten($quater, 20), $hue-offset);
+  }
+
   &.t-cell-head {
 
     .lesson-icon {

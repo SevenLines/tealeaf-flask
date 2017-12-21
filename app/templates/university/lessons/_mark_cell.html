@@ -9,8 +9,9 @@
                     data-lesson-type="{{ lesson.style }}"
                     data-student="{{ student.id }}"
                 {% endif %}
-                    class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }}">
+                    class="t-cell mark {{ lesson.style }} {{ mark.style if mark.style else "empty" }} {% if mark.was_updated %}was_updated{% endif %}">
                     {% if mark.value > 0 and mark.value < 10 %}{{ mark.value }}{% endif %}
+                    {% if mark.was_updated %}<div class="was-updated"></div>{% endif %}
                 </div>
             </td>
         {% endwith %}
