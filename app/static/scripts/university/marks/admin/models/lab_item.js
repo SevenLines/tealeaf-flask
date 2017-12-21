@@ -82,8 +82,7 @@ var LabItemView = Backbone.View.extend({
 
     events: {
         "click .toggle-hide": "toggleHide",
-        "click .btn-order-up": "orderUp",
-        "click .btn-order-down": "orderDown",
+        "click .toggle-regular": "toggleRegular",
         "click .btn-save": "save",
         "click input": "stop",
         "click .m-task .m-task-description": "createTaskItemEditor",
@@ -147,9 +146,15 @@ var LabItemView = Backbone.View.extend({
     },
 
     toggleHide: function (e) {
-        this.model.set('visible', !this.model.get("visible"));
-        this.model.save();
         e.stopPropagation();
+        this.model.set('visible', !this.model.get("visible"));
+        this.save();
+    },
+
+    toggleRegular: function (e) {
+        e.stopPropagation();
+        this.model.set('regular', !this.model.get("regular"));
+        this.save();
     },
 
     render: function () {
@@ -158,5 +163,9 @@ var LabItemView = Backbone.View.extend({
         this.$el.find(".toggle-hide ").toggleClass("btn-success", is_visible);
         this.$el.find(".toggle-hide .fa").toggleClass("fa-eye-slash", !is_visible);
         this.$el.find(".toggle-hide .fa").toggleClass("fa-eye", is_visible);
+
+        var is_regular = this.model.get("regular");
+        this.$el.find(".toggle-regular ").toggleClass("btn-default", !is_regular);
+        this.$el.find(".toggle-regular ").toggleClass("btn-success", is_regular);
     }
 });
