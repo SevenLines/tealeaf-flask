@@ -43,6 +43,12 @@ class Mark(BaseMixin, db.Model):
     def style(self):
         return Mark.MARKS.get(self.value, "")
 
+    @property
+    def was_updated(self):
+        if self.created_at and self.updated_at:
+            return (self.updated_at - self.created_at).days > 0
+        return False
+
     def __repr__(self):
         return "<Mark({value})>".format(
             value=self.value
