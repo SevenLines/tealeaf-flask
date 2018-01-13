@@ -38,8 +38,16 @@ def reset_student_marks_cache_for_discipline_id(discipline_id):
         cache.delete(cache_key_for_students_marks(group_id, discipline_id))
 
 
-class IndexView(View):
-    def dispatch_request(self):
+class SiteDisabledMixin(MethodView):
+    def dispatch_request(self, *args, **kwargs):
+        settings = Setting.instance()
+        if settings.site_disabled and not current_user_is_logged():
+            return render_template("disabled.html")
+        return super(SiteDisabledMixin, self).dispatch_request(*args, **kwargs)
+
+
+class IndexView(SiteDisabledMixin, MethodView):
+    def get(self):
         template = "university/index.html"
         if request.headers.get('X-Pjax', None):
             template = "university/_charts.html"
@@ -79,108 +87,111 @@ class IndexView(View):
         })
 
 
-@university.route("/g/<int:group_id>/m/<int:discipline_id>/<slug>")
-@university.route("/g/<int:group_id>/<slug>")
-@university.route("/g/<int:group_id>/")
-def group_marks(group_id, slug=None, discipline_id=None):
-    group = Group.query.get_or_404(group_id)
+class GroupMarksView(SiteDisabledMixin, MethodView):
+    def get(self, group_id, slug=None, discipline_id=None):
+        group = Group.query.get_or_404(group_id)
 
-    if current_user_is_logged():
-        disciplines = Discipline.query
-    else:
-        disciplines = group.disciplines
+        if current_user_is_logged():
+            disciplines = Discipline.query
+        else:
+            disciplines = group.disciplines
 
-    if not discipline_id:
-        discipline_id = request.cookies.get('discipline_id', None)
         if not discipline_id:
+            discipline_id = request.cookies.get('discipline_id', None)
+            if not discipline_id:
+                discipline = disciplines.first()
+                if discipline:
+                    discipline_id = discipline.id
+                else:
+                    return redirect(url_for("university.index"))
+
+        discipline = disciplines.filter(Discipline.id == discipline_id) \
+            .options(joinedload('labs'), joinedload('files'), joinedload('articles')).first()
+        if discipline is None:
             discipline = disciplines.first()
-            if discipline:
-                discipline_id = discipline.id
-            else:
-                return redirect(url_for("university.index"))
 
-    discipline = disciplines.filter(Discipline.id == discipline_id)\
-        .options(joinedload('labs'), joinedload('files'), joinedload('articles')).first()
-    if discipline is None:
-        discipline = disciplines.first()
+        # if not discipline and user is not logged then redirect
+        if not discipline and not current_user_is_logged():
+            return redirect(url_for('security.login', next=request.path))
 
-    # if not discipline and user is not logged then redirect
-    if not discipline and not current_user_is_logged():
-        return redirect(url_for('security.login', next=request.path))
+        if group.year != Group.current_year() and not current_user_is_logged():
+            return redirect(url_for('security.login', next=request.path))
 
-    if group.year != Group.current_year() and not current_user_is_logged():
-        return redirect(url_for('security.login', next=request.path))
+        def make_cache_key():
+            return cache_key_for_students_marks(group.id, discipline.id)
 
-    def make_cache_key():
-        return cache_key_for_students_marks(group.id, discipline.id)
+        def get_all_data(group, discipline):
+            lessons = Lesson.query.filter(Lesson.group_id == group.id) \
+                .filter(Lesson.discipline_id == discipline.id) \
+                .order_by(Lesson.date, Lesson.id).all()
 
-    def get_all_data(group, discipline):
-        lessons = Lesson.query.filter(Lesson.group_id == group.id)\
-            .filter(Lesson.discipline_id == discipline.id) \
-            .order_by(Lesson.date, Lesson.id).all()
+            students = group.students \
+                .outerjoin(Student.marks) \
+                .options(contains_eager(Student.marks)) \
+                .filter(or_(Mark.lesson_id == None, Mark.lesson_id.in_([i.id for i in lessons]))).all()
 
-        students = group.students\
-            .outerjoin(Student.marks)\
-            .options(contains_eager(Student.marks))\
-            .filter(or_(Mark.lesson_id == None, Mark.lesson_id.in_([i.id for i in lessons]))).all()
+            labs = discipline.labs
 
-        labs = discipline.labs
+            students_info = {}
+            for student in students:
+                student_info = {
+                    'marks': {},
+                    'tasks': {},
+                    'points': 0,
+                    'percents': 0,
+                }
+                students_info[student.id] = student_info
+                for mark in student.marks:
+                    student_info['marks'][mark.lesson_id] = mark
 
-        students_info = {}
-        for student in students:
-            student_info = {
-                'marks': {},
-                'tasks': {},
-                'points': 0,
-                'percents': 0,
+                for task in student.tasks:
+                    student_info['tasks'][task.task_id] = task
+
+                student_info['points'], student_info['percents'] \
+                    = student.points(student_info['marks'],
+                                     lessons,
+                                     sum([len([t for t in lab.tasks if not t.ignore]) for lab in labs if lab.regular and lab.visible]),
+                                     len(student_info['tasks']))
+
+            return {
+                'students': students,
+                'lessons': lessons,
+                'labs': labs,
+                'students_info': students_info
             }
-            students_info[student.id] = student_info
-            for mark in student.marks:
-                student_info['marks'][mark.lesson_id] = mark
 
-            for task in student.tasks:
-                student_info['tasks'][task.task_id] = task
+        data = get_all_data(group, discipline)
 
-            student_info['points'], student_info['percents'] \
-                = student.points(student_info['marks'],
-                                 lessons,
-                                 sum([len([t for t in lab.tasks if not t.ignore]) for lab in labs if lab.regular and lab.visible]),
-                                 len(student_info['tasks']))
+        template = "university/group.html"
+        if request.headers.get('X-Pjax', None):
+            template = "university/_marks.html"
 
-        return {
-            'students': students,
-            'lessons': lessons,
-            'labs': labs,
-            'students_info': students_info
-        }
+        response = make_response(render_template(
+            template,
+            group=group,
+            discipline=discipline,
 
-    data = get_all_data(group, discipline)
+            students=data['students'],
+            lessons=data['lessons'],
+            labs=data['labs'],
+            articles=[a for a in discipline.articles if a.visible or current_user_is_logged()],
+            disciplines=disciplines.order_by(Discipline.title).all(),
+            has_visible_labs=len([lab for lab in data['labs'] if lab.visible]) > 0,
 
-    template = "university/group.html"
-    if request.headers.get('X-Pjax', None):
-        template = "university/_marks.html"
+            students_info=data['students_info'],
 
-    response = make_response(render_template(
-        template,
-        group=group,
-        discipline=discipline,
+            lesson_types=Lesson.LESSON_TYPES,
+            marks_types=Mark.MARKS,
+        ))
 
-        students=data['students'],
-        lessons=data['lessons'],
-        labs=data['labs'],
-        articles=[a for a in discipline.articles if a.visible or current_user_is_logged()],
-        disciplines=disciplines.order_by(Discipline.title).all(),
-        has_visible_labs=len([lab for lab in data['labs'] if lab.visible]) > 0,
+        response.set_cookie('discipline_id', str(discipline_id))
 
-        students_info=data['students_info'],
+        return response
 
-        lesson_types=Lesson.LESSON_TYPES,
-        marks_types=Mark.MARKS,
-    ))
 
-    response.set_cookie('discipline_id', str(discipline_id))
-
-    return response
+university.add_url_rule('/g/<int:group_id>/m/<int:discipline_id>/<slug>', view_func=GroupMarksView.as_view('group_marks_full'))
+university.add_url_rule('/g/<int:group_id>/<slug>', view_func=GroupMarksView.as_view('group_marks_slug'))
+university.add_url_rule('/g/<int:group_id>/', view_func=GroupMarksView.as_view('group_marks'))
 
 
 class SetMessage(MethodView):
@@ -369,20 +380,23 @@ def discipline_file_delete(discipline_file_id):
     return redirect(request.referrer or "/")
 
 
-@university.route("/article/<int:article_id>/", methods=['GET', ])
-@university.route("/article/<int:article_id>/<slug>", methods=['GET', ])
-def article(article_id, slug=None):
-    a = Article.get_or_404(article_id)
-    if not current_user_is_logged() and not a.visible:
-        return redirect(url_for('security.login', next=request.path))
+class ArticleView(SiteDisabledMixin, MethodView):
+    def get(self, article_id, slug=None):
+        a = Article.get_or_404(article_id)
+        if not current_user_is_logged() and not a.visible:
+            return redirect(url_for('security.login', next=request.path))
 
-    response = make_response(render_template(
-        "university/_article.html",
-        article=a,
-        discipline=discipline,
-    ))
+        response = make_response(render_template(
+            "university/_article.html",
+            article=a,
+            discipline=discipline,
+        ))
 
-    return response
+        return response
+
+
+university.add_url_rule('/article/<int:article_id>/', view_func=ArticleView.as_view('article'))
+university.add_url_rule('/article/<int:article_id>/<slug>', view_func=ArticleView.as_view('article_slug'))
 
 
 @university.route("/article/<int:article_id>/", methods=['POST', ])

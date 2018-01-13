@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        #img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 4px #004d70, 0 0 0 8px #002e42;
+            border-radius: 1em;
+            max-width: 100%;
+        }
+    </style>
+    <img id="img" src="/static/images/disabled/paul-robertson-1035240.gif">
+
+{% endblock %}

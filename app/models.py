@@ -66,6 +66,7 @@ class BaseMixin(object):
 
 class Setting(BaseMixin, db.Model):
     active_year = db.Column(db.SmallInteger, default=datetime.today().year)
+    site_disabled = db.Column(db.Boolean, default=True)
 
     @classmethod
     def instance(cls):

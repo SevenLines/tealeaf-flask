@@ -7,6 +7,7 @@ from flask_security.forms import LoginForm
 from sqlalchemy import desc
 
 from app.load_app import app
+from app.models import Setting
 from app.security import current_user_is_logged
 from app.university import Group, Message, Task
 from app.university.models.discipline import Discipline
@@ -61,9 +62,12 @@ def inject_admin():
         for year in Group.active_years():
             admin_groups[year] = [group for group in groups if group.year == year]
 
+        settings = Setting.instance()
+
         data = {
             'COMPLEX_CHOICES': Task.COMPLEX_CHOICES,
-            'current_year': Group.current_year(),
+            'current_year': settings.active_year,
+            'site_disabled': settings.site_disabled,
             'admin_groups': admin_groups,
             'admin_disciplines': Discipline.query.all(),
         }
