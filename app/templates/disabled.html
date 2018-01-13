@@ -14,7 +14,23 @@
             border-radius: 1em;
             max-width: 100%;
         }
+
+        #email {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 1em;
+
+        }
+
+        #email a {
+            color: white;
+        }
     </style>
     <img id="img" src="/static/images/disabled/paul-robertson-1035240.gif">
+    <div id="email">
+        {% set mail_address = 'mmailm.math@mail.ru' %}
+        <a href="mailto:{{ mail_address }}">{{ mail_address }}</a>
+    </div>
 
 {% endblock %}
