@@ -12,9 +12,9 @@
         <form id="main-message-form" action="{{ url_for("university.set_message") }}" method="post">
             {#            <input type="text" name="message" class="form-control" value="{{ message }}">#}
             {#            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">#}
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 
-                <div class="form-group">
+            <div class="form-group">
                 <textarea id="main-message-content"
                           name="message"
                           data-provide="markdown"
@@ -22,18 +22,30 @@
                           data-savable="true"
                           data-language="ru"
                           rows="10">{{ message.message if message else "" }}</textarea>
-                </div>
+            </div>
         </form>
 
         <h2>Настройки</h2>
-        <form action="{{ url_for("university.set_setting") }}" method="post">
-            <div class="input-group">
-                <div class="input-group-addon">Текущий год</div>
-                <input class="form-control" type="number" name="value" value="{{ current_year }}">
-                <div class="input-group-btn">
-                    <button class="btn btn-success">
-                        <span class="fa fa-save"></span>
-                    </button>
+        <form action="{{ url_for("university.set_setting") }}" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">Текущий год</div>
+                        <input class="form-control" type="number" name="current_year" value="{{ current_year }}">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success">
+                                <span class="fa fa-save"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-12">
+            <div class="form-group">
+                    <div class="checkbox"><label>
+                        <input type="checkbox" name="site_disabled" checked="{% if site_disabled %}true{% else %}false{% endif %}"> Сайт отключен
+                    </label>
+                </div>
                 </div>
             </div>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -158,8 +170,8 @@
                                                     </button>
                                                 </a>
                                                 <form class="delete pull-left"
-                                                  action="{{ url_for("university.group_delete", group_id=group.id) }}"
-                                                  method="POST">
+                                                      action="{{ url_for("university.group_delete", group_id=group.id) }}"
+                                                      method="POST">
                                                     <input type="hidden" name="csrf_token"
                                                            value="{{ csrf_token() }}">
                                                     <button class="btn btn-danger">
