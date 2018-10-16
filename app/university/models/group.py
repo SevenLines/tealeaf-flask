@@ -26,14 +26,14 @@ class Group(BaseMixin, db.Model):
         # if now.month < 9:  # if not september yet
         #     return now.year - 1
         # return now.year
-        return Setting.instance().active_year
+        return [2014, 2016, 2017]  # [Setting.instance().active_year]
 
     def __repr__(self):
         return u"<Group({id:d}|{year:d}|{title:s})>".format(**self.__dict__).encode("utf-8")
 
     @classmethod
     def active_groups(cls):
-        return Group.query.filter(Group.year == Group.current_year()).order_by(Group.year, Group.title)
+        return Group.query.filter(Group.year.in_(Group.current_year())).order_by(Group.year, Group.title)
 
     @classmethod
     def active_years(cls):
@@ -81,7 +81,7 @@ class Group(BaseMixin, db.Model):
         target.updated_at = datetime.utcnow()
 
         if target.year is None:
-            target.year = Group.current_year()
+            target.year = Group.current_year()[0]
 
 
 event.listen(Group, 'before_insert', Group.before_insert)

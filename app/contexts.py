@@ -17,7 +17,7 @@ from app.university.models.discipline import Discipline
 def inject_groups():
     groups = Group.active_groups().all()
     return {
-        'menu_item_width': 100 / len(groups) if len(groups) else 100,
+        'menu_item_width': 100.0 / len(groups) if len(groups) else 100,
         'groups': groups
     }
 

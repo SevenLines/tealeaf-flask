@@ -37,6 +37,12 @@
       overflow: hidden;
 
       li {
+        &.nav-main-button {
+          .title {
+            padding: 0.5em;
+            font-size: 1.25em;
+          }
+        }
         //max-width: 50%;
         float: left;
         a {
@@ -50,8 +56,16 @@
           @include transition(0.3s);
 
           .title {
-            padding: 0.5em;
-            font-size: 1.2em;
+            height: 41px;
+            //padding: 0.5em;
+            .group-title {
+              padding-top: 0.1em;
+              font-size: 1.25em;
+            }
+            .group-year{
+              margin-top: -0.1em;
+              font-size: 0.75em;
+            }
             bottom: 1em;
             color: white;
           }
@@ -70,7 +84,10 @@
       #3bf0b5,
       #cdf43d,
       #ffdf36,
-      #ffac2b;
+      #ffac2b,
+      #ff8130,
+      #ff644e,
+      #ff4a7b;
 
       @for $i from 1 to length($colors) + 1 {
         $color: nth($colors, $i);
@@ -85,7 +102,7 @@
               border-top: $border_top_width solid lighten($color, 30);
             }
             .title {
-              @if ($i > 5) {
+              @if ($i > 8) {
                 color: black;
               }
             }

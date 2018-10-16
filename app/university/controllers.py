@@ -53,7 +53,7 @@ class IndexView(SiteDisabledMixin, MethodView):
             template = "university/_charts.html"
 
         marks = Mark.query.join(Student, Group).filter(
-            Group.year == Group.current_year()
+            Group.year.in_(Group.current_year())
         ).with_entities(
             Mark.value,
             Group.id.label("group_id"),
@@ -114,7 +114,7 @@ class GroupMarksView(SiteDisabledMixin, MethodView):
         if not discipline and not current_user_is_logged():
             return redirect(url_for('security.login', next=request.path))
 
-        if group.year != Group.current_year() and not current_user_is_logged():
+        if group.year not in Group.current_year() and not current_user_is_logged():
             return redirect(url_for('security.login', next=request.path))
 
         def make_cache_key():
